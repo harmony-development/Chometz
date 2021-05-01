@@ -1,0 +1,6 @@
+[submodule "sdk/protocol"]
+	path = sdk/protocol
+	url = git@github.com:harmony-development/protocol.git
+[submodule "vendor/protobuf"]
+	path = vendor/protobuf
+	url = https://github.com/protocolbuffers/protobuf.git
