@@ -87,6 +87,80 @@ void Client::startAuth()
 
 void Client::startEvents()
 {
+	d->eventStream = QSharedPointer<Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream>(d->chatKit->StreamEvents(), &QObject::deleteLater);
+
+	connect(
+		d->eventStream.get(),
+		&QWebSocket::connected,
+		this,
+		[=] {
+			Q_EMIT eventLoopStarted();
+		}
+	);
+	connect(
+		d->eventStream.get(),
+		&QWebSocket::disconnected,
+		this,
+		[=] {
+			Q_EMIT eventLoopEnded();
+		}
+	);
+	connect(
+		d->eventStream.get(),
+		&Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream::receivedMessage,
+		this,
+		[=](const protocol::chat::v1::Event& msg) {
+			using namespace protocol::chat::v1;
+
+			if (msg.has_action_performed()) {
+				Q_EMIT actionTriggered(msg.action_performed());
+			} else if (msg.has_guild_added_to_list() || msg.has_guild_removed_from_list()) {
+				Q_EMIT hsEvent(msg);
+			} else {
+				Q_EMIT chatEvent(msg);
+			}
+		}
+	);
+}
+
+void Client::subscribeToActions()
+{
+	if (d->eventStream->state() != QAbstractSocket::ConnectedState) {
+		return;
+	}
+
+	auto req = protocol::chat::v1::StreamEventsRequest {};
+	auto guild = protocol::chat::v1::StreamEventsRequest::SubscribeToHomeserverEvents {};
+
+	auto ok = d->eventStream->send(req);
+	Q_UNUSED(ok);
+}
+
+void Client::subscribeToHomeserver()
+{
+	if (d->eventStream->state() != QAbstractSocket::ConnectedState) {
+		return;
+	}
+
+	auto req = protocol::chat::v1::StreamEventsRequest {};
+	auto guild = protocol::chat::v1::StreamEventsRequest::SubscribeToActions {};
+
+	auto ok = d->eventStream->send(req);
+	Q_UNUSED(ok);
+}
+
+void Client::subscribeToGuild(quint64 guildID)
+{
+	if (d->eventStream->state() != QAbstractSocket::ConnectedState) {
+		return;
+	}
+
+	auto req = protocol::chat::v1::StreamEventsRequest {};
+	auto guild = protocol::chat::v1::StreamEventsRequest::SubscribeToGuild {};
+	guild.set_guild_id(guildID);
+
+	auto ok = d->eventStream->send(req);
+	Q_UNUSED(ok);
 }
 
 ChatServiceServiceClient* Client::chatKit()

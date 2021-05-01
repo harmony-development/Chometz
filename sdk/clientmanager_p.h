@@ -22,6 +22,16 @@ struct ClientManager::Private
 {
 	Client* mainClient;
 	QMap<QString,QSharedPointer<Client>> clients;
+
+	struct {
+		bool homeserver = false;
+		bool actions = false;
+		QMap<QString,QList<quint64>> guilds;
+
+		bool contains(const QString& hs, quint64 guildID) {
+			return guilds.contains(hs) && guilds[hs].contains(guildID);
+		}
+	} subs;
 };
 
 };

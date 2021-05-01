@@ -18,6 +18,49 @@ ChatServiceServiceClient* ClientManager::chatKit() { return d->mainClient->chatK
 AuthServiceServiceClient* ClientManager::authKit() { return d->mainClient->authKit(); }
 MediaProxyServiceServiceClient* ClientManager::mediaProxyKit() { return d->mainClient->mediaProxyKit(); }
 
+void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
+{
+	if (!d->clients.contains(homeserver)) {
+		// TODO: federate automagically
+		return;
+	}
+	if (!d->subs.guilds.contains(homeserver)) {
+		d->subs.guilds[homeserver] = {};
+	}
+
+	d->subs.guilds[homeserver].append(guildID);
+
+	d->clients[homeserver]->subscribeToGuild(guildID);
+}
+
+void ClientManager::subscribeToActions()
+{
+	d->subs.actions = true;
+
+	for (auto& client : d->clients) {
+		client->subscribeToActions();
+	}
+}
+
+void ClientManager::subscribeToHomeserver()
+{
+	d->subs.homeserver = true;
+
+	d->mainClient->subscribeToHomeserver();
+}
+
+void ClientManager::connectClient(Client* client, const QString& homeserver)
+{
+	using namespace protocol::chat::v1;
+
+	connect(client, &Client::actionTriggered, this, [this, hs = homeserver](Event::ActionPerformed ev) {
+		Q_EMIT actionTriggered(hs, ev);
+	});
+	connect(client, &Client::chatEvent, this, [this, hs = homeserver](Event ev) {
+		Q_EMIT chatEvent(hs, ev);
+	});
+}
+
 void ClientManager::beginAuthentication(const QString& homeserver)
 {
 	if (d->mainClient != nullptr) {
@@ -34,6 +77,9 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 			d->mainClient->setSession(step.session().session_token(), step.session().user_id());
 		}
 	});
+	
+	connect(d->mainClient, &Client::hsEvent, this, &ClientManager::hsEvent);
+	connectClient(d->mainClient, homeserver);
 	d->mainClient->startAuth();
 }
 
