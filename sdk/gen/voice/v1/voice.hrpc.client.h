@@ -37,6 +37,7 @@ class VoiceServiceServiceClient {
 	QString wsProtocol() const { return secure ? QStringLiteral("wss://") : QStringLiteral("ws://"); }
 	public: explicit VoiceServiceServiceClient(const QString& host, bool secure) : host(host), secure(secure) {}
 public:
+	QMap<QByteArray,QString> universalHeaders;
 	template<typename T> using Result = std::variant<T, QString>;
 	[[ nodiscard ]] Result<protocol::voice::v1::ConnectResponse> ConnectSync(const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers = {});
 	void Connect(std::function<void(Result<protocol::voice::v1::ConnectResponse>)> callback, const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers = {});

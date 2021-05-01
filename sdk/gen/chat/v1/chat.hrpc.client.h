@@ -59,6 +59,7 @@ class ChatServiceServiceClient {
 	QString wsProtocol() const { return secure ? QStringLiteral("wss://") : QStringLiteral("ws://"); }
 	public: explicit ChatServiceServiceClient(const QString& host, bool secure) : host(host), secure(secure) {}
 public:
+	QMap<QByteArray,QString> universalHeaders;
 	template<typename T> using Result = std::variant<T, QString>;
 	[[ nodiscard ]] Result<protocol::chat::v1::CreateGuildResponse> CreateGuildSync(const protocol::chat::v1::CreateGuildRequest& in, QMap<QByteArray,QString> headers = {});
 	void CreateGuild(std::function<void(Result<protocol::chat::v1::CreateGuildResponse>)> callback, const protocol::chat::v1::CreateGuildRequest& in, QMap<QByteArray,QString> headers = {});

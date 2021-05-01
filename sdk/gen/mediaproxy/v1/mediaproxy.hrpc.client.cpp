@@ -34,6 +34,9 @@ auto MediaProxyServiceServiceClient::FetchLinkMetadataSync(const protocol::media
 	serviceURL.setPath(QStringLiteral("/protocol.mediaproxy.v1.MediaProxyService/FetchLinkMetadata"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -66,6 +69,9 @@ auto MediaProxyServiceServiceClient::FetchLinkMetadataSync(const protocol::media
 void MediaProxyServiceServiceClient::FetchLinkMetadata(std::function<void(MediaProxyServiceServiceClient::Result<protocol::mediaproxy::v1::FetchLinkMetadataResponse>)> callback, const protocol::mediaproxy::v1::FetchLinkMetadataRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -78,6 +84,9 @@ void MediaProxyServiceServiceClient::FetchLinkMetadata(std::function<void(MediaP
 	serviceURL.setPath(QStringLiteral("/protocol.mediaproxy.v1.MediaProxyService/FetchLinkMetadata"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -126,6 +135,9 @@ auto MediaProxyServiceServiceClient::InstantViewSync(const protocol::mediaproxy:
 	serviceURL.setPath(QStringLiteral("/protocol.mediaproxy.v1.MediaProxyService/InstantView"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -158,6 +170,9 @@ auto MediaProxyServiceServiceClient::InstantViewSync(const protocol::mediaproxy:
 void MediaProxyServiceServiceClient::InstantView(std::function<void(MediaProxyServiceServiceClient::Result<protocol::mediaproxy::v1::InstantViewResponse>)> callback, const protocol::mediaproxy::v1::InstantViewRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -170,6 +185,9 @@ void MediaProxyServiceServiceClient::InstantView(std::function<void(MediaProxySe
 	serviceURL.setPath(QStringLiteral("/protocol.mediaproxy.v1.MediaProxyService/InstantView"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -218,6 +236,9 @@ auto MediaProxyServiceServiceClient::CanInstantViewSync(const protocol::mediapro
 	serviceURL.setPath(QStringLiteral("/protocol.mediaproxy.v1.MediaProxyService/CanInstantView"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -250,6 +271,9 @@ auto MediaProxyServiceServiceClient::CanInstantViewSync(const protocol::mediapro
 void MediaProxyServiceServiceClient::CanInstantView(std::function<void(MediaProxyServiceServiceClient::Result<protocol::mediaproxy::v1::CanInstantViewResponse>)> callback, const protocol::mediaproxy::v1::InstantViewRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -262,6 +286,9 @@ void MediaProxyServiceServiceClient::CanInstantView(std::function<void(MediaProx
 	serviceURL.setPath(QStringLiteral("/protocol.mediaproxy.v1.MediaProxyService/CanInstantView"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}

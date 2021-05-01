@@ -34,6 +34,9 @@ auto VoiceServiceServiceClient::ConnectSync(const protocol::voice::v1::ConnectRe
 	serviceURL.setPath(QStringLiteral("/protocol.voice.v1.VoiceService/Connect"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -66,6 +69,9 @@ auto VoiceServiceServiceClient::ConnectSync(const protocol::voice::v1::ConnectRe
 void VoiceServiceServiceClient::Connect(std::function<void(VoiceServiceServiceClient::Result<protocol::voice::v1::ConnectResponse>)> callback, const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -78,6 +84,9 @@ void VoiceServiceServiceClient::Connect(std::function<void(VoiceServiceServiceCl
 	serviceURL.setPath(QStringLiteral("/protocol.voice.v1.VoiceService/Connect"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -115,6 +124,9 @@ auto VoiceServiceServiceClient::StreamState(const protocol::voice::v1::StreamSta
 {
 auto url = QUrl(wsProtocol()+host); url.setPath(QStringLiteral("/protocol.voice.v1.VoiceService/StreamState")); auto req = QNetworkRequest(url);
 
+					for (const auto& item : universalHeaders.keys()) {
+						req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+					}
 					for (const auto& item : headers.keys()) {
 						req.setRawHeader(item, headers[item].toLocal8Bit());
 					}

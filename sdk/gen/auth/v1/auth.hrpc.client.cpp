@@ -34,6 +34,9 @@ auto AuthServiceServiceClient::FederateSync(const protocol::auth::v1::FederateRe
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/Federate"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -66,6 +69,9 @@ auto AuthServiceServiceClient::FederateSync(const protocol::auth::v1::FederateRe
 void AuthServiceServiceClient::Federate(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::FederateReply>)> callback, const protocol::auth::v1::FederateRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -78,6 +84,9 @@ void AuthServiceServiceClient::Federate(std::function<void(AuthServiceServiceCli
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/Federate"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -126,6 +135,9 @@ auto AuthServiceServiceClient::LoginFederatedSync(const protocol::auth::v1::Logi
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/LoginFederated"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -158,6 +170,9 @@ auto AuthServiceServiceClient::LoginFederatedSync(const protocol::auth::v1::Logi
 void AuthServiceServiceClient::LoginFederated(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::Session>)> callback, const protocol::auth::v1::LoginFederatedRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -170,6 +185,9 @@ void AuthServiceServiceClient::LoginFederated(std::function<void(AuthServiceServ
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/LoginFederated"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -218,6 +236,9 @@ auto AuthServiceServiceClient::KeySync(const google::protobuf::Empty& in, QMap<Q
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/Key"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -250,6 +271,9 @@ auto AuthServiceServiceClient::KeySync(const google::protobuf::Empty& in, QMap<Q
 void AuthServiceServiceClient::Key(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::KeyReply>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -262,6 +286,9 @@ void AuthServiceServiceClient::Key(std::function<void(AuthServiceServiceClient::
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/Key"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -310,6 +337,9 @@ auto AuthServiceServiceClient::BeginAuthSync(const google::protobuf::Empty& in, 
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/BeginAuth"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -342,6 +372,9 @@ auto AuthServiceServiceClient::BeginAuthSync(const google::protobuf::Empty& in, 
 void AuthServiceServiceClient::BeginAuth(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::BeginAuthResponse>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -354,6 +387,9 @@ void AuthServiceServiceClient::BeginAuth(std::function<void(AuthServiceServiceCl
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/BeginAuth"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -402,6 +438,9 @@ auto AuthServiceServiceClient::NextStepSync(const protocol::auth::v1::NextStepRe
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/NextStep"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -434,6 +473,9 @@ auto AuthServiceServiceClient::NextStepSync(const protocol::auth::v1::NextStepRe
 void AuthServiceServiceClient::NextStep(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::AuthStep>)> callback, const protocol::auth::v1::NextStepRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -446,6 +488,9 @@ void AuthServiceServiceClient::NextStep(std::function<void(AuthServiceServiceCli
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/NextStep"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -494,6 +539,9 @@ auto AuthServiceServiceClient::StepBackSync(const protocol::auth::v1::StepBackRe
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/StepBack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -526,6 +574,9 @@ auto AuthServiceServiceClient::StepBackSync(const protocol::auth::v1::StepBackRe
 void AuthServiceServiceClient::StepBack(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::AuthStep>)> callback, const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -538,6 +589,9 @@ void AuthServiceServiceClient::StepBack(std::function<void(AuthServiceServiceCli
 	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/StepBack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -575,6 +629,9 @@ auto AuthServiceServiceClient::StreamSteps(const protocol::auth::v1::StreamSteps
 {
 auto url = QUrl(wsProtocol()+host); url.setPath(QStringLiteral("/protocol.auth.v1.AuthService/StreamSteps")); auto req = QNetworkRequest(url);
 
+					for (const auto& item : universalHeaders.keys()) {
+						req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+					}
 					for (const auto& item : headers.keys()) {
 						req.setRawHeader(item, headers[item].toLocal8Bit());
 					}

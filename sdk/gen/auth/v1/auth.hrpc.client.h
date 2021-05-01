@@ -37,6 +37,7 @@ class AuthServiceServiceClient {
 	QString wsProtocol() const { return secure ? QStringLiteral("wss://") : QStringLiteral("ws://"); }
 	public: explicit AuthServiceServiceClient(const QString& host, bool secure) : host(host), secure(secure) {}
 public:
+	QMap<QByteArray,QString> universalHeaders;
 	template<typename T> using Result = std::variant<T, QString>;
 	[[ nodiscard ]] Result<protocol::auth::v1::FederateReply> FederateSync(const protocol::auth::v1::FederateRequest& in, QMap<QByteArray,QString> headers = {});
 	void Federate(std::function<void(Result<protocol::auth::v1::FederateReply>)> callback, const protocol::auth::v1::FederateRequest& in, QMap<QByteArray,QString> headers = {});

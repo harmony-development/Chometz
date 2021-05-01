@@ -1,6 +1,6 @@
 #include "clientmanager.h"
 #include "client_p.h"
-#include "util_p.h"
+#include "util.h"
 
 namespace SDK {
 
@@ -24,6 +24,19 @@ Client::Client(ClientManager* cm, const QString& homeserver) : QObject(cm), cm(c
 Client::~Client()
 {
 
+}
+
+void Client::setSession(const std::string& session, quint64 userID)
+{
+	d->session = session;
+	d->userID = userID;
+
+	auto tok = QString::fromStdString(session);
+
+	d->chatKit->universalHeaders = {{"Authorization", tok}};
+
+	d->authKit->universalHeaders = {{"Authorization", tok}};
+	d->mediaProxyKit->universalHeaders = {{"Authorization", tok}};
 }
 
 void Client::nextStep(const protocol::auth::v1::NextStepRequest& nstep)
@@ -75,5 +88,21 @@ void Client::startAuth()
 void Client::startEvents()
 {
 }
+
+ChatServiceServiceClient* Client::chatKit()
+{
+	return d->chatKit.get();
+}
+
+AuthServiceServiceClient* Client::authKit()
+{
+	return d->authKit.get();
+}
+
+MediaProxyServiceServiceClient* Client::mediaProxyKit()
+{
+	return d->mediaProxyKit.get();
+}
+
 
 }

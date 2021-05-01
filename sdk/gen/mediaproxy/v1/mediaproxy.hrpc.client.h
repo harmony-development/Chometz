@@ -19,6 +19,7 @@ class MediaProxyServiceServiceClient {
 	QString wsProtocol() const { return secure ? QStringLiteral("wss://") : QStringLiteral("ws://"); }
 	public: explicit MediaProxyServiceServiceClient(const QString& host, bool secure) : host(host), secure(secure) {}
 public:
+	QMap<QByteArray,QString> universalHeaders;
 	template<typename T> using Result = std::variant<T, QString>;
 	[[ nodiscard ]] Result<protocol::mediaproxy::v1::FetchLinkMetadataResponse> FetchLinkMetadataSync(const protocol::mediaproxy::v1::FetchLinkMetadataRequest& in, QMap<QByteArray,QString> headers = {});
 	void FetchLinkMetadata(std::function<void(Result<protocol::mediaproxy::v1::FetchLinkMetadataResponse>)> callback, const protocol::mediaproxy::v1::FetchLinkMetadataRequest& in, QMap<QByteArray,QString> headers = {});

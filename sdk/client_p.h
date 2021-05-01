@@ -17,6 +17,9 @@ struct Client::Private
 	QSharedPointer<Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream> eventStream;
 
 	std::string authID;
+
+	quint64 userID;
+	std::string session;
 };
 
 };

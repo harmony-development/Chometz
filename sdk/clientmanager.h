@@ -4,6 +4,10 @@
 
 #include "auth/v1/auth.pb.h"
 
+class ChatServiceServiceClient;
+class AuthServiceServiceClient;
+class MediaProxyServiceServiceClient;
+
 namespace SDK
 {
 
@@ -25,7 +29,9 @@ public:
 	void continueAuthentication(const protocol::auth::v1::NextStepRequest& req);
 	Q_SIGNAL void authEvent(protocol::auth::v1::AuthStep step);
 
-	Client* operator->();
+	ChatServiceServiceClient* chatKit();
+	AuthServiceServiceClient* authKit();
+	MediaProxyServiceServiceClient* mediaProxyKit();
 
 };
 

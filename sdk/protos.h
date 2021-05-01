@@ -8,6 +8,8 @@
 #include "auth/v1/auth.pb.h"
 #include "mediaproxy/v1/mediaproxy.pb.h"
 
+#include "util.h"
+
 #include <google/protobuf/util/json_util.h>
 
 Q_DECLARE_METATYPE(protocol::auth::v1::AuthStep);

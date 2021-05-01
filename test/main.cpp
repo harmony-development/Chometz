@@ -80,6 +80,15 @@ private Q_SLOTS:
 		}
 	}
 
+	void testGuildCreate()
+	{
+		auto req = protocol::chat::v1::CreateGuildRequest{};
+		req.set_guild_name("hello");
+
+		auto resp = client->chatKit()->CreateGuildSync(req);
+		QVERIFY(resultOk(resp));
+	}
+
 	void cleanupTestCase()
 	{
 		client->deleteLater();

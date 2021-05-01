@@ -34,6 +34,9 @@ auto ChatServiceServiceClient::CreateGuildSync(const protocol::chat::v1::CreateG
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/CreateGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -66,6 +69,9 @@ auto ChatServiceServiceClient::CreateGuildSync(const protocol::chat::v1::CreateG
 void ChatServiceServiceClient::CreateGuild(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::CreateGuildResponse>)> callback, const protocol::chat::v1::CreateGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -78,6 +84,9 @@ void ChatServiceServiceClient::CreateGuild(std::function<void(ChatServiceService
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/CreateGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -126,6 +135,9 @@ auto ChatServiceServiceClient::CreateInviteSync(const protocol::chat::v1::Create
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/CreateInvite"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -158,6 +170,9 @@ auto ChatServiceServiceClient::CreateInviteSync(const protocol::chat::v1::Create
 void ChatServiceServiceClient::CreateInvite(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::CreateInviteResponse>)> callback, const protocol::chat::v1::CreateInviteRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -170,6 +185,9 @@ void ChatServiceServiceClient::CreateInvite(std::function<void(ChatServiceServic
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/CreateInvite"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -218,6 +236,9 @@ auto ChatServiceServiceClient::CreateChannelSync(const protocol::chat::v1::Creat
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/CreateChannel"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -250,6 +271,9 @@ auto ChatServiceServiceClient::CreateChannelSync(const protocol::chat::v1::Creat
 void ChatServiceServiceClient::CreateChannel(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::CreateChannelResponse>)> callback, const protocol::chat::v1::CreateChannelRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -262,6 +286,9 @@ void ChatServiceServiceClient::CreateChannel(std::function<void(ChatServiceServi
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/CreateChannel"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -310,6 +337,9 @@ auto ChatServiceServiceClient::CreateEmotePackSync(const protocol::chat::v1::Cre
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/CreateEmotePack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -342,6 +372,9 @@ auto ChatServiceServiceClient::CreateEmotePackSync(const protocol::chat::v1::Cre
 void ChatServiceServiceClient::CreateEmotePack(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::CreateEmotePackResponse>)> callback, const protocol::chat::v1::CreateEmotePackRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -354,6 +387,9 @@ void ChatServiceServiceClient::CreateEmotePack(std::function<void(ChatServiceSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/CreateEmotePack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -402,6 +438,9 @@ auto ChatServiceServiceClient::GetGuildListSync(const protocol::chat::v1::GetGui
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildList"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -434,6 +473,9 @@ auto ChatServiceServiceClient::GetGuildListSync(const protocol::chat::v1::GetGui
 void ChatServiceServiceClient::GetGuildList(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildListResponse>)> callback, const protocol::chat::v1::GetGuildListRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -446,6 +488,9 @@ void ChatServiceServiceClient::GetGuildList(std::function<void(ChatServiceServic
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildList"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -494,6 +539,9 @@ auto ChatServiceServiceClient::AddGuildToGuildListSync(const protocol::chat::v1:
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/AddGuildToGuildList"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -526,6 +574,9 @@ auto ChatServiceServiceClient::AddGuildToGuildListSync(const protocol::chat::v1:
 void ChatServiceServiceClient::AddGuildToGuildList(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::AddGuildToGuildListResponse>)> callback, const protocol::chat::v1::AddGuildToGuildListRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -538,6 +589,9 @@ void ChatServiceServiceClient::AddGuildToGuildList(std::function<void(ChatServic
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/AddGuildToGuildList"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -586,6 +640,9 @@ auto ChatServiceServiceClient::RemoveGuildFromGuildListSync(const protocol::chat
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/RemoveGuildFromGuildList"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -618,6 +675,9 @@ auto ChatServiceServiceClient::RemoveGuildFromGuildListSync(const protocol::chat
 void ChatServiceServiceClient::RemoveGuildFromGuildList(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::RemoveGuildFromGuildListResponse>)> callback, const protocol::chat::v1::RemoveGuildFromGuildListRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -630,6 +690,9 @@ void ChatServiceServiceClient::RemoveGuildFromGuildList(std::function<void(ChatS
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/RemoveGuildFromGuildList"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -678,6 +741,9 @@ auto ChatServiceServiceClient::GetGuildSync(const protocol::chat::v1::GetGuildRe
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -710,6 +776,9 @@ auto ChatServiceServiceClient::GetGuildSync(const protocol::chat::v1::GetGuildRe
 void ChatServiceServiceClient::GetGuild(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildResponse>)> callback, const protocol::chat::v1::GetGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -722,6 +791,9 @@ void ChatServiceServiceClient::GetGuild(std::function<void(ChatServiceServiceCli
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -770,6 +842,9 @@ auto ChatServiceServiceClient::GetGuildInvitesSync(const protocol::chat::v1::Get
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildInvites"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -802,6 +877,9 @@ auto ChatServiceServiceClient::GetGuildInvitesSync(const protocol::chat::v1::Get
 void ChatServiceServiceClient::GetGuildInvites(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildInvitesResponse>)> callback, const protocol::chat::v1::GetGuildInvitesRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -814,6 +892,9 @@ void ChatServiceServiceClient::GetGuildInvites(std::function<void(ChatServiceSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildInvites"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -862,6 +943,9 @@ auto ChatServiceServiceClient::GetGuildMembersSync(const protocol::chat::v1::Get
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildMembers"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -894,6 +978,9 @@ auto ChatServiceServiceClient::GetGuildMembersSync(const protocol::chat::v1::Get
 void ChatServiceServiceClient::GetGuildMembers(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildMembersResponse>)> callback, const protocol::chat::v1::GetGuildMembersRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -906,6 +993,9 @@ void ChatServiceServiceClient::GetGuildMembers(std::function<void(ChatServiceSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildMembers"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -954,6 +1044,9 @@ auto ChatServiceServiceClient::GetGuildChannelsSync(const protocol::chat::v1::Ge
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildChannels"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -986,6 +1079,9 @@ auto ChatServiceServiceClient::GetGuildChannelsSync(const protocol::chat::v1::Ge
 void ChatServiceServiceClient::GetGuildChannels(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildChannelsResponse>)> callback, const protocol::chat::v1::GetGuildChannelsRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -998,6 +1094,9 @@ void ChatServiceServiceClient::GetGuildChannels(std::function<void(ChatServiceSe
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildChannels"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1046,6 +1145,9 @@ auto ChatServiceServiceClient::GetChannelMessagesSync(const protocol::chat::v1::
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetChannelMessages"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1078,6 +1180,9 @@ auto ChatServiceServiceClient::GetChannelMessagesSync(const protocol::chat::v1::
 void ChatServiceServiceClient::GetChannelMessages(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetChannelMessagesResponse>)> callback, const protocol::chat::v1::GetChannelMessagesRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1090,6 +1195,9 @@ void ChatServiceServiceClient::GetChannelMessages(std::function<void(ChatService
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetChannelMessages"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1138,6 +1246,9 @@ auto ChatServiceServiceClient::GetMessageSync(const protocol::chat::v1::GetMessa
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetMessage"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1170,6 +1281,9 @@ auto ChatServiceServiceClient::GetMessageSync(const protocol::chat::v1::GetMessa
 void ChatServiceServiceClient::GetMessage(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetMessageResponse>)> callback, const protocol::chat::v1::GetMessageRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1182,6 +1296,9 @@ void ChatServiceServiceClient::GetMessage(std::function<void(ChatServiceServiceC
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetMessage"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1230,6 +1347,9 @@ auto ChatServiceServiceClient::GetEmotePacksSync(const protocol::chat::v1::GetEm
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetEmotePacks"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1262,6 +1382,9 @@ auto ChatServiceServiceClient::GetEmotePacksSync(const protocol::chat::v1::GetEm
 void ChatServiceServiceClient::GetEmotePacks(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetEmotePacksResponse>)> callback, const protocol::chat::v1::GetEmotePacksRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1274,6 +1397,9 @@ void ChatServiceServiceClient::GetEmotePacks(std::function<void(ChatServiceServi
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetEmotePacks"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1322,6 +1448,9 @@ auto ChatServiceServiceClient::GetEmotePackEmotesSync(const protocol::chat::v1::
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetEmotePackEmotes"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1354,6 +1483,9 @@ auto ChatServiceServiceClient::GetEmotePackEmotesSync(const protocol::chat::v1::
 void ChatServiceServiceClient::GetEmotePackEmotes(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetEmotePackEmotesResponse>)> callback, const protocol::chat::v1::GetEmotePackEmotesRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1366,6 +1498,9 @@ void ChatServiceServiceClient::GetEmotePackEmotes(std::function<void(ChatService
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetEmotePackEmotes"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1414,6 +1549,9 @@ auto ChatServiceServiceClient::UpdateGuildInformationSync(const protocol::chat::
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UpdateGuildInformation"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1446,6 +1584,9 @@ auto ChatServiceServiceClient::UpdateGuildInformationSync(const protocol::chat::
 void ChatServiceServiceClient::UpdateGuildInformation(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UpdateGuildInformationRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1458,6 +1599,9 @@ void ChatServiceServiceClient::UpdateGuildInformation(std::function<void(ChatSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UpdateGuildInformation"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1506,6 +1650,9 @@ auto ChatServiceServiceClient::UpdateChannelInformationSync(const protocol::chat
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UpdateChannelInformation"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1538,6 +1685,9 @@ auto ChatServiceServiceClient::UpdateChannelInformationSync(const protocol::chat
 void ChatServiceServiceClient::UpdateChannelInformation(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UpdateChannelInformationRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1550,6 +1700,9 @@ void ChatServiceServiceClient::UpdateChannelInformation(std::function<void(ChatS
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UpdateChannelInformation"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1598,6 +1751,9 @@ auto ChatServiceServiceClient::UpdateChannelOrderSync(const protocol::chat::v1::
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UpdateChannelOrder"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1630,6 +1786,9 @@ auto ChatServiceServiceClient::UpdateChannelOrderSync(const protocol::chat::v1::
 void ChatServiceServiceClient::UpdateChannelOrder(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UpdateChannelOrderRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1642,6 +1801,9 @@ void ChatServiceServiceClient::UpdateChannelOrder(std::function<void(ChatService
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UpdateChannelOrder"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1690,6 +1852,9 @@ auto ChatServiceServiceClient::UpdateMessageTextSync(const protocol::chat::v1::U
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UpdateMessageText"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1722,6 +1887,9 @@ auto ChatServiceServiceClient::UpdateMessageTextSync(const protocol::chat::v1::U
 void ChatServiceServiceClient::UpdateMessageText(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UpdateMessageTextRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1734,6 +1902,9 @@ void ChatServiceServiceClient::UpdateMessageText(std::function<void(ChatServiceS
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UpdateMessageText"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1782,6 +1953,9 @@ auto ChatServiceServiceClient::AddEmoteToPackSync(const protocol::chat::v1::AddE
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/AddEmoteToPack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1814,6 +1988,9 @@ auto ChatServiceServiceClient::AddEmoteToPackSync(const protocol::chat::v1::AddE
 void ChatServiceServiceClient::AddEmoteToPack(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::AddEmoteToPackRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1826,6 +2003,9 @@ void ChatServiceServiceClient::AddEmoteToPack(std::function<void(ChatServiceServ
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/AddEmoteToPack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1874,6 +2054,9 @@ auto ChatServiceServiceClient::DeleteGuildSync(const protocol::chat::v1::DeleteG
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1906,6 +2089,9 @@ auto ChatServiceServiceClient::DeleteGuildSync(const protocol::chat::v1::DeleteG
 void ChatServiceServiceClient::DeleteGuild(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -1918,6 +2104,9 @@ void ChatServiceServiceClient::DeleteGuild(std::function<void(ChatServiceService
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1966,6 +2155,9 @@ auto ChatServiceServiceClient::DeleteInviteSync(const protocol::chat::v1::Delete
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteInvite"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -1998,6 +2190,9 @@ auto ChatServiceServiceClient::DeleteInviteSync(const protocol::chat::v1::Delete
 void ChatServiceServiceClient::DeleteInvite(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteInviteRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2010,6 +2205,9 @@ void ChatServiceServiceClient::DeleteInvite(std::function<void(ChatServiceServic
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteInvite"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2058,6 +2256,9 @@ auto ChatServiceServiceClient::DeleteChannelSync(const protocol::chat::v1::Delet
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteChannel"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2090,6 +2291,9 @@ auto ChatServiceServiceClient::DeleteChannelSync(const protocol::chat::v1::Delet
 void ChatServiceServiceClient::DeleteChannel(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteChannelRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2102,6 +2306,9 @@ void ChatServiceServiceClient::DeleteChannel(std::function<void(ChatServiceServi
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteChannel"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2150,6 +2357,9 @@ auto ChatServiceServiceClient::DeleteMessageSync(const protocol::chat::v1::Delet
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteMessage"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2182,6 +2392,9 @@ auto ChatServiceServiceClient::DeleteMessageSync(const protocol::chat::v1::Delet
 void ChatServiceServiceClient::DeleteMessage(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteMessageRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2194,6 +2407,9 @@ void ChatServiceServiceClient::DeleteMessage(std::function<void(ChatServiceServi
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteMessage"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2242,6 +2458,9 @@ auto ChatServiceServiceClient::DeleteEmoteFromPackSync(const protocol::chat::v1:
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteEmoteFromPack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2274,6 +2493,9 @@ auto ChatServiceServiceClient::DeleteEmoteFromPackSync(const protocol::chat::v1:
 void ChatServiceServiceClient::DeleteEmoteFromPack(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteEmoteFromPackRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2286,6 +2508,9 @@ void ChatServiceServiceClient::DeleteEmoteFromPack(std::function<void(ChatServic
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteEmoteFromPack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2334,6 +2559,9 @@ auto ChatServiceServiceClient::DeleteEmotePackSync(const protocol::chat::v1::Del
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteEmotePack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2366,6 +2594,9 @@ auto ChatServiceServiceClient::DeleteEmotePackSync(const protocol::chat::v1::Del
 void ChatServiceServiceClient::DeleteEmotePack(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteEmotePackRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2378,6 +2609,9 @@ void ChatServiceServiceClient::DeleteEmotePack(std::function<void(ChatServiceSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteEmotePack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2426,6 +2660,9 @@ auto ChatServiceServiceClient::DequipEmotePackSync(const protocol::chat::v1::Deq
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DequipEmotePack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2458,6 +2695,9 @@ auto ChatServiceServiceClient::DequipEmotePackSync(const protocol::chat::v1::Deq
 void ChatServiceServiceClient::DequipEmotePack(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DequipEmotePackRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2470,6 +2710,9 @@ void ChatServiceServiceClient::DequipEmotePack(std::function<void(ChatServiceSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DequipEmotePack"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2518,6 +2761,9 @@ auto ChatServiceServiceClient::JoinGuildSync(const protocol::chat::v1::JoinGuild
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/JoinGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2550,6 +2796,9 @@ auto ChatServiceServiceClient::JoinGuildSync(const protocol::chat::v1::JoinGuild
 void ChatServiceServiceClient::JoinGuild(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::JoinGuildResponse>)> callback, const protocol::chat::v1::JoinGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2562,6 +2811,9 @@ void ChatServiceServiceClient::JoinGuild(std::function<void(ChatServiceServiceCl
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/JoinGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2610,6 +2862,9 @@ auto ChatServiceServiceClient::LeaveGuildSync(const protocol::chat::v1::LeaveGui
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/LeaveGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2642,6 +2897,9 @@ auto ChatServiceServiceClient::LeaveGuildSync(const protocol::chat::v1::LeaveGui
 void ChatServiceServiceClient::LeaveGuild(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::LeaveGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2654,6 +2912,9 @@ void ChatServiceServiceClient::LeaveGuild(std::function<void(ChatServiceServiceC
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/LeaveGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2702,6 +2963,9 @@ auto ChatServiceServiceClient::TriggerActionSync(const protocol::chat::v1::Trigg
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/TriggerAction"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2734,6 +2998,9 @@ auto ChatServiceServiceClient::TriggerActionSync(const protocol::chat::v1::Trigg
 void ChatServiceServiceClient::TriggerAction(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::TriggerActionRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2746,6 +3013,9 @@ void ChatServiceServiceClient::TriggerAction(std::function<void(ChatServiceServi
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/TriggerAction"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2794,6 +3064,9 @@ auto ChatServiceServiceClient::SendMessageSync(const protocol::chat::v1::SendMes
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/SendMessage"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2826,6 +3099,9 @@ auto ChatServiceServiceClient::SendMessageSync(const protocol::chat::v1::SendMes
 void ChatServiceServiceClient::SendMessage(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::SendMessageResponse>)> callback, const protocol::chat::v1::SendMessageRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2838,6 +3114,9 @@ void ChatServiceServiceClient::SendMessage(std::function<void(ChatServiceService
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/SendMessage"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2886,6 +3165,9 @@ auto ChatServiceServiceClient::QueryHasPermissionSync(const protocol::chat::v1::
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/QueryHasPermission"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2918,6 +3200,9 @@ auto ChatServiceServiceClient::QueryHasPermissionSync(const protocol::chat::v1::
 void ChatServiceServiceClient::QueryHasPermission(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::QueryPermissionsResponse>)> callback, const protocol::chat::v1::QueryPermissionsRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -2930,6 +3215,9 @@ void ChatServiceServiceClient::QueryHasPermission(std::function<void(ChatService
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/QueryHasPermission"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -2978,6 +3266,9 @@ auto ChatServiceServiceClient::SetPermissionsSync(const protocol::chat::v1::SetP
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/SetPermissions"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3010,6 +3301,9 @@ auto ChatServiceServiceClient::SetPermissionsSync(const protocol::chat::v1::SetP
 void ChatServiceServiceClient::SetPermissions(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::SetPermissionsRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3022,6 +3316,9 @@ void ChatServiceServiceClient::SetPermissions(std::function<void(ChatServiceServ
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/SetPermissions"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3070,6 +3367,9 @@ auto ChatServiceServiceClient::GetPermissionsSync(const protocol::chat::v1::GetP
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetPermissions"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3102,6 +3402,9 @@ auto ChatServiceServiceClient::GetPermissionsSync(const protocol::chat::v1::GetP
 void ChatServiceServiceClient::GetPermissions(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetPermissionsResponse>)> callback, const protocol::chat::v1::GetPermissionsRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3114,6 +3417,9 @@ void ChatServiceServiceClient::GetPermissions(std::function<void(ChatServiceServ
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetPermissions"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3162,6 +3468,9 @@ auto ChatServiceServiceClient::MoveRoleSync(const protocol::chat::v1::MoveRoleRe
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/MoveRole"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3194,6 +3503,9 @@ auto ChatServiceServiceClient::MoveRoleSync(const protocol::chat::v1::MoveRoleRe
 void ChatServiceServiceClient::MoveRole(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::MoveRoleResponse>)> callback, const protocol::chat::v1::MoveRoleRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3206,6 +3518,9 @@ void ChatServiceServiceClient::MoveRole(std::function<void(ChatServiceServiceCli
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/MoveRole"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3254,6 +3569,9 @@ auto ChatServiceServiceClient::GetGuildRolesSync(const protocol::chat::v1::GetGu
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildRoles"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3286,6 +3604,9 @@ auto ChatServiceServiceClient::GetGuildRolesSync(const protocol::chat::v1::GetGu
 void ChatServiceServiceClient::GetGuildRoles(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildRolesResponse>)> callback, const protocol::chat::v1::GetGuildRolesRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3298,6 +3619,9 @@ void ChatServiceServiceClient::GetGuildRoles(std::function<void(ChatServiceServi
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetGuildRoles"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3346,6 +3670,9 @@ auto ChatServiceServiceClient::AddGuildRoleSync(const protocol::chat::v1::AddGui
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/AddGuildRole"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3378,6 +3705,9 @@ auto ChatServiceServiceClient::AddGuildRoleSync(const protocol::chat::v1::AddGui
 void ChatServiceServiceClient::AddGuildRole(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::AddGuildRoleResponse>)> callback, const protocol::chat::v1::AddGuildRoleRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3390,6 +3720,9 @@ void ChatServiceServiceClient::AddGuildRole(std::function<void(ChatServiceServic
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/AddGuildRole"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3438,6 +3771,9 @@ auto ChatServiceServiceClient::ModifyGuildRoleSync(const protocol::chat::v1::Mod
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/ModifyGuildRole"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3470,6 +3806,9 @@ auto ChatServiceServiceClient::ModifyGuildRoleSync(const protocol::chat::v1::Mod
 void ChatServiceServiceClient::ModifyGuildRole(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::ModifyGuildRoleRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3482,6 +3821,9 @@ void ChatServiceServiceClient::ModifyGuildRole(std::function<void(ChatServiceSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/ModifyGuildRole"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3530,6 +3872,9 @@ auto ChatServiceServiceClient::DeleteGuildRoleSync(const protocol::chat::v1::Del
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteGuildRole"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3562,6 +3907,9 @@ auto ChatServiceServiceClient::DeleteGuildRoleSync(const protocol::chat::v1::Del
 void ChatServiceServiceClient::DeleteGuildRole(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteGuildRoleRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3574,6 +3922,9 @@ void ChatServiceServiceClient::DeleteGuildRole(std::function<void(ChatServiceSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/DeleteGuildRole"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3622,6 +3973,9 @@ auto ChatServiceServiceClient::ManageUserRolesSync(const protocol::chat::v1::Man
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/ManageUserRoles"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3654,6 +4008,9 @@ auto ChatServiceServiceClient::ManageUserRolesSync(const protocol::chat::v1::Man
 void ChatServiceServiceClient::ManageUserRoles(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::ManageUserRolesRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3666,6 +4023,9 @@ void ChatServiceServiceClient::ManageUserRoles(std::function<void(ChatServiceSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/ManageUserRoles"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3714,6 +4074,9 @@ auto ChatServiceServiceClient::GetUserRolesSync(const protocol::chat::v1::GetUse
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetUserRoles"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3746,6 +4109,9 @@ auto ChatServiceServiceClient::GetUserRolesSync(const protocol::chat::v1::GetUse
 void ChatServiceServiceClient::GetUserRoles(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetUserRolesResponse>)> callback, const protocol::chat::v1::GetUserRolesRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3758,6 +4124,9 @@ void ChatServiceServiceClient::GetUserRoles(std::function<void(ChatServiceServic
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetUserRoles"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3795,6 +4164,9 @@ auto ChatServiceServiceClient::StreamEvents(QMap<QByteArray,QString> headers) ->
 {
 auto url = QUrl(wsProtocol()+host); url.setPath(QStringLiteral("/protocol.chat.v1.ChatService/StreamEvents")); auto req = QNetworkRequest(url);
 
+					for (const auto& item : universalHeaders.keys()) {
+						req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+					}
 					for (const auto& item : headers.keys()) {
 						req.setRawHeader(item, headers[item].toLocal8Bit());
 					}
@@ -3818,6 +4190,9 @@ auto ChatServiceServiceClient::GetUserSync(const protocol::chat::v1::GetUserRequ
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetUser"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3850,6 +4225,9 @@ auto ChatServiceServiceClient::GetUserSync(const protocol::chat::v1::GetUserRequ
 void ChatServiceServiceClient::GetUser(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetUserResponse>)> callback, const protocol::chat::v1::GetUserRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3862,6 +4240,9 @@ void ChatServiceServiceClient::GetUser(std::function<void(ChatServiceServiceClie
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetUser"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3910,6 +4291,9 @@ auto ChatServiceServiceClient::GetUserBulkSync(const protocol::chat::v1::GetUser
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetUserBulk"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -3942,6 +4326,9 @@ auto ChatServiceServiceClient::GetUserBulkSync(const protocol::chat::v1::GetUser
 void ChatServiceServiceClient::GetUserBulk(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetUserBulkResponse>)> callback, const protocol::chat::v1::GetUserBulkRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -3954,6 +4341,9 @@ void ChatServiceServiceClient::GetUserBulk(std::function<void(ChatServiceService
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetUserBulk"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4002,6 +4392,9 @@ auto ChatServiceServiceClient::GetUserMetadataSync(const protocol::chat::v1::Get
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetUserMetadata"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4034,6 +4427,9 @@ auto ChatServiceServiceClient::GetUserMetadataSync(const protocol::chat::v1::Get
 void ChatServiceServiceClient::GetUserMetadata(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetUserMetadataResponse>)> callback, const protocol::chat::v1::GetUserMetadataRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -4046,6 +4442,9 @@ void ChatServiceServiceClient::GetUserMetadata(std::function<void(ChatServiceSer
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/GetUserMetadata"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4094,6 +4493,9 @@ auto ChatServiceServiceClient::ProfileUpdateSync(const protocol::chat::v1::Profi
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/ProfileUpdate"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4126,6 +4528,9 @@ auto ChatServiceServiceClient::ProfileUpdateSync(const protocol::chat::v1::Profi
 void ChatServiceServiceClient::ProfileUpdate(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::ProfileUpdateRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -4138,6 +4543,9 @@ void ChatServiceServiceClient::ProfileUpdate(std::function<void(ChatServiceServi
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/ProfileUpdate"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4186,6 +4594,9 @@ auto ChatServiceServiceClient::TypingSync(const protocol::chat::v1::TypingReques
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/Typing"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4218,6 +4629,9 @@ auto ChatServiceServiceClient::TypingSync(const protocol::chat::v1::TypingReques
 void ChatServiceServiceClient::Typing(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::TypingRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -4230,6 +4644,9 @@ void ChatServiceServiceClient::Typing(std::function<void(ChatServiceServiceClien
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/Typing"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4278,6 +4695,9 @@ auto ChatServiceServiceClient::PreviewGuildSync(const protocol::chat::v1::Previe
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/PreviewGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4310,6 +4730,9 @@ auto ChatServiceServiceClient::PreviewGuildSync(const protocol::chat::v1::Previe
 void ChatServiceServiceClient::PreviewGuild(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::PreviewGuildResponse>)> callback, const protocol::chat::v1::PreviewGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -4322,6 +4745,9 @@ void ChatServiceServiceClient::PreviewGuild(std::function<void(ChatServiceServic
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/PreviewGuild"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4370,6 +4796,9 @@ auto ChatServiceServiceClient::BanUserSync(const protocol::chat::v1::BanUserRequ
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/BanUser"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4402,6 +4831,9 @@ auto ChatServiceServiceClient::BanUserSync(const protocol::chat::v1::BanUserRequ
 void ChatServiceServiceClient::BanUser(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::BanUserRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -4414,6 +4846,9 @@ void ChatServiceServiceClient::BanUser(std::function<void(ChatServiceServiceClie
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/BanUser"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4462,6 +4897,9 @@ auto ChatServiceServiceClient::KickUserSync(const protocol::chat::v1::KickUserRe
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/KickUser"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4494,6 +4932,9 @@ auto ChatServiceServiceClient::KickUserSync(const protocol::chat::v1::KickUserRe
 void ChatServiceServiceClient::KickUser(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::KickUserRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -4506,6 +4947,9 @@ void ChatServiceServiceClient::KickUser(std::function<void(ChatServiceServiceCli
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/KickUser"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4554,6 +4998,9 @@ auto ChatServiceServiceClient::UnbanUserSync(const protocol::chat::v1::UnbanUser
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UnbanUser"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
@@ -4586,6 +5033,9 @@ auto ChatServiceServiceClient::UnbanUserSync(const protocol::chat::v1::UnbanUser
 void ChatServiceServiceClient::UnbanUser(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UnbanUserRequest& in, QMap<QByteArray,QString> headers)
 
 {
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
 	std::string strData;
 	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
 	QByteArray data = QByteArray::fromStdString(strData);
@@ -4598,6 +5048,9 @@ void ChatServiceServiceClient::UnbanUser(std::function<void(ChatServiceServiceCl
 	serviceURL.setPath(QStringLiteral("/protocol.chat.v1.ChatService/UnbanUser"));
 
 	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
 	for (const auto& item : headers.keys()) {
 		req.setRawHeader(item, headers[item].toLocal8Bit());
 	}
