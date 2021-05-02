@@ -61,6 +61,21 @@ void ClientManager::connectClient(Client* client, const QString& homeserver)
 	});
 }
 
+Client* ClientManager::clientForHomeserver(const QString& homeserver)
+{
+	if (homeserver == "local" || homeserver.isEmpty()) {
+		return d->mainClient;
+	}
+
+	if (!d->clients.contains(homeserver)) {
+		auto client = new Client(this, homeserver);
+		d->clients[homeserver] = QSharedPointer<Client>(client, &QObject::deleteLater);
+		d->mainClient->federateOtherClient(client, homeserver);
+	}
+
+	return d->clients[homeserver].get();
+}
+
 void ClientManager::beginAuthentication(const QString& homeserver)
 {
 	if (d->mainClient != nullptr) {
@@ -69,7 +84,7 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	d->clients.clear();
 
 	d->mainClient = new Client(this, homeserver);
-	d->clients[homeserver] = QSharedPointer<Client>(d->mainClient);
+	d->clients[homeserver] = QSharedPointer<Client>(d->mainClient, &QObject::deleteLater);
 
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
 	connect(d->mainClient, &Client::authEvent, this, [this](protocol::auth::v1::AuthStep step) {

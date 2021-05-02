@@ -31,6 +31,8 @@ class Client : public QObject
 	void subscribeToActions();
 	void subscribeToHomeserver();
 
+	void federateOtherClient(Client* client, const QString& target);
+
 	void setSession(const std::string& session, quint64 userID);
 
 	void nextStep(const protocol::auth::v1::NextStepRequest& nstep);

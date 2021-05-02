@@ -168,6 +168,30 @@ ChatServiceServiceClient* Client::chatKit()
 	return d->chatKit.get();
 }
 
+void Client::federateOtherClient(Client* client, const QString& target)
+{
+	auto req = protocol::auth::v1::FederateRequest{};
+	req.set_target(target.toStdString());
+
+	auto result = d->authKit->FederateSync(req);
+	if (!resultOk(result)) {
+		return;
+	}
+
+	auto req2 = protocol::auth::v1::LoginFederatedRequest {};
+	req2.set_auth_token(unwrap(result).token());
+	req2.set_domain(d->homeserver.toStdString());
+
+	auto result2 = client->d->authKit->LoginFederatedSync(req2);
+	if (!resultOk(result2)) {
+		return;
+	}
+	auto resp = unwrap(result2);
+
+	client->d->session = resp.session_token();
+	client->d->userID = resp.user_id();
+}
+
 AuthServiceServiceClient* Client::authKit()
 {
 	return d->authKit.get();
