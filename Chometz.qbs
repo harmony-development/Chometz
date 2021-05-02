@@ -5,5 +5,5 @@ Project {
 		"vendor/protobuf.qbs",
 	]
 
-	AutotestRunner { }
+	AutotestRunner { name: "chometz-tests" }
 }
