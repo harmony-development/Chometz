@@ -29,7 +29,7 @@ StaticLibrary {
 	Export {
 		Depends { name: "cpp" }
 
-		cpp.includePaths: [buildDirectory, sourceDirectory, "protobuf/src", "protobuf/src/google/protobuf"]
+		cpp.includePaths: [buildDirectory, sourceDirectory, sourceDirectory+"/protobuf/src", sourceDirectory+"/protobuf/src/google/protobuf"]
 	}
 
 	cpp.includePaths: [buildDirectory, sourceDirectory, "protobuf/src", "protobuf/src/google/protobuf"]
