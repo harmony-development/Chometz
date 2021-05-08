@@ -90,6 +90,7 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	connect(d->mainClient, &Client::authEvent, this, [this](protocol::auth::v1::AuthStep step) {
 		if (step.step_case() == protocol::auth::v1::AuthStep::kSession) {
 			d->mainClient->setSession(step.session().session_token(), step.session().user_id());
+			Q_EMIT ready();
 		}
 	});
 	

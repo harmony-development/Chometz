@@ -37,6 +37,8 @@ public:
 
 	Client* clientForHomeserver(const QString& homeserver);
 
+	Q_SIGNAL void ready();
+
 	Q_SIGNAL void authEvent(protocol::auth::v1::AuthStep step);
 	Q_SIGNAL void hsEvent(protocol::chat::v1::Event ev);
 
