@@ -5,6 +5,12 @@ namespace SDK
 
 Init init;
 
+auto host(const QString& hs)
+{
+	auto it = QUrl::fromUserInput(hs);
+	return it.host();
+}
+
 ClientManager::ClientManager(QObject* parent) : QObject(parent), d(new Private)
 {
 }
@@ -20,17 +26,17 @@ MediaProxyServiceServiceClient* ClientManager::mediaProxyKit() { return d->mainC
 
 void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
 {
-	if (!d->clients.contains(homeserver)) {
+	if (!d->clients.contains(host(homeserver))) {
 		// TODO: federate automagically
 		return;
 	}
-	if (!d->subs.guilds.contains(homeserver)) {
-		d->subs.guilds[homeserver] = {};
+	if (!d->subs.guilds.contains(host(homeserver))) {
+		d->subs.guilds[host(homeserver)] = {};
 	}
 
-	d->subs.guilds[homeserver].append(guildID);
+	d->subs.guilds[host(homeserver)].append(guildID);
 
-	d->clients[homeserver]->subscribeToGuild(guildID);
+	d->clients[host(homeserver)]->subscribeToGuild(guildID);
 }
 
 void ClientManager::subscribeToActions()
@@ -67,13 +73,13 @@ Client* ClientManager::clientForHomeserver(const QString& homeserver)
 		return d->mainClient;
 	}
 
-	if (!d->clients.contains(homeserver)) {
+	if (!d->clients.contains(host(homeserver))) {
 		auto client = new Client(this, homeserver);
-		d->clients[homeserver] = QSharedPointer<Client>(client, &QObject::deleteLater);
+		d->clients[host(homeserver)] = QSharedPointer<Client>(client, &QObject::deleteLater);
 		d->mainClient->federateOtherClient(client, homeserver);
 	}
 
-	return d->clients[homeserver].get();
+	return d->clients[host(homeserver)].get();
 }
 
 void ClientManager::beginAuthentication(const QString& homeserver)
@@ -84,7 +90,7 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	d->clients.clear();
 
 	d->mainClient = new Client(this, homeserver);
-	d->clients[homeserver] = QSharedPointer<Client>(d->mainClient, &QObject::deleteLater);
+	d->clients[host(homeserver)] = QSharedPointer<Client>(d->mainClient, &QObject::deleteLater);
 
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
 	connect(d->mainClient, &Client::authEvent, this, [this](protocol::auth::v1::AuthStep step) {

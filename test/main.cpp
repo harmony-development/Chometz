@@ -89,6 +89,18 @@ private Q_SLOTS:
 		QVERIFY(resultOk(resp));
 	}
 
+	void testHostEquivalence()
+	{
+		auto c1 = client->clientForHomeserver("local");
+		auto c2 = client->clientForHomeserver("localhost");
+		auto c3 = client->clientForHomeserver("https://localhost");
+		auto c4 = client->clientForHomeserver("https://localhost:12345");
+
+		QCOMPARE(c1, c2);
+		QCOMPARE(c1, c3);
+		QCOMPARE(c1, c4);
+	}
+
 	void cleanupTestCase()
 	{
 		client->deleteLater();
