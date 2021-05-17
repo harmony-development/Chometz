@@ -644,3 +644,104 @@ auto url = QUrl(wsProtocol()+host); url.setPath(QStringLiteral("/protocol.auth.v
 	QObject::connect(sock, &QWebSocket::connected, [=]() { sock->sendBinaryMessage(data); });
 	return sock;
 }
+auto AuthServiceServiceClient::CheckLoggedInSync(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers) -> AuthServiceServiceClient::Result<google::protobuf::Empty>
+
+{
+	std::string strData;
+	if (!in.SerializeToString(&strData)) { return {QStringLiteral("failed to serialize protobuf")}; }
+	QByteArray data = QByteArray::fromStdString(strData);
+
+
+
+	initialiseGlobalNam(secure, host);
+
+	QUrl serviceURL = QUrl(httpProtocol()+host);
+	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/CheckLoggedIn"));
+
+	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
+	for (const auto& item : headers.keys()) {
+		req.setRawHeader(item, headers[item].toLocal8Bit());
+	}
+	req.setRawHeader("content-type", "application/hrpc");
+	req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
+
+	auto nam = globalNam.localData();
+	auto val = nam->post(req, data);
+
+
+
+	while (!val->isFinished()) {
+		QCoreApplication::processEvents();
+	}
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
+	}
+
+	auto response = val->readAll();
+
+	google::protobuf::Empty ret;
+	if (!ret.ParseFromArray(response.constData(), response.length())) {
+		return {QStringLiteral("error parsing response into protobuf")};
+	}
+
+	return {ret};
+
+}
+void AuthServiceServiceClient::CheckLoggedIn(std::function<void(AuthServiceServiceClient::Result<google::protobuf::Empty>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers)
+
+{
+	if (callback == nullptr) {
+		callback = [](auto) {};
+	}
+	std::string strData;
+	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	QByteArray data = QByteArray::fromStdString(strData);
+
+
+
+	initialiseGlobalNam(secure, host);
+
+	QUrl serviceURL = QUrl(httpProtocol()+host);
+	serviceURL.setPath(QStringLiteral("/protocol.auth.v1.AuthService/CheckLoggedIn"));
+
+	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
+	for (const auto& item : headers.keys()) {
+		req.setRawHeader(item, headers[item].toLocal8Bit());
+	}
+	req.setRawHeader("content-type", "application/hrpc");
+	req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
+
+	auto nam = globalNam.localData();
+	auto val = nam->post(req, data);
+
+
+
+	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+		if (val->error() != QNetworkReply::NoError) {
+			val->deleteLater();
+			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			return;
+		}
+		
+		auto response = val->readAll();
+		
+		google::protobuf::Empty ret;
+		if (!ret.ParseFromArray(response.constData(), response.length())) {
+			val->deleteLater();
+			callback({QStringLiteral("error parsing response into protobuf")});
+			return;
+		}
+		
+		val->deleteLater();
+		callback({ret});
+		return;
+	});
+
+}

@@ -7,7 +7,11 @@
 #include <variant>
 #include "auth/v1/auth.pb.h"
 #include <QWebSocket>
+#include "google/protobuf/timestamp.pb.h"
 #include "google/protobuf/empty.pb.h"
+#include "google/protobuf/any.pb.h"
+#include "google/protobuf/descriptor.pb.h"
+#include "harmonytypes/v1/types.pb.h"
 
 class Receive__protocol_auth_v1_AuthStep__Stream : public QWebSocket {
 	
@@ -52,4 +56,6 @@ public:
 	[[ nodiscard ]] Result<protocol::auth::v1::AuthStep> StepBackSync(const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers = {});
 	void StepBack(std::function<void(Result<protocol::auth::v1::AuthStep>)> callback, const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Receive__protocol_auth_v1_AuthStep__Stream* StreamSteps(const protocol::auth::v1::StreamStepsRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] Result<google::protobuf::Empty> CheckLoggedInSync(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
+	void CheckLoggedIn(std::function<void(Result<google::protobuf::Empty>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
 };

@@ -37,6 +37,8 @@ public:
 
 	Client* clientForHomeserver(const QString& homeserver);
 
+	void checkLogin(std::function<void(bool)> cb, const QString& token, const QString& hs, quint64 userID);
+
 	Q_SIGNAL void ready();
 
 	Q_SIGNAL void authEvent(protocol::auth::v1::AuthStep step);

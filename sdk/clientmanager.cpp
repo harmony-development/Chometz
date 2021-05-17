@@ -112,4 +112,27 @@ void ClientManager::continueAuthentication(const protocol::auth::v1::NextStepReq
 	d->mainClient->nextStep(req);
 }
 
+void ClientManager::checkLogin(std::function<void(bool)> cb, const QString& token, const QString& homeserver, quint64 userID)
+{
+	if (d->mainClient != nullptr) {
+		d->mainClient = nullptr;
+	}
+	d->clients.clear();
+
+	d->mainClient = new Client(this, homeserver);
+	d->mainClient->setSession(token.toStdString(), userID);
+	d->clients[host(homeserver)] = QSharedPointer<Client>(d->mainClient, &QObject::deleteLater);
+
+	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
+	connect(d->mainClient, &Client::hsEvent, this, &ClientManager::hsEvent);
+	connectClient(d->mainClient, homeserver);
+	d->mainClient->authKit()->CheckLoggedIn([this, cb](auto r) {
+		auto ok = std::holds_alternative<google::protobuf::Empty>(r);
+		if (ok) {
+			Q_EMIT ready();
+		}
+		cb(ok);
+	}, google::protobuf::Empty {});
+}
+
 };
