@@ -39,7 +39,7 @@ public:
 
 	void checkLogin(std::function<void(bool)> cb, const QString& token, const QString& hs, quint64 userID);
 
-	Q_SIGNAL void ready();
+	Q_SIGNAL void ready(const QString& hs, quint64 userID, const QString& token);
 
 	Q_SIGNAL void authEvent(protocol::auth::v1::AuthStep step);
 	Q_SIGNAL void hsEvent(protocol::chat::v1::Event ev);

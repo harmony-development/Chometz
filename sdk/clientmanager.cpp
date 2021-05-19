@@ -93,10 +93,10 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	d->clients[host(homeserver)] = QSharedPointer<Client>(d->mainClient, &QObject::deleteLater);
 
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
-	connect(d->mainClient, &Client::authEvent, this, [this](protocol::auth::v1::AuthStep step) {
+	connect(d->mainClient, &Client::authEvent, this, [this, hs = homeserver](protocol::auth::v1::AuthStep step) {
 		if (step.step_case() == protocol::auth::v1::AuthStep::kSession) {
 			d->mainClient->setSession(step.session().session_token(), step.session().user_id());
-			Q_EMIT ready();
+			Q_EMIT ready(hs, step.session().user_id(), QString::fromStdString(step.session().session_token()));
 		}
 	});
 	
@@ -126,10 +126,10 @@ void ClientManager::checkLogin(std::function<void(bool)> cb, const QString& toke
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
 	connect(d->mainClient, &Client::hsEvent, this, &ClientManager::hsEvent);
 	connectClient(d->mainClient, homeserver);
-	d->mainClient->authKit()->CheckLoggedIn([this, cb](auto r) {
+	d->mainClient->authKit()->CheckLoggedIn([this, cb, token, homeserver, userID](auto r) {
 		auto ok = std::holds_alternative<google::protobuf::Empty>(r);
 		if (ok) {
-			Q_EMIT ready();
+			Q_EMIT ready(homeserver, userID, token);
 		}
 		cb(ok);
 	}, google::protobuf::Empty {});
