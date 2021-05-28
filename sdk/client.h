@@ -47,6 +47,8 @@ public:
 	Client(ClientManager* cm, const QString& homeserver);
 	~Client();
 
+	QString homeserver() const;
+
 	ChatServiceServiceClient* chatKit();
 	AuthServiceServiceClient* authKit();
 	MediaProxyServiceServiceClient* mediaProxyKit();

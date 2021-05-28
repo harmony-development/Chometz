@@ -85,6 +85,11 @@ void Client::startAuth()
 	}, google::protobuf::Empty{});
 }
 
+QString Client::homeserver() const
+{
+	return d->homeserver;
+}
+
 void Client::startEvents()
 {
 	d->eventStream = QSharedPointer<Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream>(d->chatKit->StreamEvents(), &QObject::deleteLater);
