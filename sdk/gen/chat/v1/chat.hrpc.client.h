@@ -21,7 +21,7 @@
 #include "chat/v1/streaming.pb.h"
 
 class Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream : public QWebSocket {
-	
+
 	Q_OBJECT
 
 	public: Q_SIGNAL void receivedMessage(protocol::chat::v1::Event msg);
@@ -29,6 +29,7 @@ class Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsReques
 	public: Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream(const QString &origin = QString(), QWebSocketProtocol::Version version = QWebSocketProtocol::VersionLatest, QObject *parent = nullptr) : QWebSocket(origin, version, parent)
 	{
 		connect(this, &QWebSocket::binaryMessageReceived, [=](const QByteArray& msg) {
+			qDebug() << "incoming!";
 			protocol::chat::v1::Event incoming;
 
 			if (!incoming.ParseFromArray(msg.constData(), msg.length())) {

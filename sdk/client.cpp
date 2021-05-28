@@ -134,15 +134,20 @@ void Client::subscribeToActions()
 		startEvents();
 	}
 
+	auto make = [this]() {
+		auto req = protocol::chat::v1::StreamEventsRequest {};
+		req.set_allocated_subscribe_to_homeserver_events(new protocol::chat::v1::StreamEventsRequest::SubscribeToHomeserverEvents);
+
+		auto ok = d->eventStream->send(req);
+		Q_UNUSED(ok);
+	};
+
 	if (d->eventStream->state() != QAbstractSocket::ConnectedState) {
+		connect(d->eventStream.get(), &QWebSocket::connected, this, make);
 		return;
 	}
 
-	auto req = protocol::chat::v1::StreamEventsRequest {};
-	auto guild = protocol::chat::v1::StreamEventsRequest::SubscribeToHomeserverEvents {};
-
-	auto ok = d->eventStream->send(req);
-	Q_UNUSED(ok);
+	make();
 }
 
 void Client::subscribeToHomeserver()
@@ -151,15 +156,18 @@ void Client::subscribeToHomeserver()
 		startEvents();
 	}
 
+	auto make = [this]() {
+		auto req = protocol::chat::v1::StreamEventsRequest {};
+		req.set_allocated_subscribe_to_actions(new protocol::chat::v1::StreamEventsRequest::SubscribeToActions);
+
+		auto ok = d->eventStream->send(req);
+		Q_UNUSED(ok);
+	};
+
 	if (d->eventStream->state() != QAbstractSocket::ConnectedState) {
+		connect(d->eventStream.get(), &QWebSocket::connected, this, make);
 		return;
 	}
-
-	auto req = protocol::chat::v1::StreamEventsRequest {};
-	auto guild = protocol::chat::v1::StreamEventsRequest::SubscribeToActions {};
-
-	auto ok = d->eventStream->send(req);
-	Q_UNUSED(ok);
 }
 
 void Client::subscribeToGuild(quint64 guildID)
@@ -168,16 +176,21 @@ void Client::subscribeToGuild(quint64 guildID)
 		startEvents();
 	}
 
+	auto make = [this, guildID]() {
+		auto req = protocol::chat::v1::StreamEventsRequest {};
+		req.set_allocated_subscribe_to_guild(new protocol::chat::v1::StreamEventsRequest::SubscribeToGuild);
+		req.mutable_subscribe_to_guild()->set_guild_id(guildID);
+
+		auto ok = d->eventStream->send(req);
+		Q_UNUSED(ok)
+	};
+
 	if (d->eventStream->state() != QAbstractSocket::ConnectedState) {
+		connect(d->eventStream.get(), &QWebSocket::connected, this, make);
 		return;
 	}
 
-	auto req = protocol::chat::v1::StreamEventsRequest {};
-	auto guild = protocol::chat::v1::StreamEventsRequest::SubscribeToGuild {};
-	guild.set_guild_id(guildID);
-
-	auto ok = d->eventStream->send(req);
-	Q_UNUSED(ok);
+	make();
 }
 
 ChatServiceServiceClient* Client::chatKit()
