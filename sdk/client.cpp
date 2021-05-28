@@ -130,6 +130,10 @@ void Client::startEvents()
 
 void Client::subscribeToActions()
 {
+	if (d->eventStream == nullptr) {
+		startEvents();
+	}
+
 	if (d->eventStream->state() != QAbstractSocket::ConnectedState) {
 		return;
 	}
@@ -143,6 +147,10 @@ void Client::subscribeToActions()
 
 void Client::subscribeToHomeserver()
 {
+	if (d->eventStream == nullptr) {
+		startEvents();
+	}
+
 	if (d->eventStream->state() != QAbstractSocket::ConnectedState) {
 		return;
 	}
@@ -156,6 +164,10 @@ void Client::subscribeToHomeserver()
 
 void Client::subscribeToGuild(quint64 guildID)
 {
+	if (d->eventStream == nullptr) {
+		startEvents();
+	}
+
 	if (d->eventStream->state() != QAbstractSocket::ConnectedState) {
 		return;
 	}
