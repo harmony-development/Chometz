@@ -99,7 +99,7 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 			Q_EMIT ready(hs, step.session().user_id(), QString::fromStdString(step.session().session_token()));
 		}
 	});
-	
+
 	connect(d->mainClient, &Client::hsEvent, this, &ClientManager::hsEvent);
 	connectClient(d->mainClient, homeserver);
 	d->mainClient->startAuth();

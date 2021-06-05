@@ -12,7 +12,11 @@ Client::Client(ClientManager* cm, const QString& homeserver) : QObject(cm), cm(c
 	auto host = url.host();
 	auto port = QString::number(url.port(2289));
 	auto scheme = url.scheme();
-	if (scheme != "http" && scheme != "https") {
+
+	const auto isHTTP = scheme == "http" and homeserver.startsWith("http://");
+	const auto isHTTPS = scheme == "https";
+
+	if (not (isHTTP or isHTTPS)) {
 		scheme = "https";
 	}
 
