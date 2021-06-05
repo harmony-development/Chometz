@@ -3,6 +3,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QString>
+#include <QFuture>
 #include <functional>
 #include <variant>
 #include "sync/v1/sync.pb.h"
@@ -42,5 +43,6 @@ public:
 	template<typename T> using Result = std::variant<T, QString>;
 	[[ nodiscard ]] Receive__protocol_sync_v1_PostBoxEvent__Stream* Sync(const protocol::sync::v1::SyncRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<google::protobuf::Empty> PostEventSync(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers = {});
-	void PostEvent(std::function<void(Result<google::protobuf::Empty>)> callback, const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers = {});
+	void PostEventCallback(std::function<void(Result<google::protobuf::Empty>)> callback, const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] QFuture<Result<google::protobuf::Empty>> PostEvent(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers = {});
 };

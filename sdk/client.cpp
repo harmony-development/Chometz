@@ -45,48 +45,48 @@ void Client::setSession(const std::string& session, quint64 userID)
 
 void Client::nextStep(const protocol::auth::v1::NextStepRequest& nstep)
 {
-	auto it = nstep;
-	it.set_auth_id(d->authID);
+	// auto it = nstep;
+	// it.set_auth_id(d->authID);
 
-	d->authKit->NextStep([this](auto resp){
-		if (!resultOk(resp)) {
-			return;
-		}
-		auto value = unwrap(resp);
-		// Q_EMIT authEvent(value);
-	}, it);
+	// d->authKit->NextStep([this](auto resp){
+	// 	if (!resultOk(resp)) {
+	// 		return;
+	// 	}
+	// 	auto value = unwrap(resp);
+	// 	// Q_EMIT authEvent(value);
+	// }, it);
 }
 
 void Client::startAuth()
 {
-	d->authKit->BeginAuth([this](auto resp) {
-		if (!resultOk(resp)) {
-			return;
-		}
-		auto value = unwrap(resp);
+	// d->authKit->BeginAuth([this](auto resp) {
+	// 	if (!resultOk(resp)) {
+	// 		return;
+	// 	}
+	// 	auto value = unwrap(resp);
 
-		protocol::auth::v1::StreamStepsRequest streamReq;
-		streamReq.set_auth_id(value.auth_id());
+	// 	protocol::auth::v1::StreamStepsRequest streamReq;
+	// 	streamReq.set_auth_id(value.auth_id());
 
-		auto stepStream = d->authKit->StreamSteps(streamReq);
-		connect(stepStream, &Receive__protocol_auth_v1_AuthStep__Stream::receivedMessage, this, &Client::authEvent);
-		connect(stepStream, &QWebSocket::disconnected, [=] {
-			stepStream->deleteLater();
-		});
+	// 	auto stepStream = d->authKit->StreamSteps(streamReq);
+	// 	connect(stepStream, &Receive__protocol_auth_v1_AuthStep__Stream::receivedMessage, this, &Client::authEvent);
+	// 	connect(stepStream, &QWebSocket::disconnected, [=] {
+	// 		stepStream->deleteLater();
+	// 	});
 
-		protocol::auth::v1::NextStepRequest req2;
-		req2.set_auth_id(value.auth_id());
+	// 	protocol::auth::v1::NextStepRequest req2;
+	// 	req2.set_auth_id(value.auth_id());
 
-		d->authID = value.auth_id();
-		d->authKit->NextStep([this](auto resp) {
-			if (!resultOk(resp)) {
-				return;
-			}
-			auto value = unwrap(resp);
+	// 	d->authID = value.auth_id();
+	// 	d->authKit->NextStep([this](auto resp) {
+	// 		if (!resultOk(resp)) {
+	// 			return;
+	// 		}
+	// 		auto value = unwrap(resp);
 
-			Q_EMIT authEvent(value);
-		}, req2);
-	}, google::protobuf::Empty{});
+	// 		Q_EMIT authEvent(value);
+	// 	}, req2);
+	// }, google::protobuf::Empty{});
 }
 
 QString Client::homeserver() const

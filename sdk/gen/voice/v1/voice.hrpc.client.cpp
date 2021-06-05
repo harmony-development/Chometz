@@ -66,7 +66,7 @@ auto VoiceServiceServiceClient::ConnectSync(const protocol::voice::v1::ConnectRe
 	return {ret};
 
 }
-void VoiceServiceServiceClient::Connect(std::function<void(VoiceServiceServiceClient::Result<protocol::voice::v1::ConnectResponse>)> callback, const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers)
+void VoiceServiceServiceClient::ConnectCallback(std::function<void(VoiceServiceServiceClient::Result<protocol::voice::v1::ConnectResponse>)> callback, const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers)
 
 {
 	if (callback == nullptr) {
@@ -118,6 +118,61 @@ void VoiceServiceServiceClient::Connect(std::function<void(VoiceServiceServiceCl
 		callback({ret});
 		return;
 	});
+
+}
+QFuture<VoiceServiceServiceClient::Result<protocol::voice::v1::ConnectResponse>> VoiceServiceServiceClient::Connect(const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers)
+
+{
+	QFutureInterface<Result<protocol::voice::v1::ConnectResponse>> res;
+
+	std::string strData;
+	if (!in.SerializeToString(&strData)) { res.reportResult({QStringLiteral("failed to serialize protobuf")}); return res.future(); }
+	QByteArray data = QByteArray::fromStdString(strData);
+
+
+
+	initialiseGlobalNam(secure, host);
+
+	QUrl serviceURL = QUrl(httpProtocol()+host);
+	serviceURL.setPath(QStringLiteral("/protocol.voice.v1.VoiceService/Connect"));
+
+	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
+	for (const auto& item : headers.keys()) {
+		req.setRawHeader(item, headers[item].toLocal8Bit());
+	}
+	req.setRawHeader("content-type", "application/hrpc");
+	req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
+
+	auto nam = globalNam.localData();
+	auto val = nam->post(req, data);
+
+
+
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		if (val->error() != QNetworkReply::NoError) {
+			val->deleteLater();
+			res.reportResult({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			return;
+		}
+		
+		auto response = val->readAll();
+		
+		protocol::voice::v1::ConnectResponse ret;
+		if (!ret.ParseFromArray(response.constData(), response.length())) {
+			val->deleteLater();
+			res.reportResult({QStringLiteral("error parsing response into protobuf")});
+			return;
+		}
+		
+		val->deleteLater();
+		res.reportResult({ret});
+		return;
+	});
+
+	return res.future();
 
 }
 auto VoiceServiceServiceClient::StreamState(const protocol::voice::v1::StreamStateRequest& in, QMap<QByteArray,QString> headers) -> Receive__protocol_voice_v1_Signal__Stream*

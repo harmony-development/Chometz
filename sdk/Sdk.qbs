@@ -4,16 +4,16 @@ StaticLibrary {
 	name: "harmony-qt-sdk"
 
 	files: [
-		"*.cpp",
+		"it.cpp",
 		// "*.h",
-		"gen/*/*/*.cpp",
-		"gen/*/*/*.cc",
+		// "gen/*/*/*.cpp",
+		// "gen/*/*/*.cc",
 		// "gen/*/*/*.h",
 	]
 
 	cpp.includePaths: ["gen"]
-	cpp.cppFlags: ['-Werror=return-type']
-	cpp.cxxLanguageVersion: "c++17"
+	cpp.cppFlags: ['-Werror=return-type', '-fcoroutines-ts']
+	cpp.cxxLanguageVersion: "c++20"
 
 	Depends { name: "cpp" }
 	Depends { name: "vendored_protobuf" }

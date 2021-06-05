@@ -3,6 +3,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QString>
+#include <QFuture>
 #include <functional>
 #include <variant>
 #include "auth/v1/auth.pb.h"
@@ -44,18 +45,25 @@ public:
 	QMap<QByteArray,QString> universalHeaders;
 	template<typename T> using Result = std::variant<T, QString>;
 	[[ nodiscard ]] Result<protocol::auth::v1::FederateReply> FederateSync(const protocol::auth::v1::FederateRequest& in, QMap<QByteArray,QString> headers = {});
-	void Federate(std::function<void(Result<protocol::auth::v1::FederateReply>)> callback, const protocol::auth::v1::FederateRequest& in, QMap<QByteArray,QString> headers = {});
+	void FederateCallback(std::function<void(Result<protocol::auth::v1::FederateReply>)> callback, const protocol::auth::v1::FederateRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] QFuture<Result<protocol::auth::v1::FederateReply>> Federate(const protocol::auth::v1::FederateRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::auth::v1::Session> LoginFederatedSync(const protocol::auth::v1::LoginFederatedRequest& in, QMap<QByteArray,QString> headers = {});
-	void LoginFederated(std::function<void(Result<protocol::auth::v1::Session>)> callback, const protocol::auth::v1::LoginFederatedRequest& in, QMap<QByteArray,QString> headers = {});
+	void LoginFederatedCallback(std::function<void(Result<protocol::auth::v1::Session>)> callback, const protocol::auth::v1::LoginFederatedRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] QFuture<Result<protocol::auth::v1::Session>> LoginFederated(const protocol::auth::v1::LoginFederatedRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::auth::v1::KeyReply> KeySync(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
-	void Key(std::function<void(Result<protocol::auth::v1::KeyReply>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
+	void KeyCallback(std::function<void(Result<protocol::auth::v1::KeyReply>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] QFuture<Result<protocol::auth::v1::KeyReply>> Key(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::auth::v1::BeginAuthResponse> BeginAuthSync(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
-	void BeginAuth(std::function<void(Result<protocol::auth::v1::BeginAuthResponse>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
+	void BeginAuthCallback(std::function<void(Result<protocol::auth::v1::BeginAuthResponse>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] QFuture<Result<protocol::auth::v1::BeginAuthResponse>> BeginAuth(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::auth::v1::AuthStep> NextStepSync(const protocol::auth::v1::NextStepRequest& in, QMap<QByteArray,QString> headers = {});
-	void NextStep(std::function<void(Result<protocol::auth::v1::AuthStep>)> callback, const protocol::auth::v1::NextStepRequest& in, QMap<QByteArray,QString> headers = {});
+	void NextStepCallback(std::function<void(Result<protocol::auth::v1::AuthStep>)> callback, const protocol::auth::v1::NextStepRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] QFuture<Result<protocol::auth::v1::AuthStep>> NextStep(const protocol::auth::v1::NextStepRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::auth::v1::AuthStep> StepBackSync(const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers = {});
-	void StepBack(std::function<void(Result<protocol::auth::v1::AuthStep>)> callback, const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers = {});
+	void StepBackCallback(std::function<void(Result<protocol::auth::v1::AuthStep>)> callback, const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] QFuture<Result<protocol::auth::v1::AuthStep>> StepBack(const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Receive__protocol_auth_v1_AuthStep__Stream* StreamSteps(const protocol::auth::v1::StreamStepsRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<google::protobuf::Empty> CheckLoggedInSync(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
-	void CheckLoggedIn(std::function<void(Result<google::protobuf::Empty>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
+	void CheckLoggedInCallback(std::function<void(Result<google::protobuf::Empty>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] QFuture<Result<google::protobuf::Empty>> CheckLoggedIn(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers = {});
 };

@@ -1,3 +1,5 @@
+#include <coroutine>
+
 #include "clientmanager_p.h"
 
 namespace SDK
@@ -59,12 +61,12 @@ void ClientManager::connectClient(Client* client, const QString& homeserver)
 {
 	using namespace protocol::chat::v1;
 
-	connect(client, &Client::actionTriggered, this, [this, hs = homeserver](Event::ActionPerformed ev) {
-		Q_EMIT actionTriggered(hs, ev);
-	});
-	connect(client, &Client::chatEvent, this, [this, hs = homeserver](Event ev) {
-		Q_EMIT chatEvent(hs, ev);
-	});
+	// connect(client, &Client::actionTriggered, this, [this, hs = homeserver](Event::ActionPerformed ev) {
+	// 	Q_EMIT actionTriggered(hs, ev);
+	// });
+	// connect(client, &Client::chatEvent, this, [this, hs = homeserver](Event ev) {
+	// 	Q_EMIT chatEvent(hs, ev);
+	// });
 }
 
 Client* ClientManager::clientForHomeserver(const QString& homeserver)
@@ -112,7 +114,7 @@ void ClientManager::continueAuthentication(const protocol::auth::v1::NextStepReq
 	d->mainClient->nextStep(req);
 }
 
-void ClientManager::checkLogin(std::function<void(bool)> cb, const QString& token, const QString& homeserver, quint64 userID)
+void ClientManager::checkLogin(::std::function<void(bool)> cb, const QString& token, const QString& homeserver, quint64 userID)
 {
 	if (d->mainClient != nullptr) {
 		d->mainClient = nullptr;
@@ -126,13 +128,13 @@ void ClientManager::checkLogin(std::function<void(bool)> cb, const QString& toke
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
 	connect(d->mainClient, &Client::hsEvent, this, &ClientManager::hsEvent);
 	connectClient(d->mainClient, homeserver);
-	d->mainClient->authKit()->CheckLoggedIn([this, cb, token, homeserver, userID](auto r) {
-		auto ok = std::holds_alternative<google::protobuf::Empty>(r);
-		if (ok) {
-			Q_EMIT ready(homeserver, userID, token);
-		}
-		cb(ok);
-	}, google::protobuf::Empty {});
+
+	auto r = co_await d->mainClient->authKit()->CheckLoggedIn(google::protobuf::Empty{});
+	auto ok = std::holds_alternative<google::protobuf::Empty>(r);
+	if (ok) {
+		Q_EMIT ready(homeserver, userID, token);
+	}
+	cb(ok);
 }
 
 };

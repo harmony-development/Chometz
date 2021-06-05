@@ -85,7 +85,7 @@ auto PostboxServiceServiceClient::PostEventSync(const protocol::sync::v1::PostEv
 	return {ret};
 
 }
-void PostboxServiceServiceClient::PostEvent(std::function<void(PostboxServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers)
+void PostboxServiceServiceClient::PostEventCallback(std::function<void(PostboxServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers)
 
 {
 	if (callback == nullptr) {
@@ -137,5 +137,60 @@ void PostboxServiceServiceClient::PostEvent(std::function<void(PostboxServiceSer
 		callback({ret});
 		return;
 	});
+
+}
+QFuture<PostboxServiceServiceClient::Result<google::protobuf::Empty>> PostboxServiceServiceClient::PostEvent(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers)
+
+{
+	QFutureInterface<Result<google::protobuf::Empty>> res;
+
+	std::string strData;
+	if (!in.SerializeToString(&strData)) { res.reportResult({QStringLiteral("failed to serialize protobuf")}); return res.future(); }
+	QByteArray data = QByteArray::fromStdString(strData);
+
+
+
+	initialiseGlobalNam(secure, host);
+
+	QUrl serviceURL = QUrl(httpProtocol()+host);
+	serviceURL.setPath(QStringLiteral("/protocol.sync.v1.PostboxService/PostEvent"));
+
+	QNetworkRequest req(serviceURL);
+	for (const auto& item : universalHeaders.keys()) {
+		req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
+	}
+	for (const auto& item : headers.keys()) {
+		req.setRawHeader(item, headers[item].toLocal8Bit());
+	}
+	req.setRawHeader("content-type", "application/hrpc");
+	req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
+
+	auto nam = globalNam.localData();
+	auto val = nam->post(req, data);
+
+
+
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		if (val->error() != QNetworkReply::NoError) {
+			val->deleteLater();
+			res.reportResult({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			return;
+		}
+		
+		auto response = val->readAll();
+		
+		google::protobuf::Empty ret;
+		if (!ret.ParseFromArray(response.constData(), response.length())) {
+			val->deleteLater();
+			res.reportResult({QStringLiteral("error parsing response into protobuf")});
+			return;
+		}
+		
+		val->deleteLater();
+		res.reportResult({ret});
+		return;
+	});
+
+	return res.future();
 
 }
