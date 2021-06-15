@@ -1,14 +1,20 @@
+#pragma once
 #include <QByteArray>
 #include <QCoreApplication>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QString>
+#include <QFuture>
 #include <functional>
 #include <variant>
+#include <future.h>
 #include "sync/v1/sync.pb.h"
+#include "sync/v1/sync.hrpc.types.h"
 #include <QWebSocket>
 #include "google/protobuf/empty.pb.h"
+#include "google/protobuf/empty.hrpc.types.h"
 #include "google/protobuf/any.pb.h"
+#include "google/protobuf/any.hrpc.types.h"
 
 class Receive__protocol_sync_v1_PostBoxEvent__Stream : public QWebSocket {
 	
@@ -42,5 +48,5 @@ public:
 	template<typename T> using Result = std::variant<T, QString>;
 	[[ nodiscard ]] Receive__protocol_sync_v1_PostBoxEvent__Stream* Sync(const protocol::sync::v1::SyncRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<google::protobuf::Empty> PostEventSync(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers = {});
-	void PostEvent(std::function<void(Result<google::protobuf::Empty>)> callback, const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> PostEvent(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers = {});
 };

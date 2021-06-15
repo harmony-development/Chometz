@@ -85,14 +85,13 @@ auto PostboxServiceServiceClient::PostEventSync(const protocol::sync::v1::PostEv
 	return {ret};
 
 }
-void PostboxServiceServiceClient::PostEvent(std::function<void(PostboxServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> PostboxServiceServiceClient::PostEvent(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -117,10 +116,10 @@ void PostboxServiceServiceClient::PostEvent(std::function<void(PostboxServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -129,13 +128,15 @@ void PostboxServiceServiceClient::PostEvent(std::function<void(PostboxServiceSer
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }

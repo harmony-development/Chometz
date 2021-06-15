@@ -13,18 +13,20 @@ StaticLibrary {
 
 	cpp.includePaths: ["gen"]
 	cpp.cppFlags: ['-Werror=return-type']
-	cpp.cxxLanguageVersion: "c++17"
+	cpp.cxxLanguageVersion: "c++20"
 
 	Depends { name: "cpp" }
 	Depends { name: "vendored_protobuf" }
+	Depends { name: "croutons" }
 	Depends { name: "Qt"; submodules: ["network", "concurrent", "websockets"] }
 
 	Export {
 		Depends { name: "cpp" }
 		Depends { name: "vendored_protobuf" }
+		Depends { name: "croutons" }
 		Depends { name: "Qt"; submodules: ["network", "concurrent", "websockets"] }
 
-		cpp.cxxLanguageVersion: "c++17"
+		cpp.cxxLanguageVersion: "c++20"
 		cpp.includePaths: [product.sourceDirectory, product.sourceDirectory + "/gen"]
 		prefixMapping: [{
 			prefix: product.sourceDirectory,

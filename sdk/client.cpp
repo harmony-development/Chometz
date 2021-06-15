@@ -43,50 +43,46 @@ void Client::setSession(const std::string& session, quint64 userID)
 	d->mediaProxyKit->universalHeaders = {{"Authorization", tok}};
 }
 
-void Client::nextStep(const protocol::auth::v1::NextStepRequest& nstep)
+Future<> Client::nextStep(const protocol::auth::v1::NextStepRequest& nstep)
 {
 	auto it = nstep;
 	it.set_auth_id(d->authID);
 
-	d->authKit->NextStep([this](auto resp){
-		if (!resultOk(resp)) {
-			return;
-		}
-		auto value = unwrap(resp);
-		// Q_EMIT authEvent(value);
-	}, it);
+	co_await d->authKit->NextStep(it);
+
+	co_return {};
 }
 
-void Client::startAuth()
+Future<> Client::startAuth()
 {
-	d->authKit->BeginAuth([this](auto resp) {
-		if (!resultOk(resp)) {
-			return;
-		}
-		auto value = unwrap(resp);
+	auto resp = co_await d->authKit->BeginAuth(google::protobuf::Empty{});
 
-		protocol::auth::v1::StreamStepsRequest streamReq;
-		streamReq.set_auth_id(value.auth_id());
+	if (!resultOk(resp)) {
+		co_return {};
+	}
+	auto value = unwrap(resp);
 
-		auto stepStream = d->authKit->StreamSteps(streamReq);
-		connect(stepStream, &Receive__protocol_auth_v1_AuthStep__Stream::receivedMessage, this, &Client::authEvent);
-		connect(stepStream, &QWebSocket::disconnected, [=] {
-			stepStream->deleteLater();
-		});
+	protocol::auth::v1::StreamStepsRequest streamReq;
+	streamReq.set_auth_id(value.auth_id());
 
-		protocol::auth::v1::NextStepRequest req2;
-		req2.set_auth_id(value.auth_id());
+	auto stepStream = d->authKit->StreamSteps(streamReq);
+	connect(stepStream, &Receive__protocol_auth_v1_AuthStep__Stream::receivedMessage, this, &Client::authEvent);
+	connect(stepStream, &QWebSocket::disconnected, [=] {
+		stepStream->deleteLater();
+	});
 
-		d->authID = value.auth_id();
-		d->authKit->NextStep([this](auto resp) {
-			if (!resultOk(resp)) {
-				return;
-			}
-			auto value = unwrap(resp);
+	protocol::auth::v1::NextStepRequest req2;
+	req2.set_auth_id(value.auth_id());
 
-			Q_EMIT authEvent(value);
-		}, req2);
-	}, google::protobuf::Empty{});
+	d->authID = value.auth_id();
+	auto resp2 = co_await d->authKit->NextStep(req2);
+	if (!resultOk(resp2)) {
+		co_return {};
+	}
+	auto value2 = unwrap(resp2);
+
+	Q_EMIT authEvent(value2);
+	co_return {};
 }
 
 QString Client::homeserver() const
@@ -202,28 +198,30 @@ ChatServiceServiceClient* Client::chatKit()
 	return d->chatKit.get();
 }
 
-void Client::federateOtherClient(Client* client, const QString& target)
+FutureResult<Client*> Client::federateOtherClient(Client* client, const QString& target)
 {
 	auto req = protocol::auth::v1::FederateRequest{};
 	req.set_target(target.toStdString());
 
-	auto result = d->authKit->FederateSync(req);
-	if (!resultOk(result)) {
-		return;
+	auto result = co_await d->authKit->Federate(req);
+	if (!result.ok()) {
+		co_return Error { result.error() };
 	}
 
 	auto req2 = protocol::auth::v1::LoginFederatedRequest {};
-	req2.set_auth_token(unwrap(result).token());
+	req2.set_auth_token(result.value().token());
 	req2.set_domain(d->homeserver.toStdString());
 
-	auto result2 = client->d->authKit->LoginFederatedSync(req2);
-	if (!resultOk(result2)) {
-		return;
+	auto result2 = co_await client->d->authKit->LoginFederated(req2);
+	if (!result2.ok()) {
+		co_return Error { result.error() };
 	}
-	auto resp = unwrap(result2);
+	auto resp = result2.value();
 
 	client->d->session = resp.session_token();
 	client->d->userID = resp.user_id();
+
+	co_return client;
 }
 
 AuthServiceServiceClient* Client::authKit()

@@ -66,14 +66,13 @@ auto VoiceServiceServiceClient::ConnectSync(const protocol::voice::v1::ConnectRe
 	return {ret};
 
 }
-void VoiceServiceServiceClient::Connect(std::function<void(VoiceServiceServiceClient::Result<protocol::voice::v1::ConnectResponse>)> callback, const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::voice::v1::ConnectResponse, QString> VoiceServiceServiceClient::Connect(const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::voice::v1::ConnectResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -98,10 +97,10 @@ void VoiceServiceServiceClient::Connect(std::function<void(VoiceServiceServiceCl
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -110,14 +109,16 @@ void VoiceServiceServiceClient::Connect(std::function<void(VoiceServiceServiceCl
 		protocol::voice::v1::ConnectResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto VoiceServiceServiceClient::StreamState(const protocol::voice::v1::StreamStateRequest& in, QMap<QByteArray,QString> headers) -> Receive__protocol_voice_v1_Signal__Stream*

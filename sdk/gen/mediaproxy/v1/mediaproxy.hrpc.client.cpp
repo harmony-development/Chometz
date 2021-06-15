@@ -66,14 +66,13 @@ auto MediaProxyServiceServiceClient::FetchLinkMetadataSync(const protocol::media
 	return {ret};
 
 }
-void MediaProxyServiceServiceClient::FetchLinkMetadata(std::function<void(MediaProxyServiceServiceClient::Result<protocol::mediaproxy::v1::FetchLinkMetadataResponse>)> callback, const protocol::mediaproxy::v1::FetchLinkMetadataRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::mediaproxy::v1::FetchLinkMetadataResponse, QString> MediaProxyServiceServiceClient::FetchLinkMetadata(const protocol::mediaproxy::v1::FetchLinkMetadataRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::mediaproxy::v1::FetchLinkMetadataResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -98,10 +97,10 @@ void MediaProxyServiceServiceClient::FetchLinkMetadata(std::function<void(MediaP
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -110,14 +109,16 @@ void MediaProxyServiceServiceClient::FetchLinkMetadata(std::function<void(MediaP
 		protocol::mediaproxy::v1::FetchLinkMetadataResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto MediaProxyServiceServiceClient::InstantViewSync(const protocol::mediaproxy::v1::InstantViewRequest& in, QMap<QByteArray,QString> headers) -> MediaProxyServiceServiceClient::Result<protocol::mediaproxy::v1::InstantViewResponse>
@@ -167,14 +168,13 @@ auto MediaProxyServiceServiceClient::InstantViewSync(const protocol::mediaproxy:
 	return {ret};
 
 }
-void MediaProxyServiceServiceClient::InstantView(std::function<void(MediaProxyServiceServiceClient::Result<protocol::mediaproxy::v1::InstantViewResponse>)> callback, const protocol::mediaproxy::v1::InstantViewRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::mediaproxy::v1::InstantViewResponse, QString> MediaProxyServiceServiceClient::InstantView(const protocol::mediaproxy::v1::InstantViewRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::mediaproxy::v1::InstantViewResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -199,10 +199,10 @@ void MediaProxyServiceServiceClient::InstantView(std::function<void(MediaProxySe
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -211,14 +211,16 @@ void MediaProxyServiceServiceClient::InstantView(std::function<void(MediaProxySe
 		protocol::mediaproxy::v1::InstantViewResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto MediaProxyServiceServiceClient::CanInstantViewSync(const protocol::mediaproxy::v1::InstantViewRequest& in, QMap<QByteArray,QString> headers) -> MediaProxyServiceServiceClient::Result<protocol::mediaproxy::v1::CanInstantViewResponse>
@@ -268,14 +270,13 @@ auto MediaProxyServiceServiceClient::CanInstantViewSync(const protocol::mediapro
 	return {ret};
 
 }
-void MediaProxyServiceServiceClient::CanInstantView(std::function<void(MediaProxyServiceServiceClient::Result<protocol::mediaproxy::v1::CanInstantViewResponse>)> callback, const protocol::mediaproxy::v1::InstantViewRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::mediaproxy::v1::CanInstantViewResponse, QString> MediaProxyServiceServiceClient::CanInstantView(const protocol::mediaproxy::v1::InstantViewRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::mediaproxy::v1::CanInstantViewResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -300,10 +301,10 @@ void MediaProxyServiceServiceClient::CanInstantView(std::function<void(MediaProx
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -312,13 +313,15 @@ void MediaProxyServiceServiceClient::CanInstantView(std::function<void(MediaProx
 		protocol::mediaproxy::v1::CanInstantViewResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }

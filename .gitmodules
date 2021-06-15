@@ -4,3 +4,6 @@
 [submodule "vendor/protobuf"]
 	path = vendor/protobuf
 	url = https://github.com/protocolbuffers/protobuf.git
+[submodule "vendor/croutons"]
+	path = vendor/croutons
+	url = https://invent.kde.org/cblack/coroutines

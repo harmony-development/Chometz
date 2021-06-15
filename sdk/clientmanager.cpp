@@ -36,7 +36,9 @@ void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
 
 	d->subs.guilds[host(homeserver)].append(guildID);
 
-	d->clients[host(homeserver)]->subscribeToGuild(guildID);
+	d->clients[host(homeserver)].then([=](QVariant r) {
+		qvariant_cast<Client*>(r)->subscribeToGuild(guildID);
+	});
 }
 
 void ClientManager::subscribeToActions()
@@ -44,7 +46,9 @@ void ClientManager::subscribeToActions()
 	d->subs.actions = true;
 
 	for (auto& client : d->clients) {
-		client->subscribeToActions();
+		client.then([=](QVariant r) {
+			qvariant_cast<Client*>(r)->subscribeToActions();
+		});
 	}
 }
 
@@ -67,19 +71,20 @@ void ClientManager::connectClient(Client* client, const QString& homeserver)
 	});
 }
 
-Client* ClientManager::clientForHomeserver(const QString& homeserver)
+FutureResult<Client*> ClientManager::clientForHomeserver(const QString& homeserver)
 {
 	if (homeserver == "local" || homeserver.isEmpty()) {
-		return d->mainClient;
+		FutureResult<Client*> it;
+		it.succeed(d->mainClient);
+		return it;
 	}
 
 	if (!d->clients.contains(host(homeserver))) {
 		auto client = new Client(this, homeserver);
-		d->clients[host(homeserver)] = QSharedPointer<Client>(client, &QObject::deleteLater);
-		d->mainClient->federateOtherClient(client, homeserver);
+		d->clients[host(homeserver)] = d->mainClient->federateOtherClient(client, homeserver);
 	}
 
-	return d->clients[host(homeserver)].get();
+	return d->clients[host(homeserver)];
 }
 
 void ClientManager::beginAuthentication(const QString& homeserver)
@@ -90,7 +95,9 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	d->clients.clear();
 
 	d->mainClient = new Client(this, homeserver);
-	d->clients[host(homeserver)] = QSharedPointer<Client>(d->mainClient, &QObject::deleteLater);
+	FutureResult<Client*> it;
+	it.succeed(d->mainClient);
+	d->clients[host(homeserver)] = it;
 
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
 	connect(d->mainClient, &Client::authEvent, this, [this, hs = homeserver](protocol::auth::v1::AuthStep step) {
@@ -112,7 +119,7 @@ void ClientManager::continueAuthentication(const protocol::auth::v1::NextStepReq
 	d->mainClient->nextStep(req);
 }
 
-void ClientManager::checkLogin(std::function<void(bool)> cb, const QString& token, const QString& homeserver, quint64 userID)
+Future<bool> ClientManager::checkLogin(const QString& token, const QString& homeserver, quint64 userID)
 {
 	if (d->mainClient != nullptr) {
 		d->mainClient = nullptr;
@@ -121,18 +128,21 @@ void ClientManager::checkLogin(std::function<void(bool)> cb, const QString& toke
 
 	d->mainClient = new Client(this, homeserver);
 	d->mainClient->setSession(token.toStdString(), userID);
-	d->clients[host(homeserver)] = QSharedPointer<Client>(d->mainClient, &QObject::deleteLater);
+	FutureResult<Client*> it;
+	it.succeed(d->mainClient);
+	d->clients[host(homeserver)] = it;
 
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
 	connect(d->mainClient, &Client::hsEvent, this, &ClientManager::hsEvent);
 	connectClient(d->mainClient, homeserver);
-	d->mainClient->authKit()->CheckLoggedIn([this, cb, token, homeserver, userID](auto r) {
-		auto ok = std::holds_alternative<google::protobuf::Empty>(r);
-		if (ok) {
-			Q_EMIT ready(homeserver, userID, token);
-		}
-		cb(ok);
-	}, google::protobuf::Empty {});
+
+	auto result = co_await d->mainClient->authKit()->CheckLoggedIn(google::protobuf::Empty {});
+
+	if (result.ok()) {
+		Q_EMIT ready(homeserver, userID, token);
+	}
+
+	co_return result.ok();
 }
 
 };

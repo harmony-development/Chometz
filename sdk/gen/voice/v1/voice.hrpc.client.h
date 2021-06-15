@@ -1,13 +1,18 @@
+#pragma once
 #include <QByteArray>
 #include <QCoreApplication>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QString>
+#include <QFuture>
 #include <functional>
 #include <variant>
+#include <future.h>
 #include "voice/v1/voice.pb.h"
+#include "voice/v1/voice.hrpc.types.h"
 #include <QWebSocket>
 #include "google/protobuf/empty.pb.h"
+#include "google/protobuf/empty.hrpc.types.h"
 
 class Receive__protocol_voice_v1_Signal__Stream : public QWebSocket {
 	
@@ -40,6 +45,6 @@ public:
 	QMap<QByteArray,QString> universalHeaders;
 	template<typename T> using Result = std::variant<T, QString>;
 	[[ nodiscard ]] Result<protocol::voice::v1::ConnectResponse> ConnectSync(const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers = {});
-	void Connect(std::function<void(Result<protocol::voice::v1::ConnectResponse>)> callback, const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] FutureResult<protocol::voice::v1::ConnectResponse, QString> Connect(const protocol::voice::v1::ConnectRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Receive__protocol_voice_v1_Signal__Stream* StreamState(const protocol::voice::v1::StreamStateRequest& in, QMap<QByteArray,QString> headers = {});
 };

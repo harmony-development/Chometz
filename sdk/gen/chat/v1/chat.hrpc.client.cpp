@@ -66,14 +66,13 @@ auto ChatServiceServiceClient::CreateGuildSync(const protocol::chat::v1::CreateG
 	return {ret};
 
 }
-void ChatServiceServiceClient::CreateGuild(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::CreateGuildResponse>)> callback, const protocol::chat::v1::CreateGuildRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::CreateGuildResponse, QString> ChatServiceServiceClient::CreateGuild(const protocol::chat::v1::CreateGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::CreateGuildResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -98,10 +97,10 @@ void ChatServiceServiceClient::CreateGuild(std::function<void(ChatServiceService
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -110,14 +109,16 @@ void ChatServiceServiceClient::CreateGuild(std::function<void(ChatServiceService
 		protocol::chat::v1::CreateGuildResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::CreateInviteSync(const protocol::chat::v1::CreateInviteRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::CreateInviteResponse>
@@ -167,14 +168,13 @@ auto ChatServiceServiceClient::CreateInviteSync(const protocol::chat::v1::Create
 	return {ret};
 
 }
-void ChatServiceServiceClient::CreateInvite(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::CreateInviteResponse>)> callback, const protocol::chat::v1::CreateInviteRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::CreateInviteResponse, QString> ChatServiceServiceClient::CreateInvite(const protocol::chat::v1::CreateInviteRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::CreateInviteResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -199,10 +199,10 @@ void ChatServiceServiceClient::CreateInvite(std::function<void(ChatServiceServic
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -211,14 +211,16 @@ void ChatServiceServiceClient::CreateInvite(std::function<void(ChatServiceServic
 		protocol::chat::v1::CreateInviteResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::CreateChannelSync(const protocol::chat::v1::CreateChannelRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::CreateChannelResponse>
@@ -268,14 +270,13 @@ auto ChatServiceServiceClient::CreateChannelSync(const protocol::chat::v1::Creat
 	return {ret};
 
 }
-void ChatServiceServiceClient::CreateChannel(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::CreateChannelResponse>)> callback, const protocol::chat::v1::CreateChannelRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::CreateChannelResponse, QString> ChatServiceServiceClient::CreateChannel(const protocol::chat::v1::CreateChannelRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::CreateChannelResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -300,10 +301,10 @@ void ChatServiceServiceClient::CreateChannel(std::function<void(ChatServiceServi
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -312,14 +313,16 @@ void ChatServiceServiceClient::CreateChannel(std::function<void(ChatServiceServi
 		protocol::chat::v1::CreateChannelResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::CreateEmotePackSync(const protocol::chat::v1::CreateEmotePackRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::CreateEmotePackResponse>
@@ -369,14 +372,13 @@ auto ChatServiceServiceClient::CreateEmotePackSync(const protocol::chat::v1::Cre
 	return {ret};
 
 }
-void ChatServiceServiceClient::CreateEmotePack(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::CreateEmotePackResponse>)> callback, const protocol::chat::v1::CreateEmotePackRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::CreateEmotePackResponse, QString> ChatServiceServiceClient::CreateEmotePack(const protocol::chat::v1::CreateEmotePackRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::CreateEmotePackResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -401,10 +403,10 @@ void ChatServiceServiceClient::CreateEmotePack(std::function<void(ChatServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -413,14 +415,16 @@ void ChatServiceServiceClient::CreateEmotePack(std::function<void(ChatServiceSer
 		protocol::chat::v1::CreateEmotePackResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetGuildListSync(const protocol::chat::v1::GetGuildListRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildListResponse>
@@ -470,14 +474,13 @@ auto ChatServiceServiceClient::GetGuildListSync(const protocol::chat::v1::GetGui
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetGuildList(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildListResponse>)> callback, const protocol::chat::v1::GetGuildListRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetGuildListResponse, QString> ChatServiceServiceClient::GetGuildList(const protocol::chat::v1::GetGuildListRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetGuildListResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -502,10 +505,10 @@ void ChatServiceServiceClient::GetGuildList(std::function<void(ChatServiceServic
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -514,14 +517,16 @@ void ChatServiceServiceClient::GetGuildList(std::function<void(ChatServiceServic
 		protocol::chat::v1::GetGuildListResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::AddGuildToGuildListSync(const protocol::chat::v1::AddGuildToGuildListRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::AddGuildToGuildListResponse>
@@ -571,14 +576,13 @@ auto ChatServiceServiceClient::AddGuildToGuildListSync(const protocol::chat::v1:
 	return {ret};
 
 }
-void ChatServiceServiceClient::AddGuildToGuildList(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::AddGuildToGuildListResponse>)> callback, const protocol::chat::v1::AddGuildToGuildListRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::AddGuildToGuildListResponse, QString> ChatServiceServiceClient::AddGuildToGuildList(const protocol::chat::v1::AddGuildToGuildListRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::AddGuildToGuildListResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -603,10 +607,10 @@ void ChatServiceServiceClient::AddGuildToGuildList(std::function<void(ChatServic
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -615,14 +619,16 @@ void ChatServiceServiceClient::AddGuildToGuildList(std::function<void(ChatServic
 		protocol::chat::v1::AddGuildToGuildListResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::RemoveGuildFromGuildListSync(const protocol::chat::v1::RemoveGuildFromGuildListRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::RemoveGuildFromGuildListResponse>
@@ -672,14 +678,13 @@ auto ChatServiceServiceClient::RemoveGuildFromGuildListSync(const protocol::chat
 	return {ret};
 
 }
-void ChatServiceServiceClient::RemoveGuildFromGuildList(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::RemoveGuildFromGuildListResponse>)> callback, const protocol::chat::v1::RemoveGuildFromGuildListRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::RemoveGuildFromGuildListResponse, QString> ChatServiceServiceClient::RemoveGuildFromGuildList(const protocol::chat::v1::RemoveGuildFromGuildListRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::RemoveGuildFromGuildListResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -704,10 +709,10 @@ void ChatServiceServiceClient::RemoveGuildFromGuildList(std::function<void(ChatS
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -716,14 +721,16 @@ void ChatServiceServiceClient::RemoveGuildFromGuildList(std::function<void(ChatS
 		protocol::chat::v1::RemoveGuildFromGuildListResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetGuildSync(const protocol::chat::v1::GetGuildRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildResponse>
@@ -773,14 +780,13 @@ auto ChatServiceServiceClient::GetGuildSync(const protocol::chat::v1::GetGuildRe
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetGuild(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildResponse>)> callback, const protocol::chat::v1::GetGuildRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetGuildResponse, QString> ChatServiceServiceClient::GetGuild(const protocol::chat::v1::GetGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetGuildResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -805,10 +811,10 @@ void ChatServiceServiceClient::GetGuild(std::function<void(ChatServiceServiceCli
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -817,14 +823,16 @@ void ChatServiceServiceClient::GetGuild(std::function<void(ChatServiceServiceCli
 		protocol::chat::v1::GetGuildResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetGuildInvitesSync(const protocol::chat::v1::GetGuildInvitesRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildInvitesResponse>
@@ -874,14 +882,13 @@ auto ChatServiceServiceClient::GetGuildInvitesSync(const protocol::chat::v1::Get
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetGuildInvites(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildInvitesResponse>)> callback, const protocol::chat::v1::GetGuildInvitesRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetGuildInvitesResponse, QString> ChatServiceServiceClient::GetGuildInvites(const protocol::chat::v1::GetGuildInvitesRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetGuildInvitesResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -906,10 +913,10 @@ void ChatServiceServiceClient::GetGuildInvites(std::function<void(ChatServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -918,14 +925,16 @@ void ChatServiceServiceClient::GetGuildInvites(std::function<void(ChatServiceSer
 		protocol::chat::v1::GetGuildInvitesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetGuildMembersSync(const protocol::chat::v1::GetGuildMembersRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildMembersResponse>
@@ -975,14 +984,13 @@ auto ChatServiceServiceClient::GetGuildMembersSync(const protocol::chat::v1::Get
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetGuildMembers(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildMembersResponse>)> callback, const protocol::chat::v1::GetGuildMembersRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetGuildMembersResponse, QString> ChatServiceServiceClient::GetGuildMembers(const protocol::chat::v1::GetGuildMembersRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetGuildMembersResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1007,10 +1015,10 @@ void ChatServiceServiceClient::GetGuildMembers(std::function<void(ChatServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1019,14 +1027,16 @@ void ChatServiceServiceClient::GetGuildMembers(std::function<void(ChatServiceSer
 		protocol::chat::v1::GetGuildMembersResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetGuildChannelsSync(const protocol::chat::v1::GetGuildChannelsRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildChannelsResponse>
@@ -1076,14 +1086,13 @@ auto ChatServiceServiceClient::GetGuildChannelsSync(const protocol::chat::v1::Ge
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetGuildChannels(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildChannelsResponse>)> callback, const protocol::chat::v1::GetGuildChannelsRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetGuildChannelsResponse, QString> ChatServiceServiceClient::GetGuildChannels(const protocol::chat::v1::GetGuildChannelsRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetGuildChannelsResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1108,10 +1117,10 @@ void ChatServiceServiceClient::GetGuildChannels(std::function<void(ChatServiceSe
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1120,14 +1129,16 @@ void ChatServiceServiceClient::GetGuildChannels(std::function<void(ChatServiceSe
 		protocol::chat::v1::GetGuildChannelsResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetChannelMessagesSync(const protocol::chat::v1::GetChannelMessagesRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetChannelMessagesResponse>
@@ -1177,14 +1188,13 @@ auto ChatServiceServiceClient::GetChannelMessagesSync(const protocol::chat::v1::
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetChannelMessages(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetChannelMessagesResponse>)> callback, const protocol::chat::v1::GetChannelMessagesRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetChannelMessagesResponse, QString> ChatServiceServiceClient::GetChannelMessages(const protocol::chat::v1::GetChannelMessagesRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetChannelMessagesResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1209,10 +1219,10 @@ void ChatServiceServiceClient::GetChannelMessages(std::function<void(ChatService
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1221,14 +1231,16 @@ void ChatServiceServiceClient::GetChannelMessages(std::function<void(ChatService
 		protocol::chat::v1::GetChannelMessagesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetMessageSync(const protocol::chat::v1::GetMessageRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetMessageResponse>
@@ -1278,14 +1290,13 @@ auto ChatServiceServiceClient::GetMessageSync(const protocol::chat::v1::GetMessa
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetMessage(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetMessageResponse>)> callback, const protocol::chat::v1::GetMessageRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetMessageResponse, QString> ChatServiceServiceClient::GetMessage(const protocol::chat::v1::GetMessageRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetMessageResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1310,10 +1321,10 @@ void ChatServiceServiceClient::GetMessage(std::function<void(ChatServiceServiceC
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1322,14 +1333,16 @@ void ChatServiceServiceClient::GetMessage(std::function<void(ChatServiceServiceC
 		protocol::chat::v1::GetMessageResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetEmotePacksSync(const protocol::chat::v1::GetEmotePacksRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetEmotePacksResponse>
@@ -1379,14 +1392,13 @@ auto ChatServiceServiceClient::GetEmotePacksSync(const protocol::chat::v1::GetEm
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetEmotePacks(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetEmotePacksResponse>)> callback, const protocol::chat::v1::GetEmotePacksRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetEmotePacksResponse, QString> ChatServiceServiceClient::GetEmotePacks(const protocol::chat::v1::GetEmotePacksRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetEmotePacksResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1411,10 +1423,10 @@ void ChatServiceServiceClient::GetEmotePacks(std::function<void(ChatServiceServi
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1423,14 +1435,16 @@ void ChatServiceServiceClient::GetEmotePacks(std::function<void(ChatServiceServi
 		protocol::chat::v1::GetEmotePacksResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetEmotePackEmotesSync(const protocol::chat::v1::GetEmotePackEmotesRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetEmotePackEmotesResponse>
@@ -1480,14 +1494,13 @@ auto ChatServiceServiceClient::GetEmotePackEmotesSync(const protocol::chat::v1::
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetEmotePackEmotes(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetEmotePackEmotesResponse>)> callback, const protocol::chat::v1::GetEmotePackEmotesRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetEmotePackEmotesResponse, QString> ChatServiceServiceClient::GetEmotePackEmotes(const protocol::chat::v1::GetEmotePackEmotesRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetEmotePackEmotesResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1512,10 +1525,10 @@ void ChatServiceServiceClient::GetEmotePackEmotes(std::function<void(ChatService
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1524,14 +1537,16 @@ void ChatServiceServiceClient::GetEmotePackEmotes(std::function<void(ChatService
 		protocol::chat::v1::GetEmotePackEmotesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::UpdateGuildInformationSync(const protocol::chat::v1::UpdateGuildInformationRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -1581,14 +1596,13 @@ auto ChatServiceServiceClient::UpdateGuildInformationSync(const protocol::chat::
 	return {ret};
 
 }
-void ChatServiceServiceClient::UpdateGuildInformation(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UpdateGuildInformationRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UpdateGuildInformation(const protocol::chat::v1::UpdateGuildInformationRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1613,10 +1627,10 @@ void ChatServiceServiceClient::UpdateGuildInformation(std::function<void(ChatSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1625,14 +1639,16 @@ void ChatServiceServiceClient::UpdateGuildInformation(std::function<void(ChatSer
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::UpdateChannelInformationSync(const protocol::chat::v1::UpdateChannelInformationRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -1682,14 +1698,13 @@ auto ChatServiceServiceClient::UpdateChannelInformationSync(const protocol::chat
 	return {ret};
 
 }
-void ChatServiceServiceClient::UpdateChannelInformation(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UpdateChannelInformationRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UpdateChannelInformation(const protocol::chat::v1::UpdateChannelInformationRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1714,10 +1729,10 @@ void ChatServiceServiceClient::UpdateChannelInformation(std::function<void(ChatS
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1726,14 +1741,16 @@ void ChatServiceServiceClient::UpdateChannelInformation(std::function<void(ChatS
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::UpdateChannelOrderSync(const protocol::chat::v1::UpdateChannelOrderRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -1783,14 +1800,13 @@ auto ChatServiceServiceClient::UpdateChannelOrderSync(const protocol::chat::v1::
 	return {ret};
 
 }
-void ChatServiceServiceClient::UpdateChannelOrder(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UpdateChannelOrderRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UpdateChannelOrder(const protocol::chat::v1::UpdateChannelOrderRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1815,10 +1831,10 @@ void ChatServiceServiceClient::UpdateChannelOrder(std::function<void(ChatService
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1827,14 +1843,16 @@ void ChatServiceServiceClient::UpdateChannelOrder(std::function<void(ChatService
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::UpdateMessageTextSync(const protocol::chat::v1::UpdateMessageTextRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -1884,14 +1902,13 @@ auto ChatServiceServiceClient::UpdateMessageTextSync(const protocol::chat::v1::U
 	return {ret};
 
 }
-void ChatServiceServiceClient::UpdateMessageText(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UpdateMessageTextRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UpdateMessageText(const protocol::chat::v1::UpdateMessageTextRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -1916,10 +1933,10 @@ void ChatServiceServiceClient::UpdateMessageText(std::function<void(ChatServiceS
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -1928,14 +1945,16 @@ void ChatServiceServiceClient::UpdateMessageText(std::function<void(ChatServiceS
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::AddEmoteToPackSync(const protocol::chat::v1::AddEmoteToPackRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -1985,14 +2004,13 @@ auto ChatServiceServiceClient::AddEmoteToPackSync(const protocol::chat::v1::AddE
 	return {ret};
 
 }
-void ChatServiceServiceClient::AddEmoteToPack(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::AddEmoteToPackRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::AddEmoteToPack(const protocol::chat::v1::AddEmoteToPackRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2017,10 +2035,10 @@ void ChatServiceServiceClient::AddEmoteToPack(std::function<void(ChatServiceServ
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2029,14 +2047,16 @@ void ChatServiceServiceClient::AddEmoteToPack(std::function<void(ChatServiceServ
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::DeleteGuildSync(const protocol::chat::v1::DeleteGuildRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -2086,14 +2106,13 @@ auto ChatServiceServiceClient::DeleteGuildSync(const protocol::chat::v1::DeleteG
 	return {ret};
 
 }
-void ChatServiceServiceClient::DeleteGuild(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteGuildRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteGuild(const protocol::chat::v1::DeleteGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2118,10 +2137,10 @@ void ChatServiceServiceClient::DeleteGuild(std::function<void(ChatServiceService
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2130,14 +2149,16 @@ void ChatServiceServiceClient::DeleteGuild(std::function<void(ChatServiceService
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::DeleteInviteSync(const protocol::chat::v1::DeleteInviteRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -2187,14 +2208,13 @@ auto ChatServiceServiceClient::DeleteInviteSync(const protocol::chat::v1::Delete
 	return {ret};
 
 }
-void ChatServiceServiceClient::DeleteInvite(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteInviteRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteInvite(const protocol::chat::v1::DeleteInviteRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2219,10 +2239,10 @@ void ChatServiceServiceClient::DeleteInvite(std::function<void(ChatServiceServic
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2231,14 +2251,16 @@ void ChatServiceServiceClient::DeleteInvite(std::function<void(ChatServiceServic
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::DeleteChannelSync(const protocol::chat::v1::DeleteChannelRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -2288,14 +2310,13 @@ auto ChatServiceServiceClient::DeleteChannelSync(const protocol::chat::v1::Delet
 	return {ret};
 
 }
-void ChatServiceServiceClient::DeleteChannel(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteChannelRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteChannel(const protocol::chat::v1::DeleteChannelRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2320,10 +2341,10 @@ void ChatServiceServiceClient::DeleteChannel(std::function<void(ChatServiceServi
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2332,14 +2353,16 @@ void ChatServiceServiceClient::DeleteChannel(std::function<void(ChatServiceServi
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::DeleteMessageSync(const protocol::chat::v1::DeleteMessageRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -2389,14 +2412,13 @@ auto ChatServiceServiceClient::DeleteMessageSync(const protocol::chat::v1::Delet
 	return {ret};
 
 }
-void ChatServiceServiceClient::DeleteMessage(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteMessageRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteMessage(const protocol::chat::v1::DeleteMessageRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2421,10 +2443,10 @@ void ChatServiceServiceClient::DeleteMessage(std::function<void(ChatServiceServi
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2433,14 +2455,16 @@ void ChatServiceServiceClient::DeleteMessage(std::function<void(ChatServiceServi
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::DeleteEmoteFromPackSync(const protocol::chat::v1::DeleteEmoteFromPackRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -2490,14 +2514,13 @@ auto ChatServiceServiceClient::DeleteEmoteFromPackSync(const protocol::chat::v1:
 	return {ret};
 
 }
-void ChatServiceServiceClient::DeleteEmoteFromPack(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteEmoteFromPackRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteEmoteFromPack(const protocol::chat::v1::DeleteEmoteFromPackRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2522,10 +2545,10 @@ void ChatServiceServiceClient::DeleteEmoteFromPack(std::function<void(ChatServic
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2534,14 +2557,16 @@ void ChatServiceServiceClient::DeleteEmoteFromPack(std::function<void(ChatServic
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::DeleteEmotePackSync(const protocol::chat::v1::DeleteEmotePackRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -2591,14 +2616,13 @@ auto ChatServiceServiceClient::DeleteEmotePackSync(const protocol::chat::v1::Del
 	return {ret};
 
 }
-void ChatServiceServiceClient::DeleteEmotePack(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteEmotePackRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteEmotePack(const protocol::chat::v1::DeleteEmotePackRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2623,10 +2647,10 @@ void ChatServiceServiceClient::DeleteEmotePack(std::function<void(ChatServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2635,14 +2659,16 @@ void ChatServiceServiceClient::DeleteEmotePack(std::function<void(ChatServiceSer
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::DequipEmotePackSync(const protocol::chat::v1::DequipEmotePackRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -2692,14 +2718,13 @@ auto ChatServiceServiceClient::DequipEmotePackSync(const protocol::chat::v1::Deq
 	return {ret};
 
 }
-void ChatServiceServiceClient::DequipEmotePack(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DequipEmotePackRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DequipEmotePack(const protocol::chat::v1::DequipEmotePackRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2724,10 +2749,10 @@ void ChatServiceServiceClient::DequipEmotePack(std::function<void(ChatServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2736,14 +2761,16 @@ void ChatServiceServiceClient::DequipEmotePack(std::function<void(ChatServiceSer
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::JoinGuildSync(const protocol::chat::v1::JoinGuildRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::JoinGuildResponse>
@@ -2793,14 +2820,13 @@ auto ChatServiceServiceClient::JoinGuildSync(const protocol::chat::v1::JoinGuild
 	return {ret};
 
 }
-void ChatServiceServiceClient::JoinGuild(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::JoinGuildResponse>)> callback, const protocol::chat::v1::JoinGuildRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::JoinGuildResponse, QString> ChatServiceServiceClient::JoinGuild(const protocol::chat::v1::JoinGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::JoinGuildResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2825,10 +2851,10 @@ void ChatServiceServiceClient::JoinGuild(std::function<void(ChatServiceServiceCl
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2837,14 +2863,16 @@ void ChatServiceServiceClient::JoinGuild(std::function<void(ChatServiceServiceCl
 		protocol::chat::v1::JoinGuildResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::LeaveGuildSync(const protocol::chat::v1::LeaveGuildRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -2894,14 +2922,13 @@ auto ChatServiceServiceClient::LeaveGuildSync(const protocol::chat::v1::LeaveGui
 	return {ret};
 
 }
-void ChatServiceServiceClient::LeaveGuild(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::LeaveGuildRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::LeaveGuild(const protocol::chat::v1::LeaveGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -2926,10 +2953,10 @@ void ChatServiceServiceClient::LeaveGuild(std::function<void(ChatServiceServiceC
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -2938,14 +2965,16 @@ void ChatServiceServiceClient::LeaveGuild(std::function<void(ChatServiceServiceC
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::TriggerActionSync(const protocol::chat::v1::TriggerActionRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -2995,14 +3024,13 @@ auto ChatServiceServiceClient::TriggerActionSync(const protocol::chat::v1::Trigg
 	return {ret};
 
 }
-void ChatServiceServiceClient::TriggerAction(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::TriggerActionRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::TriggerAction(const protocol::chat::v1::TriggerActionRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3027,10 +3055,10 @@ void ChatServiceServiceClient::TriggerAction(std::function<void(ChatServiceServi
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3039,14 +3067,16 @@ void ChatServiceServiceClient::TriggerAction(std::function<void(ChatServiceServi
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::SendMessageSync(const protocol::chat::v1::SendMessageRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::SendMessageResponse>
@@ -3096,14 +3126,13 @@ auto ChatServiceServiceClient::SendMessageSync(const protocol::chat::v1::SendMes
 	return {ret};
 
 }
-void ChatServiceServiceClient::SendMessage(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::SendMessageResponse>)> callback, const protocol::chat::v1::SendMessageRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::SendMessageResponse, QString> ChatServiceServiceClient::SendMessage(const protocol::chat::v1::SendMessageRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::SendMessageResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3128,10 +3157,10 @@ void ChatServiceServiceClient::SendMessage(std::function<void(ChatServiceService
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3140,14 +3169,16 @@ void ChatServiceServiceClient::SendMessage(std::function<void(ChatServiceService
 		protocol::chat::v1::SendMessageResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::QueryHasPermissionSync(const protocol::chat::v1::QueryPermissionsRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::QueryPermissionsResponse>
@@ -3197,14 +3228,13 @@ auto ChatServiceServiceClient::QueryHasPermissionSync(const protocol::chat::v1::
 	return {ret};
 
 }
-void ChatServiceServiceClient::QueryHasPermission(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::QueryPermissionsResponse>)> callback, const protocol::chat::v1::QueryPermissionsRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::QueryPermissionsResponse, QString> ChatServiceServiceClient::QueryHasPermission(const protocol::chat::v1::QueryPermissionsRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::QueryPermissionsResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3229,10 +3259,10 @@ void ChatServiceServiceClient::QueryHasPermission(std::function<void(ChatService
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3241,14 +3271,16 @@ void ChatServiceServiceClient::QueryHasPermission(std::function<void(ChatService
 		protocol::chat::v1::QueryPermissionsResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::SetPermissionsSync(const protocol::chat::v1::SetPermissionsRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -3298,14 +3330,13 @@ auto ChatServiceServiceClient::SetPermissionsSync(const protocol::chat::v1::SetP
 	return {ret};
 
 }
-void ChatServiceServiceClient::SetPermissions(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::SetPermissionsRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::SetPermissions(const protocol::chat::v1::SetPermissionsRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3330,10 +3361,10 @@ void ChatServiceServiceClient::SetPermissions(std::function<void(ChatServiceServ
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3342,14 +3373,16 @@ void ChatServiceServiceClient::SetPermissions(std::function<void(ChatServiceServ
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetPermissionsSync(const protocol::chat::v1::GetPermissionsRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetPermissionsResponse>
@@ -3399,14 +3432,13 @@ auto ChatServiceServiceClient::GetPermissionsSync(const protocol::chat::v1::GetP
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetPermissions(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetPermissionsResponse>)> callback, const protocol::chat::v1::GetPermissionsRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetPermissionsResponse, QString> ChatServiceServiceClient::GetPermissions(const protocol::chat::v1::GetPermissionsRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetPermissionsResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3431,10 +3463,10 @@ void ChatServiceServiceClient::GetPermissions(std::function<void(ChatServiceServ
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3443,14 +3475,16 @@ void ChatServiceServiceClient::GetPermissions(std::function<void(ChatServiceServ
 		protocol::chat::v1::GetPermissionsResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::MoveRoleSync(const protocol::chat::v1::MoveRoleRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::MoveRoleResponse>
@@ -3500,14 +3534,13 @@ auto ChatServiceServiceClient::MoveRoleSync(const protocol::chat::v1::MoveRoleRe
 	return {ret};
 
 }
-void ChatServiceServiceClient::MoveRole(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::MoveRoleResponse>)> callback, const protocol::chat::v1::MoveRoleRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::MoveRoleResponse, QString> ChatServiceServiceClient::MoveRole(const protocol::chat::v1::MoveRoleRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::MoveRoleResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3532,10 +3565,10 @@ void ChatServiceServiceClient::MoveRole(std::function<void(ChatServiceServiceCli
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3544,14 +3577,16 @@ void ChatServiceServiceClient::MoveRole(std::function<void(ChatServiceServiceCli
 		protocol::chat::v1::MoveRoleResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetGuildRolesSync(const protocol::chat::v1::GetGuildRolesRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildRolesResponse>
@@ -3601,14 +3636,13 @@ auto ChatServiceServiceClient::GetGuildRolesSync(const protocol::chat::v1::GetGu
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetGuildRoles(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetGuildRolesResponse>)> callback, const protocol::chat::v1::GetGuildRolesRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetGuildRolesResponse, QString> ChatServiceServiceClient::GetGuildRoles(const protocol::chat::v1::GetGuildRolesRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetGuildRolesResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3633,10 +3667,10 @@ void ChatServiceServiceClient::GetGuildRoles(std::function<void(ChatServiceServi
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3645,14 +3679,16 @@ void ChatServiceServiceClient::GetGuildRoles(std::function<void(ChatServiceServi
 		protocol::chat::v1::GetGuildRolesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::AddGuildRoleSync(const protocol::chat::v1::AddGuildRoleRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::AddGuildRoleResponse>
@@ -3702,14 +3738,13 @@ auto ChatServiceServiceClient::AddGuildRoleSync(const protocol::chat::v1::AddGui
 	return {ret};
 
 }
-void ChatServiceServiceClient::AddGuildRole(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::AddGuildRoleResponse>)> callback, const protocol::chat::v1::AddGuildRoleRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::AddGuildRoleResponse, QString> ChatServiceServiceClient::AddGuildRole(const protocol::chat::v1::AddGuildRoleRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::AddGuildRoleResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3734,10 +3769,10 @@ void ChatServiceServiceClient::AddGuildRole(std::function<void(ChatServiceServic
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3746,14 +3781,16 @@ void ChatServiceServiceClient::AddGuildRole(std::function<void(ChatServiceServic
 		protocol::chat::v1::AddGuildRoleResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::ModifyGuildRoleSync(const protocol::chat::v1::ModifyGuildRoleRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -3803,14 +3840,13 @@ auto ChatServiceServiceClient::ModifyGuildRoleSync(const protocol::chat::v1::Mod
 	return {ret};
 
 }
-void ChatServiceServiceClient::ModifyGuildRole(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::ModifyGuildRoleRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::ModifyGuildRole(const protocol::chat::v1::ModifyGuildRoleRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3835,10 +3871,10 @@ void ChatServiceServiceClient::ModifyGuildRole(std::function<void(ChatServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3847,14 +3883,16 @@ void ChatServiceServiceClient::ModifyGuildRole(std::function<void(ChatServiceSer
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::DeleteGuildRoleSync(const protocol::chat::v1::DeleteGuildRoleRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -3904,14 +3942,13 @@ auto ChatServiceServiceClient::DeleteGuildRoleSync(const protocol::chat::v1::Del
 	return {ret};
 
 }
-void ChatServiceServiceClient::DeleteGuildRole(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::DeleteGuildRoleRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteGuildRole(const protocol::chat::v1::DeleteGuildRoleRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -3936,10 +3973,10 @@ void ChatServiceServiceClient::DeleteGuildRole(std::function<void(ChatServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -3948,14 +3985,16 @@ void ChatServiceServiceClient::DeleteGuildRole(std::function<void(ChatServiceSer
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::ManageUserRolesSync(const protocol::chat::v1::ManageUserRolesRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -4005,14 +4044,13 @@ auto ChatServiceServiceClient::ManageUserRolesSync(const protocol::chat::v1::Man
 	return {ret};
 
 }
-void ChatServiceServiceClient::ManageUserRoles(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::ManageUserRolesRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::ManageUserRoles(const protocol::chat::v1::ManageUserRolesRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4037,10 +4075,10 @@ void ChatServiceServiceClient::ManageUserRoles(std::function<void(ChatServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4049,14 +4087,16 @@ void ChatServiceServiceClient::ManageUserRoles(std::function<void(ChatServiceSer
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetUserRolesSync(const protocol::chat::v1::GetUserRolesRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetUserRolesResponse>
@@ -4106,14 +4146,13 @@ auto ChatServiceServiceClient::GetUserRolesSync(const protocol::chat::v1::GetUse
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetUserRoles(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetUserRolesResponse>)> callback, const protocol::chat::v1::GetUserRolesRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetUserRolesResponse, QString> ChatServiceServiceClient::GetUserRoles(const protocol::chat::v1::GetUserRolesRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetUserRolesResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4138,10 +4177,10 @@ void ChatServiceServiceClient::GetUserRoles(std::function<void(ChatServiceServic
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4150,14 +4189,16 @@ void ChatServiceServiceClient::GetUserRoles(std::function<void(ChatServiceServic
 		protocol::chat::v1::GetUserRolesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::StreamEvents(QMap<QByteArray,QString> headers) -> Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream*
@@ -4222,14 +4263,13 @@ auto ChatServiceServiceClient::GetUserSync(const protocol::chat::v1::GetUserRequ
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetUser(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetUserResponse>)> callback, const protocol::chat::v1::GetUserRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetUserResponse, QString> ChatServiceServiceClient::GetUser(const protocol::chat::v1::GetUserRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetUserResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4254,10 +4294,10 @@ void ChatServiceServiceClient::GetUser(std::function<void(ChatServiceServiceClie
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4266,14 +4306,16 @@ void ChatServiceServiceClient::GetUser(std::function<void(ChatServiceServiceClie
 		protocol::chat::v1::GetUserResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetUserBulkSync(const protocol::chat::v1::GetUserBulkRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetUserBulkResponse>
@@ -4323,14 +4365,13 @@ auto ChatServiceServiceClient::GetUserBulkSync(const protocol::chat::v1::GetUser
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetUserBulk(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetUserBulkResponse>)> callback, const protocol::chat::v1::GetUserBulkRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetUserBulkResponse, QString> ChatServiceServiceClient::GetUserBulk(const protocol::chat::v1::GetUserBulkRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetUserBulkResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4355,10 +4396,10 @@ void ChatServiceServiceClient::GetUserBulk(std::function<void(ChatServiceService
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4367,14 +4408,16 @@ void ChatServiceServiceClient::GetUserBulk(std::function<void(ChatServiceService
 		protocol::chat::v1::GetUserBulkResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::GetUserMetadataSync(const protocol::chat::v1::GetUserMetadataRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::GetUserMetadataResponse>
@@ -4424,14 +4467,13 @@ auto ChatServiceServiceClient::GetUserMetadataSync(const protocol::chat::v1::Get
 	return {ret};
 
 }
-void ChatServiceServiceClient::GetUserMetadata(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::GetUserMetadataResponse>)> callback, const protocol::chat::v1::GetUserMetadataRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::GetUserMetadataResponse, QString> ChatServiceServiceClient::GetUserMetadata(const protocol::chat::v1::GetUserMetadataRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::GetUserMetadataResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4456,10 +4498,10 @@ void ChatServiceServiceClient::GetUserMetadata(std::function<void(ChatServiceSer
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4468,14 +4510,16 @@ void ChatServiceServiceClient::GetUserMetadata(std::function<void(ChatServiceSer
 		protocol::chat::v1::GetUserMetadataResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::ProfileUpdateSync(const protocol::chat::v1::ProfileUpdateRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -4525,14 +4569,13 @@ auto ChatServiceServiceClient::ProfileUpdateSync(const protocol::chat::v1::Profi
 	return {ret};
 
 }
-void ChatServiceServiceClient::ProfileUpdate(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::ProfileUpdateRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::ProfileUpdate(const protocol::chat::v1::ProfileUpdateRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4557,10 +4600,10 @@ void ChatServiceServiceClient::ProfileUpdate(std::function<void(ChatServiceServi
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4569,14 +4612,16 @@ void ChatServiceServiceClient::ProfileUpdate(std::function<void(ChatServiceServi
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::TypingSync(const protocol::chat::v1::TypingRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -4626,14 +4671,13 @@ auto ChatServiceServiceClient::TypingSync(const protocol::chat::v1::TypingReques
 	return {ret};
 
 }
-void ChatServiceServiceClient::Typing(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::TypingRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::Typing(const protocol::chat::v1::TypingRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4658,10 +4702,10 @@ void ChatServiceServiceClient::Typing(std::function<void(ChatServiceServiceClien
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4670,14 +4714,16 @@ void ChatServiceServiceClient::Typing(std::function<void(ChatServiceServiceClien
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::PreviewGuildSync(const protocol::chat::v1::PreviewGuildRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<protocol::chat::v1::PreviewGuildResponse>
@@ -4727,14 +4773,13 @@ auto ChatServiceServiceClient::PreviewGuildSync(const protocol::chat::v1::Previe
 	return {ret};
 
 }
-void ChatServiceServiceClient::PreviewGuild(std::function<void(ChatServiceServiceClient::Result<protocol::chat::v1::PreviewGuildResponse>)> callback, const protocol::chat::v1::PreviewGuildRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::chat::v1::PreviewGuildResponse, QString> ChatServiceServiceClient::PreviewGuild(const protocol::chat::v1::PreviewGuildRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::chat::v1::PreviewGuildResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4759,10 +4804,10 @@ void ChatServiceServiceClient::PreviewGuild(std::function<void(ChatServiceServic
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4771,14 +4816,16 @@ void ChatServiceServiceClient::PreviewGuild(std::function<void(ChatServiceServic
 		protocol::chat::v1::PreviewGuildResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::BanUserSync(const protocol::chat::v1::BanUserRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -4828,14 +4875,13 @@ auto ChatServiceServiceClient::BanUserSync(const protocol::chat::v1::BanUserRequ
 	return {ret};
 
 }
-void ChatServiceServiceClient::BanUser(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::BanUserRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::BanUser(const protocol::chat::v1::BanUserRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4860,10 +4906,10 @@ void ChatServiceServiceClient::BanUser(std::function<void(ChatServiceServiceClie
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4872,14 +4918,16 @@ void ChatServiceServiceClient::BanUser(std::function<void(ChatServiceServiceClie
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::KickUserSync(const protocol::chat::v1::KickUserRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -4929,14 +4977,13 @@ auto ChatServiceServiceClient::KickUserSync(const protocol::chat::v1::KickUserRe
 	return {ret};
 
 }
-void ChatServiceServiceClient::KickUser(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::KickUserRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::KickUser(const protocol::chat::v1::KickUserRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -4961,10 +5008,10 @@ void ChatServiceServiceClient::KickUser(std::function<void(ChatServiceServiceCli
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -4973,14 +5020,16 @@ void ChatServiceServiceClient::KickUser(std::function<void(ChatServiceServiceCli
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto ChatServiceServiceClient::UnbanUserSync(const protocol::chat::v1::UnbanUserRequest& in, QMap<QByteArray,QString> headers) -> ChatServiceServiceClient::Result<google::protobuf::Empty>
@@ -5030,14 +5079,13 @@ auto ChatServiceServiceClient::UnbanUserSync(const protocol::chat::v1::UnbanUser
 	return {ret};
 
 }
-void ChatServiceServiceClient::UnbanUser(std::function<void(ChatServiceServiceClient::Result<google::protobuf::Empty>)> callback, const protocol::chat::v1::UnbanUserRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UnbanUser(const protocol::chat::v1::UnbanUserRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -5062,10 +5110,10 @@ void ChatServiceServiceClient::UnbanUser(std::function<void(ChatServiceServiceCl
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -5074,13 +5122,15 @@ void ChatServiceServiceClient::UnbanUser(std::function<void(ChatServiceServiceCl
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }

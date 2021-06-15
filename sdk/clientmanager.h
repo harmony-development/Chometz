@@ -2,8 +2,7 @@
 
 #include <QObject>
 
-#include "auth/v1/auth.pb.h"
-#include "chat/v1/chat.pb.h"
+#include "protos.h"
 
 class ChatServiceServiceClient;
 class AuthServiceServiceClient;
@@ -35,9 +34,9 @@ public:
 	void subscribeToActions();
 	void subscribeToHomeserver();
 
-	Client* clientForHomeserver(const QString& homeserver);
+	FutureResult<Client*> clientForHomeserver(const QString& homeserver);
 
-	void checkLogin(std::function<void(bool)> cb, const QString& token, const QString& hs, quint64 userID);
+	Future<bool> checkLogin(const QString& token, const QString& hs, quint64 userID);
 
 	Q_SIGNAL void ready(const QString& hs, quint64 userID, const QString& token);
 

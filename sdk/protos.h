@@ -9,12 +9,10 @@
 #include "mediaproxy/v1/mediaproxy.pb.h"
 
 #include "util.h"
+#include "coroutine_integration.h"
+#include "coroutine_integration_network.h"
 
 #include <google/protobuf/util/json_util.h>
-
-Q_DECLARE_METATYPE(protocol::auth::v1::AuthStep);
-Q_DECLARE_METATYPE(protocol::chat::v1::Event);
-Q_DECLARE_METATYPE(protocol::chat::v1::Event::ActionPerformed);
 
 template<typename T>
 QString messageToJSON(const T& msg)

@@ -66,14 +66,13 @@ auto AuthServiceServiceClient::FederateSync(const protocol::auth::v1::FederateRe
 	return {ret};
 
 }
-void AuthServiceServiceClient::Federate(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::FederateReply>)> callback, const protocol::auth::v1::FederateRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::auth::v1::FederateReply, QString> AuthServiceServiceClient::Federate(const protocol::auth::v1::FederateRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::auth::v1::FederateReply, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -98,10 +97,10 @@ void AuthServiceServiceClient::Federate(std::function<void(AuthServiceServiceCli
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -110,14 +109,16 @@ void AuthServiceServiceClient::Federate(std::function<void(AuthServiceServiceCli
 		protocol::auth::v1::FederateReply ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto AuthServiceServiceClient::LoginFederatedSync(const protocol::auth::v1::LoginFederatedRequest& in, QMap<QByteArray,QString> headers) -> AuthServiceServiceClient::Result<protocol::auth::v1::Session>
@@ -167,14 +168,13 @@ auto AuthServiceServiceClient::LoginFederatedSync(const protocol::auth::v1::Logi
 	return {ret};
 
 }
-void AuthServiceServiceClient::LoginFederated(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::Session>)> callback, const protocol::auth::v1::LoginFederatedRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::auth::v1::Session, QString> AuthServiceServiceClient::LoginFederated(const protocol::auth::v1::LoginFederatedRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::auth::v1::Session, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -199,10 +199,10 @@ void AuthServiceServiceClient::LoginFederated(std::function<void(AuthServiceServ
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -211,14 +211,16 @@ void AuthServiceServiceClient::LoginFederated(std::function<void(AuthServiceServ
 		protocol::auth::v1::Session ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto AuthServiceServiceClient::KeySync(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers) -> AuthServiceServiceClient::Result<protocol::auth::v1::KeyReply>
@@ -268,14 +270,13 @@ auto AuthServiceServiceClient::KeySync(const google::protobuf::Empty& in, QMap<Q
 	return {ret};
 
 }
-void AuthServiceServiceClient::Key(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::KeyReply>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::auth::v1::KeyReply, QString> AuthServiceServiceClient::Key(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::auth::v1::KeyReply, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -300,10 +301,10 @@ void AuthServiceServiceClient::Key(std::function<void(AuthServiceServiceClient::
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -312,14 +313,16 @@ void AuthServiceServiceClient::Key(std::function<void(AuthServiceServiceClient::
 		protocol::auth::v1::KeyReply ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto AuthServiceServiceClient::BeginAuthSync(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers) -> AuthServiceServiceClient::Result<protocol::auth::v1::BeginAuthResponse>
@@ -369,14 +372,13 @@ auto AuthServiceServiceClient::BeginAuthSync(const google::protobuf::Empty& in, 
 	return {ret};
 
 }
-void AuthServiceServiceClient::BeginAuth(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::BeginAuthResponse>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::auth::v1::BeginAuthResponse, QString> AuthServiceServiceClient::BeginAuth(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::auth::v1::BeginAuthResponse, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -401,10 +403,10 @@ void AuthServiceServiceClient::BeginAuth(std::function<void(AuthServiceServiceCl
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -413,14 +415,16 @@ void AuthServiceServiceClient::BeginAuth(std::function<void(AuthServiceServiceCl
 		protocol::auth::v1::BeginAuthResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto AuthServiceServiceClient::NextStepSync(const protocol::auth::v1::NextStepRequest& in, QMap<QByteArray,QString> headers) -> AuthServiceServiceClient::Result<protocol::auth::v1::AuthStep>
@@ -470,14 +474,13 @@ auto AuthServiceServiceClient::NextStepSync(const protocol::auth::v1::NextStepRe
 	return {ret};
 
 }
-void AuthServiceServiceClient::NextStep(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::AuthStep>)> callback, const protocol::auth::v1::NextStepRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::auth::v1::AuthStep, QString> AuthServiceServiceClient::NextStep(const protocol::auth::v1::NextStepRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::auth::v1::AuthStep, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -502,10 +505,10 @@ void AuthServiceServiceClient::NextStep(std::function<void(AuthServiceServiceCli
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -514,14 +517,16 @@ void AuthServiceServiceClient::NextStep(std::function<void(AuthServiceServiceCli
 		protocol::auth::v1::AuthStep ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto AuthServiceServiceClient::StepBackSync(const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers) -> AuthServiceServiceClient::Result<protocol::auth::v1::AuthStep>
@@ -571,14 +576,13 @@ auto AuthServiceServiceClient::StepBackSync(const protocol::auth::v1::StepBackRe
 	return {ret};
 
 }
-void AuthServiceServiceClient::StepBack(std::function<void(AuthServiceServiceClient::Result<protocol::auth::v1::AuthStep>)> callback, const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<protocol::auth::v1::AuthStep, QString> AuthServiceServiceClient::StepBack(const protocol::auth::v1::StepBackRequest& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<protocol::auth::v1::AuthStep, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -603,10 +607,10 @@ void AuthServiceServiceClient::StepBack(std::function<void(AuthServiceServiceCli
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -615,14 +619,16 @@ void AuthServiceServiceClient::StepBack(std::function<void(AuthServiceServiceCli
 		protocol::auth::v1::AuthStep ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }
 auto AuthServiceServiceClient::StreamSteps(const protocol::auth::v1::StreamStepsRequest& in, QMap<QByteArray,QString> headers) -> Receive__protocol_auth_v1_AuthStep__Stream*
@@ -691,14 +697,13 @@ auto AuthServiceServiceClient::CheckLoggedInSync(const google::protobuf::Empty& 
 	return {ret};
 
 }
-void AuthServiceServiceClient::CheckLoggedIn(std::function<void(AuthServiceServiceClient::Result<google::protobuf::Empty>)> callback, const google::protobuf::Empty& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> AuthServiceServiceClient::CheckLoggedIn(const google::protobuf::Empty& in, QMap<QByteArray,QString> headers)
 
 {
-	if (callback == nullptr) {
-		callback = [](auto) {};
-	}
+	FutureResult<google::protobuf::Empty, QString> res;
+
 	std::string strData;
-	if (!in.SerializeToString(&strData)) { callback({QStringLiteral("failed to serialize protobuf")}); return; }
+	if (!in.SerializeToString(&strData)) { res.fail({QStringLiteral("failed to serialize protobuf")}); return res; }
 	QByteArray data = QByteArray::fromStdString(strData);
 
 
@@ -723,10 +728,10 @@ void AuthServiceServiceClient::CheckLoggedIn(std::function<void(AuthServiceServi
 
 
 
-	QObject::connect(val, &QNetworkReply::finished, [val, callback]() {
+	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			callback({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
 			return;
 		}
 		
@@ -735,13 +740,15 @@ void AuthServiceServiceClient::CheckLoggedIn(std::function<void(AuthServiceServi
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
-			callback({QStringLiteral("error parsing response into protobuf")});
+			res.fail({QStringLiteral("error parsing response into protobuf")});
 			return;
 		}
 		
 		val->deleteLater();
-		callback({ret});
+		res.succeed({ret});
 		return;
 	});
+
+	return res;
 
 }

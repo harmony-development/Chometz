@@ -21,7 +21,7 @@ enum class State
 struct ClientManager::Private
 {
 	Client* mainClient;
-	QMap<QString,QSharedPointer<Client>> clients;
+	QMap<QString,FutureResult<Client*>> clients;
 
 	struct {
 		bool homeserver = false;
