@@ -36,8 +36,10 @@ void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
 
 	d->subs.guilds[host(homeserver)].append(guildID);
 
-	d->clients[host(homeserver)].then([=](QVariant r) {
-		qvariant_cast<Client*>(r)->subscribeToGuild(guildID);
+	d->clients[host(homeserver)].then([=](Result<Client*, Error> c) {
+		if (c.ok()) {
+			c.value()->subscribeToGuild(guildID);
+		}
 	});
 }
 
@@ -46,8 +48,10 @@ void ClientManager::subscribeToActions()
 	d->subs.actions = true;
 
 	for (auto& client : d->clients) {
-		client.then([=](QVariant r) {
-			qvariant_cast<Client*>(r)->subscribeToActions();
+		client.then([=](Result<Client*, Error> c) {
+			if (c.ok()) {
+				c.value()->subscribeToActions();
+			}
 		});
 	}
 }
