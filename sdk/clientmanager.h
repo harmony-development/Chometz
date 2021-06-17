@@ -34,9 +34,9 @@ public:
 	void subscribeToActions();
 	void subscribeToHomeserver();
 
-	FutureResult<Client*> clientForHomeserver(const QString& homeserver);
+	FutureResult<Client*> clientForHomeserver(QString homeserver);
 
-	Future<bool> checkLogin(const QString& token, const QString& hs, quint64 userID);
+	Future<bool> checkLogin(QString token, QString hs, quint64 userID);
 
 	Q_SIGNAL void ready(const QString& hs, quint64 userID, const QString& token);
 

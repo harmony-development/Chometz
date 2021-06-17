@@ -43,7 +43,7 @@ void Client::setSession(const std::string& session, quint64 userID)
 	d->mediaProxyKit->universalHeaders = {{"Authorization", tok}};
 }
 
-Future<> Client::nextStep(const protocol::auth::v1::NextStepRequest& nstep)
+Future<> Client::nextStep(protocol::auth::v1::NextStepRequest nstep)
 {
 	auto it = nstep;
 	it.set_auth_id(d->authID);
@@ -198,7 +198,7 @@ ChatServiceServiceClient* Client::chatKit()
 	return d->chatKit.get();
 }
 
-FutureResult<Client*> Client::federateOtherClient(Client* client, const QString& target)
+FutureResult<Client*> Client::federateOtherClient(Client* client, QString target)
 {
 	auto req = protocol::auth::v1::FederateRequest{};
 	req.set_target(target.toStdString());

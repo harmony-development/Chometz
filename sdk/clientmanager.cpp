@@ -75,7 +75,7 @@ void ClientManager::connectClient(Client* client, const QString& homeserver)
 	});
 }
 
-FutureResult<Client*> ClientManager::clientForHomeserver(const QString& homeserver)
+FutureResult<Client*> ClientManager::clientForHomeserver(QString homeserver)
 {
 	if (homeserver == "local" || homeserver.isEmpty()) {
 		FutureResult<Client*> it;
@@ -107,6 +107,7 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	connect(d->mainClient, &Client::authEvent, this, [this, hs = homeserver](protocol::auth::v1::AuthStep step) {
 		if (step.step_case() == protocol::auth::v1::AuthStep::kSession) {
 			d->mainClient->setSession(step.session().session_token(), step.session().user_id());
+			qWarning() << "emitting ready";
 			Q_EMIT ready(hs, step.session().user_id(), QString::fromStdString(step.session().session_token()));
 		}
 	});
@@ -123,7 +124,7 @@ void ClientManager::continueAuthentication(const protocol::auth::v1::NextStepReq
 	d->mainClient->nextStep(req);
 }
 
-Future<bool> ClientManager::checkLogin(const QString& token, const QString& homeserver, quint64 userID)
+Future<bool> ClientManager::checkLogin(QString token, QString homeserver, quint64 userID)
 {
 	if (d->mainClient != nullptr) {
 		d->mainClient = nullptr;

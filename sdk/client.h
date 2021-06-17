@@ -31,11 +31,11 @@ class Client : public QObject
 	void subscribeToActions();
 	void subscribeToHomeserver();
 
-	FutureResult<Client*> federateOtherClient(Client* client, const QString& target);
+	FutureResult<Client*> federateOtherClient(Client* client, QString target);
 
 	void setSession(const std::string& session, quint64 userID);
 
-	Future<> nextStep(const protocol::auth::v1::NextStepRequest& nstep);
+	Future<> nextStep(protocol::auth::v1::NextStepRequest nstep);
 
 	void startEvents();
 
