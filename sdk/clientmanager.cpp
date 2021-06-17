@@ -36,7 +36,11 @@ void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
 
 	d->subs.guilds[host(homeserver)].append(guildID);
 
-	d->clients[host(homeserver)]->subscribeToGuild(guildID);
+	d->clients[host(homeserver)].then([=](Result<Client*, Error> c) {
+		if (c.ok()) {
+			c.value()->subscribeToGuild(guildID);
+		}
+	});
 }
 
 void ClientManager::subscribeToActions()
@@ -44,7 +48,11 @@ void ClientManager::subscribeToActions()
 	d->subs.actions = true;
 
 	for (auto& client : d->clients) {
-		client->subscribeToActions();
+		client.then([=](Result<Client*, Error> c) {
+			if (c.ok()) {
+				c.value()->subscribeToActions();
+			}
+		});
 	}
 }
 
@@ -67,21 +75,17 @@ void ClientManager::connectClient(Client* client, const QString& homeserver)
 	});
 }
 
-Client* ClientManager::clientForHomeserver(const QString& homeserver)
+FutureResult<Client*> ClientManager::clientForHomeserver(const QString& homeserver)
 {
 	if (homeserver == "local" || homeserver.isEmpty()) {
-		return d->mainClient;
+		FutureResult<Client*> it;
+		it.succeed(d->mainClient);
+		return it;
 	}
 
 	if (!d->clients.contains(host(homeserver))) {
 		auto client = new Client(this, homeserver);
-		d->clients[host(homeserver)] = client;
-
-		auto r = d->mainClient->federateOtherClient(client, homeserver);
-		// TODO: figure out a way to represent this being pending in QML so we don't have to do a hack
-		while (!r.settled()) {
-			QCoreApplication::processEvents();
-		}
+		d->clients[host(homeserver)] = d->mainClient->federateOtherClient(client, homeserver);
 	}
 
 	return d->clients[host(homeserver)];
@@ -95,7 +99,9 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	d->clients.clear();
 
 	d->mainClient = new Client(this, homeserver);
-	d->clients[host(homeserver)] = d->mainClient;
+	FutureResult<Client*> it;
+	it.succeed(d->mainClient);
+	d->clients[host(homeserver)] = it;
 
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
 	connect(d->mainClient, &Client::authEvent, this, [this, hs = homeserver](protocol::auth::v1::AuthStep step) {
@@ -126,7 +132,9 @@ Future<bool> ClientManager::checkLogin(const QString& token, const QString& home
 
 	d->mainClient = new Client(this, homeserver);
 	d->mainClient->setSession(token.toStdString(), userID);
-	d->clients[host(homeserver)] = d->mainClient;
+	FutureResult<Client*> it;
+	it.succeed(d->mainClient);
+	d->clients[host(homeserver)] = it;
 
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
 	connect(d->mainClient, &Client::hsEvent, this, &ClientManager::hsEvent);

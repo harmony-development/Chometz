@@ -34,7 +34,7 @@ public:
 	void subscribeToActions();
 	void subscribeToHomeserver();
 
-	Client* clientForHomeserver(const QString& homeserver);
+	FutureResult<Client*> clientForHomeserver(const QString& homeserver);
 
 	Future<bool> checkLogin(const QString& token, const QString& hs, quint64 userID);
 

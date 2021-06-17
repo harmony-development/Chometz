@@ -94,10 +94,10 @@ private Q_SLOTS:
 
 	Future<> testHostEquivalence()
 	{
-		auto c1 = client->clientForHomeserver("local");
-		auto c2 = client->clientForHomeserver("localhost");
-		auto c3 = client->clientForHomeserver("https://localhost");
-		auto c4 = client->clientForHomeserver("https://localhost:12345");
+		auto c1 = (co_await client->clientForHomeserver("local")).value();
+		auto c2 = (co_await client->clientForHomeserver("localhost")).value();
+		auto c3 = (co_await client->clientForHomeserver("https://localhost")).value();
+		auto c4 = (co_await client->clientForHomeserver("https://localhost:12345")).value();
 
 		Q_ASSERT(c1 == c2);
 		Q_ASSERT(c1 == c3);
