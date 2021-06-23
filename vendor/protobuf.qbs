@@ -33,6 +33,7 @@ StaticLibrary {
 	}
 
 	cpp.includePaths: [buildDirectory, sourceDirectory, "protobuf/src", "protobuf/src/google/protobuf"]
+	cpp.cxxLanguageVersion: "c++11"
 	cpp.defines: qbs.targetOS.contains("windows") ? ["_WIN32"] : ["HAVE_PTHREAD"]
 
 	Depends { name: "cpp" }
