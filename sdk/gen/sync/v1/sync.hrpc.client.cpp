@@ -19,9 +19,9 @@ void initialiseGlobalNam(bool secure, const QString& host) {
 	}
 }
 }
-auto PostboxServiceServiceClient::Sync(const protocol::sync::v1::SyncRequest& in, QMap<QByteArray,QString> headers) -> Receive__protocol_sync_v1_PostBoxEvent__Stream*
+auto PostboxServiceServiceClient::Pull(QMap<QByteArray,QString> headers) -> Receive__protocol_sync_v1_Syn__Send__protocol_sync_v1_Ack__Stream*
 {
-auto url = QUrl(wsProtocol()+host); url.setPath(QStringLiteral("/protocol.sync.v1.PostboxService/Sync")); auto req = QNetworkRequest(url);
+auto url = QUrl(wsProtocol()+host); url.setPath(QStringLiteral("/protocol.sync.v1.PostboxService/Pull")); auto req = QNetworkRequest(url);
 
 					for (const auto& item : universalHeaders.keys()) {
 						req.setRawHeader(item, universalHeaders[item].toLocal8Bit());
@@ -30,15 +30,11 @@ auto url = QUrl(wsProtocol()+host); url.setPath(QStringLiteral("/protocol.sync.v
 						req.setRawHeader(item, headers[item].toLocal8Bit());
 					}
 				
-	auto sock = new Receive__protocol_sync_v1_PostBoxEvent__Stream();
-	std::string strData;
-	if (!in.SerializeToString(&strData)) { return nullptr; }
-	QByteArray data = QByteArray::fromStdString(strData);
+	auto sock = new Receive__protocol_sync_v1_Syn__Send__protocol_sync_v1_Ack__Stream();
 	sock->open(req);
-	QObject::connect(sock, &QWebSocket::connected, [=]() { sock->sendBinaryMessage(data); });
 	return sock;
 }
-auto PostboxServiceServiceClient::PostEventSync(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers) -> PostboxServiceServiceClient::Result<google::protobuf::Empty>
+auto PostboxServiceServiceClient::PushSync(const protocol::sync::v1::Event& in, QMap<QByteArray,QString> headers) -> PostboxServiceServiceClient::Result<google::protobuf::Empty>
 
 {
 	std::string strData;
@@ -50,7 +46,7 @@ auto PostboxServiceServiceClient::PostEventSync(const protocol::sync::v1::PostEv
 	initialiseGlobalNam(secure, host);
 
 	QUrl serviceURL = QUrl(httpProtocol()+host);
-	serviceURL.setPath(QStringLiteral("/protocol.sync.v1.PostboxService/PostEvent"));
+	serviceURL.setPath(QStringLiteral("/protocol.sync.v1.PostboxService/Push"));
 
 	QNetworkRequest req(serviceURL);
 	for (const auto& item : universalHeaders.keys()) {
@@ -85,7 +81,7 @@ auto PostboxServiceServiceClient::PostEventSync(const protocol::sync::v1::PostEv
 	return {ret};
 
 }
-FutureResult<google::protobuf::Empty, QString> PostboxServiceServiceClient::PostEvent(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers)
+FutureResult<google::protobuf::Empty, QString> PostboxServiceServiceClient::Push(const protocol::sync::v1::Event& in, QMap<QByteArray,QString> headers)
 
 {
 	FutureResult<google::protobuf::Empty, QString> res;
@@ -99,7 +95,7 @@ FutureResult<google::protobuf::Empty, QString> PostboxServiceServiceClient::Post
 	initialiseGlobalNam(secure, host);
 
 	QUrl serviceURL = QUrl(httpProtocol()+host);
-	serviceURL.setPath(QStringLiteral("/protocol.sync.v1.PostboxService/PostEvent"));
+	serviceURL.setPath(QStringLiteral("/protocol.sync.v1.PostboxService/Push"));
 
 	QNetworkRequest req(serviceURL);
 	for (const auto& item : universalHeaders.keys()) {

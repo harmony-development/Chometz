@@ -11,7 +11,9 @@
 #include "sync/v1/sync.pb.h"
 #include <QWebSocket>
 #include "google/protobuf/empty.pb.h"
-#include "google/protobuf/any.pb.h"
-Q_DECLARE_METATYPE(protocol::sync::v1::SyncRequest)
-Q_DECLARE_METATYPE(protocol::sync::v1::PostBoxEvent)
+Q_DECLARE_METATYPE(protocol::sync::v1::Event)
 Q_DECLARE_METATYPE(protocol::sync::v1::PostEventRequest)
+Q_DECLARE_METATYPE(protocol::sync::v1::Ack)
+Q_DECLARE_METATYPE(protocol::sync::v1::Syn)
+Q_DECLARE_METATYPE(protocol::sync::v1::Event::UserRemovedFromGuild)
+Q_DECLARE_METATYPE(protocol::sync::v1::Event::UserAddedToGuild)

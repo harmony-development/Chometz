@@ -13,19 +13,17 @@
 #include <QWebSocket>
 #include "google/protobuf/empty.pb.h"
 #include "google/protobuf/empty.hrpc.types.h"
-#include "google/protobuf/any.pb.h"
-#include "google/protobuf/any.hrpc.types.h"
 
-class Receive__protocol_sync_v1_PostBoxEvent__Stream : public QWebSocket {
+class Receive__protocol_sync_v1_Syn__Send__protocol_sync_v1_Ack__Stream : public QWebSocket {
 	
 	Q_OBJECT
 
-	public: Q_SIGNAL void receivedMessage(protocol::sync::v1::PostBoxEvent msg);
+	public: Q_SIGNAL void receivedMessage(protocol::sync::v1::Syn msg);
 
-	public: Receive__protocol_sync_v1_PostBoxEvent__Stream(const QString &origin = QString(), QWebSocketProtocol::Version version = QWebSocketProtocol::VersionLatest, QObject *parent = nullptr) : QWebSocket(origin, version, parent)
+	public: Receive__protocol_sync_v1_Syn__Send__protocol_sync_v1_Ack__Stream(const QString &origin = QString(), QWebSocketProtocol::Version version = QWebSocketProtocol::VersionLatest, QObject *parent = nullptr) : QWebSocket(origin, version, parent)
 	{
 		connect(this, &QWebSocket::binaryMessageReceived, [=](const QByteArray& msg) {
-			protocol::sync::v1::PostBoxEvent incoming;
+			protocol::sync::v1::Syn incoming;
 
 			if (!incoming.ParseFromArray(msg.constData(), msg.length())) {
 				return;
@@ -35,6 +33,17 @@ class Receive__protocol_sync_v1_PostBoxEvent__Stream : public QWebSocket {
 		});
 	}
 
+
+	public: [[nodiscard]] bool send(const protocol::sync::v1::Ack& in) {
+		std::string strData;
+		if (!in.SerializeToString(&strData)) {
+			return false;
+		}
+		QByteArray data = QByteArray::fromStdString(strData);
+
+		auto count = sendBinaryMessage(data);
+		return count == data.length();
+	}
 };
 
 class PostboxServiceServiceClient {
@@ -46,7 +55,7 @@ class PostboxServiceServiceClient {
 public:
 	QMap<QByteArray,QString> universalHeaders;
 	template<typename T> using Result = std::variant<T, QString>;
-	[[ nodiscard ]] Receive__protocol_sync_v1_PostBoxEvent__Stream* Sync(const protocol::sync::v1::SyncRequest& in, QMap<QByteArray,QString> headers = {});
-	[[ nodiscard ]] Result<google::protobuf::Empty> PostEventSync(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers = {});
-	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> PostEvent(const protocol::sync::v1::PostEventRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] Receive__protocol_sync_v1_Syn__Send__protocol_sync_v1_Ack__Stream* Pull(QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] Result<google::protobuf::Empty> PushSync(const protocol::sync::v1::Event& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> Push(const protocol::sync::v1::Event& in, QMap<QByteArray,QString> headers = {});
 };

@@ -87,10 +87,6 @@ public:
 	[[ nodiscard ]] FutureResult<protocol::chat::v1::CreateEmotePackResponse, QString> CreateEmotePack(const protocol::chat::v1::CreateEmotePackRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::chat::v1::GetGuildListResponse> GetGuildListSync(const protocol::chat::v1::GetGuildListRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] FutureResult<protocol::chat::v1::GetGuildListResponse, QString> GetGuildList(const protocol::chat::v1::GetGuildListRequest& in, QMap<QByteArray,QString> headers = {});
-	[[ nodiscard ]] Result<protocol::chat::v1::AddGuildToGuildListResponse> AddGuildToGuildListSync(const protocol::chat::v1::AddGuildToGuildListRequest& in, QMap<QByteArray,QString> headers = {});
-	[[ nodiscard ]] FutureResult<protocol::chat::v1::AddGuildToGuildListResponse, QString> AddGuildToGuildList(const protocol::chat::v1::AddGuildToGuildListRequest& in, QMap<QByteArray,QString> headers = {});
-	[[ nodiscard ]] Result<protocol::chat::v1::RemoveGuildFromGuildListResponse> RemoveGuildFromGuildListSync(const protocol::chat::v1::RemoveGuildFromGuildListRequest& in, QMap<QByteArray,QString> headers = {});
-	[[ nodiscard ]] FutureResult<protocol::chat::v1::RemoveGuildFromGuildListResponse, QString> RemoveGuildFromGuildList(const protocol::chat::v1::RemoveGuildFromGuildListRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::chat::v1::GetGuildResponse> GetGuildSync(const protocol::chat::v1::GetGuildRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] FutureResult<protocol::chat::v1::GetGuildResponse, QString> GetGuild(const protocol::chat::v1::GetGuildRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::chat::v1::GetGuildInvitesResponse> GetGuildInvitesSync(const protocol::chat::v1::GetGuildInvitesRequest& in, QMap<QByteArray,QString> headers = {});

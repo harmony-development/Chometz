@@ -33,7 +33,6 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/empty.pb.h>
-#include <google/protobuf/any.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_sync_2fv1_2fsync_2eproto
@@ -49,7 +48,7 @@ struct TableStruct_sync_2fv1_2fsync_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -59,22 +58,34 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 namespace protocol {
 namespace sync {
 namespace v1 {
-class PostBoxEvent;
-class PostBoxEventDefaultTypeInternal;
-extern PostBoxEventDefaultTypeInternal _PostBoxEvent_default_instance_;
+class Ack;
+class AckDefaultTypeInternal;
+extern AckDefaultTypeInternal _Ack_default_instance_;
+class Event;
+class EventDefaultTypeInternal;
+extern EventDefaultTypeInternal _Event_default_instance_;
+class Event_UserAddedToGuild;
+class Event_UserAddedToGuildDefaultTypeInternal;
+extern Event_UserAddedToGuildDefaultTypeInternal _Event_UserAddedToGuild_default_instance_;
+class Event_UserRemovedFromGuild;
+class Event_UserRemovedFromGuildDefaultTypeInternal;
+extern Event_UserRemovedFromGuildDefaultTypeInternal _Event_UserRemovedFromGuild_default_instance_;
 class PostEventRequest;
 class PostEventRequestDefaultTypeInternal;
 extern PostEventRequestDefaultTypeInternal _PostEventRequest_default_instance_;
-class SyncRequest;
-class SyncRequestDefaultTypeInternal;
-extern SyncRequestDefaultTypeInternal _SyncRequest_default_instance_;
+class Syn;
+class SynDefaultTypeInternal;
+extern SynDefaultTypeInternal _Syn_default_instance_;
 }  // namespace v1
 }  // namespace sync
 }  // namespace protocol
 PROTOBUF_NAMESPACE_OPEN
-template<> ::protocol::sync::v1::PostBoxEvent* Arena::CreateMaybeMessage<::protocol::sync::v1::PostBoxEvent>(Arena*);
+template<> ::protocol::sync::v1::Ack* Arena::CreateMaybeMessage<::protocol::sync::v1::Ack>(Arena*);
+template<> ::protocol::sync::v1::Event* Arena::CreateMaybeMessage<::protocol::sync::v1::Event>(Arena*);
+template<> ::protocol::sync::v1::Event_UserAddedToGuild* Arena::CreateMaybeMessage<::protocol::sync::v1::Event_UserAddedToGuild>(Arena*);
+template<> ::protocol::sync::v1::Event_UserRemovedFromGuild* Arena::CreateMaybeMessage<::protocol::sync::v1::Event_UserRemovedFromGuild>(Arena*);
 template<> ::protocol::sync::v1::PostEventRequest* Arena::CreateMaybeMessage<::protocol::sync::v1::PostEventRequest>(Arena*);
-template<> ::protocol::sync::v1::SyncRequest* Arena::CreateMaybeMessage<::protocol::sync::v1::SyncRequest>(Arena*);
+template<> ::protocol::sync::v1::Syn* Arena::CreateMaybeMessage<::protocol::sync::v1::Syn>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace protocol {
 namespace sync {
@@ -82,23 +93,23 @@ namespace v1 {
 
 // ===================================================================
 
-class SyncRequest PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.sync.v1.SyncRequest) */ {
+class Event_UserRemovedFromGuild PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.sync.v1.Event.UserRemovedFromGuild) */ {
  public:
-  inline SyncRequest() : SyncRequest(nullptr) {};
-  virtual ~SyncRequest();
+  inline Event_UserRemovedFromGuild() : Event_UserRemovedFromGuild(nullptr) {};
+  virtual ~Event_UserRemovedFromGuild();
 
-  SyncRequest(const SyncRequest& from);
-  SyncRequest(SyncRequest&& from) noexcept
-    : SyncRequest() {
+  Event_UserRemovedFromGuild(const Event_UserRemovedFromGuild& from);
+  Event_UserRemovedFromGuild(Event_UserRemovedFromGuild&& from) noexcept
+    : Event_UserRemovedFromGuild() {
     *this = ::std::move(from);
   }
 
-  inline SyncRequest& operator=(const SyncRequest& from) {
+  inline Event_UserRemovedFromGuild& operator=(const Event_UserRemovedFromGuild& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SyncRequest& operator=(SyncRequest&& from) noexcept {
+  inline Event_UserRemovedFromGuild& operator=(Event_UserRemovedFromGuild&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -116,20 +127,20 @@ class SyncRequest PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const SyncRequest& default_instance();
+  static const Event_UserRemovedFromGuild& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const SyncRequest* internal_default_instance() {
-    return reinterpret_cast<const SyncRequest*>(
-               &_SyncRequest_default_instance_);
+  static inline const Event_UserRemovedFromGuild* internal_default_instance() {
+    return reinterpret_cast<const Event_UserRemovedFromGuild*>(
+               &_Event_UserRemovedFromGuild_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(SyncRequest& a, SyncRequest& b) {
+  friend void swap(Event_UserRemovedFromGuild& a, Event_UserRemovedFromGuild& b) {
     a.Swap(&b);
   }
-  inline void Swap(SyncRequest* other) {
+  inline void Swap(Event_UserRemovedFromGuild* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -137,7 +148,7 @@ class SyncRequest PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SyncRequest* other) {
+  void UnsafeArenaSwap(Event_UserRemovedFromGuild* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -145,17 +156,17 @@ class SyncRequest PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline SyncRequest* New() const final {
-    return CreateMaybeMessage<SyncRequest>(nullptr);
+  inline Event_UserRemovedFromGuild* New() const final {
+    return CreateMaybeMessage<Event_UserRemovedFromGuild>(nullptr);
   }
 
-  SyncRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<SyncRequest>(arena);
+  Event_UserRemovedFromGuild* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_UserRemovedFromGuild>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const SyncRequest& from);
-  void MergeFrom(const SyncRequest& from);
+  void CopyFrom(const Event_UserRemovedFromGuild& from);
+  void MergeFrom(const Event_UserRemovedFromGuild& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -169,13 +180,13 @@ class SyncRequest PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SyncRequest* other);
+  void InternalSwap(Event_UserRemovedFromGuild* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "protocol.sync.v1.SyncRequest";
+    return "protocol.sync.v1.Event.UserRemovedFromGuild";
   }
   protected:
-  explicit SyncRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit Event_UserRemovedFromGuild(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -195,90 +206,58 @@ class SyncRequest PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTokenFieldNumber = 1,
-    kHostFieldNumber = 2,
+    kUserIdFieldNumber = 1,
+    kGuildIdFieldNumber = 2,
   };
-  // string token = 1;
-  void clear_token();
-  const std::string& token() const;
-  void set_token(const std::string& value);
-  void set_token(std::string&& value);
-  void set_token(const char* value);
-  void set_token(const char* value, size_t size);
-  std::string* mutable_token();
-  std::string* release_token();
-  void set_allocated_token(std::string* token);
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  std::string* unsafe_arena_release_token();
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  void unsafe_arena_set_allocated_token(
-      std::string* token);
+  // uint64 user_id = 1;
+  void clear_user_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 user_id() const;
+  void set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   private:
-  const std::string& _internal_token() const;
-  void _internal_set_token(const std::string& value);
-  std::string* _internal_mutable_token();
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_user_id() const;
+  void _internal_set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // string host = 2;
-  void clear_host();
-  const std::string& host() const;
-  void set_host(const std::string& value);
-  void set_host(std::string&& value);
-  void set_host(const char* value);
-  void set_host(const char* value, size_t size);
-  std::string* mutable_host();
-  std::string* release_host();
-  void set_allocated_host(std::string* host);
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  std::string* unsafe_arena_release_host();
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  void unsafe_arena_set_allocated_host(
-      std::string* host);
+  // uint64 guild_id = 2;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   private:
-  const std::string& _internal_host() const;
-  void _internal_set_host(const std::string& value);
-  std::string* _internal_mutable_host();
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:protocol.sync.v1.SyncRequest)
+  // @@protoc_insertion_point(class_scope:protocol.sync.v1.Event.UserRemovedFromGuild)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr token_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr host_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 user_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sync_2fv1_2fsync_2eproto;
 };
 // -------------------------------------------------------------------
 
-class PostBoxEvent PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.sync.v1.PostBoxEvent) */ {
+class Event_UserAddedToGuild PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.sync.v1.Event.UserAddedToGuild) */ {
  public:
-  inline PostBoxEvent() : PostBoxEvent(nullptr) {};
-  virtual ~PostBoxEvent();
+  inline Event_UserAddedToGuild() : Event_UserAddedToGuild(nullptr) {};
+  virtual ~Event_UserAddedToGuild();
 
-  PostBoxEvent(const PostBoxEvent& from);
-  PostBoxEvent(PostBoxEvent&& from) noexcept
-    : PostBoxEvent() {
+  Event_UserAddedToGuild(const Event_UserAddedToGuild& from);
+  Event_UserAddedToGuild(Event_UserAddedToGuild&& from) noexcept
+    : Event_UserAddedToGuild() {
     *this = ::std::move(from);
   }
 
-  inline PostBoxEvent& operator=(const PostBoxEvent& from) {
+  inline Event_UserAddedToGuild& operator=(const Event_UserAddedToGuild& from) {
     CopyFrom(from);
     return *this;
   }
-  inline PostBoxEvent& operator=(PostBoxEvent&& from) noexcept {
+  inline Event_UserAddedToGuild& operator=(Event_UserAddedToGuild&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -296,20 +275,20 @@ class PostBoxEvent PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const PostBoxEvent& default_instance();
+  static const Event_UserAddedToGuild& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const PostBoxEvent* internal_default_instance() {
-    return reinterpret_cast<const PostBoxEvent*>(
-               &_PostBoxEvent_default_instance_);
+  static inline const Event_UserAddedToGuild* internal_default_instance() {
+    return reinterpret_cast<const Event_UserAddedToGuild*>(
+               &_Event_UserAddedToGuild_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(PostBoxEvent& a, PostBoxEvent& b) {
+  friend void swap(Event_UserAddedToGuild& a, Event_UserAddedToGuild& b) {
     a.Swap(&b);
   }
-  inline void Swap(PostBoxEvent* other) {
+  inline void Swap(Event_UserAddedToGuild* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -317,7 +296,7 @@ class PostBoxEvent PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(PostBoxEvent* other) {
+  void UnsafeArenaSwap(Event_UserAddedToGuild* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -325,17 +304,17 @@ class PostBoxEvent PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline PostBoxEvent* New() const final {
-    return CreateMaybeMessage<PostBoxEvent>(nullptr);
+  inline Event_UserAddedToGuild* New() const final {
+    return CreateMaybeMessage<Event_UserAddedToGuild>(nullptr);
   }
 
-  PostBoxEvent* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<PostBoxEvent>(arena);
+  Event_UserAddedToGuild* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_UserAddedToGuild>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const PostBoxEvent& from);
-  void MergeFrom(const PostBoxEvent& from);
+  void CopyFrom(const Event_UserAddedToGuild& from);
+  void MergeFrom(const Event_UserAddedToGuild& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -349,13 +328,13 @@ class PostBoxEvent PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PostBoxEvent* other);
+  void InternalSwap(Event_UserAddedToGuild* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "protocol.sync.v1.PostBoxEvent";
+    return "protocol.sync.v1.Event.UserAddedToGuild";
   }
   protected:
-  explicit PostBoxEvent(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit Event_UserAddedToGuild(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -375,35 +354,224 @@ class PostBoxEvent PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEventFieldNumber = 1,
+    kUserIdFieldNumber = 1,
+    kGuildIdFieldNumber = 2,
   };
-  // .google.protobuf.Any event = 1;
-  bool has_event() const;
+  // uint64 user_id = 1;
+  void clear_user_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 user_id() const;
+  void set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   private:
-  bool _internal_has_event() const;
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_user_id() const;
+  void _internal_set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
-  void clear_event();
-  const PROTOBUF_NAMESPACE_ID::Any& event() const;
-  PROTOBUF_NAMESPACE_ID::Any* release_event();
-  PROTOBUF_NAMESPACE_ID::Any* mutable_event();
-  void set_allocated_event(PROTOBUF_NAMESPACE_ID::Any* event);
-  private:
-  const PROTOBUF_NAMESPACE_ID::Any& _internal_event() const;
-  PROTOBUF_NAMESPACE_ID::Any* _internal_mutable_event();
-  public:
-  void unsafe_arena_set_allocated_event(
-      PROTOBUF_NAMESPACE_ID::Any* event);
-  PROTOBUF_NAMESPACE_ID::Any* unsafe_arena_release_event();
 
-  // @@protoc_insertion_point(class_scope:protocol.sync.v1.PostBoxEvent)
+  // uint64 guild_id = 2;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.sync.v1.Event.UserAddedToGuild)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  PROTOBUF_NAMESPACE_ID::Any* event_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 user_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sync_2fv1_2fsync_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.sync.v1.Event) */ {
+ public:
+  inline Event() : Event(nullptr) {};
+  virtual ~Event();
+
+  Event(const Event& from);
+  Event(Event&& from) noexcept
+    : Event() {
+    *this = ::std::move(from);
+  }
+
+  inline Event& operator=(const Event& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event& operator=(Event&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event& default_instance();
+
+  enum KindCase {
+    kUserRemovedFromGuild = 1,
+    kUserAddedToGuild = 2,
+    KIND_NOT_SET = 0,
+  };
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event* internal_default_instance() {
+    return reinterpret_cast<const Event*>(
+               &_Event_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(Event& a, Event& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event* New() const final {
+    return CreateMaybeMessage<Event>(nullptr);
+  }
+
+  Event* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event& from);
+  void MergeFrom(const Event& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.sync.v1.Event";
+  }
+  protected:
+  explicit Event(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_sync_2fv1_2fsync_2eproto);
+    return ::descriptor_table_sync_2fv1_2fsync_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef Event_UserRemovedFromGuild UserRemovedFromGuild;
+  typedef Event_UserAddedToGuild UserAddedToGuild;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUserRemovedFromGuildFieldNumber = 1,
+    kUserAddedToGuildFieldNumber = 2,
+  };
+  // .protocol.sync.v1.Event.UserRemovedFromGuild user_removed_from_guild = 1;
+  bool has_user_removed_from_guild() const;
+  private:
+  bool _internal_has_user_removed_from_guild() const;
+  public:
+  void clear_user_removed_from_guild();
+  const ::protocol::sync::v1::Event_UserRemovedFromGuild& user_removed_from_guild() const;
+  ::protocol::sync::v1::Event_UserRemovedFromGuild* release_user_removed_from_guild();
+  ::protocol::sync::v1::Event_UserRemovedFromGuild* mutable_user_removed_from_guild();
+  void set_allocated_user_removed_from_guild(::protocol::sync::v1::Event_UserRemovedFromGuild* user_removed_from_guild);
+  private:
+  const ::protocol::sync::v1::Event_UserRemovedFromGuild& _internal_user_removed_from_guild() const;
+  ::protocol::sync::v1::Event_UserRemovedFromGuild* _internal_mutable_user_removed_from_guild();
+  public:
+  void unsafe_arena_set_allocated_user_removed_from_guild(
+      ::protocol::sync::v1::Event_UserRemovedFromGuild* user_removed_from_guild);
+  ::protocol::sync::v1::Event_UserRemovedFromGuild* unsafe_arena_release_user_removed_from_guild();
+
+  // .protocol.sync.v1.Event.UserAddedToGuild user_added_to_guild = 2;
+  bool has_user_added_to_guild() const;
+  private:
+  bool _internal_has_user_added_to_guild() const;
+  public:
+  void clear_user_added_to_guild();
+  const ::protocol::sync::v1::Event_UserAddedToGuild& user_added_to_guild() const;
+  ::protocol::sync::v1::Event_UserAddedToGuild* release_user_added_to_guild();
+  ::protocol::sync::v1::Event_UserAddedToGuild* mutable_user_added_to_guild();
+  void set_allocated_user_added_to_guild(::protocol::sync::v1::Event_UserAddedToGuild* user_added_to_guild);
+  private:
+  const ::protocol::sync::v1::Event_UserAddedToGuild& _internal_user_added_to_guild() const;
+  ::protocol::sync::v1::Event_UserAddedToGuild* _internal_mutable_user_added_to_guild();
+  public:
+  void unsafe_arena_set_allocated_user_added_to_guild(
+      ::protocol::sync::v1::Event_UserAddedToGuild* user_added_to_guild);
+  ::protocol::sync::v1::Event_UserAddedToGuild* unsafe_arena_release_user_added_to_guild();
+
+  void clear_kind();
+  KindCase kind_case() const;
+  // @@protoc_insertion_point(class_scope:protocol.sync.v1.Event)
+ private:
+  class _Internal;
+  void set_has_user_removed_from_guild();
+  void set_has_user_added_to_guild();
+
+  inline bool has_kind() const;
+  inline void clear_has_kind();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  union KindUnion {
+    KindUnion() {}
+    ::protocol::sync::v1::Event_UserRemovedFromGuild* user_removed_from_guild_;
+    ::protocol::sync::v1::Event_UserAddedToGuild* user_added_to_guild_;
+  } kind_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
   friend struct ::TableStruct_sync_2fv1_2fsync_2eproto;
 };
 // -------------------------------------------------------------------
@@ -450,7 +618,7 @@ class PostEventRequest PROTOBUF_FINAL :
                &_PostEventRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(PostEventRequest& a, PostEventRequest& b) {
     a.Swap(&b);
@@ -521,44 +689,25 @@ class PostEventRequest PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSyncRequestFieldNumber = 1,
-    kEventFieldNumber = 2,
+    kEventFieldNumber = 1,
   };
-  // .protocol.sync.v1.SyncRequest sync_request = 1;
-  bool has_sync_request() const;
-  private:
-  bool _internal_has_sync_request() const;
-  public:
-  void clear_sync_request();
-  const ::protocol::sync::v1::SyncRequest& sync_request() const;
-  ::protocol::sync::v1::SyncRequest* release_sync_request();
-  ::protocol::sync::v1::SyncRequest* mutable_sync_request();
-  void set_allocated_sync_request(::protocol::sync::v1::SyncRequest* sync_request);
-  private:
-  const ::protocol::sync::v1::SyncRequest& _internal_sync_request() const;
-  ::protocol::sync::v1::SyncRequest* _internal_mutable_sync_request();
-  public:
-  void unsafe_arena_set_allocated_sync_request(
-      ::protocol::sync::v1::SyncRequest* sync_request);
-  ::protocol::sync::v1::SyncRequest* unsafe_arena_release_sync_request();
-
-  // .protocol.sync.v1.PostBoxEvent event = 2;
+  // .protocol.sync.v1.Event event = 1;
   bool has_event() const;
   private:
   bool _internal_has_event() const;
   public:
   void clear_event();
-  const ::protocol::sync::v1::PostBoxEvent& event() const;
-  ::protocol::sync::v1::PostBoxEvent* release_event();
-  ::protocol::sync::v1::PostBoxEvent* mutable_event();
-  void set_allocated_event(::protocol::sync::v1::PostBoxEvent* event);
+  const ::protocol::sync::v1::Event& event() const;
+  ::protocol::sync::v1::Event* release_event();
+  ::protocol::sync::v1::Event* mutable_event();
+  void set_allocated_event(::protocol::sync::v1::Event* event);
   private:
-  const ::protocol::sync::v1::PostBoxEvent& _internal_event() const;
-  ::protocol::sync::v1::PostBoxEvent* _internal_mutable_event();
+  const ::protocol::sync::v1::Event& _internal_event() const;
+  ::protocol::sync::v1::Event* _internal_mutable_event();
   public:
   void unsafe_arena_set_allocated_event(
-      ::protocol::sync::v1::PostBoxEvent* event);
-  ::protocol::sync::v1::PostBoxEvent* unsafe_arena_release_event();
+      ::protocol::sync::v1::Event* event);
+  ::protocol::sync::v1::Event* unsafe_arena_release_event();
 
   // @@protoc_insertion_point(class_scope:protocol.sync.v1.PostEventRequest)
  private:
@@ -567,8 +716,301 @@ class PostEventRequest PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::protocol::sync::v1::SyncRequest* sync_request_;
-  ::protocol::sync::v1::PostBoxEvent* event_;
+  ::protocol::sync::v1::Event* event_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sync_2fv1_2fsync_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Ack PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.sync.v1.Ack) */ {
+ public:
+  inline Ack() : Ack(nullptr) {};
+  virtual ~Ack();
+
+  Ack(const Ack& from);
+  Ack(Ack&& from) noexcept
+    : Ack() {
+    *this = ::std::move(from);
+  }
+
+  inline Ack& operator=(const Ack& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Ack& operator=(Ack&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Ack& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Ack* internal_default_instance() {
+    return reinterpret_cast<const Ack*>(
+               &_Ack_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(Ack& a, Ack& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Ack* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Ack* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Ack* New() const final {
+    return CreateMaybeMessage<Ack>(nullptr);
+  }
+
+  Ack* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Ack>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Ack& from);
+  void MergeFrom(const Ack& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Ack* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.sync.v1.Ack";
+  }
+  protected:
+  explicit Ack(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_sync_2fv1_2fsync_2eproto);
+    return ::descriptor_table_sync_2fv1_2fsync_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEventIdFieldNumber = 1,
+  };
+  // uint64 event_id = 1;
+  void clear_event_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 event_id() const;
+  void set_event_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_event_id() const;
+  void _internal_set_event_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.sync.v1.Ack)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 event_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sync_2fv1_2fsync_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Syn PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.sync.v1.Syn) */ {
+ public:
+  inline Syn() : Syn(nullptr) {};
+  virtual ~Syn();
+
+  Syn(const Syn& from);
+  Syn(Syn&& from) noexcept
+    : Syn() {
+    *this = ::std::move(from);
+  }
+
+  inline Syn& operator=(const Syn& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Syn& operator=(Syn&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Syn& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Syn* internal_default_instance() {
+    return reinterpret_cast<const Syn*>(
+               &_Syn_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(Syn& a, Syn& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Syn* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Syn* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Syn* New() const final {
+    return CreateMaybeMessage<Syn>(nullptr);
+  }
+
+  Syn* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Syn>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Syn& from);
+  void MergeFrom(const Syn& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Syn* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.sync.v1.Syn";
+  }
+  protected:
+  explicit Syn(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_sync_2fv1_2fsync_2eproto);
+    return ::descriptor_table_sync_2fv1_2fsync_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEventFieldNumber = 2,
+    kEventIdFieldNumber = 1,
+  };
+  // .protocol.sync.v1.Event event = 2;
+  bool has_event() const;
+  private:
+  bool _internal_has_event() const;
+  public:
+  void clear_event();
+  const ::protocol::sync::v1::Event& event() const;
+  ::protocol::sync::v1::Event* release_event();
+  ::protocol::sync::v1::Event* mutable_event();
+  void set_allocated_event(::protocol::sync::v1::Event* event);
+  private:
+  const ::protocol::sync::v1::Event& _internal_event() const;
+  ::protocol::sync::v1::Event* _internal_mutable_event();
+  public:
+  void unsafe_arena_set_allocated_event(
+      ::protocol::sync::v1::Event* event);
+  ::protocol::sync::v1::Event* unsafe_arena_release_event();
+
+  // uint64 event_id = 1;
+  void clear_event_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 event_id() const;
+  void set_event_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_event_id() const;
+  void _internal_set_event_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.sync.v1.Syn)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::protocol::sync::v1::Event* event_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 event_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sync_2fv1_2fsync_2eproto;
 };
@@ -581,335 +1023,256 @@ class PostEventRequest PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// SyncRequest
+// Event_UserRemovedFromGuild
 
-// string token = 1;
-inline void SyncRequest::clear_token() {
-  token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+// uint64 user_id = 1;
+inline void Event_UserRemovedFromGuild::clear_user_id() {
+  user_id_ = PROTOBUF_ULONGLONG(0);
 }
-inline const std::string& SyncRequest::token() const {
-  // @@protoc_insertion_point(field_get:protocol.sync.v1.SyncRequest.token)
-  return _internal_token();
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRemovedFromGuild::_internal_user_id() const {
+  return user_id_;
 }
-inline void SyncRequest::set_token(const std::string& value) {
-  _internal_set_token(value);
-  // @@protoc_insertion_point(field_set:protocol.sync.v1.SyncRequest.token)
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRemovedFromGuild::user_id() const {
+  // @@protoc_insertion_point(field_get:protocol.sync.v1.Event.UserRemovedFromGuild.user_id)
+  return _internal_user_id();
 }
-inline std::string* SyncRequest::mutable_token() {
-  // @@protoc_insertion_point(field_mutable:protocol.sync.v1.SyncRequest.token)
-  return _internal_mutable_token();
-}
-inline const std::string& SyncRequest::_internal_token() const {
-  return token_.Get();
-}
-inline void SyncRequest::_internal_set_token(const std::string& value) {
+inline void Event_UserRemovedFromGuild::_internal_set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   
-  token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+  user_id_ = value;
 }
-inline void SyncRequest::set_token(std::string&& value) {
-  
-  token_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protocol.sync.v1.SyncRequest.token)
-}
-inline void SyncRequest::set_token(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:protocol.sync.v1.SyncRequest.token)
-}
-inline void SyncRequest::set_token(const char* value,
-    size_t size) {
-  
-  token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protocol.sync.v1.SyncRequest.token)
-}
-inline std::string* SyncRequest::_internal_mutable_token() {
-  
-  return token_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* SyncRequest::release_token() {
-  // @@protoc_insertion_point(field_release:protocol.sync.v1.SyncRequest.token)
-  return token_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void SyncRequest::set_allocated_token(std::string* token) {
-  if (token != nullptr) {
-    
-  } else {
-    
-  }
-  token_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), token,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protocol.sync.v1.SyncRequest.token)
-}
-inline std::string* SyncRequest::unsafe_arena_release_token() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.sync.v1.SyncRequest.token)
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  
-  return token_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      GetArena());
-}
-inline void SyncRequest::unsafe_arena_set_allocated_token(
-    std::string* token) {
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  if (token != nullptr) {
-    
-  } else {
-    
-  }
-  token_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      token, GetArena());
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.sync.v1.SyncRequest.token)
+inline void Event_UserRemovedFromGuild::set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_user_id(value);
+  // @@protoc_insertion_point(field_set:protocol.sync.v1.Event.UserRemovedFromGuild.user_id)
 }
 
-// string host = 2;
-inline void SyncRequest::clear_host() {
-  host_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+// uint64 guild_id = 2;
+inline void Event_UserRemovedFromGuild::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
 }
-inline const std::string& SyncRequest::host() const {
-  // @@protoc_insertion_point(field_get:protocol.sync.v1.SyncRequest.host)
-  return _internal_host();
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRemovedFromGuild::_internal_guild_id() const {
+  return guild_id_;
 }
-inline void SyncRequest::set_host(const std::string& value) {
-  _internal_set_host(value);
-  // @@protoc_insertion_point(field_set:protocol.sync.v1.SyncRequest.host)
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRemovedFromGuild::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.sync.v1.Event.UserRemovedFromGuild.guild_id)
+  return _internal_guild_id();
 }
-inline std::string* SyncRequest::mutable_host() {
-  // @@protoc_insertion_point(field_mutable:protocol.sync.v1.SyncRequest.host)
-  return _internal_mutable_host();
-}
-inline const std::string& SyncRequest::_internal_host() const {
-  return host_.Get();
-}
-inline void SyncRequest::_internal_set_host(const std::string& value) {
+inline void Event_UserRemovedFromGuild::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   
-  host_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+  guild_id_ = value;
 }
-inline void SyncRequest::set_host(std::string&& value) {
-  
-  host_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protocol.sync.v1.SyncRequest.host)
-}
-inline void SyncRequest::set_host(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  host_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:protocol.sync.v1.SyncRequest.host)
-}
-inline void SyncRequest::set_host(const char* value,
-    size_t size) {
-  
-  host_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protocol.sync.v1.SyncRequest.host)
-}
-inline std::string* SyncRequest::_internal_mutable_host() {
-  
-  return host_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* SyncRequest::release_host() {
-  // @@protoc_insertion_point(field_release:protocol.sync.v1.SyncRequest.host)
-  return host_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void SyncRequest::set_allocated_host(std::string* host) {
-  if (host != nullptr) {
-    
-  } else {
-    
-  }
-  host_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), host,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protocol.sync.v1.SyncRequest.host)
-}
-inline std::string* SyncRequest::unsafe_arena_release_host() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.sync.v1.SyncRequest.host)
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  
-  return host_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      GetArena());
-}
-inline void SyncRequest::unsafe_arena_set_allocated_host(
-    std::string* host) {
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  if (host != nullptr) {
-    
-  } else {
-    
-  }
-  host_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      host, GetArena());
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.sync.v1.SyncRequest.host)
+inline void Event_UserRemovedFromGuild::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.sync.v1.Event.UserRemovedFromGuild.guild_id)
 }
 
 // -------------------------------------------------------------------
 
-// PostBoxEvent
+// Event_UserAddedToGuild
 
-// .google.protobuf.Any event = 1;
-inline bool PostBoxEvent::_internal_has_event() const {
-  return this != internal_default_instance() && event_ != nullptr;
+// uint64 user_id = 1;
+inline void Event_UserAddedToGuild::clear_user_id() {
+  user_id_ = PROTOBUF_ULONGLONG(0);
 }
-inline bool PostBoxEvent::has_event() const {
-  return _internal_has_event();
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserAddedToGuild::_internal_user_id() const {
+  return user_id_;
 }
-inline const PROTOBUF_NAMESPACE_ID::Any& PostBoxEvent::_internal_event() const {
-  const PROTOBUF_NAMESPACE_ID::Any* p = event_;
-  return p != nullptr ? *p : *reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Any*>(
-      &PROTOBUF_NAMESPACE_ID::_Any_default_instance_);
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserAddedToGuild::user_id() const {
+  // @@protoc_insertion_point(field_get:protocol.sync.v1.Event.UserAddedToGuild.user_id)
+  return _internal_user_id();
 }
-inline const PROTOBUF_NAMESPACE_ID::Any& PostBoxEvent::event() const {
-  // @@protoc_insertion_point(field_get:protocol.sync.v1.PostBoxEvent.event)
-  return _internal_event();
-}
-inline void PostBoxEvent::unsafe_arena_set_allocated_event(
-    PROTOBUF_NAMESPACE_ID::Any* event) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(event_);
-  }
-  event_ = event;
-  if (event) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.sync.v1.PostBoxEvent.event)
-}
-inline PROTOBUF_NAMESPACE_ID::Any* PostBoxEvent::release_event() {
-  auto temp = unsafe_arena_release_event();
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline PROTOBUF_NAMESPACE_ID::Any* PostBoxEvent::unsafe_arena_release_event() {
-  // @@protoc_insertion_point(field_release:protocol.sync.v1.PostBoxEvent.event)
+inline void Event_UserAddedToGuild::_internal_set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   
-  PROTOBUF_NAMESPACE_ID::Any* temp = event_;
-  event_ = nullptr;
-  return temp;
+  user_id_ = value;
 }
-inline PROTOBUF_NAMESPACE_ID::Any* PostBoxEvent::_internal_mutable_event() {
+inline void Event_UserAddedToGuild::set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_user_id(value);
+  // @@protoc_insertion_point(field_set:protocol.sync.v1.Event.UserAddedToGuild.user_id)
+}
+
+// uint64 guild_id = 2;
+inline void Event_UserAddedToGuild::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserAddedToGuild::_internal_guild_id() const {
+  return guild_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserAddedToGuild::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.sync.v1.Event.UserAddedToGuild.guild_id)
+  return _internal_guild_id();
+}
+inline void Event_UserAddedToGuild::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   
-  if (event_ == nullptr) {
-    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Any>(GetArena());
-    event_ = p;
-  }
-  return event_;
+  guild_id_ = value;
 }
-inline PROTOBUF_NAMESPACE_ID::Any* PostBoxEvent::mutable_event() {
-  // @@protoc_insertion_point(field_mutable:protocol.sync.v1.PostBoxEvent.event)
-  return _internal_mutable_event();
+inline void Event_UserAddedToGuild::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.sync.v1.Event.UserAddedToGuild.guild_id)
 }
-inline void PostBoxEvent::set_allocated_event(PROTOBUF_NAMESPACE_ID::Any* event) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(event_);
-  }
-  if (event) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(event)->GetArena();
-    if (message_arena != submessage_arena) {
-      event = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, event, submessage_arena);
+
+// -------------------------------------------------------------------
+
+// Event
+
+// .protocol.sync.v1.Event.UserRemovedFromGuild user_removed_from_guild = 1;
+inline bool Event::_internal_has_user_removed_from_guild() const {
+  return kind_case() == kUserRemovedFromGuild;
+}
+inline bool Event::has_user_removed_from_guild() const {
+  return _internal_has_user_removed_from_guild();
+}
+inline void Event::set_has_user_removed_from_guild() {
+  _oneof_case_[0] = kUserRemovedFromGuild;
+}
+inline void Event::clear_user_removed_from_guild() {
+  if (_internal_has_user_removed_from_guild()) {
+    if (GetArena() == nullptr) {
+      delete kind_.user_removed_from_guild_;
     }
-    
-  } else {
-    
+    clear_has_kind();
   }
-  event_ = event;
-  // @@protoc_insertion_point(field_set_allocated:protocol.sync.v1.PostBoxEvent.event)
+}
+inline ::protocol::sync::v1::Event_UserRemovedFromGuild* Event::release_user_removed_from_guild() {
+  // @@protoc_insertion_point(field_release:protocol.sync.v1.Event.user_removed_from_guild)
+  if (_internal_has_user_removed_from_guild()) {
+    clear_has_kind();
+      ::protocol::sync::v1::Event_UserRemovedFromGuild* temp = kind_.user_removed_from_guild_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    kind_.user_removed_from_guild_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::sync::v1::Event_UserRemovedFromGuild& Event::_internal_user_removed_from_guild() const {
+  return _internal_has_user_removed_from_guild()
+      ? *kind_.user_removed_from_guild_
+      : *reinterpret_cast< ::protocol::sync::v1::Event_UserRemovedFromGuild*>(&::protocol::sync::v1::_Event_UserRemovedFromGuild_default_instance_);
+}
+inline const ::protocol::sync::v1::Event_UserRemovedFromGuild& Event::user_removed_from_guild() const {
+  // @@protoc_insertion_point(field_get:protocol.sync.v1.Event.user_removed_from_guild)
+  return _internal_user_removed_from_guild();
+}
+inline ::protocol::sync::v1::Event_UserRemovedFromGuild* Event::unsafe_arena_release_user_removed_from_guild() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.sync.v1.Event.user_removed_from_guild)
+  if (_internal_has_user_removed_from_guild()) {
+    clear_has_kind();
+    ::protocol::sync::v1::Event_UserRemovedFromGuild* temp = kind_.user_removed_from_guild_;
+    kind_.user_removed_from_guild_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_user_removed_from_guild(::protocol::sync::v1::Event_UserRemovedFromGuild* user_removed_from_guild) {
+  clear_kind();
+  if (user_removed_from_guild) {
+    set_has_user_removed_from_guild();
+    kind_.user_removed_from_guild_ = user_removed_from_guild;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.sync.v1.Event.user_removed_from_guild)
+}
+inline ::protocol::sync::v1::Event_UserRemovedFromGuild* Event::_internal_mutable_user_removed_from_guild() {
+  if (!_internal_has_user_removed_from_guild()) {
+    clear_kind();
+    set_has_user_removed_from_guild();
+    kind_.user_removed_from_guild_ = CreateMaybeMessage< ::protocol::sync::v1::Event_UserRemovedFromGuild >(GetArena());
+  }
+  return kind_.user_removed_from_guild_;
+}
+inline ::protocol::sync::v1::Event_UserRemovedFromGuild* Event::mutable_user_removed_from_guild() {
+  // @@protoc_insertion_point(field_mutable:protocol.sync.v1.Event.user_removed_from_guild)
+  return _internal_mutable_user_removed_from_guild();
 }
 
+// .protocol.sync.v1.Event.UserAddedToGuild user_added_to_guild = 2;
+inline bool Event::_internal_has_user_added_to_guild() const {
+  return kind_case() == kUserAddedToGuild;
+}
+inline bool Event::has_user_added_to_guild() const {
+  return _internal_has_user_added_to_guild();
+}
+inline void Event::set_has_user_added_to_guild() {
+  _oneof_case_[0] = kUserAddedToGuild;
+}
+inline void Event::clear_user_added_to_guild() {
+  if (_internal_has_user_added_to_guild()) {
+    if (GetArena() == nullptr) {
+      delete kind_.user_added_to_guild_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::protocol::sync::v1::Event_UserAddedToGuild* Event::release_user_added_to_guild() {
+  // @@protoc_insertion_point(field_release:protocol.sync.v1.Event.user_added_to_guild)
+  if (_internal_has_user_added_to_guild()) {
+    clear_has_kind();
+      ::protocol::sync::v1::Event_UserAddedToGuild* temp = kind_.user_added_to_guild_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    kind_.user_added_to_guild_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::sync::v1::Event_UserAddedToGuild& Event::_internal_user_added_to_guild() const {
+  return _internal_has_user_added_to_guild()
+      ? *kind_.user_added_to_guild_
+      : *reinterpret_cast< ::protocol::sync::v1::Event_UserAddedToGuild*>(&::protocol::sync::v1::_Event_UserAddedToGuild_default_instance_);
+}
+inline const ::protocol::sync::v1::Event_UserAddedToGuild& Event::user_added_to_guild() const {
+  // @@protoc_insertion_point(field_get:protocol.sync.v1.Event.user_added_to_guild)
+  return _internal_user_added_to_guild();
+}
+inline ::protocol::sync::v1::Event_UserAddedToGuild* Event::unsafe_arena_release_user_added_to_guild() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.sync.v1.Event.user_added_to_guild)
+  if (_internal_has_user_added_to_guild()) {
+    clear_has_kind();
+    ::protocol::sync::v1::Event_UserAddedToGuild* temp = kind_.user_added_to_guild_;
+    kind_.user_added_to_guild_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_user_added_to_guild(::protocol::sync::v1::Event_UserAddedToGuild* user_added_to_guild) {
+  clear_kind();
+  if (user_added_to_guild) {
+    set_has_user_added_to_guild();
+    kind_.user_added_to_guild_ = user_added_to_guild;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.sync.v1.Event.user_added_to_guild)
+}
+inline ::protocol::sync::v1::Event_UserAddedToGuild* Event::_internal_mutable_user_added_to_guild() {
+  if (!_internal_has_user_added_to_guild()) {
+    clear_kind();
+    set_has_user_added_to_guild();
+    kind_.user_added_to_guild_ = CreateMaybeMessage< ::protocol::sync::v1::Event_UserAddedToGuild >(GetArena());
+  }
+  return kind_.user_added_to_guild_;
+}
+inline ::protocol::sync::v1::Event_UserAddedToGuild* Event::mutable_user_added_to_guild() {
+  // @@protoc_insertion_point(field_mutable:protocol.sync.v1.Event.user_added_to_guild)
+  return _internal_mutable_user_added_to_guild();
+}
+
+inline bool Event::has_kind() const {
+  return kind_case() != KIND_NOT_SET;
+}
+inline void Event::clear_has_kind() {
+  _oneof_case_[0] = KIND_NOT_SET;
+}
+inline Event::KindCase Event::kind_case() const {
+  return Event::KindCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // PostEventRequest
 
-// .protocol.sync.v1.SyncRequest sync_request = 1;
-inline bool PostEventRequest::_internal_has_sync_request() const {
-  return this != internal_default_instance() && sync_request_ != nullptr;
-}
-inline bool PostEventRequest::has_sync_request() const {
-  return _internal_has_sync_request();
-}
-inline void PostEventRequest::clear_sync_request() {
-  if (GetArena() == nullptr && sync_request_ != nullptr) {
-    delete sync_request_;
-  }
-  sync_request_ = nullptr;
-}
-inline const ::protocol::sync::v1::SyncRequest& PostEventRequest::_internal_sync_request() const {
-  const ::protocol::sync::v1::SyncRequest* p = sync_request_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::sync::v1::SyncRequest*>(
-      &::protocol::sync::v1::_SyncRequest_default_instance_);
-}
-inline const ::protocol::sync::v1::SyncRequest& PostEventRequest::sync_request() const {
-  // @@protoc_insertion_point(field_get:protocol.sync.v1.PostEventRequest.sync_request)
-  return _internal_sync_request();
-}
-inline void PostEventRequest::unsafe_arena_set_allocated_sync_request(
-    ::protocol::sync::v1::SyncRequest* sync_request) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sync_request_);
-  }
-  sync_request_ = sync_request;
-  if (sync_request) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.sync.v1.PostEventRequest.sync_request)
-}
-inline ::protocol::sync::v1::SyncRequest* PostEventRequest::release_sync_request() {
-  auto temp = unsafe_arena_release_sync_request();
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::protocol::sync::v1::SyncRequest* PostEventRequest::unsafe_arena_release_sync_request() {
-  // @@protoc_insertion_point(field_release:protocol.sync.v1.PostEventRequest.sync_request)
-  
-  ::protocol::sync::v1::SyncRequest* temp = sync_request_;
-  sync_request_ = nullptr;
-  return temp;
-}
-inline ::protocol::sync::v1::SyncRequest* PostEventRequest::_internal_mutable_sync_request() {
-  
-  if (sync_request_ == nullptr) {
-    auto* p = CreateMaybeMessage<::protocol::sync::v1::SyncRequest>(GetArena());
-    sync_request_ = p;
-  }
-  return sync_request_;
-}
-inline ::protocol::sync::v1::SyncRequest* PostEventRequest::mutable_sync_request() {
-  // @@protoc_insertion_point(field_mutable:protocol.sync.v1.PostEventRequest.sync_request)
-  return _internal_mutable_sync_request();
-}
-inline void PostEventRequest::set_allocated_sync_request(::protocol::sync::v1::SyncRequest* sync_request) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete sync_request_;
-  }
-  if (sync_request) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(sync_request);
-    if (message_arena != submessage_arena) {
-      sync_request = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, sync_request, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  sync_request_ = sync_request;
-  // @@protoc_insertion_point(field_set_allocated:protocol.sync.v1.PostEventRequest.sync_request)
-}
-
-// .protocol.sync.v1.PostBoxEvent event = 2;
+// .protocol.sync.v1.Event event = 1;
 inline bool PostEventRequest::_internal_has_event() const {
   return this != internal_default_instance() && event_ != nullptr;
 }
@@ -922,17 +1285,17 @@ inline void PostEventRequest::clear_event() {
   }
   event_ = nullptr;
 }
-inline const ::protocol::sync::v1::PostBoxEvent& PostEventRequest::_internal_event() const {
-  const ::protocol::sync::v1::PostBoxEvent* p = event_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::sync::v1::PostBoxEvent*>(
-      &::protocol::sync::v1::_PostBoxEvent_default_instance_);
+inline const ::protocol::sync::v1::Event& PostEventRequest::_internal_event() const {
+  const ::protocol::sync::v1::Event* p = event_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::sync::v1::Event*>(
+      &::protocol::sync::v1::_Event_default_instance_);
 }
-inline const ::protocol::sync::v1::PostBoxEvent& PostEventRequest::event() const {
+inline const ::protocol::sync::v1::Event& PostEventRequest::event() const {
   // @@protoc_insertion_point(field_get:protocol.sync.v1.PostEventRequest.event)
   return _internal_event();
 }
 inline void PostEventRequest::unsafe_arena_set_allocated_event(
-    ::protocol::sync::v1::PostBoxEvent* event) {
+    ::protocol::sync::v1::Event* event) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(event_);
   }
@@ -944,33 +1307,33 @@ inline void PostEventRequest::unsafe_arena_set_allocated_event(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.sync.v1.PostEventRequest.event)
 }
-inline ::protocol::sync::v1::PostBoxEvent* PostEventRequest::release_event() {
+inline ::protocol::sync::v1::Event* PostEventRequest::release_event() {
   auto temp = unsafe_arena_release_event();
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::protocol::sync::v1::PostBoxEvent* PostEventRequest::unsafe_arena_release_event() {
+inline ::protocol::sync::v1::Event* PostEventRequest::unsafe_arena_release_event() {
   // @@protoc_insertion_point(field_release:protocol.sync.v1.PostEventRequest.event)
   
-  ::protocol::sync::v1::PostBoxEvent* temp = event_;
+  ::protocol::sync::v1::Event* temp = event_;
   event_ = nullptr;
   return temp;
 }
-inline ::protocol::sync::v1::PostBoxEvent* PostEventRequest::_internal_mutable_event() {
+inline ::protocol::sync::v1::Event* PostEventRequest::_internal_mutable_event() {
   
   if (event_ == nullptr) {
-    auto* p = CreateMaybeMessage<::protocol::sync::v1::PostBoxEvent>(GetArena());
+    auto* p = CreateMaybeMessage<::protocol::sync::v1::Event>(GetArena());
     event_ = p;
   }
   return event_;
 }
-inline ::protocol::sync::v1::PostBoxEvent* PostEventRequest::mutable_event() {
+inline ::protocol::sync::v1::Event* PostEventRequest::mutable_event() {
   // @@protoc_insertion_point(field_mutable:protocol.sync.v1.PostEventRequest.event)
   return _internal_mutable_event();
 }
-inline void PostEventRequest::set_allocated_event(::protocol::sync::v1::PostBoxEvent* event) {
+inline void PostEventRequest::set_allocated_event(::protocol::sync::v1::Event* event) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete event_;
@@ -990,9 +1353,144 @@ inline void PostEventRequest::set_allocated_event(::protocol::sync::v1::PostBoxE
   // @@protoc_insertion_point(field_set_allocated:protocol.sync.v1.PostEventRequest.event)
 }
 
+// -------------------------------------------------------------------
+
+// Ack
+
+// uint64 event_id = 1;
+inline void Ack::clear_event_id() {
+  event_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Ack::_internal_event_id() const {
+  return event_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Ack::event_id() const {
+  // @@protoc_insertion_point(field_get:protocol.sync.v1.Ack.event_id)
+  return _internal_event_id();
+}
+inline void Ack::_internal_set_event_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  event_id_ = value;
+}
+inline void Ack::set_event_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_event_id(value);
+  // @@protoc_insertion_point(field_set:protocol.sync.v1.Ack.event_id)
+}
+
+// -------------------------------------------------------------------
+
+// Syn
+
+// uint64 event_id = 1;
+inline void Syn::clear_event_id() {
+  event_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Syn::_internal_event_id() const {
+  return event_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Syn::event_id() const {
+  // @@protoc_insertion_point(field_get:protocol.sync.v1.Syn.event_id)
+  return _internal_event_id();
+}
+inline void Syn::_internal_set_event_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  event_id_ = value;
+}
+inline void Syn::set_event_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_event_id(value);
+  // @@protoc_insertion_point(field_set:protocol.sync.v1.Syn.event_id)
+}
+
+// .protocol.sync.v1.Event event = 2;
+inline bool Syn::_internal_has_event() const {
+  return this != internal_default_instance() && event_ != nullptr;
+}
+inline bool Syn::has_event() const {
+  return _internal_has_event();
+}
+inline void Syn::clear_event() {
+  if (GetArena() == nullptr && event_ != nullptr) {
+    delete event_;
+  }
+  event_ = nullptr;
+}
+inline const ::protocol::sync::v1::Event& Syn::_internal_event() const {
+  const ::protocol::sync::v1::Event* p = event_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::sync::v1::Event*>(
+      &::protocol::sync::v1::_Event_default_instance_);
+}
+inline const ::protocol::sync::v1::Event& Syn::event() const {
+  // @@protoc_insertion_point(field_get:protocol.sync.v1.Syn.event)
+  return _internal_event();
+}
+inline void Syn::unsafe_arena_set_allocated_event(
+    ::protocol::sync::v1::Event* event) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(event_);
+  }
+  event_ = event;
+  if (event) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.sync.v1.Syn.event)
+}
+inline ::protocol::sync::v1::Event* Syn::release_event() {
+  auto temp = unsafe_arena_release_event();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::protocol::sync::v1::Event* Syn::unsafe_arena_release_event() {
+  // @@protoc_insertion_point(field_release:protocol.sync.v1.Syn.event)
+  
+  ::protocol::sync::v1::Event* temp = event_;
+  event_ = nullptr;
+  return temp;
+}
+inline ::protocol::sync::v1::Event* Syn::_internal_mutable_event() {
+  
+  if (event_ == nullptr) {
+    auto* p = CreateMaybeMessage<::protocol::sync::v1::Event>(GetArena());
+    event_ = p;
+  }
+  return event_;
+}
+inline ::protocol::sync::v1::Event* Syn::mutable_event() {
+  // @@protoc_insertion_point(field_mutable:protocol.sync.v1.Syn.event)
+  return _internal_mutable_event();
+}
+inline void Syn::set_allocated_event(::protocol::sync::v1::Event* event) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete event_;
+  }
+  if (event) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(event);
+    if (message_arena != submessage_arena) {
+      event = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, event, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  event_ = event;
+  // @@protoc_insertion_point(field_set_allocated:protocol.sync.v1.Syn.event)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
