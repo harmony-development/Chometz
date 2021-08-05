@@ -1,6 +1,8 @@
 #pragma once
 
+#include <QDebug>
 #include <functional>
+#include <optional>
 
 namespace Chometz
 {
@@ -10,12 +12,10 @@ class Future
 {
 
 	struct Shared {
-		T result;
+		std::optional<T> result;
 
 		// ok, err
 		std::function<void(T)> onComplete = [](T) {};
-
-		bool settled = false;
 	};
 	std::shared_ptr<Shared> d;
 
@@ -30,19 +30,18 @@ public:
 	}
 
 	void settle(const T& value) const {
-		if (d->settled) {
+		if (d->result.has_value()) {
 			return;
 		}
-		d->settled = true;
-
 		d->result = value;
-		d->onComplete(d->result);
+
+		d->onComplete(value);
 	}
 	T result() const {
-		return d->result;
+		return *d->result;
 	}
 	bool settled() const {
-		return d->settled;
+		return d->result.has_value();
 	}
 	template<typename E>
 	Future<E> then(std::function<E(T)> conv) {
@@ -52,8 +51,8 @@ public:
 			ret.settle(conv(it));
 		};
 
-		if (d->settled) {
-			d->onComplete(d->result);
+		if (d->result.has_value()) {
+			d->onComplete(*d->result);
 		}
 
 		return ret;
@@ -61,8 +60,8 @@ public:
 	void then(std::function<void(T)> it) {
 		d->onComplete = it;
 
-		if (d->settled) {
-			d->onComplete(d->result);
+		if (d->result.has_value()) {
+			d->onComplete(*d->result);
 		}
 	}
 };

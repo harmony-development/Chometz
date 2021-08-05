@@ -6,6 +6,8 @@
 namespace Chometz
 {
 
+Object::~Object() { }
+
 void Object::doStore(Storer& s) const
 {
     s.store("id", getID());
@@ -28,6 +30,8 @@ void error::store(Storer& s) const
     s.store("message", message_);
 }
 
+error::~error() { }
+
 bool error::load(Loader& s)
 {
     must(Object::doLoad(s))
@@ -39,18 +43,12 @@ bool error::load(Loader& s)
     return true;
 }
 
-bool ok::load(Loader& s)
-{
-    must(Object::doLoad(s))
+ok::~ok() { }
+void ok::store(Storer& s) const { Object::doStore(s); }
+bool ok::load(Loader& s) { must(Object::doLoad(s)); return true; }
 
-    return true;
-}
-
-bool start::load(Loader& s)
-{
-    must(Object::doLoad(s))
-
-    return true;
-}
+start::~start() { }
+void start::store(Storer& s) const { Object::doStore(s); }
+bool start::load(Loader& s) { must(Object::doLoad(s)); return true; }
 
 };

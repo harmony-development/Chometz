@@ -32,6 +32,8 @@ protected:
     void doStore(Storer&) const;
     bool doLoad(Loader&);
 public:
+    virtual ~Object() = 0;
+
     virtual int getID() const = 0;
     virtual void store(Storer&) const = 0;
     virtual bool load(Loader&) = 0;
@@ -44,6 +46,7 @@ class Function : public Object
 class ok final : public Object
 {
     create_id(5);
+    virtual ~ok() override;
 
     pub void store(Storer&) const override;
     pub bool load(Loader&) override;
@@ -52,6 +55,7 @@ class ok final : public Object
 class error final : public Object
 {
     create_id(6);
+    virtual ~error() override;
 
     pub qint32 code_ = 0;
     pub QString message_;
@@ -70,6 +74,7 @@ class start final : public Function
 {
     create_id(4);
     returns(ok);
+    virtual ~start() override;
 
     pub void store(Storer&) const override;
     pub bool load(Loader&) override;

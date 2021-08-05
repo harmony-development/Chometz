@@ -23,14 +23,15 @@ private:
 private Q_SLOTS:
 	void initTestCase()
 	{
-		client = new Chometz::Client;
+		client = new Chometz::Client(":memory:");
 	}
 
 	void test()
 	{
 		using namespace Chometz;
 
-		client->request(SRef<start>(new start));
+		auto r = client->request(SRef<start>(new start));
+		QVERIFY(r.settled());
 	}
 
 	void cleanupTestCase()

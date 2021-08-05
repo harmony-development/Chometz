@@ -8,7 +8,8 @@
 namespace Chometz
 {
 
-using RObj = Result<SRef<Object>>;
+using SObj = SRef<Object>;
+using RObj = Result<SObj>;
 
 template<typename T>
 using R = Result<SRef<T>>;
@@ -36,6 +37,7 @@ Client::Private::dispatch(SRef<start> req)
 		ret.settle(RObj(error(Errors::DatabaseInitFailure, query.lastError().text())));
 	}
 
+	ret.settle(SObj(new ok));
 	return ret;
 }
 
