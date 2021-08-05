@@ -11,7 +11,11 @@ class updateAuthState final : public Update
 public:
     create_id(0);
 
-    SRef<AuthState> state;
+    virtual ~updateAuthState() override;
+    pub void store(Storer&) const override;
+    pub bool load(Loader&) override;
+
+    SRef<AuthState> state_;
 };
 
 class AuthState : public Object
