@@ -47,6 +47,8 @@ public:
 	Client(ClientManager* cm, const QString& homeserver);
 	~Client();
 
+	std::string session() const;
+	quint64 userID() const;
 	QString homeserver() const;
 
 	ChatServiceServiceClient* chatKit();

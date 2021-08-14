@@ -43,6 +43,16 @@ void Client::setSession(const std::string& session, quint64 userID)
 	d->mediaProxyKit->universalHeaders = {{"Authorization", tok}};
 }
 
+std::string Client::session() const
+{
+	return d->session;
+}
+
+quint64 Client::userID() const
+{
+	return d->userID;
+}
+
 Future<> Client::nextStep(protocol::auth::v1::NextStepRequest nstep)
 {
 	auto it = nstep;
