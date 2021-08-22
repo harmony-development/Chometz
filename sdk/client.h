@@ -23,14 +23,6 @@ class Client : public QObject
 	Future<> startAuth();
 	Q_SIGNAL void authEvent(protocol::auth::v1::AuthStep step);
 
-	Q_SIGNAL void chatEvent(protocol::chat::v1::Event ev);
-	Q_SIGNAL void hsEvent(protocol::chat::v1::Event ev);
-	Q_SIGNAL void actionTriggered(protocol::chat::v1::Event::ActionPerformed action);
-
-	void subscribeToGuild(quint64 guildID);
-	void subscribeToActions();
-	void subscribeToHomeserver();
-
 	FutureResult<Client*> federateOtherClient(Client* client, QString target);
 
 	void setSession(const std::string& session, quint64 userID);
@@ -54,6 +46,14 @@ public:
 	ChatServiceServiceClient* chatKit();
 	AuthServiceServiceClient* authKit();
 	MediaProxyServiceServiceClient* mediaProxyKit();
+
+	Q_SIGNAL void chatEvent(protocol::chat::v1::Event ev);
+	Q_SIGNAL void hsEvent(protocol::chat::v1::Event ev);
+	Q_SIGNAL void actionTriggered(protocol::chat::v1::Event::ActionPerformed action);
+
+	void subscribeToGuild(quint64 guildID);
+	void subscribeToActions();
+	void subscribeToHomeserver();
 
 };
 
