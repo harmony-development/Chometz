@@ -52,11 +52,11 @@ auto PostboxServiceServiceClient::PullSync(const google::protobuf::Empty& in, QM
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::sync::v1::EventQueue ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -98,14 +98,14 @@ FutureResult<protocol::sync::v1::EventQueue, QString> PostboxServiceServiceClien
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::sync::v1::EventQueue ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -154,11 +154,11 @@ auto PostboxServiceServiceClient::PushSync(const protocol::sync::v1::Event& in, 
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -200,14 +200,14 @@ FutureResult<google::protobuf::Empty, QString> PostboxServiceServiceClient::Push
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();

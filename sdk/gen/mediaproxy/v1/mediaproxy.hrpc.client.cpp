@@ -52,11 +52,11 @@ auto MediaProxyServiceServiceClient::FetchLinkMetadataSync(const protocol::media
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::mediaproxy::v1::FetchLinkMetadataResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -98,14 +98,14 @@ FutureResult<protocol::mediaproxy::v1::FetchLinkMetadataResponse, QString> Media
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::mediaproxy::v1::FetchLinkMetadataResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -154,11 +154,11 @@ auto MediaProxyServiceServiceClient::InstantViewSync(const protocol::mediaproxy:
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::mediaproxy::v1::InstantViewResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -200,14 +200,14 @@ FutureResult<protocol::mediaproxy::v1::InstantViewResponse, QString> MediaProxyS
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::mediaproxy::v1::InstantViewResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -256,11 +256,11 @@ auto MediaProxyServiceServiceClient::CanInstantViewSync(const protocol::mediapro
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::mediaproxy::v1::CanInstantViewResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -302,14 +302,14 @@ FutureResult<protocol::mediaproxy::v1::CanInstantViewResponse, QString> MediaPro
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::mediaproxy::v1::CanInstantViewResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();

@@ -52,11 +52,11 @@ auto ChatServiceServiceClient::CreateGuildSync(const protocol::chat::v1::CreateG
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::CreateGuildResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -98,14 +98,14 @@ FutureResult<protocol::chat::v1::CreateGuildResponse, QString> ChatServiceServic
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::CreateGuildResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -154,11 +154,11 @@ auto ChatServiceServiceClient::CreateInviteSync(const protocol::chat::v1::Create
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::CreateInviteResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -200,14 +200,14 @@ FutureResult<protocol::chat::v1::CreateInviteResponse, QString> ChatServiceServi
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::CreateInviteResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -256,11 +256,11 @@ auto ChatServiceServiceClient::CreateChannelSync(const protocol::chat::v1::Creat
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::CreateChannelResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -302,14 +302,14 @@ FutureResult<protocol::chat::v1::CreateChannelResponse, QString> ChatServiceServ
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::CreateChannelResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -358,11 +358,11 @@ auto ChatServiceServiceClient::CreateEmotePackSync(const protocol::chat::v1::Cre
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::CreateEmotePackResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -404,14 +404,14 @@ FutureResult<protocol::chat::v1::CreateEmotePackResponse, QString> ChatServiceSe
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::CreateEmotePackResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -460,11 +460,11 @@ auto ChatServiceServiceClient::GetGuildListSync(const protocol::chat::v1::GetGui
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetGuildListResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -506,14 +506,14 @@ FutureResult<protocol::chat::v1::GetGuildListResponse, QString> ChatServiceServi
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetGuildListResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -562,11 +562,11 @@ auto ChatServiceServiceClient::GetGuildSync(const protocol::chat::v1::GetGuildRe
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetGuildResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -608,14 +608,14 @@ FutureResult<protocol::chat::v1::GetGuildResponse, QString> ChatServiceServiceCl
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetGuildResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -664,11 +664,11 @@ auto ChatServiceServiceClient::GetGuildInvitesSync(const protocol::chat::v1::Get
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetGuildInvitesResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -710,14 +710,14 @@ FutureResult<protocol::chat::v1::GetGuildInvitesResponse, QString> ChatServiceSe
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetGuildInvitesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -766,11 +766,11 @@ auto ChatServiceServiceClient::GetGuildMembersSync(const protocol::chat::v1::Get
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetGuildMembersResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -812,14 +812,14 @@ FutureResult<protocol::chat::v1::GetGuildMembersResponse, QString> ChatServiceSe
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetGuildMembersResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -868,11 +868,11 @@ auto ChatServiceServiceClient::GetGuildChannelsSync(const protocol::chat::v1::Ge
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetGuildChannelsResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -914,14 +914,14 @@ FutureResult<protocol::chat::v1::GetGuildChannelsResponse, QString> ChatServiceS
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetGuildChannelsResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -970,11 +970,11 @@ auto ChatServiceServiceClient::GetChannelMessagesSync(const protocol::chat::v1::
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetChannelMessagesResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1016,14 +1016,14 @@ FutureResult<protocol::chat::v1::GetChannelMessagesResponse, QString> ChatServic
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetChannelMessagesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1072,11 +1072,11 @@ auto ChatServiceServiceClient::GetMessageSync(const protocol::chat::v1::GetMessa
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetMessageResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1118,14 +1118,14 @@ FutureResult<protocol::chat::v1::GetMessageResponse, QString> ChatServiceService
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetMessageResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1174,11 +1174,11 @@ auto ChatServiceServiceClient::GetEmotePacksSync(const protocol::chat::v1::GetEm
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetEmotePacksResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1220,14 +1220,14 @@ FutureResult<protocol::chat::v1::GetEmotePacksResponse, QString> ChatServiceServ
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetEmotePacksResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1276,11 +1276,11 @@ auto ChatServiceServiceClient::GetEmotePackEmotesSync(const protocol::chat::v1::
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetEmotePackEmotesResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1322,14 +1322,14 @@ FutureResult<protocol::chat::v1::GetEmotePackEmotesResponse, QString> ChatServic
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetEmotePackEmotesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1378,11 +1378,11 @@ auto ChatServiceServiceClient::UpdateGuildInformationSync(const protocol::chat::
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1424,14 +1424,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UpdateG
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1480,11 +1480,11 @@ auto ChatServiceServiceClient::UpdateChannelInformationSync(const protocol::chat
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1526,14 +1526,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UpdateC
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1582,11 +1582,11 @@ auto ChatServiceServiceClient::UpdateChannelOrderSync(const protocol::chat::v1::
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1628,14 +1628,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UpdateC
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1684,11 +1684,11 @@ auto ChatServiceServiceClient::UpdateAllChannelOrderSync(const protocol::chat::v
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1730,14 +1730,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UpdateA
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1786,11 +1786,11 @@ auto ChatServiceServiceClient::UpdateMessageTextSync(const protocol::chat::v1::U
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1832,14 +1832,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UpdateM
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1888,11 +1888,11 @@ auto ChatServiceServiceClient::AddEmoteToPackSync(const protocol::chat::v1::AddE
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -1934,14 +1934,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::AddEmot
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -1990,11 +1990,11 @@ auto ChatServiceServiceClient::DeleteGuildSync(const protocol::chat::v1::DeleteG
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2036,14 +2036,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteG
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -2092,11 +2092,11 @@ auto ChatServiceServiceClient::DeleteInviteSync(const protocol::chat::v1::Delete
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2138,14 +2138,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteI
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -2194,11 +2194,11 @@ auto ChatServiceServiceClient::DeleteChannelSync(const protocol::chat::v1::Delet
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2240,14 +2240,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteC
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -2296,11 +2296,11 @@ auto ChatServiceServiceClient::DeleteMessageSync(const protocol::chat::v1::Delet
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2342,14 +2342,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteM
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -2398,11 +2398,11 @@ auto ChatServiceServiceClient::DeleteEmoteFromPackSync(const protocol::chat::v1:
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2444,14 +2444,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteE
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -2500,11 +2500,11 @@ auto ChatServiceServiceClient::DeleteEmotePackSync(const protocol::chat::v1::Del
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2546,14 +2546,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteE
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -2602,11 +2602,11 @@ auto ChatServiceServiceClient::DequipEmotePackSync(const protocol::chat::v1::Deq
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2648,14 +2648,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DequipE
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -2704,11 +2704,11 @@ auto ChatServiceServiceClient::EquipEmotePackSync(const protocol::chat::v1::Equi
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2750,14 +2750,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::EquipEm
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -2806,11 +2806,11 @@ auto ChatServiceServiceClient::JoinGuildSync(const protocol::chat::v1::JoinGuild
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::JoinGuildResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2852,14 +2852,14 @@ FutureResult<protocol::chat::v1::JoinGuildResponse, QString> ChatServiceServiceC
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::JoinGuildResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -2908,11 +2908,11 @@ auto ChatServiceServiceClient::LeaveGuildSync(const protocol::chat::v1::LeaveGui
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -2954,14 +2954,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::LeaveGu
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3010,11 +3010,11 @@ auto ChatServiceServiceClient::TriggerActionSync(const protocol::chat::v1::Trigg
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3056,14 +3056,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::Trigger
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3112,11 +3112,11 @@ auto ChatServiceServiceClient::SendMessageSync(const protocol::chat::v1::SendMes
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::SendMessageResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3158,14 +3158,14 @@ FutureResult<protocol::chat::v1::SendMessageResponse, QString> ChatServiceServic
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::SendMessageResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3214,11 +3214,11 @@ auto ChatServiceServiceClient::QueryHasPermissionSync(const protocol::chat::v1::
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::QueryPermissionsResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3260,14 +3260,14 @@ FutureResult<protocol::chat::v1::QueryPermissionsResponse, QString> ChatServiceS
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::QueryPermissionsResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3316,11 +3316,11 @@ auto ChatServiceServiceClient::BatchQueryHasPermissionSync(const protocol::chat:
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::BatchQueryPermissionsResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3362,14 +3362,14 @@ FutureResult<protocol::chat::v1::BatchQueryPermissionsResponse, QString> ChatSer
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::BatchQueryPermissionsResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3418,11 +3418,11 @@ auto ChatServiceServiceClient::SetPermissionsSync(const protocol::chat::v1::SetP
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3464,14 +3464,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::SetPerm
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3520,11 +3520,11 @@ auto ChatServiceServiceClient::GetPermissionsSync(const protocol::chat::v1::GetP
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetPermissionsResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3566,14 +3566,14 @@ FutureResult<protocol::chat::v1::GetPermissionsResponse, QString> ChatServiceSer
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetPermissionsResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3622,11 +3622,11 @@ auto ChatServiceServiceClient::MoveRoleSync(const protocol::chat::v1::MoveRoleRe
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::MoveRoleResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3668,14 +3668,14 @@ FutureResult<protocol::chat::v1::MoveRoleResponse, QString> ChatServiceServiceCl
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::MoveRoleResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3724,11 +3724,11 @@ auto ChatServiceServiceClient::GetGuildRolesSync(const protocol::chat::v1::GetGu
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetGuildRolesResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3770,14 +3770,14 @@ FutureResult<protocol::chat::v1::GetGuildRolesResponse, QString> ChatServiceServ
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetGuildRolesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3826,11 +3826,11 @@ auto ChatServiceServiceClient::AddGuildRoleSync(const protocol::chat::v1::AddGui
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::AddGuildRoleResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3872,14 +3872,14 @@ FutureResult<protocol::chat::v1::AddGuildRoleResponse, QString> ChatServiceServi
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::AddGuildRoleResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -3928,11 +3928,11 @@ auto ChatServiceServiceClient::ModifyGuildRoleSync(const protocol::chat::v1::Mod
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -3974,14 +3974,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::ModifyG
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4030,11 +4030,11 @@ auto ChatServiceServiceClient::DeleteGuildRoleSync(const protocol::chat::v1::Del
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -4076,14 +4076,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::DeleteG
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4132,11 +4132,11 @@ auto ChatServiceServiceClient::ManageUserRolesSync(const protocol::chat::v1::Man
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -4178,14 +4178,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::ManageU
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4234,11 +4234,11 @@ auto ChatServiceServiceClient::GetUserRolesSync(const protocol::chat::v1::GetUse
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetUserRolesResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -4280,14 +4280,14 @@ FutureResult<protocol::chat::v1::GetUserRolesResponse, QString> ChatServiceServi
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetUserRolesResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4351,11 +4351,11 @@ auto ChatServiceServiceClient::GetUserSync(const protocol::chat::v1::GetUserRequ
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetUserResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -4397,14 +4397,14 @@ FutureResult<protocol::chat::v1::GetUserResponse, QString> ChatServiceServiceCli
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetUserResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4453,11 +4453,11 @@ auto ChatServiceServiceClient::GetUserBulkSync(const protocol::chat::v1::GetUser
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetUserBulkResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -4499,14 +4499,14 @@ FutureResult<protocol::chat::v1::GetUserBulkResponse, QString> ChatServiceServic
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetUserBulkResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4555,11 +4555,11 @@ auto ChatServiceServiceClient::GetUserMetadataSync(const protocol::chat::v1::Get
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::GetUserMetadataResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -4601,14 +4601,14 @@ FutureResult<protocol::chat::v1::GetUserMetadataResponse, QString> ChatServiceSe
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::GetUserMetadataResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4657,11 +4657,11 @@ auto ChatServiceServiceClient::ProfileUpdateSync(const protocol::chat::v1::Profi
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -4703,14 +4703,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::Profile
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4759,11 +4759,11 @@ auto ChatServiceServiceClient::TypingSync(const protocol::chat::v1::TypingReques
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -4805,14 +4805,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::Typing(
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4861,11 +4861,11 @@ auto ChatServiceServiceClient::PreviewGuildSync(const protocol::chat::v1::Previe
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::chat::v1::PreviewGuildResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -4907,14 +4907,14 @@ FutureResult<protocol::chat::v1::PreviewGuildResponse, QString> ChatServiceServi
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::chat::v1::PreviewGuildResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -4963,11 +4963,11 @@ auto ChatServiceServiceClient::BanUserSync(const protocol::chat::v1::BanUserRequ
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -5009,14 +5009,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::BanUser
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -5065,11 +5065,11 @@ auto ChatServiceServiceClient::KickUserSync(const protocol::chat::v1::KickUserRe
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -5111,14 +5111,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::KickUse
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -5167,11 +5167,11 @@ auto ChatServiceServiceClient::UnbanUserSync(const protocol::chat::v1::UnbanUser
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -5213,14 +5213,14 @@ FutureResult<google::protobuf::Empty, QString> ChatServiceServiceClient::UnbanUs
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();

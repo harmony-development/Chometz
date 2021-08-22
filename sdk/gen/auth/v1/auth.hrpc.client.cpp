@@ -52,11 +52,11 @@ auto AuthServiceServiceClient::FederateSync(const protocol::auth::v1::FederateRe
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::auth::v1::FederateReply ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -98,14 +98,14 @@ FutureResult<protocol::auth::v1::FederateReply, QString> AuthServiceServiceClien
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::auth::v1::FederateReply ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -154,11 +154,11 @@ auto AuthServiceServiceClient::LoginFederatedSync(const protocol::auth::v1::Logi
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::auth::v1::Session ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -200,14 +200,14 @@ FutureResult<protocol::auth::v1::Session, QString> AuthServiceServiceClient::Log
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::auth::v1::Session ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -256,11 +256,11 @@ auto AuthServiceServiceClient::KeySync(const google::protobuf::Empty& in, QMap<Q
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::auth::v1::KeyReply ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -302,14 +302,14 @@ FutureResult<protocol::auth::v1::KeyReply, QString> AuthServiceServiceClient::Ke
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::auth::v1::KeyReply ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -358,11 +358,11 @@ auto AuthServiceServiceClient::BeginAuthSync(const google::protobuf::Empty& in, 
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::auth::v1::BeginAuthResponse ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -404,14 +404,14 @@ FutureResult<protocol::auth::v1::BeginAuthResponse, QString> AuthServiceServiceC
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::auth::v1::BeginAuthResponse ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -460,11 +460,11 @@ auto AuthServiceServiceClient::NextStepSync(const protocol::auth::v1::NextStepRe
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::auth::v1::AuthStep ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -506,14 +506,14 @@ FutureResult<protocol::auth::v1::AuthStep, QString> AuthServiceServiceClient::Ne
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::auth::v1::AuthStep ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -562,11 +562,11 @@ auto AuthServiceServiceClient::StepBackSync(const protocol::auth::v1::StepBackRe
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	protocol::auth::v1::AuthStep ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -608,14 +608,14 @@ FutureResult<protocol::auth::v1::AuthStep, QString> AuthServiceServiceClient::St
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		protocol::auth::v1::AuthStep ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
@@ -683,11 +683,11 @@ auto AuthServiceServiceClient::CheckLoggedInSync(const google::protobuf::Empty& 
 		QCoreApplication::processEvents();
 	}
 
-	if (val->error() != QNetworkReply::NoError) {
-		return {QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())};
-	}
-
 	auto response = val->readAll();
+
+	if (val->error() != QNetworkReply::NoError) {
+		return {QStringLiteral("network failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))};
+	}
 
 	google::protobuf::Empty ret;
 	if (!ret.ParseFromArray(response.constData(), response.length())) {
@@ -729,14 +729,14 @@ FutureResult<google::protobuf::Empty, QString> AuthServiceServiceClient::CheckLo
 
 
 	QObject::connect(val, &QNetworkReply::finished, [val, res]() mutable {
+		auto response = val->readAll();
+
 		if (val->error() != QNetworkReply::NoError) {
 			val->deleteLater();
-			res.fail({QStringLiteral("network failure(%1): %2").arg(val->error()).arg(val->errorString())});
+			res.fail({QStringLiteral("request failure(%1): %2\n%3").arg(val->error()).arg(val->errorString()).arg(QString::fromLocal8Bit(response))});
 			return;
 		}
-		
-		auto response = val->readAll();
-		
+
 		google::protobuf::Empty ret;
 		if (!ret.ParseFromArray(response.constData(), response.length())) {
 			val->deleteLater();
