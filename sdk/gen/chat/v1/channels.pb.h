@@ -48,7 +48,7 @@ struct TableStruct_chat_2fv1_2fchannels_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[9]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[10]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -79,6 +79,9 @@ extern GetGuildChannelsResponse_ChannelDefaultTypeInternal _GetGuildChannelsResp
 class TypingRequest;
 class TypingRequestDefaultTypeInternal;
 extern TypingRequestDefaultTypeInternal _TypingRequest_default_instance_;
+class UpdateAllChannelOrderRequest;
+class UpdateAllChannelOrderRequestDefaultTypeInternal;
+extern UpdateAllChannelOrderRequestDefaultTypeInternal _UpdateAllChannelOrderRequest_default_instance_;
 class UpdateChannelInformationRequest;
 class UpdateChannelInformationRequestDefaultTypeInternal;
 extern UpdateChannelInformationRequestDefaultTypeInternal _UpdateChannelInformationRequest_default_instance_;
@@ -96,6 +99,7 @@ template<> ::protocol::chat::v1::GetGuildChannelsRequest* Arena::CreateMaybeMess
 template<> ::protocol::chat::v1::GetGuildChannelsResponse* Arena::CreateMaybeMessage<::protocol::chat::v1::GetGuildChannelsResponse>(Arena*);
 template<> ::protocol::chat::v1::GetGuildChannelsResponse_Channel* Arena::CreateMaybeMessage<::protocol::chat::v1::GetGuildChannelsResponse_Channel>(Arena*);
 template<> ::protocol::chat::v1::TypingRequest* Arena::CreateMaybeMessage<::protocol::chat::v1::TypingRequest>(Arena*);
+template<> ::protocol::chat::v1::UpdateAllChannelOrderRequest* Arena::CreateMaybeMessage<::protocol::chat::v1::UpdateAllChannelOrderRequest>(Arena*);
 template<> ::protocol::chat::v1::UpdateChannelInformationRequest* Arena::CreateMaybeMessage<::protocol::chat::v1::UpdateChannelInformationRequest>(Arena*);
 template<> ::protocol::chat::v1::UpdateChannelOrderRequest* Arena::CreateMaybeMessage<::protocol::chat::v1::UpdateChannelOrderRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -268,7 +272,7 @@ class CreateChannelRequest PROTOBUF_FINAL :
       ::protocol::harmonytypes::v1::Metadata* metadata);
   ::protocol::harmonytypes::v1::Metadata* unsafe_arena_release_metadata();
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   void clear_guild_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
   void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -277,7 +281,7 @@ class CreateChannelRequest PROTOBUF_FINAL :
   void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 next_id = 4 [jstype = JS_STRING];
+  // uint64 next_id = 4;
   void clear_next_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 next_id() const;
   void set_next_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -286,7 +290,7 @@ class CreateChannelRequest PROTOBUF_FINAL :
   void _internal_set_next_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 previous_id = 5 [jstype = JS_STRING];
+  // uint64 previous_id = 5;
   void clear_previous_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 previous_id() const;
   void set_previous_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -437,7 +441,7 @@ class CreateChannelResponse PROTOBUF_FINAL :
   enum : int {
     kChannelIdFieldNumber = 1,
   };
-  // uint64 channel_id = 1 [jstype = JS_STRING];
+  // uint64 channel_id = 1;
   void clear_channel_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 channel_id() const;
   void set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -574,7 +578,7 @@ class GetGuildChannelsRequest PROTOBUF_FINAL :
   enum : int {
     kGuildIdFieldNumber = 1,
   };
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   void clear_guild_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
   void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -757,7 +761,7 @@ class GetGuildChannelsResponse_Channel PROTOBUF_FINAL :
       ::protocol::harmonytypes::v1::Metadata* metadata);
   ::protocol::harmonytypes::v1::Metadata* unsafe_arena_release_metadata();
 
-  // uint64 channel_id = 1 [jstype = JS_STRING];
+  // uint64 channel_id = 1;
   void clear_channel_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 channel_id() const;
   void set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1102,7 +1106,7 @@ class UpdateChannelInformationRequest PROTOBUF_FINAL :
       ::protocol::harmonytypes::v1::Metadata* metadata);
   ::protocol::harmonytypes::v1::Metadata* unsafe_arena_release_metadata();
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   void clear_guild_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
   void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1111,7 +1115,7 @@ class UpdateChannelInformationRequest PROTOBUF_FINAL :
   void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   void clear_channel_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 channel_id() const;
   void set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1274,7 +1278,7 @@ class UpdateChannelOrderRequest PROTOBUF_FINAL :
     kPreviousIdFieldNumber = 3,
     kNextIdFieldNumber = 4,
   };
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   void clear_guild_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
   void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1283,7 +1287,7 @@ class UpdateChannelOrderRequest PROTOBUF_FINAL :
   void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   void clear_channel_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 channel_id() const;
   void set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1292,7 +1296,7 @@ class UpdateChannelOrderRequest PROTOBUF_FINAL :
   void _internal_set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 previous_id = 3 [jstype = JS_STRING];
+  // uint64 previous_id = 3;
   void clear_previous_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 previous_id() const;
   void set_previous_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1301,7 +1305,7 @@ class UpdateChannelOrderRequest PROTOBUF_FINAL :
   void _internal_set_previous_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 next_id = 4 [jstype = JS_STRING];
+  // uint64 next_id = 4;
   void clear_next_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 next_id() const;
   void set_next_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1321,6 +1325,168 @@ class UpdateChannelOrderRequest PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 channel_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 previous_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 next_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fchannels_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UpdateAllChannelOrderRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.UpdateAllChannelOrderRequest) */ {
+ public:
+  inline UpdateAllChannelOrderRequest() : UpdateAllChannelOrderRequest(nullptr) {};
+  virtual ~UpdateAllChannelOrderRequest();
+
+  UpdateAllChannelOrderRequest(const UpdateAllChannelOrderRequest& from);
+  UpdateAllChannelOrderRequest(UpdateAllChannelOrderRequest&& from) noexcept
+    : UpdateAllChannelOrderRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline UpdateAllChannelOrderRequest& operator=(const UpdateAllChannelOrderRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UpdateAllChannelOrderRequest& operator=(UpdateAllChannelOrderRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const UpdateAllChannelOrderRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const UpdateAllChannelOrderRequest* internal_default_instance() {
+    return reinterpret_cast<const UpdateAllChannelOrderRequest*>(
+               &_UpdateAllChannelOrderRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(UpdateAllChannelOrderRequest& a, UpdateAllChannelOrderRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UpdateAllChannelOrderRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UpdateAllChannelOrderRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline UpdateAllChannelOrderRequest* New() const final {
+    return CreateMaybeMessage<UpdateAllChannelOrderRequest>(nullptr);
+  }
+
+  UpdateAllChannelOrderRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<UpdateAllChannelOrderRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const UpdateAllChannelOrderRequest& from);
+  void MergeFrom(const UpdateAllChannelOrderRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UpdateAllChannelOrderRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.UpdateAllChannelOrderRequest";
+  }
+  protected:
+  explicit UpdateAllChannelOrderRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fchannels_2eproto);
+    return ::descriptor_table_chat_2fv1_2fchannels_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kChannelIdsFieldNumber = 2,
+    kGuildIdFieldNumber = 1,
+  };
+  // repeated uint64 channel_ids = 2;
+  int channel_ids_size() const;
+  private:
+  int _internal_channel_ids_size() const;
+  public:
+  void clear_channel_ids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_channel_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      _internal_channel_ids() const;
+  void _internal_add_channel_ids(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      _internal_mutable_channel_ids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint64 channel_ids(int index) const;
+  void set_channel_ids(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void add_channel_ids(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      channel_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      mutable_channel_ids();
+
+  // uint64 guild_id = 1;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.UpdateAllChannelOrderRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > channel_ids_;
+  mutable std::atomic<int> _channel_ids_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_chat_2fv1_2fchannels_2eproto;
 };
@@ -1368,7 +1534,7 @@ class DeleteChannelRequest PROTOBUF_FINAL :
                &_DeleteChannelRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(DeleteChannelRequest& a, DeleteChannelRequest& b) {
     a.Swap(&b);
@@ -1442,7 +1608,7 @@ class DeleteChannelRequest PROTOBUF_FINAL :
     kGuildIdFieldNumber = 1,
     kChannelIdFieldNumber = 2,
   };
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   void clear_guild_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
   void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1451,7 +1617,7 @@ class DeleteChannelRequest PROTOBUF_FINAL :
   void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   void clear_channel_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 channel_id() const;
   void set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1516,7 +1682,7 @@ class TypingRequest PROTOBUF_FINAL :
                &_TypingRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(TypingRequest& a, TypingRequest& b) {
     a.Swap(&b);
@@ -1590,7 +1756,7 @@ class TypingRequest PROTOBUF_FINAL :
     kGuildIdFieldNumber = 1,
     kChannelIdFieldNumber = 2,
   };
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   void clear_guild_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
   void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1599,7 +1765,7 @@ class TypingRequest PROTOBUF_FINAL :
   void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   void clear_channel_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 channel_id() const;
   void set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -1631,7 +1797,7 @@ class TypingRequest PROTOBUF_FINAL :
 #endif  // __GNUC__
 // CreateChannelRequest
 
-// uint64 guild_id = 1 [jstype = JS_STRING];
+// uint64 guild_id = 1;
 inline void CreateChannelRequest::clear_guild_id() {
   guild_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -1752,7 +1918,7 @@ inline void CreateChannelRequest::set_is_category(bool value) {
   // @@protoc_insertion_point(field_set:protocol.chat.v1.CreateChannelRequest.is_category)
 }
 
-// uint64 previous_id = 5 [jstype = JS_STRING];
+// uint64 previous_id = 5;
 inline void CreateChannelRequest::clear_previous_id() {
   previous_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -1772,7 +1938,7 @@ inline void CreateChannelRequest::set_previous_id(::PROTOBUF_NAMESPACE_ID::uint6
   // @@protoc_insertion_point(field_set:protocol.chat.v1.CreateChannelRequest.previous_id)
 }
 
-// uint64 next_id = 4 [jstype = JS_STRING];
+// uint64 next_id = 4;
 inline void CreateChannelRequest::clear_next_id() {
   next_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -1871,7 +2037,7 @@ inline void CreateChannelRequest::set_allocated_metadata(::protocol::harmonytype
 
 // CreateChannelResponse
 
-// uint64 channel_id = 1 [jstype = JS_STRING];
+// uint64 channel_id = 1;
 inline void CreateChannelResponse::clear_channel_id() {
   channel_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -1895,7 +2061,7 @@ inline void CreateChannelResponse::set_channel_id(::PROTOBUF_NAMESPACE_ID::uint6
 
 // GetGuildChannelsRequest
 
-// uint64 guild_id = 1 [jstype = JS_STRING];
+// uint64 guild_id = 1;
 inline void GetGuildChannelsRequest::clear_guild_id() {
   guild_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -1994,7 +2160,7 @@ inline void GetGuildChannelsResponse_Channel::set_allocated_metadata(::protocol:
   // @@protoc_insertion_point(field_set_allocated:protocol.chat.v1.GetGuildChannelsResponse.Channel.metadata)
 }
 
-// uint64 channel_id = 1 [jstype = JS_STRING];
+// uint64 channel_id = 1;
 inline void GetGuildChannelsResponse_Channel::clear_channel_id() {
   channel_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2162,7 +2328,7 @@ GetGuildChannelsResponse::channels() const {
 
 // UpdateChannelInformationRequest
 
-// uint64 guild_id = 1 [jstype = JS_STRING];
+// uint64 guild_id = 1;
 inline void UpdateChannelInformationRequest::clear_guild_id() {
   guild_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2182,7 +2348,7 @@ inline void UpdateChannelInformationRequest::set_guild_id(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:protocol.chat.v1.UpdateChannelInformationRequest.guild_id)
 }
 
-// uint64 channel_id = 2 [jstype = JS_STRING];
+// uint64 channel_id = 2;
 inline void UpdateChannelInformationRequest::clear_channel_id() {
   channel_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2402,7 +2568,7 @@ inline void UpdateChannelInformationRequest::set_update_metadata(bool value) {
 
 // UpdateChannelOrderRequest
 
-// uint64 guild_id = 1 [jstype = JS_STRING];
+// uint64 guild_id = 1;
 inline void UpdateChannelOrderRequest::clear_guild_id() {
   guild_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2422,7 +2588,7 @@ inline void UpdateChannelOrderRequest::set_guild_id(::PROTOBUF_NAMESPACE_ID::uin
   // @@protoc_insertion_point(field_set:protocol.chat.v1.UpdateChannelOrderRequest.guild_id)
 }
 
-// uint64 channel_id = 2 [jstype = JS_STRING];
+// uint64 channel_id = 2;
 inline void UpdateChannelOrderRequest::clear_channel_id() {
   channel_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2442,7 +2608,7 @@ inline void UpdateChannelOrderRequest::set_channel_id(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:protocol.chat.v1.UpdateChannelOrderRequest.channel_id)
 }
 
-// uint64 previous_id = 3 [jstype = JS_STRING];
+// uint64 previous_id = 3;
 inline void UpdateChannelOrderRequest::clear_previous_id() {
   previous_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2462,7 +2628,7 @@ inline void UpdateChannelOrderRequest::set_previous_id(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:protocol.chat.v1.UpdateChannelOrderRequest.previous_id)
 }
 
-// uint64 next_id = 4 [jstype = JS_STRING];
+// uint64 next_id = 4;
 inline void UpdateChannelOrderRequest::clear_next_id() {
   next_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2484,9 +2650,80 @@ inline void UpdateChannelOrderRequest::set_next_id(::PROTOBUF_NAMESPACE_ID::uint
 
 // -------------------------------------------------------------------
 
+// UpdateAllChannelOrderRequest
+
+// uint64 guild_id = 1;
+inline void UpdateAllChannelOrderRequest::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 UpdateAllChannelOrderRequest::_internal_guild_id() const {
+  return guild_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 UpdateAllChannelOrderRequest::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.UpdateAllChannelOrderRequest.guild_id)
+  return _internal_guild_id();
+}
+inline void UpdateAllChannelOrderRequest::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  guild_id_ = value;
+}
+inline void UpdateAllChannelOrderRequest::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.UpdateAllChannelOrderRequest.guild_id)
+}
+
+// repeated uint64 channel_ids = 2;
+inline int UpdateAllChannelOrderRequest::_internal_channel_ids_size() const {
+  return channel_ids_.size();
+}
+inline int UpdateAllChannelOrderRequest::channel_ids_size() const {
+  return _internal_channel_ids_size();
+}
+inline void UpdateAllChannelOrderRequest::clear_channel_ids() {
+  channel_ids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 UpdateAllChannelOrderRequest::_internal_channel_ids(int index) const {
+  return channel_ids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 UpdateAllChannelOrderRequest::channel_ids(int index) const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.UpdateAllChannelOrderRequest.channel_ids)
+  return _internal_channel_ids(index);
+}
+inline void UpdateAllChannelOrderRequest::set_channel_ids(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  channel_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.UpdateAllChannelOrderRequest.channel_ids)
+}
+inline void UpdateAllChannelOrderRequest::_internal_add_channel_ids(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  channel_ids_.Add(value);
+}
+inline void UpdateAllChannelOrderRequest::add_channel_ids(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_add_channel_ids(value);
+  // @@protoc_insertion_point(field_add:protocol.chat.v1.UpdateAllChannelOrderRequest.channel_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+UpdateAllChannelOrderRequest::_internal_channel_ids() const {
+  return channel_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+UpdateAllChannelOrderRequest::channel_ids() const {
+  // @@protoc_insertion_point(field_list:protocol.chat.v1.UpdateAllChannelOrderRequest.channel_ids)
+  return _internal_channel_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+UpdateAllChannelOrderRequest::_internal_mutable_channel_ids() {
+  return &channel_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+UpdateAllChannelOrderRequest::mutable_channel_ids() {
+  // @@protoc_insertion_point(field_mutable_list:protocol.chat.v1.UpdateAllChannelOrderRequest.channel_ids)
+  return _internal_mutable_channel_ids();
+}
+
+// -------------------------------------------------------------------
+
 // DeleteChannelRequest
 
-// uint64 guild_id = 1 [jstype = JS_STRING];
+// uint64 guild_id = 1;
 inline void DeleteChannelRequest::clear_guild_id() {
   guild_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2506,7 +2743,7 @@ inline void DeleteChannelRequest::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 v
   // @@protoc_insertion_point(field_set:protocol.chat.v1.DeleteChannelRequest.guild_id)
 }
 
-// uint64 channel_id = 2 [jstype = JS_STRING];
+// uint64 channel_id = 2;
 inline void DeleteChannelRequest::clear_channel_id() {
   channel_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2530,7 +2767,7 @@ inline void DeleteChannelRequest::set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64
 
 // TypingRequest
 
-// uint64 guild_id = 1 [jstype = JS_STRING];
+// uint64 guild_id = 1;
 inline void TypingRequest::clear_guild_id() {
   guild_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2550,7 +2787,7 @@ inline void TypingRequest::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   // @@protoc_insertion_point(field_set:protocol.chat.v1.TypingRequest.guild_id)
 }
 
-// uint64 channel_id = 2 [jstype = JS_STRING];
+// uint64 channel_id = 2;
 inline void TypingRequest::clear_channel_id() {
   channel_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -2573,6 +2810,8 @@ inline void TypingRequest::set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value)
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

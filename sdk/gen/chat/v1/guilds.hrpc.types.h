@@ -14,11 +14,11 @@
 #include "google/protobuf/any.pb.h"
 #include "google/protobuf/descriptor.pb.h"
 #include "harmonytypes/v1/types.pb.h"
+#include "chat/v1/permissions.pb.h"
+#include "chat/v1/emotes.pb.h"
 #include "chat/v1/profile.pb.h"
 #include "chat/v1/channels.pb.h"
 #include "chat/v1/messages.pb.h"
-#include "chat/v1/emotes.pb.h"
-#include "chat/v1/permissions.pb.h"
 #include "chat/v1/streaming.pb.h"
 Q_DECLARE_METATYPE(protocol::chat::v1::CreateGuildRequest)
 Q_DECLARE_METATYPE(protocol::chat::v1::CreateGuildResponse)

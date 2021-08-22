@@ -22,6 +22,7 @@ extern PROTOBUF_INTERNAL_EXPORT_auth_2fv1_2fauth_2eproto ::PROTOBUF_NAMESPACE_ID
 extern PROTOBUF_INTERNAL_EXPORT_auth_2fv1_2fauth_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_NextStepRequest_Form_auth_2fv1_2fauth_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_auth_2fv1_2fauth_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_NextStepRequest_FormFields_auth_2fv1_2fauth_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_auth_2fv1_2fauth_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Session_auth_2fv1_2fauth_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Token_harmonytypes_2fv1_2ftypes_2eproto;
 namespace protocol {
 namespace auth {
 namespace v1 {
@@ -102,6 +103,10 @@ class LoginFederatedRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LoginFederatedRequest> _instance;
 } _LoginFederatedRequest_default_instance_;
+class TokenDataDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TokenData> _instance;
+} _TokenData_default_instance_;
 }  // namespace v1
 }  // namespace auth
 }  // namespace protocol
@@ -205,8 +210,9 @@ static void InitDefaultsscc_info_FederateReply_auth_2fv1_2fauth_2eproto() {
   ::protocol::auth::v1::FederateReply::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FederateReply_auth_2fv1_2fauth_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_FederateReply_auth_2fv1_2fauth_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_FederateReply_auth_2fv1_2fauth_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_FederateReply_auth_2fv1_2fauth_2eproto}, {
+      &scc_info_Token_harmonytypes_2fv1_2ftypes_2eproto.base,}};
 
 static void InitDefaultsscc_info_FederateRequest_auth_2fv1_2fauth_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -247,8 +253,9 @@ static void InitDefaultsscc_info_LoginFederatedRequest_auth_2fv1_2fauth_2eproto(
   ::protocol::auth::v1::LoginFederatedRequest::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LoginFederatedRequest_auth_2fv1_2fauth_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_LoginFederatedRequest_auth_2fv1_2fauth_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LoginFederatedRequest_auth_2fv1_2fauth_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_LoginFederatedRequest_auth_2fv1_2fauth_2eproto}, {
+      &scc_info_Token_harmonytypes_2fv1_2ftypes_2eproto.base,}};
 
 static void InitDefaultsscc_info_NextStepRequest_auth_2fv1_2fauth_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -351,7 +358,21 @@ static void InitDefaultsscc_info_StreamStepsRequest_auth_2fv1_2fauth_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StreamStepsRequest_auth_2fv1_2fauth_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_StreamStepsRequest_auth_2fv1_2fauth_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_auth_2fv1_2fauth_2eproto[17];
+static void InitDefaultsscc_info_TokenData_auth_2fv1_2fauth_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::auth::v1::_TokenData_default_instance_;
+    new (ptr) ::protocol::auth::v1::TokenData();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::auth::v1::TokenData::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TokenData_auth_2fv1_2fauth_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_TokenData_auth_2fv1_2fauth_2eproto}, {}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_auth_2fv1_2fauth_2eproto[18];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_auth_2fv1_2fauth_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_auth_2fv1_2fauth_2eproto = nullptr;
 
@@ -463,7 +484,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_auth_2fv1_2fauth_2eproto::offs
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::FederateReply, token_),
-  PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::FederateReply, nonce_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::KeyReply, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -477,6 +497,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_auth_2fv1_2fauth_2eproto::offs
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::LoginFederatedRequest, auth_token_),
   PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::LoginFederatedRequest, domain_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::TokenData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::TokenData, user_id_),
+  PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::TokenData, target_),
+  PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::TokenData, username_),
+  PROTOBUF_FIELD_OFFSET(::protocol::auth::v1::TokenData, avatar_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::protocol::auth::v1::BeginAuthResponse)},
@@ -494,8 +523,9 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 89, -1, sizeof(::protocol::auth::v1::StreamStepsRequest)},
   { 95, -1, sizeof(::protocol::auth::v1::FederateRequest)},
   { 101, -1, sizeof(::protocol::auth::v1::FederateReply)},
-  { 108, -1, sizeof(::protocol::auth::v1::KeyReply)},
-  { 114, -1, sizeof(::protocol::auth::v1::LoginFederatedRequest)},
+  { 107, -1, sizeof(::protocol::auth::v1::KeyReply)},
+  { 113, -1, sizeof(::protocol::auth::v1::LoginFederatedRequest)},
+  { 120, -1, sizeof(::protocol::auth::v1::TokenData)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -516,64 +546,68 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::auth::v1::_FederateReply_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::auth::v1::_KeyReply_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::auth::v1::_LoginFederatedRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::auth::v1::_TokenData_default_instance_),
 };
 
 const char descriptor_table_protodef_auth_2fv1_2fauth_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\022auth/v1/auth.proto\022\020protocol.auth.v1\032\033"
   "google/protobuf/empty.proto\032\033harmonytype"
   "s/v1/types.proto\"$\n\021BeginAuthResponse\022\017\n"
-  "\007auth_id\030\001 \001(\t\"5\n\007Session\022\023\n\007user_id\030\001 \001"
-  "(\004B\0020\001\022\025\n\rsession_token\030\002 \001(\t\"\334\003\n\010AuthSt"
-  "ep\022\024\n\014fallback_url\030\001 \001(\t\022\023\n\013can_go_back\030"
-  "\002 \001(\010\0223\n\006choice\030\003 \001(\0132!.protocol.auth.v1"
-  ".AuthStep.ChoiceH\000\022/\n\004form\030\004 \001(\0132\037.proto"
-  "col.auth.v1.AuthStep.FormH\000\022,\n\007session\030\005"
-  " \001(\0132\031.protocol.auth.v1.SessionH\000\0225\n\007wai"
-  "ting\030\006 \001(\0132\".protocol.auth.v1.AuthStep.W"
-  "aitingH\000\032(\n\006Choice\022\r\n\005title\030\001 \001(\t\022\017\n\007opt"
-  "ions\030\002 \003(\t\032y\n\004Form\022\r\n\005title\030\001 \001(\t\0229\n\006fie"
-  "lds\030\002 \003(\0132).protocol.auth.v1.AuthStep.Fo"
-  "rm.FormField\032\'\n\tFormField\022\014\n\004name\030\001 \001(\t\022"
-  "\014\n\004type\030\002 \001(\t\032-\n\007Waiting\022\r\n\005title\030\001 \001(\t\022"
-  "\023\n\013description\030\002 \001(\tB\006\n\004step\"\312\002\n\017NextSte"
-  "pRequest\022\017\n\007auth_id\030\001 \001(\t\022:\n\006choice\030\002 \001("
-  "\0132(.protocol.auth.v1.NextStepRequest.Cho"
-  "iceH\000\0226\n\004form\030\003 \001(\0132&.protocol.auth.v1.N"
-  "extStepRequest.FormH\000\032\030\n\006Choice\022\016\n\006choic"
-  "e\030\001 \001(\t\032J\n\nFormFields\022\017\n\005bytes\030\001 \001(\014H\000\022\020"
-  "\n\006string\030\002 \001(\tH\000\022\020\n\006number\030\003 \001(\003H\000B\007\n\005fi"
-  "eld\032D\n\004Form\022<\n\006fields\030\001 \003(\0132,.protocol.a"
-  "uth.v1.NextStepRequest.FormFieldsB\006\n\004ste"
-  "p\"\"\n\017StepBackRequest\022\017\n\007auth_id\030\001 \001(\t\"%\n"
-  "\022StreamStepsRequest\022\017\n\007auth_id\030\001 \001(\t\"!\n\017"
-  "FederateRequest\022\016\n\006target\030\001 \001(\t\"-\n\rFeder"
-  "ateReply\022\r\n\005token\030\001 \001(\t\022\r\n\005nonce\030\002 \001(\t\"\027"
-  "\n\010KeyReply\022\013\n\003key\030\001 \001(\t\";\n\025LoginFederate"
-  "dRequest\022\022\n\nauth_token\030\001 \001(\t\022\016\n\006domain\030\002"
-  " \001(\t2\356\004\n\013AuthService\022N\n\010Federate\022!.proto"
-  "col.auth.v1.FederateRequest\032\037.protocol.a"
-  "uth.v1.FederateReply\022T\n\016LoginFederated\022\'"
-  ".protocol.auth.v1.LoginFederatedRequest\032"
-  "\031.protocol.auth.v1.Session\0229\n\003Key\022\026.goog"
-  "le.protobuf.Empty\032\032.protocol.auth.v1.Key"
-  "Reply\022H\n\tBeginAuth\022\026.google.protobuf.Emp"
-  "ty\032#.protocol.auth.v1.BeginAuthResponse\022"
-  "I\n\010NextStep\022!.protocol.auth.v1.NextStepR"
-  "equest\032\032.protocol.auth.v1.AuthStep\022I\n\010St"
-  "epBack\022!.protocol.auth.v1.StepBackReques"
-  "t\032\032.protocol.auth.v1.AuthStep\022Q\n\013StreamS"
-  "teps\022$.protocol.auth.v1.StreamStepsReque"
-  "st\032\032.protocol.auth.v1.AuthStep0\001\022K\n\rChec"
-  "kLoggedIn\022\026.google.protobuf.Empty\032\026.goog"
-  "le.protobuf.Empty\"\n\232D\002\010\001\232D\002\032\000B3Z1github."
-  "com/harmony-development/legato/gen/auth/"
-  "v1b\006proto3"
+  "\007auth_id\030\001 \001(\t\"1\n\007Session\022\017\n\007user_id\030\001 \001"
+  "(\004\022\025\n\rsession_token\030\002 \001(\t\"\334\003\n\010AuthStep\022\024"
+  "\n\014fallback_url\030\001 \001(\t\022\023\n\013can_go_back\030\002 \001("
+  "\010\0223\n\006choice\030\003 \001(\0132!.protocol.auth.v1.Aut"
+  "hStep.ChoiceH\000\022/\n\004form\030\004 \001(\0132\037.protocol."
+  "auth.v1.AuthStep.FormH\000\022,\n\007session\030\005 \001(\013"
+  "2\031.protocol.auth.v1.SessionH\000\0225\n\007waiting"
+  "\030\006 \001(\0132\".protocol.auth.v1.AuthStep.Waiti"
+  "ngH\000\032(\n\006Choice\022\r\n\005title\030\001 \001(\t\022\017\n\007options"
+  "\030\002 \003(\t\032y\n\004Form\022\r\n\005title\030\001 \001(\t\0229\n\006fields\030"
+  "\002 \003(\0132).protocol.auth.v1.AuthStep.Form.F"
+  "ormField\032\'\n\tFormField\022\014\n\004name\030\001 \001(\t\022\014\n\004t"
+  "ype\030\002 \001(\t\032-\n\007Waiting\022\r\n\005title\030\001 \001(\t\022\023\n\013d"
+  "escription\030\002 \001(\tB\006\n\004step\"\312\002\n\017NextStepReq"
+  "uest\022\017\n\007auth_id\030\001 \001(\t\022:\n\006choice\030\002 \001(\0132(."
+  "protocol.auth.v1.NextStepRequest.ChoiceH"
+  "\000\0226\n\004form\030\003 \001(\0132&.protocol.auth.v1.NextS"
+  "tepRequest.FormH\000\032\030\n\006Choice\022\016\n\006choice\030\001 "
+  "\001(\t\032J\n\nFormFields\022\017\n\005bytes\030\001 \001(\014H\000\022\020\n\006st"
+  "ring\030\002 \001(\tH\000\022\020\n\006number\030\003 \001(\003H\000B\007\n\005field\032"
+  "D\n\004Form\022<\n\006fields\030\001 \003(\0132,.protocol.auth."
+  "v1.NextStepRequest.FormFieldsB\006\n\004step\"\"\n"
+  "\017StepBackRequest\022\017\n\007auth_id\030\001 \001(\t\"%\n\022Str"
+  "eamStepsRequest\022\017\n\007auth_id\030\001 \001(\t\"!\n\017Fede"
+  "rateRequest\022\016\n\006target\030\001 \001(\t\"\?\n\rFederateR"
+  "eply\022.\n\005token\030\001 \001(\0132\037.protocol.harmonyty"
+  "pes.v1.Token\"\027\n\010KeyReply\022\013\n\003key\030\001 \001(\014\"\\\n"
+  "\025LoginFederatedRequest\0223\n\nauth_token\030\001 \001"
+  "(\0132\037.protocol.harmonytypes.v1.Token\022\016\n\006d"
+  "omain\030\002 \001(\t\"N\n\tTokenData\022\017\n\007user_id\030\001 \001("
+  "\004\022\016\n\006target\030\002 \001(\t\022\020\n\010username\030\003 \001(\t\022\016\n\006a"
+  "vatar\030\004 \001(\t2\356\004\n\013AuthService\022N\n\010Federate\022"
+  "!.protocol.auth.v1.FederateRequest\032\037.pro"
+  "tocol.auth.v1.FederateReply\022T\n\016LoginFede"
+  "rated\022\'.protocol.auth.v1.LoginFederatedR"
+  "equest\032\031.protocol.auth.v1.Session\0229\n\003Key"
+  "\022\026.google.protobuf.Empty\032\032.protocol.auth"
+  ".v1.KeyReply\022H\n\tBeginAuth\022\026.google.proto"
+  "buf.Empty\032#.protocol.auth.v1.BeginAuthRe"
+  "sponse\022I\n\010NextStep\022!.protocol.auth.v1.Ne"
+  "xtStepRequest\032\032.protocol.auth.v1.AuthSte"
+  "p\022I\n\010StepBack\022!.protocol.auth.v1.StepBac"
+  "kRequest\032\032.protocol.auth.v1.AuthStep\022Q\n\013"
+  "StreamSteps\022$.protocol.auth.v1.StreamSte"
+  "psRequest\032\032.protocol.auth.v1.AuthStep0\001\022"
+  "K\n\rCheckLoggedIn\022\026.google.protobuf.Empty"
+  "\032\026.google.protobuf.Empty\"\n\232D\002\010\001\232D\002\032\000B3Z1"
+  "github.com/harmony-development/legato/ge"
+  "n/auth/v1b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_auth_2fv1_2fauth_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
   &::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_auth_2fv1_2fauth_2eproto_sccs[17] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_auth_2fv1_2fauth_2eproto_sccs[18] = {
   &scc_info_AuthStep_auth_2fv1_2fauth_2eproto.base,
   &scc_info_AuthStep_Choice_auth_2fv1_2fauth_2eproto.base,
   &scc_info_AuthStep_Form_auth_2fv1_2fauth_2eproto.base,
@@ -591,13 +625,14 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_aut
   &scc_info_Session_auth_2fv1_2fauth_2eproto.base,
   &scc_info_StepBackRequest_auth_2fv1_2fauth_2eproto.base,
   &scc_info_StreamStepsRequest_auth_2fv1_2fauth_2eproto.base,
+  &scc_info_TokenData_auth_2fv1_2fauth_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_auth_2fv1_2fauth_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_auth_2fv1_2fauth_2eproto = {
-  false, false, descriptor_table_protodef_auth_2fv1_2fauth_2eproto, "auth/v1/auth.proto", 1930,
-  &descriptor_table_auth_2fv1_2fauth_2eproto_once, descriptor_table_auth_2fv1_2fauth_2eproto_sccs, descriptor_table_auth_2fv1_2fauth_2eproto_deps, 17, 2,
+  false, false, descriptor_table_protodef_auth_2fv1_2fauth_2eproto, "auth/v1/auth.proto", 2057,
+  &descriptor_table_auth_2fv1_2fauth_2eproto_once, descriptor_table_auth_2fv1_2fauth_2eproto_sccs, descriptor_table_auth_2fv1_2fauth_2eproto_deps, 18, 2,
   schemas, file_default_instances, TableStruct_auth_2fv1_2fauth_2eproto::offsets,
-  file_level_metadata_auth_2fv1_2fauth_2eproto, 17, file_level_enum_descriptors_auth_2fv1_2fauth_2eproto, file_level_service_descriptors_auth_2fv1_2fauth_2eproto,
+  file_level_metadata_auth_2fv1_2fauth_2eproto, 18, file_level_enum_descriptors_auth_2fv1_2fauth_2eproto, file_level_service_descriptors_auth_2fv1_2fauth_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -892,7 +927,7 @@ const char* Session::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 user_id = 1 [jstype = JS_STRING];
+      // uint64 user_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -936,7 +971,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 user_id = 1 [jstype = JS_STRING];
+  // uint64 user_id = 1;
   if (this->user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
@@ -975,7 +1010,7 @@ size_t Session::ByteSizeLong() const {
         this->_internal_session_token());
   }
 
-  // uint64 user_id = 1 [jstype = JS_STRING];
+  // uint64 user_id = 1;
   if (this->user_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -4246,11 +4281,24 @@ void FederateRequest::InternalSwap(FederateRequest* other) {
 // ===================================================================
 
 void FederateReply::InitAsDefaultInstance() {
+  ::protocol::auth::v1::_FederateReply_default_instance_._instance.get_mutable()->token_ = const_cast< ::protocol::harmonytypes::v1::Token*>(
+      ::protocol::harmonytypes::v1::Token::internal_default_instance());
 }
 class FederateReply::_Internal {
  public:
+  static const ::protocol::harmonytypes::v1::Token& token(const FederateReply* msg);
 };
 
+const ::protocol::harmonytypes::v1::Token&
+FederateReply::_Internal::token(const FederateReply* msg) {
+  return *msg->token_;
+}
+void FederateReply::clear_token() {
+  if (GetArena() == nullptr && token_ != nullptr) {
+    delete token_;
+  }
+  token_ = nullptr;
+}
 FederateReply::FederateReply(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -4260,23 +4308,17 @@ FederateReply::FederateReply(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 FederateReply::FederateReply(const FederateReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_token().empty()) {
-    token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_token(),
-      GetArena());
-  }
-  nonce_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_nonce().empty()) {
-    nonce_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_nonce(),
-      GetArena());
+  if (from._internal_has_token()) {
+    token_ = new ::protocol::harmonytypes::v1::Token(*from.token_);
+  } else {
+    token_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:protocol.auth.v1.FederateReply)
 }
 
 void FederateReply::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_FederateReply_auth_2fv1_2fauth_2eproto.base);
-  token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  nonce_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  token_ = nullptr;
 }
 
 FederateReply::~FederateReply() {
@@ -4287,8 +4329,7 @@ FederateReply::~FederateReply() {
 
 void FederateReply::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  nonce_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete token_;
 }
 
 void FederateReply::ArenaDtor(void* object) {
@@ -4312,8 +4353,10 @@ void FederateReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  nonce_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  if (GetArena() == nullptr && token_ != nullptr) {
+    delete token_;
+  }
+  token_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4325,21 +4368,10 @@ const char* FederateReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string token = 1;
+      // .protocol.harmonytypes.v1.Token token = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_token();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.auth.v1.FederateReply.token"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string nonce = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_nonce();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.auth.v1.FederateReply.nonce"));
+          ptr = ctx->ParseMessage(_internal_mutable_token(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4371,24 +4403,12 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string token = 1;
-  if (this->token().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_token().data(), static_cast<int>(this->_internal_token().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "protocol.auth.v1.FederateReply.token");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_token(), target);
-  }
-
-  // string nonce = 2;
-  if (this->nonce().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_nonce().data(), static_cast<int>(this->_internal_nonce().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "protocol.auth.v1.FederateReply.nonce");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_nonce(), target);
+  // .protocol.harmonytypes.v1.Token token = 1;
+  if (this->has_token()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::token(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4407,18 +4427,11 @@ size_t FederateReply::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string token = 1;
-  if (this->token().size() > 0) {
+  // .protocol.harmonytypes.v1.Token token = 1;
+  if (this->has_token()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_token());
-  }
-
-  // string nonce = 2;
-  if (this->nonce().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_nonce());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *token_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4452,11 +4465,8 @@ void FederateReply::MergeFrom(const FederateReply& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.token().size() > 0) {
-    _internal_set_token(from._internal_token());
-  }
-  if (from.nonce().size() > 0) {
-    _internal_set_nonce(from._internal_nonce());
+  if (from.has_token()) {
+    _internal_mutable_token()->::protocol::harmonytypes::v1::Token::MergeFrom(from._internal_token());
   }
 }
 
@@ -4481,8 +4491,7 @@ bool FederateReply::IsInitialized() const {
 void FederateReply::InternalSwap(FederateReply* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  token_.Swap(&other->token_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  nonce_.Swap(&other->nonce_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(token_, other->token_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata FederateReply::GetMetadata() const {
@@ -4564,12 +4573,11 @@ const char* KeyReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string key = 1;
+      // bytes key = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_key();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.auth.v1.KeyReply.key"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4601,13 +4609,9 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string key = 1;
+  // bytes key = 1;
   if (this->key().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_key().data(), static_cast<int>(this->_internal_key().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "protocol.auth.v1.KeyReply.key");
-    target = stream->WriteStringMaybeAliased(
+    target = stream->WriteBytesMaybeAliased(
         1, this->_internal_key(), target);
   }
 
@@ -4627,10 +4631,10 @@ size_t KeyReply::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string key = 1;
+  // bytes key = 1;
   if (this->key().size() > 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_key());
   }
 
@@ -4702,11 +4706,24 @@ void KeyReply::InternalSwap(KeyReply* other) {
 // ===================================================================
 
 void LoginFederatedRequest::InitAsDefaultInstance() {
+  ::protocol::auth::v1::_LoginFederatedRequest_default_instance_._instance.get_mutable()->auth_token_ = const_cast< ::protocol::harmonytypes::v1::Token*>(
+      ::protocol::harmonytypes::v1::Token::internal_default_instance());
 }
 class LoginFederatedRequest::_Internal {
  public:
+  static const ::protocol::harmonytypes::v1::Token& auth_token(const LoginFederatedRequest* msg);
 };
 
+const ::protocol::harmonytypes::v1::Token&
+LoginFederatedRequest::_Internal::auth_token(const LoginFederatedRequest* msg) {
+  return *msg->auth_token_;
+}
+void LoginFederatedRequest::clear_auth_token() {
+  if (GetArena() == nullptr && auth_token_ != nullptr) {
+    delete auth_token_;
+  }
+  auth_token_ = nullptr;
+}
 LoginFederatedRequest::LoginFederatedRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -4716,23 +4733,23 @@ LoginFederatedRequest::LoginFederatedRequest(::PROTOBUF_NAMESPACE_ID::Arena* are
 LoginFederatedRequest::LoginFederatedRequest(const LoginFederatedRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  auth_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_auth_token().empty()) {
-    auth_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_auth_token(),
-      GetArena());
-  }
   domain_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_domain().empty()) {
     domain_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_domain(),
       GetArena());
+  }
+  if (from._internal_has_auth_token()) {
+    auth_token_ = new ::protocol::harmonytypes::v1::Token(*from.auth_token_);
+  } else {
+    auth_token_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:protocol.auth.v1.LoginFederatedRequest)
 }
 
 void LoginFederatedRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_LoginFederatedRequest_auth_2fv1_2fauth_2eproto.base);
-  auth_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   domain_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  auth_token_ = nullptr;
 }
 
 LoginFederatedRequest::~LoginFederatedRequest() {
@@ -4743,8 +4760,8 @@ LoginFederatedRequest::~LoginFederatedRequest() {
 
 void LoginFederatedRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  auth_token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   domain_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete auth_token_;
 }
 
 void LoginFederatedRequest::ArenaDtor(void* object) {
@@ -4768,8 +4785,11 @@ void LoginFederatedRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  auth_token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   domain_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  if (GetArena() == nullptr && auth_token_ != nullptr) {
+    delete auth_token_;
+  }
+  auth_token_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4781,12 +4801,10 @@ const char* LoginFederatedRequest::_InternalParse(const char* ptr, ::PROTOBUF_NA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string auth_token = 1;
+      // .protocol.harmonytypes.v1.Token auth_token = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_auth_token();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.auth.v1.LoginFederatedRequest.auth_token"));
+          ptr = ctx->ParseMessage(_internal_mutable_auth_token(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4827,14 +4845,12 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string auth_token = 1;
-  if (this->auth_token().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_auth_token().data(), static_cast<int>(this->_internal_auth_token().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "protocol.auth.v1.LoginFederatedRequest.auth_token");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_auth_token(), target);
+  // .protocol.harmonytypes.v1.Token auth_token = 1;
+  if (this->has_auth_token()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::auth_token(this), target, stream);
   }
 
   // string domain = 2;
@@ -4863,18 +4879,18 @@ size_t LoginFederatedRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string auth_token = 1;
-  if (this->auth_token().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_auth_token());
-  }
-
   // string domain = 2;
   if (this->domain().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_domain());
+  }
+
+  // .protocol.harmonytypes.v1.Token auth_token = 1;
+  if (this->has_auth_token()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *auth_token_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4908,11 +4924,11 @@ void LoginFederatedRequest::MergeFrom(const LoginFederatedRequest& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.auth_token().size() > 0) {
-    _internal_set_auth_token(from._internal_auth_token());
-  }
   if (from.domain().size() > 0) {
     _internal_set_domain(from._internal_domain());
+  }
+  if (from.has_auth_token()) {
+    _internal_mutable_auth_token()->::protocol::harmonytypes::v1::Token::MergeFrom(from._internal_auth_token());
   }
 }
 
@@ -4937,11 +4953,323 @@ bool LoginFederatedRequest::IsInitialized() const {
 void LoginFederatedRequest::InternalSwap(LoginFederatedRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  auth_token_.Swap(&other->auth_token_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   domain_.Swap(&other->domain_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(auth_token_, other->auth_token_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata LoginFederatedRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void TokenData::InitAsDefaultInstance() {
+}
+class TokenData::_Internal {
+ public:
+};
+
+TokenData::TokenData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.auth.v1.TokenData)
+}
+TokenData::TokenData(const TokenData& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  target_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_target().empty()) {
+    target_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_target(),
+      GetArena());
+  }
+  username_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_username().empty()) {
+    username_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_username(),
+      GetArena());
+  }
+  avatar_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_avatar().empty()) {
+    avatar_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_avatar(),
+      GetArena());
+  }
+  user_id_ = from.user_id_;
+  // @@protoc_insertion_point(copy_constructor:protocol.auth.v1.TokenData)
+}
+
+void TokenData::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TokenData_auth_2fv1_2fauth_2eproto.base);
+  target_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  username_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  user_id_ = PROTOBUF_ULONGLONG(0);
+}
+
+TokenData::~TokenData() {
+  // @@protoc_insertion_point(destructor:protocol.auth.v1.TokenData)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void TokenData::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  target_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  username_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void TokenData::ArenaDtor(void* object) {
+  TokenData* _this = reinterpret_cast< TokenData* >(object);
+  (void)_this;
+}
+void TokenData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void TokenData::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const TokenData& TokenData::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_TokenData_auth_2fv1_2fauth_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void TokenData::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.auth.v1.TokenData)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  target_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  username_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  avatar_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  user_id_ = PROTOBUF_ULONGLONG(0);
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* TokenData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint64 user_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string target = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_target();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.auth.v1.TokenData.target"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string username = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_username();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.auth.v1.TokenData.username"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string avatar = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_avatar();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.auth.v1.TokenData.avatar"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* TokenData::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.auth.v1.TokenData)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 user_id = 1;
+  if (this->user_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
+  }
+
+  // string target = 2;
+  if (this->target().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_target().data(), static_cast<int>(this->_internal_target().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "protocol.auth.v1.TokenData.target");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_target(), target);
+  }
+
+  // string username = 3;
+  if (this->username().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_username().data(), static_cast<int>(this->_internal_username().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "protocol.auth.v1.TokenData.username");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_username(), target);
+  }
+
+  // string avatar = 4;
+  if (this->avatar().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_avatar().data(), static_cast<int>(this->_internal_avatar().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "protocol.auth.v1.TokenData.avatar");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_avatar(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.auth.v1.TokenData)
+  return target;
+}
+
+size_t TokenData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.auth.v1.TokenData)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string target = 2;
+  if (this->target().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_target());
+  }
+
+  // string username = 3;
+  if (this->username().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_username());
+  }
+
+  // string avatar = 4;
+  if (this->avatar().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_avatar());
+  }
+
+  // uint64 user_id = 1;
+  if (this->user_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_user_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void TokenData::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.auth.v1.TokenData)
+  GOOGLE_DCHECK_NE(&from, this);
+  const TokenData* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<TokenData>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.auth.v1.TokenData)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.auth.v1.TokenData)
+    MergeFrom(*source);
+  }
+}
+
+void TokenData::MergeFrom(const TokenData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.auth.v1.TokenData)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.target().size() > 0) {
+    _internal_set_target(from._internal_target());
+  }
+  if (from.username().size() > 0) {
+    _internal_set_username(from._internal_username());
+  }
+  if (from.avatar().size() > 0) {
+    _internal_set_avatar(from._internal_avatar());
+  }
+  if (from.user_id() != 0) {
+    _internal_set_user_id(from._internal_user_id());
+  }
+}
+
+void TokenData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.auth.v1.TokenData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TokenData::CopyFrom(const TokenData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.auth.v1.TokenData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TokenData::IsInitialized() const {
+  return true;
+}
+
+void TokenData::InternalSwap(TokenData* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  target_.Swap(&other->target_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  username_.Swap(&other->username_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  avatar_.Swap(&other->avatar_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(user_id_, other->user_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata TokenData::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -5001,6 +5329,9 @@ template<> PROTOBUF_NOINLINE ::protocol::auth::v1::KeyReply* Arena::CreateMaybeM
 }
 template<> PROTOBUF_NOINLINE ::protocol::auth::v1::LoginFederatedRequest* Arena::CreateMaybeMessage< ::protocol::auth::v1::LoginFederatedRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::auth::v1::LoginFederatedRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::protocol::auth::v1::TokenData* Arena::CreateMaybeMessage< ::protocol::auth::v1::TokenData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::auth::v1::TokenData >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

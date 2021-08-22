@@ -14,14 +14,16 @@
 #include "google/protobuf/any.pb.h"
 #include "google/protobuf/descriptor.pb.h"
 #include "harmonytypes/v1/types.pb.h"
+#include "chat/v1/emotes.pb.h"
 #include "chat/v1/profile.pb.h"
 #include "chat/v1/guilds.pb.h"
 #include "chat/v1/channels.pb.h"
 #include "chat/v1/messages.pb.h"
-#include "chat/v1/emotes.pb.h"
 #include "chat/v1/streaming.pb.h"
 Q_DECLARE_METATYPE(protocol::chat::v1::QueryPermissionsRequest)
 Q_DECLARE_METATYPE(protocol::chat::v1::QueryPermissionsResponse)
+Q_DECLARE_METATYPE(protocol::chat::v1::BatchQueryPermissionsRequest)
+Q_DECLARE_METATYPE(protocol::chat::v1::BatchQueryPermissionsResponse)
 Q_DECLARE_METATYPE(protocol::chat::v1::Permission)
 Q_DECLARE_METATYPE(protocol::chat::v1::PermissionList)
 Q_DECLARE_METATYPE(protocol::chat::v1::SetPermissionsRequest)

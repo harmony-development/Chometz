@@ -55,7 +55,7 @@ struct TableStruct_harmonytypes_2fv1_2ftypes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[22]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -89,6 +89,9 @@ extern ContentEmbedDefaultTypeInternal _ContentEmbed_default_instance_;
 class ContentFiles;
 class ContentFilesDefaultTypeInternal;
 extern ContentFilesDefaultTypeInternal _ContentFiles_default_instance_;
+class ContentPhotos;
+class ContentPhotosDefaultTypeInternal;
+extern ContentPhotosDefaultTypeInternal _ContentPhotos_default_instance_;
 class ContentText;
 class ContentTextDefaultTypeInternal;
 extern ContentTextDefaultTypeInternal _ContentText_default_instance_;
@@ -116,9 +119,18 @@ extern MetadataDefaultTypeInternal _Metadata_default_instance_;
 class Metadata_ExtensionEntry_DoNotUse;
 class Metadata_ExtensionEntry_DoNotUseDefaultTypeInternal;
 extern Metadata_ExtensionEntry_DoNotUseDefaultTypeInternal _Metadata_ExtensionEntry_DoNotUse_default_instance_;
+class Minithumbnail;
+class MinithumbnailDefaultTypeInternal;
+extern MinithumbnailDefaultTypeInternal _Minithumbnail_default_instance_;
 class Override;
 class OverrideDefaultTypeInternal;
 extern OverrideDefaultTypeInternal _Override_default_instance_;
+class Photo;
+class PhotoDefaultTypeInternal;
+extern PhotoDefaultTypeInternal _Photo_default_instance_;
+class Token;
+class TokenDefaultTypeInternal;
+extern TokenDefaultTypeInternal _Token_default_instance_;
 }  // namespace v1
 }  // namespace harmonytypes
 }  // namespace protocol
@@ -131,6 +143,7 @@ template<> ::protocol::harmonytypes::v1::Attachment* Arena::CreateMaybeMessage<:
 template<> ::protocol::harmonytypes::v1::Content* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::Content>(Arena*);
 template<> ::protocol::harmonytypes::v1::ContentEmbed* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::ContentEmbed>(Arena*);
 template<> ::protocol::harmonytypes::v1::ContentFiles* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::ContentFiles>(Arena*);
+template<> ::protocol::harmonytypes::v1::ContentPhotos* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::ContentPhotos>(Arena*);
 template<> ::protocol::harmonytypes::v1::ContentText* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::ContentText>(Arena*);
 template<> ::protocol::harmonytypes::v1::Embed* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::Embed>(Arena*);
 template<> ::protocol::harmonytypes::v1::EmbedField* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::EmbedField>(Arena*);
@@ -140,7 +153,10 @@ template<> ::protocol::harmonytypes::v1::HarmonyMethodMetadata* Arena::CreateMay
 template<> ::protocol::harmonytypes::v1::Message* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::Message>(Arena*);
 template<> ::protocol::harmonytypes::v1::Metadata* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::Metadata>(Arena*);
 template<> ::protocol::harmonytypes::v1::Metadata_ExtensionEntry_DoNotUse* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::Metadata_ExtensionEntry_DoNotUse>(Arena*);
+template<> ::protocol::harmonytypes::v1::Minithumbnail* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::Minithumbnail>(Arena*);
 template<> ::protocol::harmonytypes::v1::Override* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::Override>(Arena*);
+template<> ::protocol::harmonytypes::v1::Photo* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::Photo>(Arena*);
+template<> ::protocol::harmonytypes::v1::Token* Arena::CreateMaybeMessage<::protocol::harmonytypes::v1::Token>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace protocol {
 namespace harmonytypes {
@@ -2547,6 +2563,441 @@ class Attachment PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Minithumbnail PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.harmonytypes.v1.Minithumbnail) */ {
+ public:
+  inline Minithumbnail() : Minithumbnail(nullptr) {};
+  virtual ~Minithumbnail();
+
+  Minithumbnail(const Minithumbnail& from);
+  Minithumbnail(Minithumbnail&& from) noexcept
+    : Minithumbnail() {
+    *this = ::std::move(from);
+  }
+
+  inline Minithumbnail& operator=(const Minithumbnail& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Minithumbnail& operator=(Minithumbnail&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Minithumbnail& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Minithumbnail* internal_default_instance() {
+    return reinterpret_cast<const Minithumbnail*>(
+               &_Minithumbnail_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(Minithumbnail& a, Minithumbnail& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Minithumbnail* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Minithumbnail* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Minithumbnail* New() const final {
+    return CreateMaybeMessage<Minithumbnail>(nullptr);
+  }
+
+  Minithumbnail* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Minithumbnail>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Minithumbnail& from);
+  void MergeFrom(const Minithumbnail& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Minithumbnail* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.harmonytypes.v1.Minithumbnail";
+  }
+  protected:
+  explicit Minithumbnail(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto);
+    return ::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDataFieldNumber = 3,
+    kWidthFieldNumber = 1,
+    kHeightFieldNumber = 2,
+  };
+  // bytes data = 3;
+  void clear_data();
+  const std::string& data() const;
+  void set_data(const std::string& value);
+  void set_data(std::string&& value);
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  std::string* mutable_data();
+  std::string* release_data();
+  void set_allocated_data(std::string* data);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_data();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_data(
+      std::string* data);
+  private:
+  const std::string& _internal_data() const;
+  void _internal_set_data(const std::string& value);
+  std::string* _internal_mutable_data();
+  public:
+
+  // uint32 width = 1;
+  void clear_width();
+  ::PROTOBUF_NAMESPACE_ID::uint32 width() const;
+  void set_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_width() const;
+  void _internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 height = 2;
+  void clear_height();
+  ::PROTOBUF_NAMESPACE_ID::uint32 height() const;
+  void set_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_height() const;
+  void _internal_set_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.harmonytypes.v1.Minithumbnail)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 width_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 height_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_harmonytypes_2fv1_2ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Photo PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.harmonytypes.v1.Photo) */ {
+ public:
+  inline Photo() : Photo(nullptr) {};
+  virtual ~Photo();
+
+  Photo(const Photo& from);
+  Photo(Photo&& from) noexcept
+    : Photo() {
+    *this = ::std::move(from);
+  }
+
+  inline Photo& operator=(const Photo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Photo& operator=(Photo&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Photo& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Photo* internal_default_instance() {
+    return reinterpret_cast<const Photo*>(
+               &_Photo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(Photo& a, Photo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Photo* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Photo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Photo* New() const final {
+    return CreateMaybeMessage<Photo>(nullptr);
+  }
+
+  Photo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Photo>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Photo& from);
+  void MergeFrom(const Photo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Photo* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.harmonytypes.v1.Photo";
+  }
+  protected:
+  explicit Photo(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto);
+    return ::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHmcFieldNumber = 1,
+    kNameFieldNumber = 2,
+    kCaptionFieldNumber = 6,
+    kMinithumbnailFieldNumber = 7,
+    kFileSizeFieldNumber = 3,
+    kHeightFieldNumber = 4,
+    kWidthFieldNumber = 5,
+  };
+  // string hmc = 1;
+  void clear_hmc();
+  const std::string& hmc() const;
+  void set_hmc(const std::string& value);
+  void set_hmc(std::string&& value);
+  void set_hmc(const char* value);
+  void set_hmc(const char* value, size_t size);
+  std::string* mutable_hmc();
+  std::string* release_hmc();
+  void set_allocated_hmc(std::string* hmc);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_hmc();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_hmc(
+      std::string* hmc);
+  private:
+  const std::string& _internal_hmc() const;
+  void _internal_set_hmc(const std::string& value);
+  std::string* _internal_mutable_hmc();
+  public:
+
+  // string name = 2;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_name();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_name(
+      std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // string caption = 6;
+  void clear_caption();
+  const std::string& caption() const;
+  void set_caption(const std::string& value);
+  void set_caption(std::string&& value);
+  void set_caption(const char* value);
+  void set_caption(const char* value, size_t size);
+  std::string* mutable_caption();
+  std::string* release_caption();
+  void set_allocated_caption(std::string* caption);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_caption();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_caption(
+      std::string* caption);
+  private:
+  const std::string& _internal_caption() const;
+  void _internal_set_caption(const std::string& value);
+  std::string* _internal_mutable_caption();
+  public:
+
+  // .protocol.harmonytypes.v1.Minithumbnail minithumbnail = 7;
+  bool has_minithumbnail() const;
+  private:
+  bool _internal_has_minithumbnail() const;
+  public:
+  void clear_minithumbnail();
+  const ::protocol::harmonytypes::v1::Minithumbnail& minithumbnail() const;
+  ::protocol::harmonytypes::v1::Minithumbnail* release_minithumbnail();
+  ::protocol::harmonytypes::v1::Minithumbnail* mutable_minithumbnail();
+  void set_allocated_minithumbnail(::protocol::harmonytypes::v1::Minithumbnail* minithumbnail);
+  private:
+  const ::protocol::harmonytypes::v1::Minithumbnail& _internal_minithumbnail() const;
+  ::protocol::harmonytypes::v1::Minithumbnail* _internal_mutable_minithumbnail();
+  public:
+  void unsafe_arena_set_allocated_minithumbnail(
+      ::protocol::harmonytypes::v1::Minithumbnail* minithumbnail);
+  ::protocol::harmonytypes::v1::Minithumbnail* unsafe_arena_release_minithumbnail();
+
+  // uint32 file_size = 3;
+  void clear_file_size();
+  ::PROTOBUF_NAMESPACE_ID::uint32 file_size() const;
+  void set_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_file_size() const;
+  void _internal_set_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 height = 4;
+  void clear_height();
+  ::PROTOBUF_NAMESPACE_ID::uint32 height() const;
+  void set_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_height() const;
+  void _internal_set_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 width = 5;
+  void clear_width();
+  ::PROTOBUF_NAMESPACE_ID::uint32 width() const;
+  void set_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_width() const;
+  void _internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.harmonytypes.v1.Photo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hmc_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr caption_;
+  ::protocol::harmonytypes::v1::Minithumbnail* minithumbnail_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 file_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 height_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 width_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_harmonytypes_2fv1_2ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Metadata_ExtensionEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Metadata_ExtensionEntry_DoNotUse, 
     std::string, PROTOBUF_NAMESPACE_ID::Any,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
@@ -2571,7 +3022,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto);
-    return ::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto.file_level_metadata[10];
+    return ::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto.file_level_metadata[12];
   }
 
   public:
@@ -2621,7 +3072,7 @@ class Metadata PROTOBUF_FINAL :
                &_Metadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(Metadata& a, Metadata& b) {
     a.Swap(&b);
@@ -2799,7 +3250,7 @@ class ContentText PROTOBUF_FINAL :
                &_ContentText_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(ContentText& a, ContentText& b) {
     a.Swap(&b);
@@ -2952,7 +3403,7 @@ class ContentEmbed PROTOBUF_FINAL :
                &_ContentEmbed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(ContentEmbed& a, ContentEmbed& b) {
     a.Swap(&b);
@@ -3098,7 +3549,7 @@ class ContentFiles PROTOBUF_FINAL :
                &_ContentFiles_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(ContentFiles& a, ContentFiles& b) {
     a.Swap(&b);
@@ -3202,6 +3653,152 @@ class ContentFiles PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class ContentPhotos PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.harmonytypes.v1.ContentPhotos) */ {
+ public:
+  inline ContentPhotos() : ContentPhotos(nullptr) {};
+  virtual ~ContentPhotos();
+
+  ContentPhotos(const ContentPhotos& from);
+  ContentPhotos(ContentPhotos&& from) noexcept
+    : ContentPhotos() {
+    *this = ::std::move(from);
+  }
+
+  inline ContentPhotos& operator=(const ContentPhotos& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ContentPhotos& operator=(ContentPhotos&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ContentPhotos& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ContentPhotos* internal_default_instance() {
+    return reinterpret_cast<const ContentPhotos*>(
+               &_ContentPhotos_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(ContentPhotos& a, ContentPhotos& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ContentPhotos* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ContentPhotos* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ContentPhotos* New() const final {
+    return CreateMaybeMessage<ContentPhotos>(nullptr);
+  }
+
+  ContentPhotos* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ContentPhotos>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ContentPhotos& from);
+  void MergeFrom(const ContentPhotos& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ContentPhotos* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.harmonytypes.v1.ContentPhotos";
+  }
+  protected:
+  explicit ContentPhotos(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto);
+    return ::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPhotosFieldNumber = 1,
+  };
+  // repeated .protocol.harmonytypes.v1.Photo photos = 1;
+  int photos_size() const;
+  private:
+  int _internal_photos_size() const;
+  public:
+  void clear_photos();
+  ::protocol::harmonytypes::v1::Photo* mutable_photos(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::harmonytypes::v1::Photo >*
+      mutable_photos();
+  private:
+  const ::protocol::harmonytypes::v1::Photo& _internal_photos(int index) const;
+  ::protocol::harmonytypes::v1::Photo* _internal_add_photos();
+  public:
+  const ::protocol::harmonytypes::v1::Photo& photos(int index) const;
+  ::protocol::harmonytypes::v1::Photo* add_photos();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::harmonytypes::v1::Photo >&
+      photos() const;
+
+  // @@protoc_insertion_point(class_scope:protocol.harmonytypes.v1.ContentPhotos)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::harmonytypes::v1::Photo > photos_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_harmonytypes_2fv1_2ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Content PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.harmonytypes.v1.Content) */ {
  public:
@@ -3242,6 +3839,7 @@ class Content PROTOBUF_FINAL :
     kTextMessage = 2,
     kEmbedMessage = 4,
     kFilesMessage = 5,
+    kPhotosMessage = 6,
     CONTENT_NOT_SET = 0,
   };
 
@@ -3251,7 +3849,7 @@ class Content PROTOBUF_FINAL :
                &_Content_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    18;
 
   friend void swap(Content& a, Content& b) {
     a.Swap(&b);
@@ -3325,6 +3923,7 @@ class Content PROTOBUF_FINAL :
     kTextMessageFieldNumber = 2,
     kEmbedMessageFieldNumber = 4,
     kFilesMessageFieldNumber = 5,
+    kPhotosMessageFieldNumber = 6,
   };
   // .protocol.harmonytypes.v1.ContentText text_message = 2;
   bool has_text_message() const;
@@ -3380,6 +3979,24 @@ class Content PROTOBUF_FINAL :
       ::protocol::harmonytypes::v1::ContentFiles* files_message);
   ::protocol::harmonytypes::v1::ContentFiles* unsafe_arena_release_files_message();
 
+  // .protocol.harmonytypes.v1.ContentPhotos photos_message = 6;
+  bool has_photos_message() const;
+  private:
+  bool _internal_has_photos_message() const;
+  public:
+  void clear_photos_message();
+  const ::protocol::harmonytypes::v1::ContentPhotos& photos_message() const;
+  ::protocol::harmonytypes::v1::ContentPhotos* release_photos_message();
+  ::protocol::harmonytypes::v1::ContentPhotos* mutable_photos_message();
+  void set_allocated_photos_message(::protocol::harmonytypes::v1::ContentPhotos* photos_message);
+  private:
+  const ::protocol::harmonytypes::v1::ContentPhotos& _internal_photos_message() const;
+  ::protocol::harmonytypes::v1::ContentPhotos* _internal_mutable_photos_message();
+  public:
+  void unsafe_arena_set_allocated_photos_message(
+      ::protocol::harmonytypes::v1::ContentPhotos* photos_message);
+  ::protocol::harmonytypes::v1::ContentPhotos* unsafe_arena_release_photos_message();
+
   void clear_content();
   ContentCase content_case() const;
   // @@protoc_insertion_point(class_scope:protocol.harmonytypes.v1.Content)
@@ -3388,6 +4005,7 @@ class Content PROTOBUF_FINAL :
   void set_has_text_message();
   void set_has_embed_message();
   void set_has_files_message();
+  void set_has_photos_message();
 
   inline bool has_content() const;
   inline void clear_has_content();
@@ -3400,6 +4018,7 @@ class Content PROTOBUF_FINAL :
     ::protocol::harmonytypes::v1::ContentText* text_message_;
     ::protocol::harmonytypes::v1::ContentEmbed* embed_message_;
     ::protocol::harmonytypes::v1::ContentFiles* files_message_;
+    ::protocol::harmonytypes::v1::ContentPhotos* photos_message_;
   } content_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -3450,7 +4069,7 @@ class Message PROTOBUF_FINAL :
                &_Message_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    19;
 
   friend void swap(Message& a, Message& b) {
     a.Swap(&b);
@@ -3622,7 +4241,7 @@ class Message PROTOBUF_FINAL :
       ::protocol::harmonytypes::v1::Content* content);
   ::protocol::harmonytypes::v1::Content* unsafe_arena_release_content();
 
-  // uint64 guild_id = 3 [jstype = JS_STRING];
+  // uint64 guild_id = 3;
   void clear_guild_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
   void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -3631,7 +4250,7 @@ class Message PROTOBUF_FINAL :
   void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 channel_id = 4 [jstype = JS_STRING];
+  // uint64 channel_id = 4;
   void clear_channel_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 channel_id() const;
   void set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -3640,7 +4259,7 @@ class Message PROTOBUF_FINAL :
   void _internal_set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 message_id = 5 [jstype = JS_STRING];
+  // uint64 message_id = 5;
   void clear_message_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 message_id() const;
   void set_message_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -3649,7 +4268,7 @@ class Message PROTOBUF_FINAL :
   void _internal_set_message_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 author_id = 6 [jstype = JS_STRING];
+  // uint64 author_id = 6;
   void clear_author_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 author_id() const;
   void set_author_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -3658,7 +4277,7 @@ class Message PROTOBUF_FINAL :
   void _internal_set_author_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 in_reply_to = 9 [jstype = JS_STRING];
+  // uint64 in_reply_to = 9;
   void clear_in_reply_to();
   ::PROTOBUF_NAMESPACE_ID::uint64 in_reply_to() const;
   void set_in_reply_to(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -3731,7 +4350,7 @@ class Error PROTOBUF_FINAL :
                &_Error_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    20;
 
   friend void swap(Error& a, Error& b) {
     a.Swap(&b);
@@ -3891,6 +4510,186 @@ class Error PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr identifier_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr human_message_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr more_details_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_harmonytypes_2fv1_2ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Token PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.harmonytypes.v1.Token) */ {
+ public:
+  inline Token() : Token(nullptr) {};
+  virtual ~Token();
+
+  Token(const Token& from);
+  Token(Token&& from) noexcept
+    : Token() {
+    *this = ::std::move(from);
+  }
+
+  inline Token& operator=(const Token& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Token& operator=(Token&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Token& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Token* internal_default_instance() {
+    return reinterpret_cast<const Token*>(
+               &_Token_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(Token& a, Token& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Token* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Token* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Token* New() const final {
+    return CreateMaybeMessage<Token>(nullptr);
+  }
+
+  Token* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Token>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Token& from);
+  void MergeFrom(const Token& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Token* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.harmonytypes.v1.Token";
+  }
+  protected:
+  explicit Token(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto);
+    return ::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSigFieldNumber = 1,
+    kDataFieldNumber = 2,
+  };
+  // bytes sig = 1;
+  void clear_sig();
+  const std::string& sig() const;
+  void set_sig(const std::string& value);
+  void set_sig(std::string&& value);
+  void set_sig(const char* value);
+  void set_sig(const void* value, size_t size);
+  std::string* mutable_sig();
+  std::string* release_sig();
+  void set_allocated_sig(std::string* sig);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_sig();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_sig(
+      std::string* sig);
+  private:
+  const std::string& _internal_sig() const;
+  void _internal_set_sig(const std::string& value);
+  std::string* _internal_mutable_sig();
+  public:
+
+  // bytes data = 2;
+  void clear_data();
+  const std::string& data() const;
+  void set_data(const std::string& value);
+  void set_data(std::string&& value);
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  std::string* mutable_data();
+  std::string* release_data();
+  void set_allocated_data(std::string* data);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_data();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_data(
+      std::string* data);
+  private:
+  const std::string& _internal_data() const;
+  void _internal_set_data(const std::string& value);
+  std::string* _internal_mutable_data();
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.harmonytypes.v1.Token)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sig_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_harmonytypes_2fv1_2ftypes_2eproto;
 };
@@ -6805,6 +7604,519 @@ inline void Attachment::unsafe_arena_set_allocated_caption(
 
 // -------------------------------------------------------------------
 
+// Minithumbnail
+
+// uint32 width = 1;
+inline void Minithumbnail::clear_width() {
+  width_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Minithumbnail::_internal_width() const {
+  return width_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Minithumbnail::width() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Minithumbnail.width)
+  return _internal_width();
+}
+inline void Minithumbnail::_internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  width_ = value;
+}
+inline void Minithumbnail::set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_width(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Minithumbnail.width)
+}
+
+// uint32 height = 2;
+inline void Minithumbnail::clear_height() {
+  height_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Minithumbnail::_internal_height() const {
+  return height_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Minithumbnail::height() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Minithumbnail.height)
+  return _internal_height();
+}
+inline void Minithumbnail::_internal_set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  height_ = value;
+}
+inline void Minithumbnail::set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_height(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Minithumbnail.height)
+}
+
+// bytes data = 3;
+inline void Minithumbnail::clear_data() {
+  data_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Minithumbnail::data() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Minithumbnail.data)
+  return _internal_data();
+}
+inline void Minithumbnail::set_data(const std::string& value) {
+  _internal_set_data(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Minithumbnail.data)
+}
+inline std::string* Minithumbnail::mutable_data() {
+  // @@protoc_insertion_point(field_mutable:protocol.harmonytypes.v1.Minithumbnail.data)
+  return _internal_mutable_data();
+}
+inline const std::string& Minithumbnail::_internal_data() const {
+  return data_.Get();
+}
+inline void Minithumbnail::_internal_set_data(const std::string& value) {
+  
+  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Minithumbnail::set_data(std::string&& value) {
+  
+  data_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.harmonytypes.v1.Minithumbnail.data)
+}
+inline void Minithumbnail::set_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.harmonytypes.v1.Minithumbnail.data)
+}
+inline void Minithumbnail::set_data(const void* value,
+    size_t size) {
+  
+  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.harmonytypes.v1.Minithumbnail.data)
+}
+inline std::string* Minithumbnail::_internal_mutable_data() {
+  
+  return data_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Minithumbnail::release_data() {
+  // @@protoc_insertion_point(field_release:protocol.harmonytypes.v1.Minithumbnail.data)
+  return data_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Minithumbnail::set_allocated_data(std::string* data) {
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), data,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Minithumbnail.data)
+}
+inline std::string* Minithumbnail::unsafe_arena_release_data() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.harmonytypes.v1.Minithumbnail.data)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return data_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Minithumbnail::unsafe_arena_set_allocated_data(
+    std::string* data) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      data, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.harmonytypes.v1.Minithumbnail.data)
+}
+
+// -------------------------------------------------------------------
+
+// Photo
+
+// string hmc = 1;
+inline void Photo::clear_hmc() {
+  hmc_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Photo::hmc() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Photo.hmc)
+  return _internal_hmc();
+}
+inline void Photo::set_hmc(const std::string& value) {
+  _internal_set_hmc(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Photo.hmc)
+}
+inline std::string* Photo::mutable_hmc() {
+  // @@protoc_insertion_point(field_mutable:protocol.harmonytypes.v1.Photo.hmc)
+  return _internal_mutable_hmc();
+}
+inline const std::string& Photo::_internal_hmc() const {
+  return hmc_.Get();
+}
+inline void Photo::_internal_set_hmc(const std::string& value) {
+  
+  hmc_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Photo::set_hmc(std::string&& value) {
+  
+  hmc_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.harmonytypes.v1.Photo.hmc)
+}
+inline void Photo::set_hmc(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  hmc_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.harmonytypes.v1.Photo.hmc)
+}
+inline void Photo::set_hmc(const char* value,
+    size_t size) {
+  
+  hmc_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.harmonytypes.v1.Photo.hmc)
+}
+inline std::string* Photo::_internal_mutable_hmc() {
+  
+  return hmc_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Photo::release_hmc() {
+  // @@protoc_insertion_point(field_release:protocol.harmonytypes.v1.Photo.hmc)
+  return hmc_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Photo::set_allocated_hmc(std::string* hmc) {
+  if (hmc != nullptr) {
+    
+  } else {
+    
+  }
+  hmc_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), hmc,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Photo.hmc)
+}
+inline std::string* Photo::unsafe_arena_release_hmc() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.harmonytypes.v1.Photo.hmc)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return hmc_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Photo::unsafe_arena_set_allocated_hmc(
+    std::string* hmc) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (hmc != nullptr) {
+    
+  } else {
+    
+  }
+  hmc_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      hmc, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.harmonytypes.v1.Photo.hmc)
+}
+
+// string name = 2;
+inline void Photo::clear_name() {
+  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Photo::name() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Photo.name)
+  return _internal_name();
+}
+inline void Photo::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Photo.name)
+}
+inline std::string* Photo::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:protocol.harmonytypes.v1.Photo.name)
+  return _internal_mutable_name();
+}
+inline const std::string& Photo::_internal_name() const {
+  return name_.Get();
+}
+inline void Photo::_internal_set_name(const std::string& value) {
+  
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Photo::set_name(std::string&& value) {
+  
+  name_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.harmonytypes.v1.Photo.name)
+}
+inline void Photo::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.harmonytypes.v1.Photo.name)
+}
+inline void Photo::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.harmonytypes.v1.Photo.name)
+}
+inline std::string* Photo::_internal_mutable_name() {
+  
+  return name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Photo::release_name() {
+  // @@protoc_insertion_point(field_release:protocol.harmonytypes.v1.Photo.name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Photo::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Photo.name)
+}
+inline std::string* Photo::unsafe_arena_release_name() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.harmonytypes.v1.Photo.name)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return name_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Photo::unsafe_arena_set_allocated_name(
+    std::string* name) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      name, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.harmonytypes.v1.Photo.name)
+}
+
+// uint32 file_size = 3;
+inline void Photo::clear_file_size() {
+  file_size_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Photo::_internal_file_size() const {
+  return file_size_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Photo::file_size() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Photo.file_size)
+  return _internal_file_size();
+}
+inline void Photo::_internal_set_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  file_size_ = value;
+}
+inline void Photo::set_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_file_size(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Photo.file_size)
+}
+
+// uint32 height = 4;
+inline void Photo::clear_height() {
+  height_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Photo::_internal_height() const {
+  return height_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Photo::height() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Photo.height)
+  return _internal_height();
+}
+inline void Photo::_internal_set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  height_ = value;
+}
+inline void Photo::set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_height(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Photo.height)
+}
+
+// uint32 width = 5;
+inline void Photo::clear_width() {
+  width_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Photo::_internal_width() const {
+  return width_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Photo::width() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Photo.width)
+  return _internal_width();
+}
+inline void Photo::_internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  width_ = value;
+}
+inline void Photo::set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_width(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Photo.width)
+}
+
+// string caption = 6;
+inline void Photo::clear_caption() {
+  caption_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Photo::caption() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Photo.caption)
+  return _internal_caption();
+}
+inline void Photo::set_caption(const std::string& value) {
+  _internal_set_caption(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Photo.caption)
+}
+inline std::string* Photo::mutable_caption() {
+  // @@protoc_insertion_point(field_mutable:protocol.harmonytypes.v1.Photo.caption)
+  return _internal_mutable_caption();
+}
+inline const std::string& Photo::_internal_caption() const {
+  return caption_.Get();
+}
+inline void Photo::_internal_set_caption(const std::string& value) {
+  
+  caption_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Photo::set_caption(std::string&& value) {
+  
+  caption_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.harmonytypes.v1.Photo.caption)
+}
+inline void Photo::set_caption(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  caption_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.harmonytypes.v1.Photo.caption)
+}
+inline void Photo::set_caption(const char* value,
+    size_t size) {
+  
+  caption_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.harmonytypes.v1.Photo.caption)
+}
+inline std::string* Photo::_internal_mutable_caption() {
+  
+  return caption_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Photo::release_caption() {
+  // @@protoc_insertion_point(field_release:protocol.harmonytypes.v1.Photo.caption)
+  return caption_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Photo::set_allocated_caption(std::string* caption) {
+  if (caption != nullptr) {
+    
+  } else {
+    
+  }
+  caption_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), caption,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Photo.caption)
+}
+inline std::string* Photo::unsafe_arena_release_caption() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.harmonytypes.v1.Photo.caption)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return caption_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Photo::unsafe_arena_set_allocated_caption(
+    std::string* caption) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (caption != nullptr) {
+    
+  } else {
+    
+  }
+  caption_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      caption, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.harmonytypes.v1.Photo.caption)
+}
+
+// .protocol.harmonytypes.v1.Minithumbnail minithumbnail = 7;
+inline bool Photo::_internal_has_minithumbnail() const {
+  return this != internal_default_instance() && minithumbnail_ != nullptr;
+}
+inline bool Photo::has_minithumbnail() const {
+  return _internal_has_minithumbnail();
+}
+inline void Photo::clear_minithumbnail() {
+  if (GetArena() == nullptr && minithumbnail_ != nullptr) {
+    delete minithumbnail_;
+  }
+  minithumbnail_ = nullptr;
+}
+inline const ::protocol::harmonytypes::v1::Minithumbnail& Photo::_internal_minithumbnail() const {
+  const ::protocol::harmonytypes::v1::Minithumbnail* p = minithumbnail_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::harmonytypes::v1::Minithumbnail*>(
+      &::protocol::harmonytypes::v1::_Minithumbnail_default_instance_);
+}
+inline const ::protocol::harmonytypes::v1::Minithumbnail& Photo::minithumbnail() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Photo.minithumbnail)
+  return _internal_minithumbnail();
+}
+inline void Photo::unsafe_arena_set_allocated_minithumbnail(
+    ::protocol::harmonytypes::v1::Minithumbnail* minithumbnail) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(minithumbnail_);
+  }
+  minithumbnail_ = minithumbnail;
+  if (minithumbnail) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.harmonytypes.v1.Photo.minithumbnail)
+}
+inline ::protocol::harmonytypes::v1::Minithumbnail* Photo::release_minithumbnail() {
+  auto temp = unsafe_arena_release_minithumbnail();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::protocol::harmonytypes::v1::Minithumbnail* Photo::unsafe_arena_release_minithumbnail() {
+  // @@protoc_insertion_point(field_release:protocol.harmonytypes.v1.Photo.minithumbnail)
+  
+  ::protocol::harmonytypes::v1::Minithumbnail* temp = minithumbnail_;
+  minithumbnail_ = nullptr;
+  return temp;
+}
+inline ::protocol::harmonytypes::v1::Minithumbnail* Photo::_internal_mutable_minithumbnail() {
+  
+  if (minithumbnail_ == nullptr) {
+    auto* p = CreateMaybeMessage<::protocol::harmonytypes::v1::Minithumbnail>(GetArena());
+    minithumbnail_ = p;
+  }
+  return minithumbnail_;
+}
+inline ::protocol::harmonytypes::v1::Minithumbnail* Photo::mutable_minithumbnail() {
+  // @@protoc_insertion_point(field_mutable:protocol.harmonytypes.v1.Photo.minithumbnail)
+  return _internal_mutable_minithumbnail();
+}
+inline void Photo::set_allocated_minithumbnail(::protocol::harmonytypes::v1::Minithumbnail* minithumbnail) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete minithumbnail_;
+  }
+  if (minithumbnail) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(minithumbnail);
+    if (message_arena != submessage_arena) {
+      minithumbnail = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, minithumbnail, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  minithumbnail_ = minithumbnail;
+  // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Photo.minithumbnail)
+}
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // Metadata
@@ -7131,6 +8443,49 @@ ContentFiles::attachments() const {
 
 // -------------------------------------------------------------------
 
+// ContentPhotos
+
+// repeated .protocol.harmonytypes.v1.Photo photos = 1;
+inline int ContentPhotos::_internal_photos_size() const {
+  return photos_.size();
+}
+inline int ContentPhotos::photos_size() const {
+  return _internal_photos_size();
+}
+inline void ContentPhotos::clear_photos() {
+  photos_.Clear();
+}
+inline ::protocol::harmonytypes::v1::Photo* ContentPhotos::mutable_photos(int index) {
+  // @@protoc_insertion_point(field_mutable:protocol.harmonytypes.v1.ContentPhotos.photos)
+  return photos_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::harmonytypes::v1::Photo >*
+ContentPhotos::mutable_photos() {
+  // @@protoc_insertion_point(field_mutable_list:protocol.harmonytypes.v1.ContentPhotos.photos)
+  return &photos_;
+}
+inline const ::protocol::harmonytypes::v1::Photo& ContentPhotos::_internal_photos(int index) const {
+  return photos_.Get(index);
+}
+inline const ::protocol::harmonytypes::v1::Photo& ContentPhotos::photos(int index) const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.ContentPhotos.photos)
+  return _internal_photos(index);
+}
+inline ::protocol::harmonytypes::v1::Photo* ContentPhotos::_internal_add_photos() {
+  return photos_.Add();
+}
+inline ::protocol::harmonytypes::v1::Photo* ContentPhotos::add_photos() {
+  // @@protoc_insertion_point(field_add:protocol.harmonytypes.v1.ContentPhotos.photos)
+  return _internal_add_photos();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::harmonytypes::v1::Photo >&
+ContentPhotos::photos() const {
+  // @@protoc_insertion_point(field_list:protocol.harmonytypes.v1.ContentPhotos.photos)
+  return photos_;
+}
+
+// -------------------------------------------------------------------
+
 // Content
 
 // .protocol.harmonytypes.v1.ContentText text_message = 2;
@@ -7352,6 +8707,79 @@ inline ::protocol::harmonytypes::v1::ContentFiles* Content::mutable_files_messag
   return _internal_mutable_files_message();
 }
 
+// .protocol.harmonytypes.v1.ContentPhotos photos_message = 6;
+inline bool Content::_internal_has_photos_message() const {
+  return content_case() == kPhotosMessage;
+}
+inline bool Content::has_photos_message() const {
+  return _internal_has_photos_message();
+}
+inline void Content::set_has_photos_message() {
+  _oneof_case_[0] = kPhotosMessage;
+}
+inline void Content::clear_photos_message() {
+  if (_internal_has_photos_message()) {
+    if (GetArena() == nullptr) {
+      delete content_.photos_message_;
+    }
+    clear_has_content();
+  }
+}
+inline ::protocol::harmonytypes::v1::ContentPhotos* Content::release_photos_message() {
+  // @@protoc_insertion_point(field_release:protocol.harmonytypes.v1.Content.photos_message)
+  if (_internal_has_photos_message()) {
+    clear_has_content();
+      ::protocol::harmonytypes::v1::ContentPhotos* temp = content_.photos_message_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    content_.photos_message_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::harmonytypes::v1::ContentPhotos& Content::_internal_photos_message() const {
+  return _internal_has_photos_message()
+      ? *content_.photos_message_
+      : *reinterpret_cast< ::protocol::harmonytypes::v1::ContentPhotos*>(&::protocol::harmonytypes::v1::_ContentPhotos_default_instance_);
+}
+inline const ::protocol::harmonytypes::v1::ContentPhotos& Content::photos_message() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Content.photos_message)
+  return _internal_photos_message();
+}
+inline ::protocol::harmonytypes::v1::ContentPhotos* Content::unsafe_arena_release_photos_message() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.harmonytypes.v1.Content.photos_message)
+  if (_internal_has_photos_message()) {
+    clear_has_content();
+    ::protocol::harmonytypes::v1::ContentPhotos* temp = content_.photos_message_;
+    content_.photos_message_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Content::unsafe_arena_set_allocated_photos_message(::protocol::harmonytypes::v1::ContentPhotos* photos_message) {
+  clear_content();
+  if (photos_message) {
+    set_has_photos_message();
+    content_.photos_message_ = photos_message;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.harmonytypes.v1.Content.photos_message)
+}
+inline ::protocol::harmonytypes::v1::ContentPhotos* Content::_internal_mutable_photos_message() {
+  if (!_internal_has_photos_message()) {
+    clear_content();
+    set_has_photos_message();
+    content_.photos_message_ = CreateMaybeMessage< ::protocol::harmonytypes::v1::ContentPhotos >(GetArena());
+  }
+  return content_.photos_message_;
+}
+inline ::protocol::harmonytypes::v1::ContentPhotos* Content::mutable_photos_message() {
+  // @@protoc_insertion_point(field_mutable:protocol.harmonytypes.v1.Content.photos_message)
+  return _internal_mutable_photos_message();
+}
+
 inline bool Content::has_content() const {
   return content_case() != CONTENT_NOT_SET;
 }
@@ -7527,7 +8955,7 @@ inline void Message::set_allocated_overrides(::protocol::harmonytypes::v1::Overr
   // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Message.overrides)
 }
 
-// uint64 guild_id = 3 [jstype = JS_STRING];
+// uint64 guild_id = 3;
 inline void Message::clear_guild_id() {
   guild_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -7547,7 +8975,7 @@ inline void Message::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Message.guild_id)
 }
 
-// uint64 channel_id = 4 [jstype = JS_STRING];
+// uint64 channel_id = 4;
 inline void Message::clear_channel_id() {
   channel_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -7567,7 +8995,7 @@ inline void Message::set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Message.channel_id)
 }
 
-// uint64 message_id = 5 [jstype = JS_STRING];
+// uint64 message_id = 5;
 inline void Message::clear_message_id() {
   message_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -7587,7 +9015,7 @@ inline void Message::set_message_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Message.message_id)
 }
 
-// uint64 author_id = 6 [jstype = JS_STRING];
+// uint64 author_id = 6;
 inline void Message::clear_author_id() {
   author_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -7757,7 +9185,7 @@ inline void Message::set_allocated_edited_at(PROTOBUF_NAMESPACE_ID::Timestamp* e
   // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Message.edited_at)
 }
 
-// uint64 in_reply_to = 9 [jstype = JS_STRING];
+// uint64 in_reply_to = 9;
 inline void Message::clear_in_reply_to() {
   in_reply_to_ = PROTOBUF_ULONGLONG(0);
 }
@@ -8105,9 +9533,183 @@ inline void Error::unsafe_arena_set_allocated_more_details(
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.harmonytypes.v1.Error.more_details)
 }
 
+// -------------------------------------------------------------------
+
+// Token
+
+// bytes sig = 1;
+inline void Token::clear_sig() {
+  sig_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Token::sig() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Token.sig)
+  return _internal_sig();
+}
+inline void Token::set_sig(const std::string& value) {
+  _internal_set_sig(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Token.sig)
+}
+inline std::string* Token::mutable_sig() {
+  // @@protoc_insertion_point(field_mutable:protocol.harmonytypes.v1.Token.sig)
+  return _internal_mutable_sig();
+}
+inline const std::string& Token::_internal_sig() const {
+  return sig_.Get();
+}
+inline void Token::_internal_set_sig(const std::string& value) {
+  
+  sig_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Token::set_sig(std::string&& value) {
+  
+  sig_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.harmonytypes.v1.Token.sig)
+}
+inline void Token::set_sig(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  sig_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.harmonytypes.v1.Token.sig)
+}
+inline void Token::set_sig(const void* value,
+    size_t size) {
+  
+  sig_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.harmonytypes.v1.Token.sig)
+}
+inline std::string* Token::_internal_mutable_sig() {
+  
+  return sig_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Token::release_sig() {
+  // @@protoc_insertion_point(field_release:protocol.harmonytypes.v1.Token.sig)
+  return sig_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Token::set_allocated_sig(std::string* sig) {
+  if (sig != nullptr) {
+    
+  } else {
+    
+  }
+  sig_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sig,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Token.sig)
+}
+inline std::string* Token::unsafe_arena_release_sig() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.harmonytypes.v1.Token.sig)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return sig_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Token::unsafe_arena_set_allocated_sig(
+    std::string* sig) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (sig != nullptr) {
+    
+  } else {
+    
+  }
+  sig_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      sig, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.harmonytypes.v1.Token.sig)
+}
+
+// bytes data = 2;
+inline void Token::clear_data() {
+  data_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Token::data() const {
+  // @@protoc_insertion_point(field_get:protocol.harmonytypes.v1.Token.data)
+  return _internal_data();
+}
+inline void Token::set_data(const std::string& value) {
+  _internal_set_data(value);
+  // @@protoc_insertion_point(field_set:protocol.harmonytypes.v1.Token.data)
+}
+inline std::string* Token::mutable_data() {
+  // @@protoc_insertion_point(field_mutable:protocol.harmonytypes.v1.Token.data)
+  return _internal_mutable_data();
+}
+inline const std::string& Token::_internal_data() const {
+  return data_.Get();
+}
+inline void Token::_internal_set_data(const std::string& value) {
+  
+  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Token::set_data(std::string&& value) {
+  
+  data_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.harmonytypes.v1.Token.data)
+}
+inline void Token::set_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.harmonytypes.v1.Token.data)
+}
+inline void Token::set_data(const void* value,
+    size_t size) {
+  
+  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.harmonytypes.v1.Token.data)
+}
+inline std::string* Token::_internal_mutable_data() {
+  
+  return data_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Token::release_data() {
+  // @@protoc_insertion_point(field_release:protocol.harmonytypes.v1.Token.data)
+  return data_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Token::set_allocated_data(std::string* data) {
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), data,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Token.data)
+}
+inline std::string* Token::unsafe_arena_release_data() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.harmonytypes.v1.Token.data)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return data_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Token::unsafe_arena_set_allocated_data(
+    std::string* data) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      data, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.harmonytypes.v1.Token.data)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

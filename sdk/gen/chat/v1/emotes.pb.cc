@@ -14,11 +14,19 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2femotes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetEmotePackEmotesResponse_Emote_chat_2fv1_2femotes_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2femotes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetEmotePacksResponse_EmotePack_chat_2fv1_2femotes_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2femotes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Emote_chat_2fv1_2femotes_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2femotes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_EmotePack_chat_2fv1_2femotes_2eproto;
 namespace protocol {
 namespace chat {
 namespace v1 {
+class EmotePackDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<EmotePack> _instance;
+} _EmotePack_default_instance_;
+class EmoteDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Emote> _instance;
+} _Emote_default_instance_;
 class CreateEmotePackRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CreateEmotePackRequest> _instance;
@@ -31,10 +39,6 @@ class GetEmotePacksRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetEmotePacksRequest> _instance;
 } _GetEmotePacksRequest_default_instance_;
-class GetEmotePacksResponse_EmotePackDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetEmotePacksResponse_EmotePack> _instance;
-} _GetEmotePacksResponse_EmotePack_default_instance_;
 class GetEmotePacksResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetEmotePacksResponse> _instance;
@@ -43,10 +47,6 @@ class GetEmotePackEmotesRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetEmotePackEmotesRequest> _instance;
 } _GetEmotePackEmotesRequest_default_instance_;
-class GetEmotePackEmotesResponse_EmoteDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetEmotePackEmotesResponse_Emote> _instance;
-} _GetEmotePackEmotesResponse_Emote_default_instance_;
 class GetEmotePackEmotesResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetEmotePackEmotesResponse> _instance;
@@ -67,6 +67,10 @@ class DequipEmotePackRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DequipEmotePackRequest> _instance;
 } _DequipEmotePackRequest_default_instance_;
+class EquipEmotePackRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<EquipEmotePackRequest> _instance;
+} _EquipEmotePackRequest_default_instance_;
 }  // namespace v1
 }  // namespace chat
 }  // namespace protocol
@@ -154,6 +158,48 @@ static void InitDefaultsscc_info_DequipEmotePackRequest_chat_2fv1_2femotes_2epro
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DequipEmotePackRequest_chat_2fv1_2femotes_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_DequipEmotePackRequest_chat_2fv1_2femotes_2eproto}, {}};
 
+static void InitDefaultsscc_info_Emote_chat_2fv1_2femotes_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::chat::v1::_Emote_default_instance_;
+    new (ptr) ::protocol::chat::v1::Emote();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::chat::v1::Emote::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Emote_chat_2fv1_2femotes_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Emote_chat_2fv1_2femotes_2eproto}, {}};
+
+static void InitDefaultsscc_info_EmotePack_chat_2fv1_2femotes_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::chat::v1::_EmotePack_default_instance_;
+    new (ptr) ::protocol::chat::v1::EmotePack();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::chat::v1::EmotePack::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_EmotePack_chat_2fv1_2femotes_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_EmotePack_chat_2fv1_2femotes_2eproto}, {}};
+
+static void InitDefaultsscc_info_EquipEmotePackRequest_chat_2fv1_2femotes_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::chat::v1::_EquipEmotePackRequest_default_instance_;
+    new (ptr) ::protocol::chat::v1::EquipEmotePackRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::chat::v1::EquipEmotePackRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_EquipEmotePackRequest_chat_2fv1_2femotes_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_EquipEmotePackRequest_chat_2fv1_2femotes_2eproto}, {}};
+
 static void InitDefaultsscc_info_GetEmotePackEmotesRequest_chat_2fv1_2femotes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -181,21 +227,7 @@ static void InitDefaultsscc_info_GetEmotePackEmotesResponse_chat_2fv1_2femotes_2
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetEmotePackEmotesResponse_chat_2fv1_2femotes_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_GetEmotePackEmotesResponse_chat_2fv1_2femotes_2eproto}, {
-      &scc_info_GetEmotePackEmotesResponse_Emote_chat_2fv1_2femotes_2eproto.base,}};
-
-static void InitDefaultsscc_info_GetEmotePackEmotesResponse_Emote_chat_2fv1_2femotes_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::protocol::chat::v1::_GetEmotePackEmotesResponse_Emote_default_instance_;
-    new (ptr) ::protocol::chat::v1::GetEmotePackEmotesResponse_Emote();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::protocol::chat::v1::GetEmotePackEmotesResponse_Emote::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetEmotePackEmotesResponse_Emote_chat_2fv1_2femotes_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GetEmotePackEmotesResponse_Emote_chat_2fv1_2femotes_2eproto}, {}};
+      &scc_info_Emote_chat_2fv1_2femotes_2eproto.base,}};
 
 static void InitDefaultsscc_info_GetEmotePacksRequest_chat_2fv1_2femotes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -224,27 +256,28 @@ static void InitDefaultsscc_info_GetEmotePacksResponse_chat_2fv1_2femotes_2eprot
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetEmotePacksResponse_chat_2fv1_2femotes_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_GetEmotePacksResponse_chat_2fv1_2femotes_2eproto}, {
-      &scc_info_GetEmotePacksResponse_EmotePack_chat_2fv1_2femotes_2eproto.base,}};
+      &scc_info_EmotePack_chat_2fv1_2femotes_2eproto.base,}};
 
-static void InitDefaultsscc_info_GetEmotePacksResponse_EmotePack_chat_2fv1_2femotes_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::protocol::chat::v1::_GetEmotePacksResponse_EmotePack_default_instance_;
-    new (ptr) ::protocol::chat::v1::GetEmotePacksResponse_EmotePack();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::protocol::chat::v1::GetEmotePacksResponse_EmotePack::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetEmotePacksResponse_EmotePack_chat_2fv1_2femotes_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GetEmotePacksResponse_EmotePack_chat_2fv1_2femotes_2eproto}, {}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_chat_2fv1_2femotes_2eproto[12];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_chat_2fv1_2femotes_2eproto[13];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_chat_2fv1_2femotes_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_chat_2fv1_2femotes_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_chat_2fv1_2femotes_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::EmotePack, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::EmotePack, pack_id_),
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::EmotePack, pack_owner_),
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::EmotePack, pack_name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::Emote, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::Emote, image_id_),
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::Emote, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::CreateEmotePackRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -263,14 +296,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_chat_2fv1_2femotes_2eproto::of
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePacksResponse_EmotePack, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePacksResponse_EmotePack, pack_id_),
-  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePacksResponse_EmotePack, pack_owner_),
-  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePacksResponse_EmotePack, pack_name_),
-  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePacksResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -282,13 +307,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_chat_2fv1_2femotes_2eproto::of
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePackEmotesRequest, pack_id_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePackEmotesResponse_Emote, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePackEmotesResponse_Emote, image_id_),
-  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePackEmotesResponse_Emote, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetEmotePackEmotesResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -322,82 +340,90 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_chat_2fv1_2femotes_2eproto::of
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::DequipEmotePackRequest, pack_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::EquipEmotePackRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::EquipEmotePackRequest, pack_id_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::protocol::chat::v1::CreateEmotePackRequest)},
-  { 6, -1, sizeof(::protocol::chat::v1::CreateEmotePackResponse)},
-  { 12, -1, sizeof(::protocol::chat::v1::GetEmotePacksRequest)},
-  { 17, -1, sizeof(::protocol::chat::v1::GetEmotePacksResponse_EmotePack)},
-  { 25, -1, sizeof(::protocol::chat::v1::GetEmotePacksResponse)},
-  { 31, -1, sizeof(::protocol::chat::v1::GetEmotePackEmotesRequest)},
-  { 37, -1, sizeof(::protocol::chat::v1::GetEmotePackEmotesResponse_Emote)},
+  { 0, -1, sizeof(::protocol::chat::v1::EmotePack)},
+  { 8, -1, sizeof(::protocol::chat::v1::Emote)},
+  { 15, -1, sizeof(::protocol::chat::v1::CreateEmotePackRequest)},
+  { 21, -1, sizeof(::protocol::chat::v1::CreateEmotePackResponse)},
+  { 27, -1, sizeof(::protocol::chat::v1::GetEmotePacksRequest)},
+  { 32, -1, sizeof(::protocol::chat::v1::GetEmotePacksResponse)},
+  { 38, -1, sizeof(::protocol::chat::v1::GetEmotePackEmotesRequest)},
   { 44, -1, sizeof(::protocol::chat::v1::GetEmotePackEmotesResponse)},
   { 50, -1, sizeof(::protocol::chat::v1::AddEmoteToPackRequest)},
   { 58, -1, sizeof(::protocol::chat::v1::DeleteEmoteFromPackRequest)},
   { 65, -1, sizeof(::protocol::chat::v1::DeleteEmotePackRequest)},
   { 71, -1, sizeof(::protocol::chat::v1::DequipEmotePackRequest)},
+  { 77, -1, sizeof(::protocol::chat::v1::EquipEmotePackRequest)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_EmotePack_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_Emote_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_CreateEmotePackRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_CreateEmotePackResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_GetEmotePacksRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_GetEmotePacksResponse_EmotePack_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_GetEmotePacksResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_GetEmotePackEmotesRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_GetEmotePackEmotesResponse_Emote_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_GetEmotePackEmotesResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_AddEmoteToPackRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_DeleteEmoteFromPackRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_DeleteEmotePackRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_DequipEmotePackRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_EquipEmotePackRequest_default_instance_),
 };
 
 const char descriptor_table_protodef_chat_2fv1_2femotes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\024chat/v1/emotes.proto\022\020protocol.chat.v1"
-  "\"+\n\026CreateEmotePackRequest\022\021\n\tpack_name\030"
-  "\001 \001(\t\".\n\027CreateEmotePackResponse\022\023\n\007pack"
-  "_id\030\001 \001(\004B\0020\001\"\026\n\024GetEmotePacksRequest\"\246\001"
-  "\n\025GetEmotePacksResponse\022@\n\005packs\030\001 \003(\01321"
-  ".protocol.chat.v1.GetEmotePacksResponse."
-  "EmotePack\032K\n\tEmotePack\022\023\n\007pack_id\030\001 \001(\004B"
-  "\0020\001\022\026\n\npack_owner\030\002 \001(\004B\0020\001\022\021\n\tpack_name"
-  "\030\003 \001(\t\"0\n\031GetEmotePackEmotesRequest\022\023\n\007p"
-  "ack_id\030\001 \001(\004B\0020\001\"\211\001\n\032GetEmotePackEmotesR"
-  "esponse\022B\n\006emotes\030\001 \003(\01322.protocol.chat."
-  "v1.GetEmotePackEmotesResponse.Emote\032\'\n\005E"
-  "mote\022\020\n\010image_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"L\n\025"
-  "AddEmoteToPackRequest\022\023\n\007pack_id\030\001 \001(\004B\002"
-  "0\001\022\020\n\010image_id\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\"C\n\032De"
-  "leteEmoteFromPackRequest\022\023\n\007pack_id\030\001 \001("
-  "\004B\0020\001\022\020\n\010image_id\030\002 \001(\t\"-\n\026DeleteEmotePa"
-  "ckRequest\022\023\n\007pack_id\030\001 \001(\004B\0020\001\"-\n\026Dequip"
-  "EmotePackRequest\022\023\n\007pack_id\030\001 \001(\004B\0020\001B3Z"
-  "1github.com/harmony-development/legato/g"
-  "en/chat/v1b\006proto3"
+  "\"C\n\tEmotePack\022\017\n\007pack_id\030\001 \001(\004\022\022\n\npack_o"
+  "wner\030\002 \001(\004\022\021\n\tpack_name\030\003 \001(\t\"\'\n\005Emote\022\020"
+  "\n\010image_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"+\n\026Create"
+  "EmotePackRequest\022\021\n\tpack_name\030\001 \001(\t\"*\n\027C"
+  "reateEmotePackResponse\022\017\n\007pack_id\030\001 \001(\004\""
+  "\026\n\024GetEmotePacksRequest\"C\n\025GetEmotePacks"
+  "Response\022*\n\005packs\030\001 \003(\0132\033.protocol.chat."
+  "v1.EmotePack\",\n\031GetEmotePackEmotesReques"
+  "t\022\017\n\007pack_id\030\001 \001(\004\"E\n\032GetEmotePackEmotes"
+  "Response\022\'\n\006emotes\030\001 \003(\0132\027.protocol.chat"
+  ".v1.Emote\"H\n\025AddEmoteToPackRequest\022\017\n\007pa"
+  "ck_id\030\001 \001(\004\022\020\n\010image_id\030\002 \001(\t\022\014\n\004name\030\003 "
+  "\001(\t\"\?\n\032DeleteEmoteFromPackRequest\022\017\n\007pac"
+  "k_id\030\001 \001(\004\022\020\n\010image_id\030\002 \001(\t\")\n\026DeleteEm"
+  "otePackRequest\022\017\n\007pack_id\030\001 \001(\004\")\n\026Dequi"
+  "pEmotePackRequest\022\017\n\007pack_id\030\001 \001(\004\"(\n\025Eq"
+  "uipEmotePackRequest\022\017\n\007pack_id\030\001 \001(\004B3Z1"
+  "github.com/harmony-development/legato/ge"
+  "n/chat/v1b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_chat_2fv1_2femotes_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_chat_2fv1_2femotes_2eproto_sccs[12] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_chat_2fv1_2femotes_2eproto_sccs[13] = {
   &scc_info_AddEmoteToPackRequest_chat_2fv1_2femotes_2eproto.base,
   &scc_info_CreateEmotePackRequest_chat_2fv1_2femotes_2eproto.base,
   &scc_info_CreateEmotePackResponse_chat_2fv1_2femotes_2eproto.base,
   &scc_info_DeleteEmoteFromPackRequest_chat_2fv1_2femotes_2eproto.base,
   &scc_info_DeleteEmotePackRequest_chat_2fv1_2femotes_2eproto.base,
   &scc_info_DequipEmotePackRequest_chat_2fv1_2femotes_2eproto.base,
+  &scc_info_Emote_chat_2fv1_2femotes_2eproto.base,
+  &scc_info_EmotePack_chat_2fv1_2femotes_2eproto.base,
+  &scc_info_EquipEmotePackRequest_chat_2fv1_2femotes_2eproto.base,
   &scc_info_GetEmotePackEmotesRequest_chat_2fv1_2femotes_2eproto.base,
   &scc_info_GetEmotePackEmotesResponse_chat_2fv1_2femotes_2eproto.base,
-  &scc_info_GetEmotePackEmotesResponse_Emote_chat_2fv1_2femotes_2eproto.base,
   &scc_info_GetEmotePacksRequest_chat_2fv1_2femotes_2eproto.base,
   &scc_info_GetEmotePacksResponse_chat_2fv1_2femotes_2eproto.base,
-  &scc_info_GetEmotePacksResponse_EmotePack_chat_2fv1_2femotes_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_chat_2fv1_2femotes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_chat_2fv1_2femotes_2eproto = {
-  false, false, descriptor_table_protodef_chat_2fv1_2femotes_2eproto, "chat/v1/emotes.proto", 818,
-  &descriptor_table_chat_2fv1_2femotes_2eproto_once, descriptor_table_chat_2fv1_2femotes_2eproto_sccs, descriptor_table_chat_2fv1_2femotes_2eproto_deps, 12, 0,
+  false, false, descriptor_table_protodef_chat_2fv1_2femotes_2eproto, "chat/v1/emotes.proto", 777,
+  &descriptor_table_chat_2fv1_2femotes_2eproto_once, descriptor_table_chat_2fv1_2femotes_2eproto_sccs, descriptor_table_chat_2fv1_2femotes_2eproto_deps, 13, 0,
   schemas, file_default_instances, TableStruct_chat_2fv1_2femotes_2eproto::offsets,
-  file_level_metadata_chat_2fv1_2femotes_2eproto, 12, file_level_enum_descriptors_chat_2fv1_2femotes_2eproto, file_level_service_descriptors_chat_2fv1_2femotes_2eproto,
+  file_level_metadata_chat_2fv1_2femotes_2eproto, 13, file_level_enum_descriptors_chat_2fv1_2femotes_2eproto, file_level_service_descriptors_chat_2fv1_2femotes_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -405,6 +431,523 @@ static bool dynamic_init_dummy_chat_2fv1_2femotes_2eproto = (static_cast<void>(:
 namespace protocol {
 namespace chat {
 namespace v1 {
+
+// ===================================================================
+
+void EmotePack::InitAsDefaultInstance() {
+}
+class EmotePack::_Internal {
+ public:
+};
+
+EmotePack::EmotePack(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.chat.v1.EmotePack)
+}
+EmotePack::EmotePack(const EmotePack& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  pack_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_pack_name().empty()) {
+    pack_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_pack_name(),
+      GetArena());
+  }
+  ::memcpy(&pack_id_, &from.pack_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&pack_owner_) -
+    reinterpret_cast<char*>(&pack_id_)) + sizeof(pack_owner_));
+  // @@protoc_insertion_point(copy_constructor:protocol.chat.v1.EmotePack)
+}
+
+void EmotePack::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_EmotePack_chat_2fv1_2femotes_2eproto.base);
+  pack_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(&pack_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&pack_owner_) -
+      reinterpret_cast<char*>(&pack_id_)) + sizeof(pack_owner_));
+}
+
+EmotePack::~EmotePack() {
+  // @@protoc_insertion_point(destructor:protocol.chat.v1.EmotePack)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void EmotePack::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  pack_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void EmotePack::ArenaDtor(void* object) {
+  EmotePack* _this = reinterpret_cast< EmotePack* >(object);
+  (void)_this;
+}
+void EmotePack::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void EmotePack::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const EmotePack& EmotePack::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_EmotePack_chat_2fv1_2femotes_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void EmotePack::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.chat.v1.EmotePack)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  pack_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::memset(&pack_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&pack_owner_) -
+      reinterpret_cast<char*>(&pack_id_)) + sizeof(pack_owner_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* EmotePack::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint64 pack_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          pack_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 pack_owner = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          pack_owner_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string pack_name = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_pack_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.chat.v1.EmotePack.pack_name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* EmotePack::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.chat.v1.EmotePack)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 pack_id = 1;
+  if (this->pack_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_pack_id(), target);
+  }
+
+  // uint64 pack_owner = 2;
+  if (this->pack_owner() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_pack_owner(), target);
+  }
+
+  // string pack_name = 3;
+  if (this->pack_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_pack_name().data(), static_cast<int>(this->_internal_pack_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "protocol.chat.v1.EmotePack.pack_name");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_pack_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.chat.v1.EmotePack)
+  return target;
+}
+
+size_t EmotePack::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.chat.v1.EmotePack)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string pack_name = 3;
+  if (this->pack_name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_pack_name());
+  }
+
+  // uint64 pack_id = 1;
+  if (this->pack_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_pack_id());
+  }
+
+  // uint64 pack_owner = 2;
+  if (this->pack_owner() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_pack_owner());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void EmotePack::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.chat.v1.EmotePack)
+  GOOGLE_DCHECK_NE(&from, this);
+  const EmotePack* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<EmotePack>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.chat.v1.EmotePack)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.chat.v1.EmotePack)
+    MergeFrom(*source);
+  }
+}
+
+void EmotePack::MergeFrom(const EmotePack& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.chat.v1.EmotePack)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.pack_name().size() > 0) {
+    _internal_set_pack_name(from._internal_pack_name());
+  }
+  if (from.pack_id() != 0) {
+    _internal_set_pack_id(from._internal_pack_id());
+  }
+  if (from.pack_owner() != 0) {
+    _internal_set_pack_owner(from._internal_pack_owner());
+  }
+}
+
+void EmotePack::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.chat.v1.EmotePack)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EmotePack::CopyFrom(const EmotePack& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.chat.v1.EmotePack)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EmotePack::IsInitialized() const {
+  return true;
+}
+
+void EmotePack::InternalSwap(EmotePack* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  pack_name_.Swap(&other->pack_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(EmotePack, pack_owner_)
+      + sizeof(EmotePack::pack_owner_)
+      - PROTOBUF_FIELD_OFFSET(EmotePack, pack_id_)>(
+          reinterpret_cast<char*>(&pack_id_),
+          reinterpret_cast<char*>(&other->pack_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata EmotePack::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void Emote::InitAsDefaultInstance() {
+}
+class Emote::_Internal {
+ public:
+};
+
+Emote::Emote(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.chat.v1.Emote)
+}
+Emote::Emote(const Emote& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  image_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_image_id().empty()) {
+    image_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_image_id(),
+      GetArena());
+  }
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:protocol.chat.v1.Emote)
+}
+
+void Emote::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Emote_chat_2fv1_2femotes_2eproto.base);
+  image_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+Emote::~Emote() {
+  // @@protoc_insertion_point(destructor:protocol.chat.v1.Emote)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Emote::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  image_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void Emote::ArenaDtor(void* object) {
+  Emote* _this = reinterpret_cast< Emote* >(object);
+  (void)_this;
+}
+void Emote::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Emote::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Emote& Emote::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Emote_chat_2fv1_2femotes_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Emote::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.chat.v1.Emote)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  image_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Emote::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string image_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_image_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.chat.v1.Emote.image_id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.chat.v1.Emote.name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Emote::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.chat.v1.Emote)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string image_id = 1;
+  if (this->image_id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_image_id().data(), static_cast<int>(this->_internal_image_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "protocol.chat.v1.Emote.image_id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_image_id(), target);
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "protocol.chat.v1.Emote.name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.chat.v1.Emote)
+  return target;
+}
+
+size_t Emote::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.chat.v1.Emote)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string image_id = 1;
+  if (this->image_id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_image_id());
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Emote::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.chat.v1.Emote)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Emote* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Emote>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.chat.v1.Emote)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.chat.v1.Emote)
+    MergeFrom(*source);
+  }
+}
+
+void Emote::MergeFrom(const Emote& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.chat.v1.Emote)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.image_id().size() > 0) {
+    _internal_set_image_id(from._internal_image_id());
+  }
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
+}
+
+void Emote::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.chat.v1.Emote)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Emote::CopyFrom(const Emote& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.chat.v1.Emote)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Emote::IsInitialized() const {
+  return true;
+}
+
+void Emote::InternalSwap(Emote* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  image_id_.Swap(&other->image_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Emote::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
 
 // ===================================================================
 
@@ -683,7 +1226,7 @@ const char* CreateEmotePackResponse::_InternalParse(const char* ptr, ::PROTOBUF_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 pack_id = 1 [jstype = JS_STRING];
+      // uint64 pack_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pack_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -718,7 +1261,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_pack_id(), target);
@@ -740,7 +1283,7 @@ size_t CreateEmotePackResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -979,276 +1522,6 @@ void GetEmotePacksRequest::InternalSwap(GetEmotePacksRequest* other) {
 
 // ===================================================================
 
-void GetEmotePacksResponse_EmotePack::InitAsDefaultInstance() {
-}
-class GetEmotePacksResponse_EmotePack::_Internal {
- public:
-};
-
-GetEmotePacksResponse_EmotePack::GetEmotePacksResponse_EmotePack(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-}
-GetEmotePacksResponse_EmotePack::GetEmotePacksResponse_EmotePack(const GetEmotePacksResponse_EmotePack& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  pack_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_pack_name().empty()) {
-    pack_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_pack_name(),
-      GetArena());
-  }
-  ::memcpy(&pack_id_, &from.pack_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&pack_owner_) -
-    reinterpret_cast<char*>(&pack_id_)) + sizeof(pack_owner_));
-  // @@protoc_insertion_point(copy_constructor:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-}
-
-void GetEmotePacksResponse_EmotePack::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GetEmotePacksResponse_EmotePack_chat_2fv1_2femotes_2eproto.base);
-  pack_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&pack_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&pack_owner_) -
-      reinterpret_cast<char*>(&pack_id_)) + sizeof(pack_owner_));
-}
-
-GetEmotePacksResponse_EmotePack::~GetEmotePacksResponse_EmotePack() {
-  // @@protoc_insertion_point(destructor:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void GetEmotePacksResponse_EmotePack::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  pack_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void GetEmotePacksResponse_EmotePack::ArenaDtor(void* object) {
-  GetEmotePacksResponse_EmotePack* _this = reinterpret_cast< GetEmotePacksResponse_EmotePack* >(object);
-  (void)_this;
-}
-void GetEmotePacksResponse_EmotePack::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void GetEmotePacksResponse_EmotePack::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const GetEmotePacksResponse_EmotePack& GetEmotePacksResponse_EmotePack::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetEmotePacksResponse_EmotePack_chat_2fv1_2femotes_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void GetEmotePacksResponse_EmotePack::Clear() {
-// @@protoc_insertion_point(message_clear_start:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  pack_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::memset(&pack_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&pack_owner_) -
-      reinterpret_cast<char*>(&pack_id_)) + sizeof(pack_owner_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* GetEmotePacksResponse_EmotePack::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // uint64 pack_id = 1 [jstype = JS_STRING];
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          pack_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint64 pack_owner = 2 [jstype = JS_STRING];
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          pack_owner_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string pack_name = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_pack_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.chat.v1.GetEmotePacksResponse.EmotePack.pack_name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* GetEmotePacksResponse_EmotePack::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 pack_id = 1 [jstype = JS_STRING];
-  if (this->pack_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_pack_id(), target);
-  }
-
-  // uint64 pack_owner = 2 [jstype = JS_STRING];
-  if (this->pack_owner() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_pack_owner(), target);
-  }
-
-  // string pack_name = 3;
-  if (this->pack_name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_pack_name().data(), static_cast<int>(this->_internal_pack_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "protocol.chat.v1.GetEmotePacksResponse.EmotePack.pack_name");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_pack_name(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-  return target;
-}
-
-size_t GetEmotePacksResponse_EmotePack::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string pack_name = 3;
-  if (this->pack_name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_pack_name());
-  }
-
-  // uint64 pack_id = 1 [jstype = JS_STRING];
-  if (this->pack_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_pack_id());
-  }
-
-  // uint64 pack_owner = 2 [jstype = JS_STRING];
-  if (this->pack_owner() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_pack_owner());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void GetEmotePacksResponse_EmotePack::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GetEmotePacksResponse_EmotePack* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetEmotePacksResponse_EmotePack>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-    MergeFrom(*source);
-  }
-}
-
-void GetEmotePacksResponse_EmotePack::MergeFrom(const GetEmotePacksResponse_EmotePack& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.pack_name().size() > 0) {
-    _internal_set_pack_name(from._internal_pack_name());
-  }
-  if (from.pack_id() != 0) {
-    _internal_set_pack_id(from._internal_pack_id());
-  }
-  if (from.pack_owner() != 0) {
-    _internal_set_pack_owner(from._internal_pack_owner());
-  }
-}
-
-void GetEmotePacksResponse_EmotePack::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void GetEmotePacksResponse_EmotePack::CopyFrom(const GetEmotePacksResponse_EmotePack& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:protocol.chat.v1.GetEmotePacksResponse.EmotePack)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool GetEmotePacksResponse_EmotePack::IsInitialized() const {
-  return true;
-}
-
-void GetEmotePacksResponse_EmotePack::InternalSwap(GetEmotePacksResponse_EmotePack* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  pack_name_.Swap(&other->pack_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(GetEmotePacksResponse_EmotePack, pack_owner_)
-      + sizeof(GetEmotePacksResponse_EmotePack::pack_owner_)
-      - PROTOBUF_FIELD_OFFSET(GetEmotePacksResponse_EmotePack, pack_id_)>(
-          reinterpret_cast<char*>(&pack_id_),
-          reinterpret_cast<char*>(&other->pack_id_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata GetEmotePacksResponse_EmotePack::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 void GetEmotePacksResponse::InitAsDefaultInstance() {
 }
 class GetEmotePacksResponse::_Internal {
@@ -1316,7 +1589,7 @@ const char* GetEmotePacksResponse::_InternalParse(const char* ptr, ::PROTOBUF_NA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .protocol.chat.v1.GetEmotePacksResponse.EmotePack packs = 1;
+      // repeated .protocol.chat.v1.EmotePack packs = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -1356,7 +1629,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protocol.chat.v1.GetEmotePacksResponse.EmotePack packs = 1;
+  // repeated .protocol.chat.v1.EmotePack packs = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_packs_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1380,7 +1653,7 @@ size_t GetEmotePacksResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .protocol.chat.v1.GetEmotePacksResponse.EmotePack packs = 1;
+  // repeated .protocol.chat.v1.EmotePack packs = 1;
   total_size += 1UL * this->_internal_packs_size();
   for (const auto& msg : this->packs_) {
     total_size +=
@@ -1518,7 +1791,7 @@ const char* GetEmotePackEmotesRequest::_InternalParse(const char* ptr, ::PROTOBU
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 pack_id = 1 [jstype = JS_STRING];
+      // uint64 pack_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pack_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -1553,7 +1826,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_pack_id(), target);
@@ -1575,7 +1848,7 @@ size_t GetEmotePackEmotesRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -1649,253 +1922,6 @@ void GetEmotePackEmotesRequest::InternalSwap(GetEmotePackEmotesRequest* other) {
 
 // ===================================================================
 
-void GetEmotePackEmotesResponse_Emote::InitAsDefaultInstance() {
-}
-class GetEmotePackEmotesResponse_Emote::_Internal {
- public:
-};
-
-GetEmotePackEmotesResponse_Emote::GetEmotePackEmotesResponse_Emote(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-}
-GetEmotePackEmotesResponse_Emote::GetEmotePackEmotesResponse_Emote(const GetEmotePackEmotesResponse_Emote& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  image_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_image_id().empty()) {
-    image_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_image_id(),
-      GetArena());
-  }
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
-  }
-  // @@protoc_insertion_point(copy_constructor:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-}
-
-void GetEmotePackEmotesResponse_Emote::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GetEmotePackEmotesResponse_Emote_chat_2fv1_2femotes_2eproto.base);
-  image_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-GetEmotePackEmotesResponse_Emote::~GetEmotePackEmotesResponse_Emote() {
-  // @@protoc_insertion_point(destructor:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void GetEmotePackEmotesResponse_Emote::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  image_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void GetEmotePackEmotesResponse_Emote::ArenaDtor(void* object) {
-  GetEmotePackEmotesResponse_Emote* _this = reinterpret_cast< GetEmotePackEmotesResponse_Emote* >(object);
-  (void)_this;
-}
-void GetEmotePackEmotesResponse_Emote::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void GetEmotePackEmotesResponse_Emote::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const GetEmotePackEmotesResponse_Emote& GetEmotePackEmotesResponse_Emote::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetEmotePackEmotesResponse_Emote_chat_2fv1_2femotes_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void GetEmotePackEmotesResponse_Emote::Clear() {
-// @@protoc_insertion_point(message_clear_start:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  image_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* GetEmotePackEmotesResponse_Emote::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string image_id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_image_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.chat.v1.GetEmotePackEmotesResponse.Emote.image_id"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string name = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.chat.v1.GetEmotePackEmotesResponse.Emote.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* GetEmotePackEmotesResponse_Emote::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string image_id = 1;
-  if (this->image_id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_image_id().data(), static_cast<int>(this->_internal_image_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "protocol.chat.v1.GetEmotePackEmotesResponse.Emote.image_id");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_image_id(), target);
-  }
-
-  // string name = 2;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "protocol.chat.v1.GetEmotePackEmotesResponse.Emote.name");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_name(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-  return target;
-}
-
-size_t GetEmotePackEmotesResponse_Emote::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string image_id = 1;
-  if (this->image_id().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_image_id());
-  }
-
-  // string name = 2;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void GetEmotePackEmotesResponse_Emote::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GetEmotePackEmotesResponse_Emote* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetEmotePackEmotesResponse_Emote>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-    MergeFrom(*source);
-  }
-}
-
-void GetEmotePackEmotesResponse_Emote::MergeFrom(const GetEmotePackEmotesResponse_Emote& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.image_id().size() > 0) {
-    _internal_set_image_id(from._internal_image_id());
-  }
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
-  }
-}
-
-void GetEmotePackEmotesResponse_Emote::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void GetEmotePackEmotesResponse_Emote::CopyFrom(const GetEmotePackEmotesResponse_Emote& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:protocol.chat.v1.GetEmotePackEmotesResponse.Emote)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool GetEmotePackEmotesResponse_Emote::IsInitialized() const {
-  return true;
-}
-
-void GetEmotePackEmotesResponse_Emote::InternalSwap(GetEmotePackEmotesResponse_Emote* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  image_id_.Swap(&other->image_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata GetEmotePackEmotesResponse_Emote::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 void GetEmotePackEmotesResponse::InitAsDefaultInstance() {
 }
 class GetEmotePackEmotesResponse::_Internal {
@@ -1963,7 +1989,7 @@ const char* GetEmotePackEmotesResponse::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .protocol.chat.v1.GetEmotePackEmotesResponse.Emote emotes = 1;
+      // repeated .protocol.chat.v1.Emote emotes = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -2003,7 +2029,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protocol.chat.v1.GetEmotePackEmotesResponse.Emote emotes = 1;
+  // repeated .protocol.chat.v1.Emote emotes = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_emotes_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -2027,7 +2053,7 @@ size_t GetEmotePackEmotesResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .protocol.chat.v1.GetEmotePackEmotesResponse.Emote emotes = 1;
+  // repeated .protocol.chat.v1.Emote emotes = 1;
   total_size += 1UL * this->_internal_emotes_size();
   for (const auto& msg : this->emotes_) {
     total_size +=
@@ -2182,7 +2208,7 @@ const char* AddEmoteToPackRequest::_InternalParse(const char* ptr, ::PROTOBUF_NA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 pack_id = 1 [jstype = JS_STRING];
+      // uint64 pack_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pack_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2235,7 +2261,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_pack_id(), target);
@@ -2291,7 +2317,7 @@ size_t AddEmoteToPackRequest::ByteSizeLong() const {
         this->_internal_name());
   }
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2448,7 +2474,7 @@ const char* DeleteEmoteFromPackRequest::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 pack_id = 1 [jstype = JS_STRING];
+      // uint64 pack_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pack_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2492,7 +2518,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_pack_id(), target);
@@ -2531,7 +2557,7 @@ size_t DeleteEmoteFromPackRequest::ByteSizeLong() const {
         this->_internal_image_id());
   }
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2675,7 +2701,7 @@ const char* DeleteEmotePackRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 pack_id = 1 [jstype = JS_STRING];
+      // uint64 pack_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pack_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2710,7 +2736,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_pack_id(), target);
@@ -2732,7 +2758,7 @@ size_t DeleteEmotePackRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2872,7 +2898,7 @@ const char* DequipEmotePackRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 pack_id = 1 [jstype = JS_STRING];
+      // uint64 pack_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pack_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2907,7 +2933,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_pack_id(), target);
@@ -2929,7 +2955,7 @@ size_t DequipEmotePackRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 pack_id = 1 [jstype = JS_STRING];
+  // uint64 pack_id = 1;
   if (this->pack_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -3001,11 +3027,214 @@ void DequipEmotePackRequest::InternalSwap(DequipEmotePackRequest* other) {
 }
 
 
+// ===================================================================
+
+void EquipEmotePackRequest::InitAsDefaultInstance() {
+}
+class EquipEmotePackRequest::_Internal {
+ public:
+};
+
+EquipEmotePackRequest::EquipEmotePackRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.chat.v1.EquipEmotePackRequest)
+}
+EquipEmotePackRequest::EquipEmotePackRequest(const EquipEmotePackRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  pack_id_ = from.pack_id_;
+  // @@protoc_insertion_point(copy_constructor:protocol.chat.v1.EquipEmotePackRequest)
+}
+
+void EquipEmotePackRequest::SharedCtor() {
+  pack_id_ = PROTOBUF_ULONGLONG(0);
+}
+
+EquipEmotePackRequest::~EquipEmotePackRequest() {
+  // @@protoc_insertion_point(destructor:protocol.chat.v1.EquipEmotePackRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void EquipEmotePackRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void EquipEmotePackRequest::ArenaDtor(void* object) {
+  EquipEmotePackRequest* _this = reinterpret_cast< EquipEmotePackRequest* >(object);
+  (void)_this;
+}
+void EquipEmotePackRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void EquipEmotePackRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const EquipEmotePackRequest& EquipEmotePackRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_EquipEmotePackRequest_chat_2fv1_2femotes_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void EquipEmotePackRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.chat.v1.EquipEmotePackRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  pack_id_ = PROTOBUF_ULONGLONG(0);
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* EquipEmotePackRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint64 pack_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          pack_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* EquipEmotePackRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.chat.v1.EquipEmotePackRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 pack_id = 1;
+  if (this->pack_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_pack_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.chat.v1.EquipEmotePackRequest)
+  return target;
+}
+
+size_t EquipEmotePackRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.chat.v1.EquipEmotePackRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint64 pack_id = 1;
+  if (this->pack_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_pack_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void EquipEmotePackRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.chat.v1.EquipEmotePackRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const EquipEmotePackRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<EquipEmotePackRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.chat.v1.EquipEmotePackRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.chat.v1.EquipEmotePackRequest)
+    MergeFrom(*source);
+  }
+}
+
+void EquipEmotePackRequest::MergeFrom(const EquipEmotePackRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.chat.v1.EquipEmotePackRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.pack_id() != 0) {
+    _internal_set_pack_id(from._internal_pack_id());
+  }
+}
+
+void EquipEmotePackRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.chat.v1.EquipEmotePackRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EquipEmotePackRequest::CopyFrom(const EquipEmotePackRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.chat.v1.EquipEmotePackRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EquipEmotePackRequest::IsInitialized() const {
+  return true;
+}
+
+void EquipEmotePackRequest::InternalSwap(EquipEmotePackRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(pack_id_, other->pack_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata EquipEmotePackRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1
 }  // namespace chat
 }  // namespace protocol
 PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::protocol::chat::v1::EmotePack* Arena::CreateMaybeMessage< ::protocol::chat::v1::EmotePack >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::chat::v1::EmotePack >(arena);
+}
+template<> PROTOBUF_NOINLINE ::protocol::chat::v1::Emote* Arena::CreateMaybeMessage< ::protocol::chat::v1::Emote >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::chat::v1::Emote >(arena);
+}
 template<> PROTOBUF_NOINLINE ::protocol::chat::v1::CreateEmotePackRequest* Arena::CreateMaybeMessage< ::protocol::chat::v1::CreateEmotePackRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::chat::v1::CreateEmotePackRequest >(arena);
 }
@@ -3015,17 +3244,11 @@ template<> PROTOBUF_NOINLINE ::protocol::chat::v1::CreateEmotePackResponse* Aren
 template<> PROTOBUF_NOINLINE ::protocol::chat::v1::GetEmotePacksRequest* Arena::CreateMaybeMessage< ::protocol::chat::v1::GetEmotePacksRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::chat::v1::GetEmotePacksRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::protocol::chat::v1::GetEmotePacksResponse_EmotePack* Arena::CreateMaybeMessage< ::protocol::chat::v1::GetEmotePacksResponse_EmotePack >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::protocol::chat::v1::GetEmotePacksResponse_EmotePack >(arena);
-}
 template<> PROTOBUF_NOINLINE ::protocol::chat::v1::GetEmotePacksResponse* Arena::CreateMaybeMessage< ::protocol::chat::v1::GetEmotePacksResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::chat::v1::GetEmotePacksResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::protocol::chat::v1::GetEmotePackEmotesRequest* Arena::CreateMaybeMessage< ::protocol::chat::v1::GetEmotePackEmotesRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::chat::v1::GetEmotePackEmotesRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::protocol::chat::v1::GetEmotePackEmotesResponse_Emote* Arena::CreateMaybeMessage< ::protocol::chat::v1::GetEmotePackEmotesResponse_Emote >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::protocol::chat::v1::GetEmotePackEmotesResponse_Emote >(arena);
 }
 template<> PROTOBUF_NOINLINE ::protocol::chat::v1::GetEmotePackEmotesResponse* Arena::CreateMaybeMessage< ::protocol::chat::v1::GetEmotePackEmotesResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::chat::v1::GetEmotePackEmotesResponse >(arena);
@@ -3041,6 +3264,9 @@ template<> PROTOBUF_NOINLINE ::protocol::chat::v1::DeleteEmotePackRequest* Arena
 }
 template<> PROTOBUF_NOINLINE ::protocol::chat::v1::DequipEmotePackRequest* Arena::CreateMaybeMessage< ::protocol::chat::v1::DequipEmotePackRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::chat::v1::DequipEmotePackRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::protocol::chat::v1::EquipEmotePackRequest* Arena::CreateMaybeMessage< ::protocol::chat::v1::EquipEmotePackRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::chat::v1::EquipEmotePackRequest >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -22,9 +22,10 @@ extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAM
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Action_Dropdown_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Action_Input_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Attachment_harmonytypes_2fv1_2ftypes_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Content_harmonytypes_2fv1_2ftypes_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Content_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ContentEmbed_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ContentFiles_harmonytypes_2fv1_2ftypes_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ContentPhotos_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ContentText_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Embed_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_EmbedField_harmonytypes_2fv1_2ftypes_2eproto;
@@ -32,7 +33,9 @@ extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAM
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HarmonyMethodMetadata_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Metadata_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Metadata_ExtensionEntry_DoNotUse_harmonytypes_2fv1_2ftypes_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Minithumbnail_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Override_harmonytypes_2fv1_2ftypes_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Photo_harmonytypes_2fv1_2ftypes_2eproto;
 namespace protocol {
 namespace harmonytypes {
 namespace v1 {
@@ -84,6 +87,14 @@ class AttachmentDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Attachment> _instance;
 } _Attachment_default_instance_;
+class MinithumbnailDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Minithumbnail> _instance;
+} _Minithumbnail_default_instance_;
+class PhotoDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Photo> _instance;
+} _Photo_default_instance_;
 class Metadata_ExtensionEntry_DoNotUseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Metadata_ExtensionEntry_DoNotUse> _instance;
@@ -104,12 +115,17 @@ class ContentFilesDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ContentFiles> _instance;
 } _ContentFiles_default_instance_;
+class ContentPhotosDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ContentPhotos> _instance;
+} _ContentPhotos_default_instance_;
 class ContentDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Content> _instance;
   const ::protocol::harmonytypes::v1::ContentText* text_message_;
   const ::protocol::harmonytypes::v1::ContentEmbed* embed_message_;
   const ::protocol::harmonytypes::v1::ContentFiles* files_message_;
+  const ::protocol::harmonytypes::v1::ContentPhotos* photos_message_;
 } _Content_default_instance_;
 class MessageDefaultTypeInternal {
  public:
@@ -119,6 +135,10 @@ class ErrorDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Error> _instance;
 } _Error_default_instance_;
+class TokenDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Token> _instance;
+} _Token_default_instance_;
 }  // namespace v1
 }  // namespace harmonytypes
 }  // namespace protocol
@@ -206,11 +226,12 @@ static void InitDefaultsscc_info_Content_harmonytypes_2fv1_2ftypes_2eproto() {
   ::protocol::harmonytypes::v1::Content::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Content_harmonytypes_2fv1_2ftypes_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_Content_harmonytypes_2fv1_2ftypes_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Content_harmonytypes_2fv1_2ftypes_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_Content_harmonytypes_2fv1_2ftypes_2eproto}, {
       &scc_info_ContentText_harmonytypes_2fv1_2ftypes_2eproto.base,
       &scc_info_ContentEmbed_harmonytypes_2fv1_2ftypes_2eproto.base,
-      &scc_info_ContentFiles_harmonytypes_2fv1_2ftypes_2eproto.base,}};
+      &scc_info_ContentFiles_harmonytypes_2fv1_2ftypes_2eproto.base,
+      &scc_info_ContentPhotos_harmonytypes_2fv1_2ftypes_2eproto.base,}};
 
 static void InitDefaultsscc_info_ContentEmbed_harmonytypes_2fv1_2ftypes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -241,6 +262,21 @@ static void InitDefaultsscc_info_ContentFiles_harmonytypes_2fv1_2ftypes_2eproto(
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ContentFiles_harmonytypes_2fv1_2ftypes_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ContentFiles_harmonytypes_2fv1_2ftypes_2eproto}, {
       &scc_info_Attachment_harmonytypes_2fv1_2ftypes_2eproto.base,}};
+
+static void InitDefaultsscc_info_ContentPhotos_harmonytypes_2fv1_2ftypes_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::harmonytypes::v1::_ContentPhotos_default_instance_;
+    new (ptr) ::protocol::harmonytypes::v1::ContentPhotos();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::harmonytypes::v1::ContentPhotos::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ContentPhotos_harmonytypes_2fv1_2ftypes_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ContentPhotos_harmonytypes_2fv1_2ftypes_2eproto}, {
+      &scc_info_Photo_harmonytypes_2fv1_2ftypes_2eproto.base,}};
 
 static void InitDefaultsscc_info_ContentText_harmonytypes_2fv1_2ftypes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -376,6 +412,20 @@ static void InitDefaultsscc_info_Metadata_ExtensionEntry_DoNotUse_harmonytypes_2
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Metadata_ExtensionEntry_DoNotUse_harmonytypes_2fv1_2ftypes_2eproto}, {
       &scc_info_Any_google_2fprotobuf_2fany_2eproto.base,}};
 
+static void InitDefaultsscc_info_Minithumbnail_harmonytypes_2fv1_2ftypes_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::harmonytypes::v1::_Minithumbnail_default_instance_;
+    new (ptr) ::protocol::harmonytypes::v1::Minithumbnail();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::harmonytypes::v1::Minithumbnail::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Minithumbnail_harmonytypes_2fv1_2ftypes_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Minithumbnail_harmonytypes_2fv1_2ftypes_2eproto}, {}};
+
 static void InitDefaultsscc_info_Override_harmonytypes_2fv1_2ftypes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -391,7 +441,36 @@ static void InitDefaultsscc_info_Override_harmonytypes_2fv1_2ftypes_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Override_harmonytypes_2fv1_2ftypes_2eproto}, {
       &scc_info_Empty_google_2fprotobuf_2fempty_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_harmonytypes_2fv1_2ftypes_2eproto[18];
+static void InitDefaultsscc_info_Photo_harmonytypes_2fv1_2ftypes_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::harmonytypes::v1::_Photo_default_instance_;
+    new (ptr) ::protocol::harmonytypes::v1::Photo();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::harmonytypes::v1::Photo::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Photo_harmonytypes_2fv1_2ftypes_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Photo_harmonytypes_2fv1_2ftypes_2eproto}, {
+      &scc_info_Minithumbnail_harmonytypes_2fv1_2ftypes_2eproto.base,}};
+
+static void InitDefaultsscc_info_Token_harmonytypes_2fv1_2ftypes_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::harmonytypes::v1::_Token_default_instance_;
+    new (ptr) ::protocol::harmonytypes::v1::Token();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::harmonytypes::v1::Token::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Token_harmonytypes_2fv1_2ftypes_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Token_harmonytypes_2fv1_2ftypes_2eproto}, {}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_harmonytypes_2fv1_2ftypes_2eproto[22];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_harmonytypes_2fv1_2ftypes_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_harmonytypes_2fv1_2ftypes_2eproto = nullptr;
 
@@ -490,6 +569,26 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_harmonytypes_2fv1_2ftypes_2epr
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Attachment, type_),
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Attachment, size_),
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Attachment, caption_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Minithumbnail, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Minithumbnail, width_),
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Minithumbnail, height_),
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Minithumbnail, data_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Photo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Photo, hmc_),
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Photo, name_),
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Photo, file_size_),
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Photo, height_),
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Photo, width_),
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Photo, caption_),
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Photo, minithumbnail_),
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Metadata_ExtensionEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Metadata_ExtensionEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -525,6 +624,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_harmonytypes_2fv1_2ftypes_2epr
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::ContentFiles, attachments_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::ContentPhotos, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::ContentPhotos, photos_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Content, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Content, _oneof_case_[0]),
@@ -532,6 +637,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_harmonytypes_2fv1_2ftypes_2epr
   offsetof(::protocol::harmonytypes::v1::ContentDefaultTypeInternal, text_message_),
   offsetof(::protocol::harmonytypes::v1::ContentDefaultTypeInternal, embed_message_),
   offsetof(::protocol::harmonytypes::v1::ContentDefaultTypeInternal, files_message_),
+  offsetof(::protocol::harmonytypes::v1::ContentDefaultTypeInternal, photos_message_),
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Content, content_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Message, _internal_metadata_),
@@ -556,6 +662,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_harmonytypes_2fv1_2ftypes_2epr
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Error, identifier_),
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Error, human_message_),
   PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Error, more_details_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Token, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Token, sig_),
+  PROTOBUF_FIELD_OFFSET(::protocol::harmonytypes::v1::Token, data_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::protocol::harmonytypes::v1::HarmonyMethodMetadata)},
@@ -568,14 +681,18 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 62, -1, sizeof(::protocol::harmonytypes::v1::EmbedField)},
   { 73, -1, sizeof(::protocol::harmonytypes::v1::Embed)},
   { 84, -1, sizeof(::protocol::harmonytypes::v1::Attachment)},
-  { 94, 101, sizeof(::protocol::harmonytypes::v1::Metadata_ExtensionEntry_DoNotUse)},
-  { 103, -1, sizeof(::protocol::harmonytypes::v1::Metadata)},
-  { 110, -1, sizeof(::protocol::harmonytypes::v1::ContentText)},
-  { 116, -1, sizeof(::protocol::harmonytypes::v1::ContentEmbed)},
-  { 122, -1, sizeof(::protocol::harmonytypes::v1::ContentFiles)},
-  { 128, -1, sizeof(::protocol::harmonytypes::v1::Content)},
-  { 137, -1, sizeof(::protocol::harmonytypes::v1::Message)},
-  { 152, -1, sizeof(::protocol::harmonytypes::v1::Error)},
+  { 94, -1, sizeof(::protocol::harmonytypes::v1::Minithumbnail)},
+  { 102, -1, sizeof(::protocol::harmonytypes::v1::Photo)},
+  { 114, 121, sizeof(::protocol::harmonytypes::v1::Metadata_ExtensionEntry_DoNotUse)},
+  { 123, -1, sizeof(::protocol::harmonytypes::v1::Metadata)},
+  { 130, -1, sizeof(::protocol::harmonytypes::v1::ContentText)},
+  { 136, -1, sizeof(::protocol::harmonytypes::v1::ContentEmbed)},
+  { 142, -1, sizeof(::protocol::harmonytypes::v1::ContentFiles)},
+  { 148, -1, sizeof(::protocol::harmonytypes::v1::ContentPhotos)},
+  { 154, -1, sizeof(::protocol::harmonytypes::v1::Content)},
+  { 164, -1, sizeof(::protocol::harmonytypes::v1::Message)},
+  { 179, -1, sizeof(::protocol::harmonytypes::v1::Error)},
+  { 187, -1, sizeof(::protocol::harmonytypes::v1::Token)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -589,14 +706,18 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_EmbedField_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Embed_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Attachment_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Minithumbnail_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Photo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Metadata_ExtensionEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Metadata_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_ContentText_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_ContentEmbed_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_ContentFiles_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_ContentPhotos_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Content_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Message_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Error_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::harmonytypes::v1::_Token_default_instance_),
 };
 
 const char descriptor_table_protodef_harmonytypes_2fv1_2ftypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -640,41 +761,50 @@ const char descriptor_table_protodef_harmonytypes_2fv1_2ftypes_2eproto[] PROTOBU
   ".v1.EmbedHeading\0224\n\006fields\030\006 \003(\0132$.proto"
   "col.harmonytypes.v1.EmbedField\"S\n\nAttach"
   "ment\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004type\030\003"
-  " \001(\t\022\014\n\004size\030\004 \001(\005\022\017\n\007caption\030\005 \001(\t\"\246\001\n\010"
-  "Metadata\022\014\n\004kind\030\001 \001(\t\022D\n\textension\030\002 \003("
-  "\01321.protocol.harmonytypes.v1.Metadata.Ex"
-  "tensionEntry\032F\n\016ExtensionEntry\022\013\n\003key\030\001 "
-  "\001(\t\022#\n\005value\030\002 \001(\0132\024.google.protobuf.Any"
-  ":\0028\001\"\036\n\013ContentText\022\017\n\007content\030\001 \001(\t\"\?\n\014"
-  "ContentEmbed\022/\n\006embeds\030\001 \001(\0132\037.protocol."
-  "harmonytypes.v1.Embed\"I\n\014ContentFiles\0229\n"
-  "\013attachments\030\001 \003(\0132$.protocol.harmonytyp"
-  "es.v1.Attachment\"\325\001\n\007Content\022=\n\014text_mes"
-  "sage\030\002 \001(\0132%.protocol.harmonytypes.v1.Co"
-  "ntentTextH\000\022\?\n\rembed_message\030\004 \001(\0132&.pro"
-  "tocol.harmonytypes.v1.ContentEmbedH\000\022\?\n\r"
-  "files_message\030\005 \001(\0132&.protocol.harmonyty"
-  "pes.v1.ContentFilesH\000B\t\n\007content\"\377\002\n\007Mes"
-  "sage\0224\n\010metadata\030\001 \001(\0132\".protocol.harmon"
-  "ytypes.v1.Metadata\0225\n\toverrides\030\002 \001(\0132\"."
-  "protocol.harmonytypes.v1.Override\022\024\n\010gui"
-  "ld_id\030\003 \001(\004B\0020\001\022\026\n\nchannel_id\030\004 \001(\004B\0020\001\022"
-  "\026\n\nmessage_id\030\005 \001(\004B\0020\001\022\025\n\tauthor_id\030\006 \001"
-  "(\004B\0020\001\022.\n\ncreated_at\030\007 \001(\0132\032.google.prot"
-  "obuf.Timestamp\022-\n\tedited_at\030\010 \001(\0132\032.goog"
-  "le.protobuf.Timestamp\022\027\n\013in_reply_to\030\t \001"
-  "(\004B\0020\001\0222\n\007content\030\n \001(\0132!.protocol.harmo"
-  "nytypes.v1.Content\"H\n\005Error\022\022\n\nidentifie"
-  "r\030\001 \001(\t\022\025\n\rhuman_message\030\002 \001(\t\022\024\n\014more_d"
-  "etails\030\003 \001(\014*\232\001\n\nUserStatus\022\"\n\036USER_STAT"
-  "US_ONLINE_UNSPECIFIED\020\000\022\031\n\025USER_STATUS_S"
-  "TREAMING\020\001\022\036\n\032USER_STATUS_DO_NOT_DISTURB"
-  "\020\002\022\024\n\020USER_STATUS_IDLE\020\003\022\027\n\023USER_STATUS_"
-  "OFFLINE\020\004:b\n\010metadata\022\036.google.protobuf."
-  "MethodOptions\030\303\010 \001(\0132/.protocol.harmonyt"
-  "ypes.v1.HarmonyMethodMetadataB;Z9github."
-  "com/harmony-development/legato/gen/harmo"
-  "nytypes/v1b\006proto3"
+  " \001(\t\022\014\n\004size\030\004 \001(\005\022\017\n\007caption\030\005 \001(\t\"<\n\rM"
+  "inithumbnail\022\r\n\005width\030\001 \001(\r\022\016\n\006height\030\002 "
+  "\001(\r\022\014\n\004data\030\003 \001(\014\"\245\001\n\005Photo\022\013\n\003hmc\030\001 \001(\t"
+  "\022\014\n\004name\030\002 \001(\t\022\021\n\tfile_size\030\003 \001(\r\022\016\n\006hei"
+  "ght\030\004 \001(\r\022\r\n\005width\030\005 \001(\r\022\017\n\007caption\030\006 \001("
+  "\t\022>\n\rminithumbnail\030\007 \001(\0132\'.protocol.harm"
+  "onytypes.v1.Minithumbnail\"\246\001\n\010Metadata\022\014"
+  "\n\004kind\030\001 \001(\t\022D\n\textension\030\002 \003(\01321.protoc"
+  "ol.harmonytypes.v1.Metadata.ExtensionEnt"
+  "ry\032F\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022#\n\005val"
+  "ue\030\002 \001(\0132\024.google.protobuf.Any:\0028\001\"\036\n\013Co"
+  "ntentText\022\017\n\007content\030\001 \001(\t\"\?\n\014ContentEmb"
+  "ed\022/\n\006embeds\030\001 \001(\0132\037.protocol.harmonytyp"
+  "es.v1.Embed\"I\n\014ContentFiles\0229\n\013attachmen"
+  "ts\030\001 \003(\0132$.protocol.harmonytypes.v1.Atta"
+  "chment\"@\n\rContentPhotos\022/\n\006photos\030\001 \003(\0132"
+  "\037.protocol.harmonytypes.v1.Photo\"\230\002\n\007Con"
+  "tent\022=\n\014text_message\030\002 \001(\0132%.protocol.ha"
+  "rmonytypes.v1.ContentTextH\000\022\?\n\rembed_mes"
+  "sage\030\004 \001(\0132&.protocol.harmonytypes.v1.Co"
+  "ntentEmbedH\000\022\?\n\rfiles_message\030\005 \001(\0132&.pr"
+  "otocol.harmonytypes.v1.ContentFilesH\000\022A\n"
+  "\016photos_message\030\006 \001(\0132\'.protocol.harmony"
+  "types.v1.ContentPhotosH\000B\t\n\007content\"\353\002\n\007"
+  "Message\0224\n\010metadata\030\001 \001(\0132\".protocol.har"
+  "monytypes.v1.Metadata\0225\n\toverrides\030\002 \001(\013"
+  "2\".protocol.harmonytypes.v1.Override\022\020\n\010"
+  "guild_id\030\003 \001(\004\022\022\n\nchannel_id\030\004 \001(\004\022\022\n\nme"
+  "ssage_id\030\005 \001(\004\022\021\n\tauthor_id\030\006 \001(\004\022.\n\ncre"
+  "ated_at\030\007 \001(\0132\032.google.protobuf.Timestam"
+  "p\022-\n\tedited_at\030\010 \001(\0132\032.google.protobuf.T"
+  "imestamp\022\023\n\013in_reply_to\030\t \001(\004\0222\n\007content"
+  "\030\n \001(\0132!.protocol.harmonytypes.v1.Conten"
+  "t\"H\n\005Error\022\022\n\nidentifier\030\001 \001(\t\022\025\n\rhuman_"
+  "message\030\002 \001(\t\022\024\n\014more_details\030\003 \001(\014\"\"\n\005T"
+  "oken\022\013\n\003sig\030\001 \001(\014\022\014\n\004data\030\002 \001(\014*\232\001\n\nUser"
+  "Status\022\"\n\036USER_STATUS_ONLINE_UNSPECIFIED"
+  "\020\000\022\031\n\025USER_STATUS_STREAMING\020\001\022\036\n\032USER_ST"
+  "ATUS_DO_NOT_DISTURB\020\002\022\024\n\020USER_STATUS_IDL"
+  "E\020\003\022\027\n\023USER_STATUS_OFFLINE\020\004:b\n\010metadata"
+  "\022\036.google.protobuf.MethodOptions\030\303\010 \001(\0132"
+  "/.protocol.harmonytypes.v1.HarmonyMethod"
+  "MetadataB;Z9github.com/harmony-developme"
+  "nt/legato/gen/harmonytypes/v1b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_deps[4] = {
   &::descriptor_table_google_2fprotobuf_2fany_2eproto,
@@ -682,7 +812,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_sccs[18] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_sccs[22] = {
   &scc_info_Action_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_Action_Button_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_Action_Dropdown_harmonytypes_2fv1_2ftypes_2eproto.base,
@@ -691,6 +821,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_har
   &scc_info_Content_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_ContentEmbed_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_ContentFiles_harmonytypes_2fv1_2ftypes_2eproto.base,
+  &scc_info_ContentPhotos_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_ContentText_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_Embed_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_EmbedField_harmonytypes_2fv1_2ftypes_2eproto.base,
@@ -700,14 +831,17 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_har
   &scc_info_Message_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_Metadata_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_Metadata_ExtensionEntry_DoNotUse_harmonytypes_2fv1_2ftypes_2eproto.base,
+  &scc_info_Minithumbnail_harmonytypes_2fv1_2ftypes_2eproto.base,
   &scc_info_Override_harmonytypes_2fv1_2ftypes_2eproto.base,
+  &scc_info_Photo_harmonytypes_2fv1_2ftypes_2eproto.base,
+  &scc_info_Token_harmonytypes_2fv1_2ftypes_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_harmonytypes_2fv1_2ftypes_2eproto = {
-  false, false, descriptor_table_protodef_harmonytypes_2fv1_2ftypes_2eproto, "harmonytypes/v1/types.proto", 2978,
-  &descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_once, descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_sccs, descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_deps, 18, 4,
+  false, false, descriptor_table_protodef_harmonytypes_2fv1_2ftypes_2eproto, "harmonytypes/v1/types.proto", 3357,
+  &descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_once, descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_sccs, descriptor_table_harmonytypes_2fv1_2ftypes_2eproto_deps, 22, 4,
   schemas, file_default_instances, TableStruct_harmonytypes_2fv1_2ftypes_2eproto::offsets,
-  file_level_metadata_harmonytypes_2fv1_2ftypes_2eproto, 18, file_level_enum_descriptors_harmonytypes_2fv1_2ftypes_2eproto, file_level_service_descriptors_harmonytypes_2fv1_2ftypes_2eproto,
+  file_level_metadata_harmonytypes_2fv1_2ftypes_2eproto, 22, file_level_enum_descriptors_harmonytypes_2fv1_2ftypes_2eproto, file_level_service_descriptors_harmonytypes_2fv1_2ftypes_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -4257,6 +4391,682 @@ void Attachment::InternalSwap(Attachment* other) {
 
 // ===================================================================
 
+void Minithumbnail::InitAsDefaultInstance() {
+}
+class Minithumbnail::_Internal {
+ public:
+};
+
+Minithumbnail::Minithumbnail(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.harmonytypes.v1.Minithumbnail)
+}
+Minithumbnail::Minithumbnail(const Minithumbnail& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_data().empty()) {
+    data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_data(),
+      GetArena());
+  }
+  ::memcpy(&width_, &from.width_,
+    static_cast<size_t>(reinterpret_cast<char*>(&height_) -
+    reinterpret_cast<char*>(&width_)) + sizeof(height_));
+  // @@protoc_insertion_point(copy_constructor:protocol.harmonytypes.v1.Minithumbnail)
+}
+
+void Minithumbnail::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Minithumbnail_harmonytypes_2fv1_2ftypes_2eproto.base);
+  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(&width_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&height_) -
+      reinterpret_cast<char*>(&width_)) + sizeof(height_));
+}
+
+Minithumbnail::~Minithumbnail() {
+  // @@protoc_insertion_point(destructor:protocol.harmonytypes.v1.Minithumbnail)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Minithumbnail::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void Minithumbnail::ArenaDtor(void* object) {
+  Minithumbnail* _this = reinterpret_cast< Minithumbnail* >(object);
+  (void)_this;
+}
+void Minithumbnail::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Minithumbnail::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Minithumbnail& Minithumbnail::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Minithumbnail_harmonytypes_2fv1_2ftypes_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Minithumbnail::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.harmonytypes.v1.Minithumbnail)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  data_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::memset(&width_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&height_) -
+      reinterpret_cast<char*>(&width_)) + sizeof(height_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Minithumbnail::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 width = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 height = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes data = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_data();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Minithumbnail::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.harmonytypes.v1.Minithumbnail)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 width = 1;
+  if (this->width() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_width(), target);
+  }
+
+  // uint32 height = 2;
+  if (this->height() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_height(), target);
+  }
+
+  // bytes data = 3;
+  if (this->data().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        3, this->_internal_data(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.harmonytypes.v1.Minithumbnail)
+  return target;
+}
+
+size_t Minithumbnail::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.harmonytypes.v1.Minithumbnail)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes data = 3;
+  if (this->data().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_data());
+  }
+
+  // uint32 width = 1;
+  if (this->width() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_width());
+  }
+
+  // uint32 height = 2;
+  if (this->height() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_height());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Minithumbnail::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.harmonytypes.v1.Minithumbnail)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Minithumbnail* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Minithumbnail>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.harmonytypes.v1.Minithumbnail)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.harmonytypes.v1.Minithumbnail)
+    MergeFrom(*source);
+  }
+}
+
+void Minithumbnail::MergeFrom(const Minithumbnail& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.harmonytypes.v1.Minithumbnail)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.data().size() > 0) {
+    _internal_set_data(from._internal_data());
+  }
+  if (from.width() != 0) {
+    _internal_set_width(from._internal_width());
+  }
+  if (from.height() != 0) {
+    _internal_set_height(from._internal_height());
+  }
+}
+
+void Minithumbnail::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.harmonytypes.v1.Minithumbnail)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Minithumbnail::CopyFrom(const Minithumbnail& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.harmonytypes.v1.Minithumbnail)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Minithumbnail::IsInitialized() const {
+  return true;
+}
+
+void Minithumbnail::InternalSwap(Minithumbnail* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  data_.Swap(&other->data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Minithumbnail, height_)
+      + sizeof(Minithumbnail::height_)
+      - PROTOBUF_FIELD_OFFSET(Minithumbnail, width_)>(
+          reinterpret_cast<char*>(&width_),
+          reinterpret_cast<char*>(&other->width_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Minithumbnail::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void Photo::InitAsDefaultInstance() {
+  ::protocol::harmonytypes::v1::_Photo_default_instance_._instance.get_mutable()->minithumbnail_ = const_cast< ::protocol::harmonytypes::v1::Minithumbnail*>(
+      ::protocol::harmonytypes::v1::Minithumbnail::internal_default_instance());
+}
+class Photo::_Internal {
+ public:
+  static const ::protocol::harmonytypes::v1::Minithumbnail& minithumbnail(const Photo* msg);
+};
+
+const ::protocol::harmonytypes::v1::Minithumbnail&
+Photo::_Internal::minithumbnail(const Photo* msg) {
+  return *msg->minithumbnail_;
+}
+Photo::Photo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.harmonytypes.v1.Photo)
+}
+Photo::Photo(const Photo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  hmc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_hmc().empty()) {
+    hmc_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_hmc(),
+      GetArena());
+  }
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+      GetArena());
+  }
+  caption_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_caption().empty()) {
+    caption_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_caption(),
+      GetArena());
+  }
+  if (from._internal_has_minithumbnail()) {
+    minithumbnail_ = new ::protocol::harmonytypes::v1::Minithumbnail(*from.minithumbnail_);
+  } else {
+    minithumbnail_ = nullptr;
+  }
+  ::memcpy(&file_size_, &from.file_size_,
+    static_cast<size_t>(reinterpret_cast<char*>(&width_) -
+    reinterpret_cast<char*>(&file_size_)) + sizeof(width_));
+  // @@protoc_insertion_point(copy_constructor:protocol.harmonytypes.v1.Photo)
+}
+
+void Photo::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Photo_harmonytypes_2fv1_2ftypes_2eproto.base);
+  hmc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  caption_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(&minithumbnail_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&width_) -
+      reinterpret_cast<char*>(&minithumbnail_)) + sizeof(width_));
+}
+
+Photo::~Photo() {
+  // @@protoc_insertion_point(destructor:protocol.harmonytypes.v1.Photo)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Photo::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  hmc_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  caption_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete minithumbnail_;
+}
+
+void Photo::ArenaDtor(void* object) {
+  Photo* _this = reinterpret_cast< Photo* >(object);
+  (void)_this;
+}
+void Photo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Photo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Photo& Photo::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Photo_harmonytypes_2fv1_2ftypes_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Photo::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.harmonytypes.v1.Photo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  hmc_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  caption_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  if (GetArena() == nullptr && minithumbnail_ != nullptr) {
+    delete minithumbnail_;
+  }
+  minithumbnail_ = nullptr;
+  ::memset(&file_size_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&width_) -
+      reinterpret_cast<char*>(&file_size_)) + sizeof(width_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Photo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string hmc = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_hmc();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.harmonytypes.v1.Photo.hmc"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.harmonytypes.v1.Photo.name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 file_size = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          file_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 height = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 width = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string caption = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          auto str = _internal_mutable_caption();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "protocol.harmonytypes.v1.Photo.caption"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .protocol.harmonytypes.v1.Minithumbnail minithumbnail = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_minithumbnail(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Photo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.harmonytypes.v1.Photo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string hmc = 1;
+  if (this->hmc().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_hmc().data(), static_cast<int>(this->_internal_hmc().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "protocol.harmonytypes.v1.Photo.hmc");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_hmc(), target);
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "protocol.harmonytypes.v1.Photo.name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_name(), target);
+  }
+
+  // uint32 file_size = 3;
+  if (this->file_size() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_file_size(), target);
+  }
+
+  // uint32 height = 4;
+  if (this->height() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_height(), target);
+  }
+
+  // uint32 width = 5;
+  if (this->width() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_width(), target);
+  }
+
+  // string caption = 6;
+  if (this->caption().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_caption().data(), static_cast<int>(this->_internal_caption().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "protocol.harmonytypes.v1.Photo.caption");
+    target = stream->WriteStringMaybeAliased(
+        6, this->_internal_caption(), target);
+  }
+
+  // .protocol.harmonytypes.v1.Minithumbnail minithumbnail = 7;
+  if (this->has_minithumbnail()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        7, _Internal::minithumbnail(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.harmonytypes.v1.Photo)
+  return target;
+}
+
+size_t Photo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.harmonytypes.v1.Photo)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string hmc = 1;
+  if (this->hmc().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_hmc());
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // string caption = 6;
+  if (this->caption().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_caption());
+  }
+
+  // .protocol.harmonytypes.v1.Minithumbnail minithumbnail = 7;
+  if (this->has_minithumbnail()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *minithumbnail_);
+  }
+
+  // uint32 file_size = 3;
+  if (this->file_size() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_file_size());
+  }
+
+  // uint32 height = 4;
+  if (this->height() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_height());
+  }
+
+  // uint32 width = 5;
+  if (this->width() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_width());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Photo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.harmonytypes.v1.Photo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Photo* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Photo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.harmonytypes.v1.Photo)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.harmonytypes.v1.Photo)
+    MergeFrom(*source);
+  }
+}
+
+void Photo::MergeFrom(const Photo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.harmonytypes.v1.Photo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.hmc().size() > 0) {
+    _internal_set_hmc(from._internal_hmc());
+  }
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
+  if (from.caption().size() > 0) {
+    _internal_set_caption(from._internal_caption());
+  }
+  if (from.has_minithumbnail()) {
+    _internal_mutable_minithumbnail()->::protocol::harmonytypes::v1::Minithumbnail::MergeFrom(from._internal_minithumbnail());
+  }
+  if (from.file_size() != 0) {
+    _internal_set_file_size(from._internal_file_size());
+  }
+  if (from.height() != 0) {
+    _internal_set_height(from._internal_height());
+  }
+  if (from.width() != 0) {
+    _internal_set_width(from._internal_width());
+  }
+}
+
+void Photo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.harmonytypes.v1.Photo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Photo::CopyFrom(const Photo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.harmonytypes.v1.Photo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Photo::IsInitialized() const {
+  return true;
+}
+
+void Photo::InternalSwap(Photo* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  hmc_.Swap(&other->hmc_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  caption_.Swap(&other->caption_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Photo, width_)
+      + sizeof(Photo::width_)
+      - PROTOBUF_FIELD_OFFSET(Photo, minithumbnail_)>(
+          reinterpret_cast<char*>(&minithumbnail_),
+          reinterpret_cast<char*>(&other->minithumbnail_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Photo::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 Metadata_ExtensionEntry_DoNotUse::Metadata_ExtensionEntry_DoNotUse() {}
 Metadata_ExtensionEntry_DoNotUse::Metadata_ExtensionEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
@@ -5180,6 +5990,209 @@ void ContentFiles::InternalSwap(ContentFiles* other) {
 
 // ===================================================================
 
+void ContentPhotos::InitAsDefaultInstance() {
+}
+class ContentPhotos::_Internal {
+ public:
+};
+
+ContentPhotos::ContentPhotos(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  photos_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.harmonytypes.v1.ContentPhotos)
+}
+ContentPhotos::ContentPhotos(const ContentPhotos& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      photos_(from.photos_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:protocol.harmonytypes.v1.ContentPhotos)
+}
+
+void ContentPhotos::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ContentPhotos_harmonytypes_2fv1_2ftypes_2eproto.base);
+}
+
+ContentPhotos::~ContentPhotos() {
+  // @@protoc_insertion_point(destructor:protocol.harmonytypes.v1.ContentPhotos)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void ContentPhotos::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void ContentPhotos::ArenaDtor(void* object) {
+  ContentPhotos* _this = reinterpret_cast< ContentPhotos* >(object);
+  (void)_this;
+}
+void ContentPhotos::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void ContentPhotos::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ContentPhotos& ContentPhotos::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ContentPhotos_harmonytypes_2fv1_2ftypes_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void ContentPhotos::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.harmonytypes.v1.ContentPhotos)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  photos_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ContentPhotos::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .protocol.harmonytypes.v1.Photo photos = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_photos(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* ContentPhotos::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.harmonytypes.v1.ContentPhotos)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .protocol.harmonytypes.v1.Photo photos = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_photos_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_photos(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.harmonytypes.v1.ContentPhotos)
+  return target;
+}
+
+size_t ContentPhotos::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.harmonytypes.v1.ContentPhotos)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .protocol.harmonytypes.v1.Photo photos = 1;
+  total_size += 1UL * this->_internal_photos_size();
+  for (const auto& msg : this->photos_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ContentPhotos::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.harmonytypes.v1.ContentPhotos)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ContentPhotos* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ContentPhotos>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.harmonytypes.v1.ContentPhotos)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.harmonytypes.v1.ContentPhotos)
+    MergeFrom(*source);
+  }
+}
+
+void ContentPhotos::MergeFrom(const ContentPhotos& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.harmonytypes.v1.ContentPhotos)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  photos_.MergeFrom(from.photos_);
+}
+
+void ContentPhotos::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.harmonytypes.v1.ContentPhotos)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ContentPhotos::CopyFrom(const ContentPhotos& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.harmonytypes.v1.ContentPhotos)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ContentPhotos::IsInitialized() const {
+  return true;
+}
+
+void ContentPhotos::InternalSwap(ContentPhotos* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  photos_.InternalSwap(&other->photos_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ContentPhotos::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 void Content::InitAsDefaultInstance() {
   ::protocol::harmonytypes::v1::_Content_default_instance_.text_message_ = const_cast< ::protocol::harmonytypes::v1::ContentText*>(
       ::protocol::harmonytypes::v1::ContentText::internal_default_instance());
@@ -5187,12 +6200,15 @@ void Content::InitAsDefaultInstance() {
       ::protocol::harmonytypes::v1::ContentEmbed::internal_default_instance());
   ::protocol::harmonytypes::v1::_Content_default_instance_.files_message_ = const_cast< ::protocol::harmonytypes::v1::ContentFiles*>(
       ::protocol::harmonytypes::v1::ContentFiles::internal_default_instance());
+  ::protocol::harmonytypes::v1::_Content_default_instance_.photos_message_ = const_cast< ::protocol::harmonytypes::v1::ContentPhotos*>(
+      ::protocol::harmonytypes::v1::ContentPhotos::internal_default_instance());
 }
 class Content::_Internal {
  public:
   static const ::protocol::harmonytypes::v1::ContentText& text_message(const Content* msg);
   static const ::protocol::harmonytypes::v1::ContentEmbed& embed_message(const Content* msg);
   static const ::protocol::harmonytypes::v1::ContentFiles& files_message(const Content* msg);
+  static const ::protocol::harmonytypes::v1::ContentPhotos& photos_message(const Content* msg);
 };
 
 const ::protocol::harmonytypes::v1::ContentText&
@@ -5206,6 +6222,10 @@ Content::_Internal::embed_message(const Content* msg) {
 const ::protocol::harmonytypes::v1::ContentFiles&
 Content::_Internal::files_message(const Content* msg) {
   return *msg->content_.files_message_;
+}
+const ::protocol::harmonytypes::v1::ContentPhotos&
+Content::_Internal::photos_message(const Content* msg) {
+  return *msg->content_.photos_message_;
 }
 void Content::set_allocated_text_message(::protocol::harmonytypes::v1::ContentText* text_message) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -5252,6 +6272,21 @@ void Content::set_allocated_files_message(::protocol::harmonytypes::v1::ContentF
   }
   // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Content.files_message)
 }
+void Content::set_allocated_photos_message(::protocol::harmonytypes::v1::ContentPhotos* photos_message) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_content();
+  if (photos_message) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(photos_message);
+    if (message_arena != submessage_arena) {
+      photos_message = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, photos_message, submessage_arena);
+    }
+    set_has_photos_message();
+    content_.photos_message_ = photos_message;
+  }
+  // @@protoc_insertion_point(field_set_allocated:protocol.harmonytypes.v1.Content.photos_message)
+}
 Content::Content(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -5273,6 +6308,10 @@ Content::Content(const Content& from)
     }
     case kFilesMessage: {
       _internal_mutable_files_message()->::protocol::harmonytypes::v1::ContentFiles::MergeFrom(from._internal_files_message());
+      break;
+    }
+    case kPhotosMessage: {
+      _internal_mutable_photos_message()->::protocol::harmonytypes::v1::ContentPhotos::MergeFrom(from._internal_photos_message());
       break;
     }
     case CONTENT_NOT_SET: {
@@ -5336,6 +6375,12 @@ void Content::clear_content() {
       }
       break;
     }
+    case kPhotosMessage: {
+      if (GetArena() == nullptr) {
+        delete content_.photos_message_;
+      }
+      break;
+    }
     case CONTENT_NOT_SET: {
       break;
     }
@@ -5380,6 +6425,13 @@ const char* Content::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_files_message(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .protocol.harmonytypes.v1.ContentPhotos photos_message = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_photos_message(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -5435,6 +6487,14 @@ failure:
         5, _Internal::files_message(this), target, stream);
   }
 
+  // .protocol.harmonytypes.v1.ContentPhotos photos_message = 6;
+  if (_internal_has_photos_message()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::photos_message(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5471,6 +6531,13 @@ size_t Content::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *content_.files_message_);
+      break;
+    }
+    // .protocol.harmonytypes.v1.ContentPhotos photos_message = 6;
+    case kPhotosMessage: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *content_.photos_message_);
       break;
     }
     case CONTENT_NOT_SET: {
@@ -5519,6 +6586,10 @@ void Content::MergeFrom(const Content& from) {
     }
     case kFilesMessage: {
       _internal_mutable_files_message()->::protocol::harmonytypes::v1::ContentFiles::MergeFrom(from._internal_files_message());
+      break;
+    }
+    case kPhotosMessage: {
+      _internal_mutable_photos_message()->::protocol::harmonytypes::v1::ContentPhotos::MergeFrom(from._internal_photos_message());
       break;
     }
     case CONTENT_NOT_SET: {
@@ -5743,28 +6814,28 @@ const char* Message::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 guild_id = 3 [jstype = JS_STRING];
+      // uint64 guild_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 4 [jstype = JS_STRING];
+      // uint64 channel_id = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 message_id = 5 [jstype = JS_STRING];
+      // uint64 message_id = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           message_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 author_id = 6 [jstype = JS_STRING];
+      // uint64 author_id = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           author_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -5785,7 +6856,7 @@ const char* Message::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 in_reply_to = 9 [jstype = JS_STRING];
+      // uint64 in_reply_to = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           in_reply_to_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -5843,25 +6914,25 @@ failure:
         2, _Internal::overrides(this), target, stream);
   }
 
-  // uint64 guild_id = 3 [jstype = JS_STRING];
+  // uint64 guild_id = 3;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 4 [jstype = JS_STRING];
+  // uint64 channel_id = 4;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_channel_id(), target);
   }
 
-  // uint64 message_id = 5 [jstype = JS_STRING];
+  // uint64 message_id = 5;
   if (this->message_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_message_id(), target);
   }
 
-  // uint64 author_id = 6 [jstype = JS_STRING];
+  // uint64 author_id = 6;
   if (this->author_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_author_id(), target);
@@ -5883,7 +6954,7 @@ failure:
         8, _Internal::edited_at(this), target, stream);
   }
 
-  // uint64 in_reply_to = 9 [jstype = JS_STRING];
+  // uint64 in_reply_to = 9;
   if (this->in_reply_to() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(9, this->_internal_in_reply_to(), target);
@@ -5948,35 +7019,35 @@ size_t Message::ByteSizeLong() const {
         *content_);
   }
 
-  // uint64 guild_id = 3 [jstype = JS_STRING];
+  // uint64 guild_id = 3;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 4 [jstype = JS_STRING];
+  // uint64 channel_id = 4;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_channel_id());
   }
 
-  // uint64 message_id = 5 [jstype = JS_STRING];
+  // uint64 message_id = 5;
   if (this->message_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_message_id());
   }
 
-  // uint64 author_id = 6 [jstype = JS_STRING];
+  // uint64 author_id = 6;
   if (this->author_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_author_id());
   }
 
-  // uint64 in_reply_to = 9 [jstype = JS_STRING];
+  // uint64 in_reply_to = 9;
   if (this->in_reply_to() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -6359,6 +7430,243 @@ void Error::InternalSwap(Error* other) {
   return GetMetadataStatic();
 }
 
+
+// ===================================================================
+
+void Token::InitAsDefaultInstance() {
+}
+class Token::_Internal {
+ public:
+};
+
+Token::Token(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.harmonytypes.v1.Token)
+}
+Token::Token(const Token& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  sig_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_sig().empty()) {
+    sig_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_sig(),
+      GetArena());
+  }
+  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_data().empty()) {
+    data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_data(),
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:protocol.harmonytypes.v1.Token)
+}
+
+void Token::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Token_harmonytypes_2fv1_2ftypes_2eproto.base);
+  sig_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+Token::~Token() {
+  // @@protoc_insertion_point(destructor:protocol.harmonytypes.v1.Token)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Token::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  sig_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void Token::ArenaDtor(void* object) {
+  Token* _this = reinterpret_cast< Token* >(object);
+  (void)_this;
+}
+void Token::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Token::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Token& Token::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Token_harmonytypes_2fv1_2ftypes_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Token::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.harmonytypes.v1.Token)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  sig_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  data_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Token::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // bytes sig = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_sig();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes data = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_data();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Token::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.harmonytypes.v1.Token)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes sig = 1;
+  if (this->sig().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_sig(), target);
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_data(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.harmonytypes.v1.Token)
+  return target;
+}
+
+size_t Token::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.harmonytypes.v1.Token)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes sig = 1;
+  if (this->sig().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_sig());
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_data());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Token::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.harmonytypes.v1.Token)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Token* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Token>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.harmonytypes.v1.Token)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.harmonytypes.v1.Token)
+    MergeFrom(*source);
+  }
+}
+
+void Token::MergeFrom(const Token& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.harmonytypes.v1.Token)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.sig().size() > 0) {
+    _internal_set_sig(from._internal_sig());
+  }
+  if (from.data().size() > 0) {
+    _internal_set_data(from._internal_data());
+  }
+}
+
+void Token::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.harmonytypes.v1.Token)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Token::CopyFrom(const Token& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.harmonytypes.v1.Token)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Token::IsInitialized() const {
+  return true;
+}
+
+void Token::InternalSwap(Token* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  sig_.Swap(&other->sig_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  data_.Swap(&other->data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Token::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::protocol::harmonytypes::v1::HarmonyMethodMetadata >, 11, false >
   metadata(kMetadataFieldNumber, ::protocol::harmonytypes::v1::HarmonyMethodMetadata::default_instance());
@@ -6398,6 +7706,12 @@ template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::Embed* Arena::CreateM
 template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::Attachment* Arena::CreateMaybeMessage< ::protocol::harmonytypes::v1::Attachment >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::harmonytypes::v1::Attachment >(arena);
 }
+template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::Minithumbnail* Arena::CreateMaybeMessage< ::protocol::harmonytypes::v1::Minithumbnail >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::harmonytypes::v1::Minithumbnail >(arena);
+}
+template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::Photo* Arena::CreateMaybeMessage< ::protocol::harmonytypes::v1::Photo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::harmonytypes::v1::Photo >(arena);
+}
 template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::Metadata_ExtensionEntry_DoNotUse* Arena::CreateMaybeMessage< ::protocol::harmonytypes::v1::Metadata_ExtensionEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::harmonytypes::v1::Metadata_ExtensionEntry_DoNotUse >(arena);
 }
@@ -6413,6 +7727,9 @@ template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::ContentEmbed* Arena::
 template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::ContentFiles* Arena::CreateMaybeMessage< ::protocol::harmonytypes::v1::ContentFiles >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::harmonytypes::v1::ContentFiles >(arena);
 }
+template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::ContentPhotos* Arena::CreateMaybeMessage< ::protocol::harmonytypes::v1::ContentPhotos >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::harmonytypes::v1::ContentPhotos >(arena);
+}
 template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::Content* Arena::CreateMaybeMessage< ::protocol::harmonytypes::v1::Content >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::harmonytypes::v1::Content >(arena);
 }
@@ -6421,6 +7738,9 @@ template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::Message* Arena::Creat
 }
 template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::Error* Arena::CreateMaybeMessage< ::protocol::harmonytypes::v1::Error >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::harmonytypes::v1::Error >(arena);
+}
+template<> PROTOBUF_NOINLINE ::protocol::harmonytypes::v1::Token* Arena::CreateMaybeMessage< ::protocol::harmonytypes::v1::Token >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::harmonytypes::v1::Token >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

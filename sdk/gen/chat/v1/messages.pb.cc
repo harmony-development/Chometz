@@ -14,7 +14,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Content_harmonytypes_2fv1_2ftypes_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Content_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Message_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Metadata_harmonytypes_2fv1_2ftypes_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_harmonytypes_2fv1_2ftypes_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Override_harmonytypes_2fv1_2ftypes_2eproto;
@@ -192,7 +192,7 @@ static void InitDefaultsscc_info_UpdateMessageTextRequest_chat_2fv1_2fmessages_2
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_UpdateMessageTextRequest_chat_2fv1_2fmessages_2eproto}, {}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_chat_2fv1_2fmessages_2eproto[9];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_chat_2fv1_2fmessages_2eproto = nullptr;
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_chat_2fv1_2fmessages_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_chat_2fv1_2fmessages_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_chat_2fv1_2fmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -203,7 +203,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_chat_2fv1_2fmessages_2eproto::
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetChannelMessagesRequest, guild_id_),
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetChannelMessagesRequest, channel_id_),
-  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetChannelMessagesRequest, before_message_),
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetChannelMessagesRequest, message_id_),
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetChannelMessagesRequest, direction_),
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetChannelMessagesRequest, count_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::GetChannelMessagesResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -273,14 +275,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_chat_2fv1_2fmessages_2eproto::
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::protocol::chat::v1::GetChannelMessagesRequest)},
-  { 8, -1, sizeof(::protocol::chat::v1::GetChannelMessagesResponse)},
-  { 15, -1, sizeof(::protocol::chat::v1::GetMessageRequest)},
-  { 23, -1, sizeof(::protocol::chat::v1::GetMessageResponse)},
-  { 29, -1, sizeof(::protocol::chat::v1::DeleteMessageRequest)},
-  { 37, -1, sizeof(::protocol::chat::v1::TriggerActionRequest)},
-  { 47, -1, sizeof(::protocol::chat::v1::SendMessageRequest)},
-  { 59, -1, sizeof(::protocol::chat::v1::SendMessageResponse)},
-  { 65, -1, sizeof(::protocol::chat::v1::UpdateMessageTextRequest)},
+  { 10, -1, sizeof(::protocol::chat::v1::GetChannelMessagesResponse)},
+  { 17, -1, sizeof(::protocol::chat::v1::GetMessageRequest)},
+  { 25, -1, sizeof(::protocol::chat::v1::GetMessageResponse)},
+  { 31, -1, sizeof(::protocol::chat::v1::DeleteMessageRequest)},
+  { 39, -1, sizeof(::protocol::chat::v1::TriggerActionRequest)},
+  { 49, -1, sizeof(::protocol::chat::v1::SendMessageRequest)},
+  { 61, -1, sizeof(::protocol::chat::v1::SendMessageResponse)},
+  { 67, -1, sizeof(::protocol::chat::v1::UpdateMessageTextRequest)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -297,35 +299,36 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_chat_2fv1_2fmessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\026chat/v1/messages.proto\022\020protocol.chat."
-  "v1\032\033harmonytypes/v1/types.proto\"e\n\031GetCh"
-  "annelMessagesRequest\022\024\n\010guild_id\030\001 \001(\004B\002"
-  "0\001\022\026\n\nchannel_id\030\002 \001(\004B\0020\001\022\032\n\016before_mes"
-  "sage\030\003 \001(\004B\0020\001\"f\n\032GetChannelMessagesResp"
-  "onse\022\023\n\013reached_top\030\001 \001(\010\0223\n\010messages\030\002 "
-  "\003(\0132!.protocol.harmonytypes.v1.Message\"Y"
-  "\n\021GetMessageRequest\022\024\n\010guild_id\030\001 \001(\004B\0020"
-  "\001\022\026\n\nchannel_id\030\002 \001(\004B\0020\001\022\026\n\nmessage_id\030"
-  "\003 \001(\004B\0020\001\"H\n\022GetMessageResponse\0222\n\007messa"
-  "ge\030\001 \001(\0132!.protocol.harmonytypes.v1.Mess"
-  "age\"\\\n\024DeleteMessageRequest\022\024\n\010guild_id\030"
-  "\001 \001(\004B\0020\001\022\026\n\nchannel_id\030\002 \001(\004B\0020\001\022\026\n\nmes"
-  "sage_id\030\003 \001(\004B\0020\001\"\204\001\n\024TriggerActionReque"
-  "st\022\024\n\010guild_id\030\001 \001(\004B\0020\001\022\026\n\nchannel_id\030\002"
-  " \001(\004B\0020\001\022\026\n\nmessage_id\030\003 \001(\004B\0020\001\022\021\n\tacti"
-  "on_id\030\004 \001(\t\022\023\n\013action_data\030\005 \001(\t\"\215\002\n\022Sen"
-  "dMessageRequest\022\024\n\010guild_id\030\001 \001(\004B\0020\001\022\026\n"
-  "\nchannel_id\030\002 \001(\004B\0020\001\0222\n\007content\030\003 \001(\0132!"
-  ".protocol.harmonytypes.v1.Content\022\017\n\007ech"
-  "o_id\030\004 \001(\004\0224\n\010metadata\030\005 \001(\0132\".protocol."
-  "harmonytypes.v1.Metadata\0225\n\toverrides\030\006 "
-  "\001(\0132\".protocol.harmonytypes.v1.Override\022"
-  "\027\n\013in_reply_to\030\007 \001(\004B\0020\001\"-\n\023SendMessageR"
-  "esponse\022\026\n\nmessage_id\030\001 \001(\004B\0020\001\"u\n\030Updat"
-  "eMessageTextRequest\022\024\n\010guild_id\030\001 \001(\004B\0020"
-  "\001\022\026\n\nchannel_id\030\002 \001(\004B\0020\001\022\026\n\nmessage_id\030"
-  "\003 \001(\004B\0020\001\022\023\n\013new_content\030\004 \001(\tB3Z1github"
-  ".com/harmony-development/legato/gen/chat"
-  "/v1b\006proto3"
+  "v1\032\033harmonytypes/v1/types.proto\"\336\001\n\031GetC"
+  "hannelMessagesRequest\022\020\n\010guild_id\030\001 \001(\004\022"
+  "\022\n\nchannel_id\030\002 \001(\004\022\022\n\nmessage_id\030\003 \001(\004\022"
+  "H\n\tdirection\030\004 \001(\01625.protocol.chat.v1.Ge"
+  "tChannelMessagesRequest.Direction\022\r\n\005cou"
+  "nt\030\005 \001(\r\".\n\tDirection\022\n\n\006before\020\000\022\n\n\006aro"
+  "und\020\001\022\t\n\005after\020\002\"f\n\032GetChannelMessagesRe"
+  "sponse\022\023\n\013reached_top\030\001 \001(\010\0223\n\010messages\030"
+  "\002 \003(\0132!.protocol.harmonytypes.v1.Message"
+  "\"M\n\021GetMessageRequest\022\020\n\010guild_id\030\001 \001(\004\022"
+  "\022\n\nchannel_id\030\002 \001(\004\022\022\n\nmessage_id\030\003 \001(\004\""
+  "H\n\022GetMessageResponse\0222\n\007message\030\001 \001(\0132!"
+  ".protocol.harmonytypes.v1.Message\"P\n\024Del"
+  "eteMessageRequest\022\020\n\010guild_id\030\001 \001(\004\022\022\n\nc"
+  "hannel_id\030\002 \001(\004\022\022\n\nmessage_id\030\003 \001(\004\"x\n\024T"
+  "riggerActionRequest\022\020\n\010guild_id\030\001 \001(\004\022\022\n"
+  "\nchannel_id\030\002 \001(\004\022\022\n\nmessage_id\030\003 \001(\004\022\021\n"
+  "\taction_id\030\004 \001(\t\022\023\n\013action_data\030\005 \001(\t\"\201\002"
+  "\n\022SendMessageRequest\022\020\n\010guild_id\030\001 \001(\004\022\022"
+  "\n\nchannel_id\030\002 \001(\004\0222\n\007content\030\003 \001(\0132!.pr"
+  "otocol.harmonytypes.v1.Content\022\017\n\007echo_i"
+  "d\030\004 \001(\004\0224\n\010metadata\030\005 \001(\0132\".protocol.har"
+  "monytypes.v1.Metadata\0225\n\toverrides\030\006 \001(\013"
+  "2\".protocol.harmonytypes.v1.Override\022\023\n\013"
+  "in_reply_to\030\007 \001(\004\")\n\023SendMessageResponse"
+  "\022\022\n\nmessage_id\030\001 \001(\004\"i\n\030UpdateMessageTex"
+  "tRequest\022\020\n\010guild_id\030\001 \001(\004\022\022\n\nchannel_id"
+  "\030\002 \001(\004\022\022\n\nmessage_id\030\003 \001(\004\022\023\n\013new_conten"
+  "t\030\004 \001(\tB3Z1github.com/harmony-developmen"
+  "t/legato/gen/chat/v1b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_chat_2fv1_2fmessages_2eproto_deps[1] = {
   &::descriptor_table_harmonytypes_2fv1_2ftypes_2eproto,
@@ -343,7 +346,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_cha
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_chat_2fv1_2fmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_chat_2fv1_2fmessages_2eproto = {
-  false, false, descriptor_table_protodef_chat_2fv1_2fmessages_2eproto, "chat/v1/messages.proto", 1171,
+  false, false, descriptor_table_protodef_chat_2fv1_2fmessages_2eproto, "chat/v1/messages.proto", 1228,
   &descriptor_table_chat_2fv1_2fmessages_2eproto_once, descriptor_table_chat_2fv1_2fmessages_2eproto_sccs, descriptor_table_chat_2fv1_2fmessages_2eproto_deps, 9, 1,
   schemas, file_default_instances, TableStruct_chat_2fv1_2fmessages_2eproto::offsets,
   file_level_metadata_chat_2fv1_2fmessages_2eproto, 9, file_level_enum_descriptors_chat_2fv1_2fmessages_2eproto, file_level_service_descriptors_chat_2fv1_2fmessages_2eproto,
@@ -354,6 +357,29 @@ static bool dynamic_init_dummy_chat_2fv1_2fmessages_2eproto = (static_cast<void>
 namespace protocol {
 namespace chat {
 namespace v1 {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GetChannelMessagesRequest_Direction_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_chat_2fv1_2fmessages_2eproto);
+  return file_level_enum_descriptors_chat_2fv1_2fmessages_2eproto[0];
+}
+bool GetChannelMessagesRequest_Direction_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr GetChannelMessagesRequest_Direction GetChannelMessagesRequest::before;
+constexpr GetChannelMessagesRequest_Direction GetChannelMessagesRequest::around;
+constexpr GetChannelMessagesRequest_Direction GetChannelMessagesRequest::after;
+constexpr GetChannelMessagesRequest_Direction GetChannelMessagesRequest::Direction_MIN;
+constexpr GetChannelMessagesRequest_Direction GetChannelMessagesRequest::Direction_MAX;
+constexpr int GetChannelMessagesRequest::Direction_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 
 // ===================================================================
 
@@ -373,15 +399,15 @@ GetChannelMessagesRequest::GetChannelMessagesRequest(const GetChannelMessagesReq
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&guild_id_, &from.guild_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&before_message_) -
-    reinterpret_cast<char*>(&guild_id_)) + sizeof(before_message_));
+    static_cast<size_t>(reinterpret_cast<char*>(&count_) -
+    reinterpret_cast<char*>(&guild_id_)) + sizeof(count_));
   // @@protoc_insertion_point(copy_constructor:protocol.chat.v1.GetChannelMessagesRequest)
 }
 
 void GetChannelMessagesRequest::SharedCtor() {
   ::memset(&guild_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&before_message_) -
-      reinterpret_cast<char*>(&guild_id_)) + sizeof(before_message_));
+      reinterpret_cast<char*>(&count_) -
+      reinterpret_cast<char*>(&guild_id_)) + sizeof(count_));
 }
 
 GetChannelMessagesRequest::~GetChannelMessagesRequest() {
@@ -416,8 +442,8 @@ void GetChannelMessagesRequest::Clear() {
   (void) cached_has_bits;
 
   ::memset(&guild_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&before_message_) -
-      reinterpret_cast<char*>(&guild_id_)) + sizeof(before_message_));
+      reinterpret_cast<char*>(&count_) -
+      reinterpret_cast<char*>(&guild_id_)) + sizeof(count_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -429,24 +455,39 @@ const char* GetChannelMessagesRequest::_InternalParse(const char* ptr, ::PROTOBU
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 2 [jstype = JS_STRING];
+      // uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 before_message = 3 [jstype = JS_STRING];
+      // uint64 message_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          before_message_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          message_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .protocol.chat.v1.GetChannelMessagesRequest.Direction direction = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_direction(static_cast<::protocol::chat::v1::GetChannelMessagesRequest_Direction>(val));
+        } else goto handle_unusual;
+        continue;
+      // uint32 count = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -478,22 +519,35 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
   }
 
-  // uint64 before_message = 3 [jstype = JS_STRING];
-  if (this->before_message() != 0) {
+  // uint64 message_id = 3;
+  if (this->message_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_before_message(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_message_id(), target);
+  }
+
+  // .protocol.chat.v1.GetChannelMessagesRequest.Direction direction = 4;
+  if (this->direction() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_direction(), target);
+  }
+
+  // uint32 count = 5;
+  if (this->count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_count(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -512,25 +566,38 @@ size_t GetChannelMessagesRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_channel_id());
   }
 
-  // uint64 before_message = 3 [jstype = JS_STRING];
-  if (this->before_message() != 0) {
+  // uint64 message_id = 3;
+  if (this->message_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_before_message());
+        this->_internal_message_id());
+  }
+
+  // .protocol.chat.v1.GetChannelMessagesRequest.Direction direction = 4;
+  if (this->direction() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_direction());
+  }
+
+  // uint32 count = 5;
+  if (this->count() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_count());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -570,8 +637,14 @@ void GetChannelMessagesRequest::MergeFrom(const GetChannelMessagesRequest& from)
   if (from.channel_id() != 0) {
     _internal_set_channel_id(from._internal_channel_id());
   }
-  if (from.before_message() != 0) {
-    _internal_set_before_message(from._internal_before_message());
+  if (from.message_id() != 0) {
+    _internal_set_message_id(from._internal_message_id());
+  }
+  if (from.direction() != 0) {
+    _internal_set_direction(from._internal_direction());
+  }
+  if (from.count() != 0) {
+    _internal_set_count(from._internal_count());
   }
 }
 
@@ -597,8 +670,8 @@ void GetChannelMessagesRequest::InternalSwap(GetChannelMessagesRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(GetChannelMessagesRequest, before_message_)
-      + sizeof(GetChannelMessagesRequest::before_message_)
+      PROTOBUF_FIELD_OFFSET(GetChannelMessagesRequest, count_)
+      + sizeof(GetChannelMessagesRequest::count_)
       - PROTOBUF_FIELD_OFFSET(GetChannelMessagesRequest, guild_id_)>(
           reinterpret_cast<char*>(&guild_id_),
           reinterpret_cast<char*>(&other->guild_id_));
@@ -914,21 +987,21 @@ const char* GetMessageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 2 [jstype = JS_STRING];
+      // uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 message_id = 3 [jstype = JS_STRING];
+      // uint64 message_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           message_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -963,19 +1036,19 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
   }
 
-  // uint64 message_id = 3 [jstype = JS_STRING];
+  // uint64 message_id = 3;
   if (this->message_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_message_id(), target);
@@ -997,21 +1070,21 @@ size_t GetMessageRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_channel_id());
   }
 
-  // uint64 message_id = 3 [jstype = JS_STRING];
+  // uint64 message_id = 3;
   if (this->message_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -1389,21 +1462,21 @@ const char* DeleteMessageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAM
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 2 [jstype = JS_STRING];
+      // uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 message_id = 3 [jstype = JS_STRING];
+      // uint64 message_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           message_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -1438,19 +1511,19 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
   }
 
-  // uint64 message_id = 3 [jstype = JS_STRING];
+  // uint64 message_id = 3;
   if (this->message_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_message_id(), target);
@@ -1472,21 +1545,21 @@ size_t DeleteMessageRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_channel_id());
   }
 
-  // uint64 message_id = 3 [jstype = JS_STRING];
+  // uint64 message_id = 3;
   if (this->message_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -1660,21 +1733,21 @@ const char* TriggerActionRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAM
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 2 [jstype = JS_STRING];
+      // uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 message_id = 3 [jstype = JS_STRING];
+      // uint64 message_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           message_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -1727,19 +1800,19 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
   }
 
-  // uint64 message_id = 3 [jstype = JS_STRING];
+  // uint64 message_id = 3;
   if (this->message_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_message_id(), target);
@@ -1795,21 +1868,21 @@ size_t TriggerActionRequest::ByteSizeLong() const {
         this->_internal_action_data());
   }
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_channel_id());
   }
 
-  // uint64 message_id = 3 [jstype = JS_STRING];
+  // uint64 message_id = 3;
   if (this->message_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2044,14 +2117,14 @@ const char* SendMessageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 2 [jstype = JS_STRING];
+      // uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2086,7 +2159,7 @@ const char* SendMessageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 in_reply_to = 7 [jstype = JS_STRING];
+      // uint64 in_reply_to = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           in_reply_to_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2121,13 +2194,13 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
@@ -2163,7 +2236,7 @@ failure:
         6, _Internal::overrides(this), target, stream);
   }
 
-  // uint64 in_reply_to = 7 [jstype = JS_STRING];
+  // uint64 in_reply_to = 7;
   if (this->in_reply_to() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(7, this->_internal_in_reply_to(), target);
@@ -2206,14 +2279,14 @@ size_t SendMessageRequest::ByteSizeLong() const {
         *overrides_);
   }
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2227,7 +2300,7 @@ size_t SendMessageRequest::ByteSizeLong() const {
         this->_internal_echo_id());
   }
 
-  // uint64 in_reply_to = 7 [jstype = JS_STRING];
+  // uint64 in_reply_to = 7;
   if (this->in_reply_to() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2390,7 +2463,7 @@ const char* SendMessageResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAME
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 message_id = 1 [jstype = JS_STRING];
+      // uint64 message_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           message_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2425,7 +2498,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 message_id = 1 [jstype = JS_STRING];
+  // uint64 message_id = 1;
   if (this->message_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_message_id(), target);
@@ -2447,7 +2520,7 @@ size_t SendMessageResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 message_id = 1 [jstype = JS_STRING];
+  // uint64 message_id = 1;
   if (this->message_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2602,21 +2675,21 @@ const char* UpdateMessageTextRequest::_InternalParse(const char* ptr, ::PROTOBUF
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 2 [jstype = JS_STRING];
+      // uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 message_id = 3 [jstype = JS_STRING];
+      // uint64 message_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           message_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2660,19 +2733,19 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
   }
 
-  // uint64 message_id = 3 [jstype = JS_STRING];
+  // uint64 message_id = 3;
   if (this->message_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_message_id(), target);
@@ -2711,21 +2784,21 @@ size_t UpdateMessageTextRequest::ByteSizeLong() const {
         this->_internal_new_content());
   }
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_channel_id());
   }
 
-  // uint64 message_id = 3 [jstype = JS_STRING];
+  // uint64 message_id = 3;
   if (this->message_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(

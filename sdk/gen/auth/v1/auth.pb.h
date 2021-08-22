@@ -49,7 +49,7 @@ struct TableStruct_auth_2fv1_2fauth_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[17]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -110,6 +110,9 @@ extern StepBackRequestDefaultTypeInternal _StepBackRequest_default_instance_;
 class StreamStepsRequest;
 class StreamStepsRequestDefaultTypeInternal;
 extern StreamStepsRequestDefaultTypeInternal _StreamStepsRequest_default_instance_;
+class TokenData;
+class TokenDataDefaultTypeInternal;
+extern TokenDataDefaultTypeInternal _TokenData_default_instance_;
 }  // namespace v1
 }  // namespace auth
 }  // namespace protocol
@@ -131,6 +134,7 @@ template<> ::protocol::auth::v1::NextStepRequest_FormFields* Arena::CreateMaybeM
 template<> ::protocol::auth::v1::Session* Arena::CreateMaybeMessage<::protocol::auth::v1::Session>(Arena*);
 template<> ::protocol::auth::v1::StepBackRequest* Arena::CreateMaybeMessage<::protocol::auth::v1::StepBackRequest>(Arena*);
 template<> ::protocol::auth::v1::StreamStepsRequest* Arena::CreateMaybeMessage<::protocol::auth::v1::StreamStepsRequest>(Arena*);
+template<> ::protocol::auth::v1::TokenData* Arena::CreateMaybeMessage<::protocol::auth::v1::TokenData>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace protocol {
 namespace auth {
@@ -432,7 +436,7 @@ class Session PROTOBUF_FINAL :
   std::string* _internal_mutable_session_token();
   public:
 
-  // uint64 user_id = 1 [jstype = JS_STRING];
+  // uint64 user_id = 1;
   void clear_user_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 user_id() const;
   void set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -2746,57 +2750,24 @@ class FederateReply PROTOBUF_FINAL :
 
   enum : int {
     kTokenFieldNumber = 1,
-    kNonceFieldNumber = 2,
   };
-  // string token = 1;
+  // .protocol.harmonytypes.v1.Token token = 1;
+  bool has_token() const;
+  private:
+  bool _internal_has_token() const;
+  public:
   void clear_token();
-  const std::string& token() const;
-  void set_token(const std::string& value);
-  void set_token(std::string&& value);
-  void set_token(const char* value);
-  void set_token(const char* value, size_t size);
-  std::string* mutable_token();
-  std::string* release_token();
-  void set_allocated_token(std::string* token);
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  std::string* unsafe_arena_release_token();
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
+  const ::protocol::harmonytypes::v1::Token& token() const;
+  ::protocol::harmonytypes::v1::Token* release_token();
+  ::protocol::harmonytypes::v1::Token* mutable_token();
+  void set_allocated_token(::protocol::harmonytypes::v1::Token* token);
+  private:
+  const ::protocol::harmonytypes::v1::Token& _internal_token() const;
+  ::protocol::harmonytypes::v1::Token* _internal_mutable_token();
+  public:
   void unsafe_arena_set_allocated_token(
-      std::string* token);
-  private:
-  const std::string& _internal_token() const;
-  void _internal_set_token(const std::string& value);
-  std::string* _internal_mutable_token();
-  public:
-
-  // string nonce = 2;
-  void clear_nonce();
-  const std::string& nonce() const;
-  void set_nonce(const std::string& value);
-  void set_nonce(std::string&& value);
-  void set_nonce(const char* value);
-  void set_nonce(const char* value, size_t size);
-  std::string* mutable_nonce();
-  std::string* release_nonce();
-  void set_allocated_nonce(std::string* nonce);
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  std::string* unsafe_arena_release_nonce();
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  void unsafe_arena_set_allocated_nonce(
-      std::string* nonce);
-  private:
-  const std::string& _internal_nonce() const;
-  void _internal_set_nonce(const std::string& value);
-  std::string* _internal_mutable_nonce();
-  public:
+      ::protocol::harmonytypes::v1::Token* token);
+  ::protocol::harmonytypes::v1::Token* unsafe_arena_release_token();
 
   // @@protoc_insertion_point(class_scope:protocol.auth.v1.FederateReply)
  private:
@@ -2805,8 +2776,7 @@ class FederateReply PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr token_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr nonce_;
+  ::protocol::harmonytypes::v1::Token* token_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_auth_2fv1_2fauth_2eproto;
 };
@@ -2927,13 +2897,13 @@ class KeyReply PROTOBUF_FINAL :
   enum : int {
     kKeyFieldNumber = 1,
   };
-  // string key = 1;
+  // bytes key = 1;
   void clear_key();
   const std::string& key() const;
   void set_key(const std::string& value);
   void set_key(std::string&& value);
   void set_key(const char* value);
-  void set_key(const char* value, size_t size);
+  void set_key(const void* value, size_t size);
   std::string* mutable_key();
   std::string* release_key();
   void set_allocated_key(std::string* key);
@@ -3078,34 +3048,9 @@ class LoginFederatedRequest PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAuthTokenFieldNumber = 1,
     kDomainFieldNumber = 2,
+    kAuthTokenFieldNumber = 1,
   };
-  // string auth_token = 1;
-  void clear_auth_token();
-  const std::string& auth_token() const;
-  void set_auth_token(const std::string& value);
-  void set_auth_token(std::string&& value);
-  void set_auth_token(const char* value);
-  void set_auth_token(const char* value, size_t size);
-  std::string* mutable_auth_token();
-  std::string* release_auth_token();
-  void set_allocated_auth_token(std::string* auth_token);
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  std::string* unsafe_arena_release_auth_token();
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  void unsafe_arena_set_allocated_auth_token(
-      std::string* auth_token);
-  private:
-  const std::string& _internal_auth_token() const;
-  void _internal_set_auth_token(const std::string& value);
-  std::string* _internal_mutable_auth_token();
-  public:
-
   // string domain = 2;
   void clear_domain();
   const std::string& domain() const;
@@ -3131,6 +3076,24 @@ class LoginFederatedRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_domain();
   public:
 
+  // .protocol.harmonytypes.v1.Token auth_token = 1;
+  bool has_auth_token() const;
+  private:
+  bool _internal_has_auth_token() const;
+  public:
+  void clear_auth_token();
+  const ::protocol::harmonytypes::v1::Token& auth_token() const;
+  ::protocol::harmonytypes::v1::Token* release_auth_token();
+  ::protocol::harmonytypes::v1::Token* mutable_auth_token();
+  void set_allocated_auth_token(::protocol::harmonytypes::v1::Token* auth_token);
+  private:
+  const ::protocol::harmonytypes::v1::Token& _internal_auth_token() const;
+  ::protocol::harmonytypes::v1::Token* _internal_mutable_auth_token();
+  public:
+  void unsafe_arena_set_allocated_auth_token(
+      ::protocol::harmonytypes::v1::Token* auth_token);
+  ::protocol::harmonytypes::v1::Token* unsafe_arena_release_auth_token();
+
   // @@protoc_insertion_point(class_scope:protocol.auth.v1.LoginFederatedRequest)
  private:
   class _Internal;
@@ -3138,8 +3101,226 @@ class LoginFederatedRequest PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr auth_token_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr domain_;
+  ::protocol::harmonytypes::v1::Token* auth_token_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_auth_2fv1_2fauth_2eproto;
+};
+// -------------------------------------------------------------------
+
+class TokenData PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.auth.v1.TokenData) */ {
+ public:
+  inline TokenData() : TokenData(nullptr) {};
+  virtual ~TokenData();
+
+  TokenData(const TokenData& from);
+  TokenData(TokenData&& from) noexcept
+    : TokenData() {
+    *this = ::std::move(from);
+  }
+
+  inline TokenData& operator=(const TokenData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TokenData& operator=(TokenData&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const TokenData& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const TokenData* internal_default_instance() {
+    return reinterpret_cast<const TokenData*>(
+               &_TokenData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(TokenData& a, TokenData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TokenData* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TokenData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TokenData* New() const final {
+    return CreateMaybeMessage<TokenData>(nullptr);
+  }
+
+  TokenData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<TokenData>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const TokenData& from);
+  void MergeFrom(const TokenData& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TokenData* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.auth.v1.TokenData";
+  }
+  protected:
+  explicit TokenData(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_auth_2fv1_2fauth_2eproto);
+    return ::descriptor_table_auth_2fv1_2fauth_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTargetFieldNumber = 2,
+    kUsernameFieldNumber = 3,
+    kAvatarFieldNumber = 4,
+    kUserIdFieldNumber = 1,
+  };
+  // string target = 2;
+  void clear_target();
+  const std::string& target() const;
+  void set_target(const std::string& value);
+  void set_target(std::string&& value);
+  void set_target(const char* value);
+  void set_target(const char* value, size_t size);
+  std::string* mutable_target();
+  std::string* release_target();
+  void set_allocated_target(std::string* target);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_target();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_target(
+      std::string* target);
+  private:
+  const std::string& _internal_target() const;
+  void _internal_set_target(const std::string& value);
+  std::string* _internal_mutable_target();
+  public:
+
+  // string username = 3;
+  void clear_username();
+  const std::string& username() const;
+  void set_username(const std::string& value);
+  void set_username(std::string&& value);
+  void set_username(const char* value);
+  void set_username(const char* value, size_t size);
+  std::string* mutable_username();
+  std::string* release_username();
+  void set_allocated_username(std::string* username);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_username();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_username(
+      std::string* username);
+  private:
+  const std::string& _internal_username() const;
+  void _internal_set_username(const std::string& value);
+  std::string* _internal_mutable_username();
+  public:
+
+  // string avatar = 4;
+  void clear_avatar();
+  const std::string& avatar() const;
+  void set_avatar(const std::string& value);
+  void set_avatar(std::string&& value);
+  void set_avatar(const char* value);
+  void set_avatar(const char* value, size_t size);
+  std::string* mutable_avatar();
+  std::string* release_avatar();
+  void set_allocated_avatar(std::string* avatar);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_avatar();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_avatar(
+      std::string* avatar);
+  private:
+  const std::string& _internal_avatar() const;
+  void _internal_set_avatar(const std::string& value);
+  std::string* _internal_mutable_avatar();
+  public:
+
+  // uint64 user_id = 1;
+  void clear_user_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 user_id() const;
+  void set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_user_id() const;
+  void _internal_set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.auth.v1.TokenData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr target_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr username_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 user_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_auth_2fv1_2fauth_2eproto;
 };
@@ -3239,7 +3420,7 @@ inline void BeginAuthResponse::unsafe_arena_set_allocated_auth_id(
 
 // Session
 
-// uint64 user_id = 1 [jstype = JS_STRING];
+// uint64 user_id = 1;
 inline void Session::clear_user_id() {
   user_id_ = PROTOBUF_ULONGLONG(0);
 }
@@ -5286,173 +5467,86 @@ inline void FederateRequest::unsafe_arena_set_allocated_target(
 
 // FederateReply
 
-// string token = 1;
-inline void FederateReply::clear_token() {
-  token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+// .protocol.harmonytypes.v1.Token token = 1;
+inline bool FederateReply::_internal_has_token() const {
+  return this != internal_default_instance() && token_ != nullptr;
 }
-inline const std::string& FederateReply::token() const {
+inline bool FederateReply::has_token() const {
+  return _internal_has_token();
+}
+inline const ::protocol::harmonytypes::v1::Token& FederateReply::_internal_token() const {
+  const ::protocol::harmonytypes::v1::Token* p = token_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::harmonytypes::v1::Token*>(
+      &::protocol::harmonytypes::v1::_Token_default_instance_);
+}
+inline const ::protocol::harmonytypes::v1::Token& FederateReply::token() const {
   // @@protoc_insertion_point(field_get:protocol.auth.v1.FederateReply.token)
   return _internal_token();
 }
-inline void FederateReply::set_token(const std::string& value) {
-  _internal_set_token(value);
-  // @@protoc_insertion_point(field_set:protocol.auth.v1.FederateReply.token)
+inline void FederateReply::unsafe_arena_set_allocated_token(
+    ::protocol::harmonytypes::v1::Token* token) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(token_);
+  }
+  token_ = token;
+  if (token) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.auth.v1.FederateReply.token)
 }
-inline std::string* FederateReply::mutable_token() {
+inline ::protocol::harmonytypes::v1::Token* FederateReply::release_token() {
+  auto temp = unsafe_arena_release_token();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::protocol::harmonytypes::v1::Token* FederateReply::unsafe_arena_release_token() {
+  // @@protoc_insertion_point(field_release:protocol.auth.v1.FederateReply.token)
+  
+  ::protocol::harmonytypes::v1::Token* temp = token_;
+  token_ = nullptr;
+  return temp;
+}
+inline ::protocol::harmonytypes::v1::Token* FederateReply::_internal_mutable_token() {
+  
+  if (token_ == nullptr) {
+    auto* p = CreateMaybeMessage<::protocol::harmonytypes::v1::Token>(GetArena());
+    token_ = p;
+  }
+  return token_;
+}
+inline ::protocol::harmonytypes::v1::Token* FederateReply::mutable_token() {
   // @@protoc_insertion_point(field_mutable:protocol.auth.v1.FederateReply.token)
   return _internal_mutable_token();
 }
-inline const std::string& FederateReply::_internal_token() const {
-  return token_.Get();
-}
-inline void FederateReply::_internal_set_token(const std::string& value) {
-  
-  token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void FederateReply::set_token(std::string&& value) {
-  
-  token_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protocol.auth.v1.FederateReply.token)
-}
-inline void FederateReply::set_token(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:protocol.auth.v1.FederateReply.token)
-}
-inline void FederateReply::set_token(const char* value,
-    size_t size) {
-  
-  token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protocol.auth.v1.FederateReply.token)
-}
-inline std::string* FederateReply::_internal_mutable_token() {
-  
-  return token_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* FederateReply::release_token() {
-  // @@protoc_insertion_point(field_release:protocol.auth.v1.FederateReply.token)
-  return token_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void FederateReply::set_allocated_token(std::string* token) {
-  if (token != nullptr) {
+inline void FederateReply::set_allocated_token(::protocol::harmonytypes::v1::Token* token) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(token_);
+  }
+  if (token) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(token)->GetArena();
+    if (message_arena != submessage_arena) {
+      token = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, token, submessage_arena);
+    }
     
   } else {
     
   }
-  token_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), token,
-      GetArena());
+  token_ = token;
   // @@protoc_insertion_point(field_set_allocated:protocol.auth.v1.FederateReply.token)
-}
-inline std::string* FederateReply::unsafe_arena_release_token() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.auth.v1.FederateReply.token)
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  
-  return token_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      GetArena());
-}
-inline void FederateReply::unsafe_arena_set_allocated_token(
-    std::string* token) {
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  if (token != nullptr) {
-    
-  } else {
-    
-  }
-  token_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      token, GetArena());
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.auth.v1.FederateReply.token)
-}
-
-// string nonce = 2;
-inline void FederateReply::clear_nonce() {
-  nonce_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline const std::string& FederateReply::nonce() const {
-  // @@protoc_insertion_point(field_get:protocol.auth.v1.FederateReply.nonce)
-  return _internal_nonce();
-}
-inline void FederateReply::set_nonce(const std::string& value) {
-  _internal_set_nonce(value);
-  // @@protoc_insertion_point(field_set:protocol.auth.v1.FederateReply.nonce)
-}
-inline std::string* FederateReply::mutable_nonce() {
-  // @@protoc_insertion_point(field_mutable:protocol.auth.v1.FederateReply.nonce)
-  return _internal_mutable_nonce();
-}
-inline const std::string& FederateReply::_internal_nonce() const {
-  return nonce_.Get();
-}
-inline void FederateReply::_internal_set_nonce(const std::string& value) {
-  
-  nonce_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void FederateReply::set_nonce(std::string&& value) {
-  
-  nonce_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protocol.auth.v1.FederateReply.nonce)
-}
-inline void FederateReply::set_nonce(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  nonce_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:protocol.auth.v1.FederateReply.nonce)
-}
-inline void FederateReply::set_nonce(const char* value,
-    size_t size) {
-  
-  nonce_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protocol.auth.v1.FederateReply.nonce)
-}
-inline std::string* FederateReply::_internal_mutable_nonce() {
-  
-  return nonce_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* FederateReply::release_nonce() {
-  // @@protoc_insertion_point(field_release:protocol.auth.v1.FederateReply.nonce)
-  return nonce_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void FederateReply::set_allocated_nonce(std::string* nonce) {
-  if (nonce != nullptr) {
-    
-  } else {
-    
-  }
-  nonce_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), nonce,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protocol.auth.v1.FederateReply.nonce)
-}
-inline std::string* FederateReply::unsafe_arena_release_nonce() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.auth.v1.FederateReply.nonce)
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  
-  return nonce_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      GetArena());
-}
-inline void FederateReply::unsafe_arena_set_allocated_nonce(
-    std::string* nonce) {
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  if (nonce != nullptr) {
-    
-  } else {
-    
-  }
-  nonce_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      nonce, GetArena());
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.auth.v1.FederateReply.nonce)
 }
 
 // -------------------------------------------------------------------
 
 // KeyReply
 
-// string key = 1;
+// bytes key = 1;
 inline void KeyReply::clear_key() {
   key_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
@@ -5488,7 +5582,7 @@ inline void KeyReply::set_key(const char* value) {
               GetArena());
   // @@protoc_insertion_point(field_set_char:protocol.auth.v1.KeyReply.key)
 }
-inline void KeyReply::set_key(const char* value,
+inline void KeyReply::set_key(const void* value,
     size_t size) {
   
   key_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
@@ -5537,85 +5631,79 @@ inline void KeyReply::unsafe_arena_set_allocated_key(
 
 // LoginFederatedRequest
 
-// string auth_token = 1;
-inline void LoginFederatedRequest::clear_auth_token() {
-  auth_token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+// .protocol.harmonytypes.v1.Token auth_token = 1;
+inline bool LoginFederatedRequest::_internal_has_auth_token() const {
+  return this != internal_default_instance() && auth_token_ != nullptr;
 }
-inline const std::string& LoginFederatedRequest::auth_token() const {
+inline bool LoginFederatedRequest::has_auth_token() const {
+  return _internal_has_auth_token();
+}
+inline const ::protocol::harmonytypes::v1::Token& LoginFederatedRequest::_internal_auth_token() const {
+  const ::protocol::harmonytypes::v1::Token* p = auth_token_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::harmonytypes::v1::Token*>(
+      &::protocol::harmonytypes::v1::_Token_default_instance_);
+}
+inline const ::protocol::harmonytypes::v1::Token& LoginFederatedRequest::auth_token() const {
   // @@protoc_insertion_point(field_get:protocol.auth.v1.LoginFederatedRequest.auth_token)
   return _internal_auth_token();
 }
-inline void LoginFederatedRequest::set_auth_token(const std::string& value) {
-  _internal_set_auth_token(value);
-  // @@protoc_insertion_point(field_set:protocol.auth.v1.LoginFederatedRequest.auth_token)
+inline void LoginFederatedRequest::unsafe_arena_set_allocated_auth_token(
+    ::protocol::harmonytypes::v1::Token* auth_token) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(auth_token_);
+  }
+  auth_token_ = auth_token;
+  if (auth_token) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.auth.v1.LoginFederatedRequest.auth_token)
 }
-inline std::string* LoginFederatedRequest::mutable_auth_token() {
+inline ::protocol::harmonytypes::v1::Token* LoginFederatedRequest::release_auth_token() {
+  auto temp = unsafe_arena_release_auth_token();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::protocol::harmonytypes::v1::Token* LoginFederatedRequest::unsafe_arena_release_auth_token() {
+  // @@protoc_insertion_point(field_release:protocol.auth.v1.LoginFederatedRequest.auth_token)
+  
+  ::protocol::harmonytypes::v1::Token* temp = auth_token_;
+  auth_token_ = nullptr;
+  return temp;
+}
+inline ::protocol::harmonytypes::v1::Token* LoginFederatedRequest::_internal_mutable_auth_token() {
+  
+  if (auth_token_ == nullptr) {
+    auto* p = CreateMaybeMessage<::protocol::harmonytypes::v1::Token>(GetArena());
+    auth_token_ = p;
+  }
+  return auth_token_;
+}
+inline ::protocol::harmonytypes::v1::Token* LoginFederatedRequest::mutable_auth_token() {
   // @@protoc_insertion_point(field_mutable:protocol.auth.v1.LoginFederatedRequest.auth_token)
   return _internal_mutable_auth_token();
 }
-inline const std::string& LoginFederatedRequest::_internal_auth_token() const {
-  return auth_token_.Get();
-}
-inline void LoginFederatedRequest::_internal_set_auth_token(const std::string& value) {
-  
-  auth_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void LoginFederatedRequest::set_auth_token(std::string&& value) {
-  
-  auth_token_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protocol.auth.v1.LoginFederatedRequest.auth_token)
-}
-inline void LoginFederatedRequest::set_auth_token(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  auth_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:protocol.auth.v1.LoginFederatedRequest.auth_token)
-}
-inline void LoginFederatedRequest::set_auth_token(const char* value,
-    size_t size) {
-  
-  auth_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protocol.auth.v1.LoginFederatedRequest.auth_token)
-}
-inline std::string* LoginFederatedRequest::_internal_mutable_auth_token() {
-  
-  return auth_token_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* LoginFederatedRequest::release_auth_token() {
-  // @@protoc_insertion_point(field_release:protocol.auth.v1.LoginFederatedRequest.auth_token)
-  return auth_token_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void LoginFederatedRequest::set_allocated_auth_token(std::string* auth_token) {
-  if (auth_token != nullptr) {
+inline void LoginFederatedRequest::set_allocated_auth_token(::protocol::harmonytypes::v1::Token* auth_token) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(auth_token_);
+  }
+  if (auth_token) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(auth_token)->GetArena();
+    if (message_arena != submessage_arena) {
+      auth_token = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, auth_token, submessage_arena);
+    }
     
   } else {
     
   }
-  auth_token_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), auth_token,
-      GetArena());
+  auth_token_ = auth_token;
   // @@protoc_insertion_point(field_set_allocated:protocol.auth.v1.LoginFederatedRequest.auth_token)
-}
-inline std::string* LoginFederatedRequest::unsafe_arena_release_auth_token() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.auth.v1.LoginFederatedRequest.auth_token)
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  
-  return auth_token_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      GetArena());
-}
-inline void LoginFederatedRequest::unsafe_arena_set_allocated_auth_token(
-    std::string* auth_token) {
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  if (auth_token != nullptr) {
-    
-  } else {
-    
-  }
-  auth_token_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      auth_token, GetArena());
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.auth.v1.LoginFederatedRequest.auth_token)
 }
 
 // string domain = 2;
@@ -5699,9 +5787,278 @@ inline void LoginFederatedRequest::unsafe_arena_set_allocated_domain(
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.auth.v1.LoginFederatedRequest.domain)
 }
 
+// -------------------------------------------------------------------
+
+// TokenData
+
+// uint64 user_id = 1;
+inline void TokenData::clear_user_id() {
+  user_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 TokenData::_internal_user_id() const {
+  return user_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 TokenData::user_id() const {
+  // @@protoc_insertion_point(field_get:protocol.auth.v1.TokenData.user_id)
+  return _internal_user_id();
+}
+inline void TokenData::_internal_set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  user_id_ = value;
+}
+inline void TokenData::set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_user_id(value);
+  // @@protoc_insertion_point(field_set:protocol.auth.v1.TokenData.user_id)
+}
+
+// string target = 2;
+inline void TokenData::clear_target() {
+  target_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& TokenData::target() const {
+  // @@protoc_insertion_point(field_get:protocol.auth.v1.TokenData.target)
+  return _internal_target();
+}
+inline void TokenData::set_target(const std::string& value) {
+  _internal_set_target(value);
+  // @@protoc_insertion_point(field_set:protocol.auth.v1.TokenData.target)
+}
+inline std::string* TokenData::mutable_target() {
+  // @@protoc_insertion_point(field_mutable:protocol.auth.v1.TokenData.target)
+  return _internal_mutable_target();
+}
+inline const std::string& TokenData::_internal_target() const {
+  return target_.Get();
+}
+inline void TokenData::_internal_set_target(const std::string& value) {
+  
+  target_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void TokenData::set_target(std::string&& value) {
+  
+  target_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.auth.v1.TokenData.target)
+}
+inline void TokenData::set_target(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  target_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.auth.v1.TokenData.target)
+}
+inline void TokenData::set_target(const char* value,
+    size_t size) {
+  
+  target_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.auth.v1.TokenData.target)
+}
+inline std::string* TokenData::_internal_mutable_target() {
+  
+  return target_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* TokenData::release_target() {
+  // @@protoc_insertion_point(field_release:protocol.auth.v1.TokenData.target)
+  return target_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TokenData::set_allocated_target(std::string* target) {
+  if (target != nullptr) {
+    
+  } else {
+    
+  }
+  target_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), target,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.auth.v1.TokenData.target)
+}
+inline std::string* TokenData::unsafe_arena_release_target() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.auth.v1.TokenData.target)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return target_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void TokenData::unsafe_arena_set_allocated_target(
+    std::string* target) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (target != nullptr) {
+    
+  } else {
+    
+  }
+  target_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      target, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.auth.v1.TokenData.target)
+}
+
+// string username = 3;
+inline void TokenData::clear_username() {
+  username_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& TokenData::username() const {
+  // @@protoc_insertion_point(field_get:protocol.auth.v1.TokenData.username)
+  return _internal_username();
+}
+inline void TokenData::set_username(const std::string& value) {
+  _internal_set_username(value);
+  // @@protoc_insertion_point(field_set:protocol.auth.v1.TokenData.username)
+}
+inline std::string* TokenData::mutable_username() {
+  // @@protoc_insertion_point(field_mutable:protocol.auth.v1.TokenData.username)
+  return _internal_mutable_username();
+}
+inline const std::string& TokenData::_internal_username() const {
+  return username_.Get();
+}
+inline void TokenData::_internal_set_username(const std::string& value) {
+  
+  username_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void TokenData::set_username(std::string&& value) {
+  
+  username_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.auth.v1.TokenData.username)
+}
+inline void TokenData::set_username(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  username_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.auth.v1.TokenData.username)
+}
+inline void TokenData::set_username(const char* value,
+    size_t size) {
+  
+  username_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.auth.v1.TokenData.username)
+}
+inline std::string* TokenData::_internal_mutable_username() {
+  
+  return username_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* TokenData::release_username() {
+  // @@protoc_insertion_point(field_release:protocol.auth.v1.TokenData.username)
+  return username_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TokenData::set_allocated_username(std::string* username) {
+  if (username != nullptr) {
+    
+  } else {
+    
+  }
+  username_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), username,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.auth.v1.TokenData.username)
+}
+inline std::string* TokenData::unsafe_arena_release_username() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.auth.v1.TokenData.username)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return username_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void TokenData::unsafe_arena_set_allocated_username(
+    std::string* username) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (username != nullptr) {
+    
+  } else {
+    
+  }
+  username_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      username, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.auth.v1.TokenData.username)
+}
+
+// string avatar = 4;
+inline void TokenData::clear_avatar() {
+  avatar_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& TokenData::avatar() const {
+  // @@protoc_insertion_point(field_get:protocol.auth.v1.TokenData.avatar)
+  return _internal_avatar();
+}
+inline void TokenData::set_avatar(const std::string& value) {
+  _internal_set_avatar(value);
+  // @@protoc_insertion_point(field_set:protocol.auth.v1.TokenData.avatar)
+}
+inline std::string* TokenData::mutable_avatar() {
+  // @@protoc_insertion_point(field_mutable:protocol.auth.v1.TokenData.avatar)
+  return _internal_mutable_avatar();
+}
+inline const std::string& TokenData::_internal_avatar() const {
+  return avatar_.Get();
+}
+inline void TokenData::_internal_set_avatar(const std::string& value) {
+  
+  avatar_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void TokenData::set_avatar(std::string&& value) {
+  
+  avatar_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.auth.v1.TokenData.avatar)
+}
+inline void TokenData::set_avatar(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  avatar_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.auth.v1.TokenData.avatar)
+}
+inline void TokenData::set_avatar(const char* value,
+    size_t size) {
+  
+  avatar_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.auth.v1.TokenData.avatar)
+}
+inline std::string* TokenData::_internal_mutable_avatar() {
+  
+  return avatar_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* TokenData::release_avatar() {
+  // @@protoc_insertion_point(field_release:protocol.auth.v1.TokenData.avatar)
+  return avatar_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TokenData::set_allocated_avatar(std::string* avatar) {
+  if (avatar != nullptr) {
+    
+  } else {
+    
+  }
+  avatar_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), avatar,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.auth.v1.TokenData.avatar)
+}
+inline std::string* TokenData::unsafe_arena_release_avatar() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.auth.v1.TokenData.avatar)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return avatar_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void TokenData::unsafe_arena_set_allocated_avatar(
+    std::string* avatar) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (avatar != nullptr) {
+    
+  } else {
+    
+  }
+  avatar_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      avatar, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.auth.v1.TokenData.avatar)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

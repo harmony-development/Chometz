@@ -16,6 +16,8 @@
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2fpermissions_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Permission_chat_2fv1_2fpermissions_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2fpermissions_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PermissionList_chat_2fv1_2fpermissions_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2fpermissions_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_QueryPermissionsRequest_chat_2fv1_2fpermissions_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2fpermissions_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_QueryPermissionsResponse_chat_2fv1_2fpermissions_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2fpermissions_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Role_chat_2fv1_2fpermissions_2eproto;
 namespace protocol {
 namespace chat {
@@ -28,6 +30,14 @@ class QueryPermissionsResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<QueryPermissionsResponse> _instance;
 } _QueryPermissionsResponse_default_instance_;
+class BatchQueryPermissionsRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BatchQueryPermissionsRequest> _instance;
+} _BatchQueryPermissionsRequest_default_instance_;
+class BatchQueryPermissionsResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BatchQueryPermissionsResponse> _instance;
+} _BatchQueryPermissionsResponse_default_instance_;
 class PermissionDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Permission> _instance;
@@ -127,6 +137,36 @@ static void InitDefaultsscc_info_AddGuildRoleResponse_chat_2fv1_2fpermissions_2e
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AddGuildRoleResponse_chat_2fv1_2fpermissions_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_AddGuildRoleResponse_chat_2fv1_2fpermissions_2eproto}, {}};
+
+static void InitDefaultsscc_info_BatchQueryPermissionsRequest_chat_2fv1_2fpermissions_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::chat::v1::_BatchQueryPermissionsRequest_default_instance_;
+    new (ptr) ::protocol::chat::v1::BatchQueryPermissionsRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::chat::v1::BatchQueryPermissionsRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BatchQueryPermissionsRequest_chat_2fv1_2fpermissions_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_BatchQueryPermissionsRequest_chat_2fv1_2fpermissions_2eproto}, {
+      &scc_info_QueryPermissionsRequest_chat_2fv1_2fpermissions_2eproto.base,}};
+
+static void InitDefaultsscc_info_BatchQueryPermissionsResponse_chat_2fv1_2fpermissions_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::protocol::chat::v1::_BatchQueryPermissionsResponse_default_instance_;
+    new (ptr) ::protocol::chat::v1::BatchQueryPermissionsResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protocol::chat::v1::BatchQueryPermissionsResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BatchQueryPermissionsResponse_chat_2fv1_2fpermissions_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_BatchQueryPermissionsResponse_chat_2fv1_2fpermissions_2eproto}, {
+      &scc_info_QueryPermissionsResponse_chat_2fv1_2fpermissions_2eproto.base,}};
 
 static void InitDefaultsscc_info_DeleteGuildRoleRequest_chat_2fv1_2fpermissions_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -371,7 +411,7 @@ static void InitDefaultsscc_info_SetPermissionsRequest_chat_2fv1_2fpermissions_2
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_SetPermissionsRequest_chat_2fv1_2fpermissions_2eproto}, {
       &scc_info_PermissionList_chat_2fv1_2fpermissions_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_chat_2fv1_2fpermissions_2eproto[19];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_chat_2fv1_2fpermissions_2eproto[21];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_chat_2fv1_2fpermissions_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_chat_2fv1_2fpermissions_2eproto = nullptr;
 
@@ -391,6 +431,18 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_chat_2fv1_2fpermissions_2eprot
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::QueryPermissionsResponse, ok_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::BatchQueryPermissionsRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::BatchQueryPermissionsRequest, requests_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::BatchQueryPermissionsResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::BatchQueryPermissionsResponse, responses_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::protocol::chat::v1::Permission, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -520,28 +572,32 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_chat_2fv1_2fpermissions_2eprot
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::protocol::chat::v1::QueryPermissionsRequest)},
   { 9, -1, sizeof(::protocol::chat::v1::QueryPermissionsResponse)},
-  { 15, -1, sizeof(::protocol::chat::v1::Permission)},
-  { 22, -1, sizeof(::protocol::chat::v1::PermissionList)},
-  { 28, -1, sizeof(::protocol::chat::v1::SetPermissionsRequest)},
-  { 37, -1, sizeof(::protocol::chat::v1::GetPermissionsRequest)},
-  { 45, -1, sizeof(::protocol::chat::v1::GetPermissionsResponse)},
-  { 51, -1, sizeof(::protocol::chat::v1::Role)},
-  { 61, -1, sizeof(::protocol::chat::v1::MoveRoleRequest)},
-  { 70, -1, sizeof(::protocol::chat::v1::MoveRoleResponse)},
-  { 75, -1, sizeof(::protocol::chat::v1::GetGuildRolesRequest)},
-  { 81, -1, sizeof(::protocol::chat::v1::GetGuildRolesResponse)},
-  { 87, -1, sizeof(::protocol::chat::v1::AddGuildRoleRequest)},
-  { 94, -1, sizeof(::protocol::chat::v1::AddGuildRoleResponse)},
-  { 100, -1, sizeof(::protocol::chat::v1::DeleteGuildRoleRequest)},
-  { 107, -1, sizeof(::protocol::chat::v1::ModifyGuildRoleRequest)},
-  { 118, -1, sizeof(::protocol::chat::v1::ManageUserRolesRequest)},
-  { 127, -1, sizeof(::protocol::chat::v1::GetUserRolesRequest)},
-  { 134, -1, sizeof(::protocol::chat::v1::GetUserRolesResponse)},
+  { 15, -1, sizeof(::protocol::chat::v1::BatchQueryPermissionsRequest)},
+  { 21, -1, sizeof(::protocol::chat::v1::BatchQueryPermissionsResponse)},
+  { 27, -1, sizeof(::protocol::chat::v1::Permission)},
+  { 34, -1, sizeof(::protocol::chat::v1::PermissionList)},
+  { 40, -1, sizeof(::protocol::chat::v1::SetPermissionsRequest)},
+  { 49, -1, sizeof(::protocol::chat::v1::GetPermissionsRequest)},
+  { 57, -1, sizeof(::protocol::chat::v1::GetPermissionsResponse)},
+  { 63, -1, sizeof(::protocol::chat::v1::Role)},
+  { 73, -1, sizeof(::protocol::chat::v1::MoveRoleRequest)},
+  { 82, -1, sizeof(::protocol::chat::v1::MoveRoleResponse)},
+  { 87, -1, sizeof(::protocol::chat::v1::GetGuildRolesRequest)},
+  { 93, -1, sizeof(::protocol::chat::v1::GetGuildRolesResponse)},
+  { 99, -1, sizeof(::protocol::chat::v1::AddGuildRoleRequest)},
+  { 106, -1, sizeof(::protocol::chat::v1::AddGuildRoleResponse)},
+  { 112, -1, sizeof(::protocol::chat::v1::DeleteGuildRoleRequest)},
+  { 119, -1, sizeof(::protocol::chat::v1::ModifyGuildRoleRequest)},
+  { 130, -1, sizeof(::protocol::chat::v1::ManageUserRolesRequest)},
+  { 139, -1, sizeof(::protocol::chat::v1::GetUserRolesRequest)},
+  { 146, -1, sizeof(::protocol::chat::v1::GetUserRolesResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_QueryPermissionsRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_QueryPermissionsResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_BatchQueryPermissionsRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_BatchQueryPermissionsResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_Permission_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_PermissionList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::protocol::chat::v1::_SetPermissionsRequest_default_instance_),
@@ -563,53 +619,57 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_chat_2fv1_2fpermissions_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\031chat/v1/permissions.proto\022\020protocol.ch"
-  "at.v1\"f\n\027QueryPermissionsRequest\022\024\n\010guil"
-  "d_id\030\001 \001(\004B\0020\001\022\026\n\nchannel_id\030\002 \001(\004B\0020\001\022\021"
-  "\n\tcheck_for\030\003 \001(\t\022\n\n\002as\030\004 \001(\004\"&\n\030QueryPe"
-  "rmissionsResponse\022\n\n\002ok\030\001 \001(\010\"k\n\nPermiss"
-  "ion\022\017\n\007matches\030\001 \001(\t\022/\n\004mode\030\002 \001(\0162!.pro"
-  "tocol.chat.v1.Permission.Mode\"\033\n\004Mode\022\t\n"
-  "\005Allow\020\000\022\010\n\004Deny\020\001\"C\n\016PermissionList\0221\n\013"
-  "permissions\030\001 \003(\0132\034.protocol.chat.v1.Per"
-  "mission\"\213\001\n\025SetPermissionsRequest\022\024\n\010gui"
-  "ld_id\030\001 \001(\004B\0020\001\022\026\n\nchannel_id\030\002 \001(\004B\0020\001\022"
-  "\023\n\007role_id\030\003 \001(\004B\0020\001\022/\n\005perms\030\004 \001(\0132 .pr"
-  "otocol.chat.v1.PermissionList\"Z\n\025GetPerm"
-  "issionsRequest\022\024\n\010guild_id\030\001 \001(\004B\0020\001\022\026\n\n"
-  "channel_id\030\002 \001(\004B\0020\001\022\023\n\007role_id\030\003 \001(\004B\0020"
-  "\001\"I\n\026GetPermissionsResponse\022/\n\005perms\030\001 \001"
-  "(\0132 .protocol.chat.v1.PermissionList\"Y\n\004"
-  "Role\022\023\n\007role_id\030\001 \001(\004B\0020\001\022\014\n\004name\030\002 \001(\t\022"
-  "\r\n\005color\030\003 \001(\005\022\r\n\005hoist\030\004 \001(\010\022\020\n\010pingabl"
-  "e\030\005 \001(\010\"i\n\017MoveRoleRequest\022\024\n\010guild_id\030\001"
-  " \001(\004B\0020\001\022\023\n\007role_id\030\002 \001(\004B\0020\001\022\025\n\tbefore_"
-  "id\030\003 \001(\004B\0020\001\022\024\n\010after_id\030\004 \001(\004B\0020\001\"\022\n\020Mo"
-  "veRoleResponse\",\n\024GetGuildRolesRequest\022\024"
-  "\n\010guild_id\030\001 \001(\004B\0020\001\">\n\025GetGuildRolesRes"
-  "ponse\022%\n\005roles\030\001 \003(\0132\026.protocol.chat.v1."
-  "Role\"Q\n\023AddGuildRoleRequest\022\024\n\010guild_id\030"
-  "\001 \001(\004B\0020\001\022$\n\004role\030\002 \001(\0132\026.protocol.chat."
-  "v1.Role\"+\n\024AddGuildRoleResponse\022\023\n\007role_"
-  "id\030\001 \001(\004B\0020\001\"C\n\026DeleteGuildRoleRequest\022\024"
-  "\n\010guild_id\030\001 \001(\004B\0020\001\022\023\n\007role_id\030\002 \001(\004B\0020"
-  "\001\"\256\001\n\026ModifyGuildRoleRequest\022\024\n\010guild_id"
-  "\030\001 \001(\004B\0020\001\022$\n\004role\030\002 \001(\0132\026.protocol.chat"
-  ".v1.Role\022\023\n\013modify_name\030\003 \001(\010\022\024\n\014modify_"
-  "color\030\004 \001(\010\022\024\n\014modify_hoist\030\005 \001(\010\022\027\n\017mod"
-  "ify_pingable\030\006 \001(\010\"y\n\026ManageUserRolesReq"
-  "uest\022\024\n\010guild_id\030\001 \001(\004B\0020\001\022\023\n\007user_id\030\002 "
-  "\001(\004B\0020\001\022\031\n\rgive_role_ids\030\003 \003(\004B\0020\001\022\031\n\rta"
-  "ke_role_ids\030\004 \003(\004B\0020\001\"@\n\023GetUserRolesReq"
-  "uest\022\024\n\010guild_id\030\001 \001(\004B\0020\001\022\023\n\007user_id\030\002 "
-  "\001(\004B\0020\001\")\n\024GetUserRolesResponse\022\021\n\005roles"
-  "\030\001 \003(\004B\0020\001B3Z1github.com/harmony-develop"
-  "ment/legato/gen/chat/v1b\006proto3"
+  "at.v1\"^\n\027QueryPermissionsRequest\022\020\n\010guil"
+  "d_id\030\001 \001(\004\022\022\n\nchannel_id\030\002 \001(\004\022\021\n\tcheck_"
+  "for\030\003 \001(\t\022\n\n\002as\030\004 \001(\004\"&\n\030QueryPermission"
+  "sResponse\022\n\n\002ok\030\001 \001(\010\"[\n\034BatchQueryPermi"
+  "ssionsRequest\022;\n\010requests\030\001 \003(\0132).protoc"
+  "ol.chat.v1.QueryPermissionsRequest\"^\n\035Ba"
+  "tchQueryPermissionsResponse\022=\n\tresponses"
+  "\030\001 \003(\0132*.protocol.chat.v1.QueryPermissio"
+  "nsResponse\"k\n\nPermission\022\017\n\007matches\030\001 \001("
+  "\t\022/\n\004mode\030\002 \001(\0162!.protocol.chat.v1.Permi"
+  "ssion.Mode\"\033\n\004Mode\022\t\n\005Allow\020\000\022\010\n\004Deny\020\001\""
+  "C\n\016PermissionList\0221\n\013permissions\030\001 \003(\0132\034"
+  ".protocol.chat.v1.Permission\"\177\n\025SetPermi"
+  "ssionsRequest\022\020\n\010guild_id\030\001 \001(\004\022\022\n\nchann"
+  "el_id\030\002 \001(\004\022\017\n\007role_id\030\003 \001(\004\022/\n\005perms\030\004 "
+  "\001(\0132 .protocol.chat.v1.PermissionList\"N\n"
+  "\025GetPermissionsRequest\022\020\n\010guild_id\030\001 \001(\004"
+  "\022\022\n\nchannel_id\030\002 \001(\004\022\017\n\007role_id\030\003 \001(\004\"I\n"
+  "\026GetPermissionsResponse\022/\n\005perms\030\001 \001(\0132 "
+  ".protocol.chat.v1.PermissionList\"U\n\004Role"
+  "\022\017\n\007role_id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022\r\n\005color"
+  "\030\003 \001(\005\022\r\n\005hoist\030\004 \001(\010\022\020\n\010pingable\030\005 \001(\010\""
+  "Y\n\017MoveRoleRequest\022\020\n\010guild_id\030\001 \001(\004\022\017\n\007"
+  "role_id\030\002 \001(\004\022\021\n\tbefore_id\030\003 \001(\004\022\020\n\010afte"
+  "r_id\030\004 \001(\004\"\022\n\020MoveRoleResponse\"(\n\024GetGui"
+  "ldRolesRequest\022\020\n\010guild_id\030\001 \001(\004\">\n\025GetG"
+  "uildRolesResponse\022%\n\005roles\030\001 \003(\0132\026.proto"
+  "col.chat.v1.Role\"M\n\023AddGuildRoleRequest\022"
+  "\020\n\010guild_id\030\001 \001(\004\022$\n\004role\030\002 \001(\0132\026.protoc"
+  "ol.chat.v1.Role\"\'\n\024AddGuildRoleResponse\022"
+  "\017\n\007role_id\030\001 \001(\004\";\n\026DeleteGuildRoleReque"
+  "st\022\020\n\010guild_id\030\001 \001(\004\022\017\n\007role_id\030\002 \001(\004\"\252\001"
+  "\n\026ModifyGuildRoleRequest\022\020\n\010guild_id\030\001 \001"
+  "(\004\022$\n\004role\030\002 \001(\0132\026.protocol.chat.v1.Role"
+  "\022\023\n\013modify_name\030\003 \001(\010\022\024\n\014modify_color\030\004 "
+  "\001(\010\022\024\n\014modify_hoist\030\005 \001(\010\022\027\n\017modify_ping"
+  "able\030\006 \001(\010\"i\n\026ManageUserRolesRequest\022\020\n\010"
+  "guild_id\030\001 \001(\004\022\017\n\007user_id\030\002 \001(\004\022\025\n\rgive_"
+  "role_ids\030\003 \003(\004\022\025\n\rtake_role_ids\030\004 \003(\004\"8\n"
+  "\023GetUserRolesRequest\022\020\n\010guild_id\030\001 \001(\004\022\017"
+  "\n\007user_id\030\002 \001(\004\"%\n\024GetUserRolesResponse\022"
+  "\r\n\005roles\030\001 \003(\004B3Z1github.com/harmony-dev"
+  "elopment/legato/gen/chat/v1b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_chat_2fv1_2fpermissions_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_chat_2fv1_2fpermissions_2eproto_sccs[19] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_chat_2fv1_2fpermissions_2eproto_sccs[21] = {
   &scc_info_AddGuildRoleRequest_chat_2fv1_2fpermissions_2eproto.base,
   &scc_info_AddGuildRoleResponse_chat_2fv1_2fpermissions_2eproto.base,
+  &scc_info_BatchQueryPermissionsRequest_chat_2fv1_2fpermissions_2eproto.base,
+  &scc_info_BatchQueryPermissionsResponse_chat_2fv1_2fpermissions_2eproto.base,
   &scc_info_DeleteGuildRoleRequest_chat_2fv1_2fpermissions_2eproto.base,
   &scc_info_GetGuildRolesRequest_chat_2fv1_2fpermissions_2eproto.base,
   &scc_info_GetGuildRolesResponse_chat_2fv1_2fpermissions_2eproto.base,
@@ -630,10 +690,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_cha
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_chat_2fv1_2fpermissions_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_chat_2fv1_2fpermissions_2eproto = {
-  false, false, descriptor_table_protodef_chat_2fv1_2fpermissions_2eproto, "chat/v1/permissions.proto", 1671,
-  &descriptor_table_chat_2fv1_2fpermissions_2eproto_once, descriptor_table_chat_2fv1_2fpermissions_2eproto_sccs, descriptor_table_chat_2fv1_2fpermissions_2eproto_deps, 19, 0,
+  false, false, descriptor_table_protodef_chat_2fv1_2fpermissions_2eproto, "chat/v1/permissions.proto", 1755,
+  &descriptor_table_chat_2fv1_2fpermissions_2eproto_once, descriptor_table_chat_2fv1_2fpermissions_2eproto_sccs, descriptor_table_chat_2fv1_2fpermissions_2eproto_deps, 21, 0,
   schemas, file_default_instances, TableStruct_chat_2fv1_2fpermissions_2eproto::offsets,
-  file_level_metadata_chat_2fv1_2fpermissions_2eproto, 19, file_level_enum_descriptors_chat_2fv1_2fpermissions_2eproto, file_level_service_descriptors_chat_2fv1_2fpermissions_2eproto,
+  file_level_metadata_chat_2fv1_2fpermissions_2eproto, 21, file_level_enum_descriptors_chat_2fv1_2fpermissions_2eproto, file_level_service_descriptors_chat_2fv1_2fpermissions_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -746,14 +806,14 @@ const char* QueryPermissionsRequest::_InternalParse(const char* ptr, ::PROTOBUF_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 2 [jstype = JS_STRING];
+      // uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -804,13 +864,13 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
@@ -855,14 +915,14 @@ size_t QueryPermissionsRequest::ByteSizeLong() const {
         this->_internal_check_for());
   }
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -1147,6 +1207,412 @@ void QueryPermissionsResponse::InternalSwap(QueryPermissionsResponse* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata QueryPermissionsResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void BatchQueryPermissionsRequest::InitAsDefaultInstance() {
+}
+class BatchQueryPermissionsRequest::_Internal {
+ public:
+};
+
+BatchQueryPermissionsRequest::BatchQueryPermissionsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  requests_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.chat.v1.BatchQueryPermissionsRequest)
+}
+BatchQueryPermissionsRequest::BatchQueryPermissionsRequest(const BatchQueryPermissionsRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      requests_(from.requests_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:protocol.chat.v1.BatchQueryPermissionsRequest)
+}
+
+void BatchQueryPermissionsRequest::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_BatchQueryPermissionsRequest_chat_2fv1_2fpermissions_2eproto.base);
+}
+
+BatchQueryPermissionsRequest::~BatchQueryPermissionsRequest() {
+  // @@protoc_insertion_point(destructor:protocol.chat.v1.BatchQueryPermissionsRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void BatchQueryPermissionsRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void BatchQueryPermissionsRequest::ArenaDtor(void* object) {
+  BatchQueryPermissionsRequest* _this = reinterpret_cast< BatchQueryPermissionsRequest* >(object);
+  (void)_this;
+}
+void BatchQueryPermissionsRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void BatchQueryPermissionsRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const BatchQueryPermissionsRequest& BatchQueryPermissionsRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_BatchQueryPermissionsRequest_chat_2fv1_2fpermissions_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void BatchQueryPermissionsRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.chat.v1.BatchQueryPermissionsRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  requests_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* BatchQueryPermissionsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .protocol.chat.v1.QueryPermissionsRequest requests = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_requests(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* BatchQueryPermissionsRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.chat.v1.BatchQueryPermissionsRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .protocol.chat.v1.QueryPermissionsRequest requests = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_requests_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_requests(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.chat.v1.BatchQueryPermissionsRequest)
+  return target;
+}
+
+size_t BatchQueryPermissionsRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.chat.v1.BatchQueryPermissionsRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .protocol.chat.v1.QueryPermissionsRequest requests = 1;
+  total_size += 1UL * this->_internal_requests_size();
+  for (const auto& msg : this->requests_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void BatchQueryPermissionsRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.chat.v1.BatchQueryPermissionsRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const BatchQueryPermissionsRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<BatchQueryPermissionsRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.chat.v1.BatchQueryPermissionsRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.chat.v1.BatchQueryPermissionsRequest)
+    MergeFrom(*source);
+  }
+}
+
+void BatchQueryPermissionsRequest::MergeFrom(const BatchQueryPermissionsRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.chat.v1.BatchQueryPermissionsRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  requests_.MergeFrom(from.requests_);
+}
+
+void BatchQueryPermissionsRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.chat.v1.BatchQueryPermissionsRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BatchQueryPermissionsRequest::CopyFrom(const BatchQueryPermissionsRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.chat.v1.BatchQueryPermissionsRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BatchQueryPermissionsRequest::IsInitialized() const {
+  return true;
+}
+
+void BatchQueryPermissionsRequest::InternalSwap(BatchQueryPermissionsRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  requests_.InternalSwap(&other->requests_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BatchQueryPermissionsRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void BatchQueryPermissionsResponse::InitAsDefaultInstance() {
+}
+class BatchQueryPermissionsResponse::_Internal {
+ public:
+};
+
+BatchQueryPermissionsResponse::BatchQueryPermissionsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  responses_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:protocol.chat.v1.BatchQueryPermissionsResponse)
+}
+BatchQueryPermissionsResponse::BatchQueryPermissionsResponse(const BatchQueryPermissionsResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      responses_(from.responses_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:protocol.chat.v1.BatchQueryPermissionsResponse)
+}
+
+void BatchQueryPermissionsResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_BatchQueryPermissionsResponse_chat_2fv1_2fpermissions_2eproto.base);
+}
+
+BatchQueryPermissionsResponse::~BatchQueryPermissionsResponse() {
+  // @@protoc_insertion_point(destructor:protocol.chat.v1.BatchQueryPermissionsResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void BatchQueryPermissionsResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void BatchQueryPermissionsResponse::ArenaDtor(void* object) {
+  BatchQueryPermissionsResponse* _this = reinterpret_cast< BatchQueryPermissionsResponse* >(object);
+  (void)_this;
+}
+void BatchQueryPermissionsResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void BatchQueryPermissionsResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const BatchQueryPermissionsResponse& BatchQueryPermissionsResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_BatchQueryPermissionsResponse_chat_2fv1_2fpermissions_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void BatchQueryPermissionsResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:protocol.chat.v1.BatchQueryPermissionsResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  responses_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* BatchQueryPermissionsResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .protocol.chat.v1.QueryPermissionsResponse responses = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_responses(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* BatchQueryPermissionsResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:protocol.chat.v1.BatchQueryPermissionsResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .protocol.chat.v1.QueryPermissionsResponse responses = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_responses_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_responses(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protocol.chat.v1.BatchQueryPermissionsResponse)
+  return target;
+}
+
+size_t BatchQueryPermissionsResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protocol.chat.v1.BatchQueryPermissionsResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .protocol.chat.v1.QueryPermissionsResponse responses = 1;
+  total_size += 1UL * this->_internal_responses_size();
+  for (const auto& msg : this->responses_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void BatchQueryPermissionsResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protocol.chat.v1.BatchQueryPermissionsResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const BatchQueryPermissionsResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<BatchQueryPermissionsResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protocol.chat.v1.BatchQueryPermissionsResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protocol.chat.v1.BatchQueryPermissionsResponse)
+    MergeFrom(*source);
+  }
+}
+
+void BatchQueryPermissionsResponse::MergeFrom(const BatchQueryPermissionsResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protocol.chat.v1.BatchQueryPermissionsResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  responses_.MergeFrom(from.responses_);
+}
+
+void BatchQueryPermissionsResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protocol.chat.v1.BatchQueryPermissionsResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BatchQueryPermissionsResponse::CopyFrom(const BatchQueryPermissionsResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protocol.chat.v1.BatchQueryPermissionsResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BatchQueryPermissionsResponse::IsInitialized() const {
+  return true;
+}
+
+void BatchQueryPermissionsResponse::InternalSwap(BatchQueryPermissionsResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  responses_.InternalSwap(&other->responses_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BatchQueryPermissionsResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -1683,21 +2149,21 @@ const char* SetPermissionsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 2 [jstype = JS_STRING];
+      // uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 role_id = 3 [jstype = JS_STRING];
+      // uint64 role_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           role_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -1739,19 +2205,19 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
   }
 
-  // uint64 role_id = 3 [jstype = JS_STRING];
+  // uint64 role_id = 3;
   if (this->role_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_role_id(), target);
@@ -1788,21 +2254,21 @@ size_t SetPermissionsRequest::ByteSizeLong() const {
         *perms_);
   }
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_channel_id());
   }
 
-  // uint64 role_id = 3 [jstype = JS_STRING];
+  // uint64 role_id = 3;
   if (this->role_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -1962,21 +2428,21 @@ const char* GetPermissionsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 channel_id = 2 [jstype = JS_STRING];
+      // uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           channel_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 role_id = 3 [jstype = JS_STRING];
+      // uint64 role_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           role_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2011,19 +2477,19 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
   }
 
-  // uint64 role_id = 3 [jstype = JS_STRING];
+  // uint64 role_id = 3;
   if (this->role_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_role_id(), target);
@@ -2045,21 +2511,21 @@ size_t GetPermissionsRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 channel_id = 2 [jstype = JS_STRING];
+  // uint64 channel_id = 2;
   if (this->channel_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_channel_id());
   }
 
-  // uint64 role_id = 3 [jstype = JS_STRING];
+  // uint64 role_id = 3;
   if (this->role_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2440,7 +2906,7 @@ const char* Role::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 role_id = 1 [jstype = JS_STRING];
+      // uint64 role_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           role_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2505,7 +2971,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 role_id = 1 [jstype = JS_STRING];
+  // uint64 role_id = 1;
   if (this->role_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_role_id(), target);
@@ -2562,7 +3028,7 @@ size_t Role::ByteSizeLong() const {
         this->_internal_name());
   }
 
-  // uint64 role_id = 1 [jstype = JS_STRING];
+  // uint64 role_id = 1;
   if (this->role_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2743,28 +3209,28 @@ const char* MoveRoleRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 role_id = 2 [jstype = JS_STRING];
+      // uint64 role_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           role_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 before_id = 3 [jstype = JS_STRING];
+      // uint64 before_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           before_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 after_id = 4 [jstype = JS_STRING];
+      // uint64 after_id = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           after_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2799,25 +3265,25 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 role_id = 2 [jstype = JS_STRING];
+  // uint64 role_id = 2;
   if (this->role_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_role_id(), target);
   }
 
-  // uint64 before_id = 3 [jstype = JS_STRING];
+  // uint64 before_id = 3;
   if (this->before_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_before_id(), target);
   }
 
-  // uint64 after_id = 4 [jstype = JS_STRING];
+  // uint64 after_id = 4;
   if (this->after_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_after_id(), target);
@@ -2839,28 +3305,28 @@ size_t MoveRoleRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 role_id = 2 [jstype = JS_STRING];
+  // uint64 role_id = 2;
   if (this->role_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_role_id());
   }
 
-  // uint64 before_id = 3 [jstype = JS_STRING];
+  // uint64 before_id = 3;
   if (this->before_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_before_id());
   }
 
-  // uint64 after_id = 4 [jstype = JS_STRING];
+  // uint64 after_id = 4;
   if (this->after_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -3179,7 +3645,7 @@ const char* GetGuildRolesRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAM
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -3214,7 +3680,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
@@ -3236,7 +3702,7 @@ size_t GetGuildRolesRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -3599,7 +4065,7 @@ const char* AddGuildRoleRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAME
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -3641,7 +4107,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
@@ -3678,7 +4144,7 @@ size_t AddGuildRoleRequest::ByteSizeLong() const {
         *role_);
   }
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -3826,7 +4292,7 @@ const char* AddGuildRoleResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAM
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 role_id = 1 [jstype = JS_STRING];
+      // uint64 role_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           role_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -3861,7 +4327,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 role_id = 1 [jstype = JS_STRING];
+  // uint64 role_id = 1;
   if (this->role_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_role_id(), target);
@@ -3883,7 +4349,7 @@ size_t AddGuildRoleResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 role_id = 1 [jstype = JS_STRING];
+  // uint64 role_id = 1;
   if (this->role_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -4029,14 +4495,14 @@ const char* DeleteGuildRoleRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 role_id = 2 [jstype = JS_STRING];
+      // uint64 role_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           role_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -4071,13 +4537,13 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 role_id = 2 [jstype = JS_STRING];
+  // uint64 role_id = 2;
   if (this->role_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_role_id(), target);
@@ -4099,14 +4565,14 @@ size_t DeleteGuildRoleRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 role_id = 2 [jstype = JS_STRING];
+  // uint64 role_id = 2;
   if (this->role_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -4278,7 +4744,7 @@ const char* ModifyGuildRoleRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -4348,7 +4814,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
@@ -4409,7 +4875,7 @@ size_t ModifyGuildRoleRequest::ByteSizeLong() const {
         *role_);
   }
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -4601,21 +5067,21 @@ const char* ManageUserRolesRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 user_id = 2 [jstype = JS_STRING];
+      // uint64 user_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated uint64 give_role_ids = 3 [jstype = JS_STRING];
+      // repeated uint64 give_role_ids = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_give_role_ids(), ptr, ctx);
@@ -4625,7 +5091,7 @@ const char* ManageUserRolesRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated uint64 take_role_ids = 4 [jstype = JS_STRING];
+      // repeated uint64 take_role_ids = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_take_role_ids(), ptr, ctx);
@@ -4663,19 +5129,19 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 user_id = 2 [jstype = JS_STRING];
+  // uint64 user_id = 2;
   if (this->user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_user_id(), target);
   }
 
-  // repeated uint64 give_role_ids = 3 [jstype = JS_STRING];
+  // repeated uint64 give_role_ids = 3;
   {
     int byte_size = _give_role_ids_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
@@ -4684,7 +5150,7 @@ failure:
     }
   }
 
-  // repeated uint64 take_role_ids = 4 [jstype = JS_STRING];
+  // repeated uint64 take_role_ids = 4;
   {
     int byte_size = _take_role_ids_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
@@ -4709,7 +5175,7 @@ size_t ManageUserRolesRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated uint64 give_role_ids = 3 [jstype = JS_STRING];
+  // repeated uint64 give_role_ids = 3;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt64Size(this->give_role_ids_);
@@ -4724,7 +5190,7 @@ size_t ManageUserRolesRequest::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // repeated uint64 take_role_ids = 4 [jstype = JS_STRING];
+  // repeated uint64 take_role_ids = 4;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt64Size(this->take_role_ids_);
@@ -4739,14 +5205,14 @@ size_t ManageUserRolesRequest::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 user_id = 2 [jstype = JS_STRING];
+  // uint64 user_id = 2;
   if (this->user_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -4904,14 +5370,14 @@ const char* GetUserRolesRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAME
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 guild_id = 1 [jstype = JS_STRING];
+      // uint64 guild_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           guild_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 user_id = 2 [jstype = JS_STRING];
+      // uint64 user_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -4946,13 +5412,13 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_guild_id(), target);
   }
 
-  // uint64 user_id = 2 [jstype = JS_STRING];
+  // uint64 user_id = 2;
   if (this->user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_user_id(), target);
@@ -4974,14 +5440,14 @@ size_t GetUserRolesRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 guild_id = 1 [jstype = JS_STRING];
+  // uint64 guild_id = 1;
   if (this->guild_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_guild_id());
   }
 
-  // uint64 user_id = 2 [jstype = JS_STRING];
+  // uint64 user_id = 2;
   if (this->user_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -5129,7 +5595,7 @@ const char* GetUserRolesResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAM
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated uint64 roles = 1 [jstype = JS_STRING];
+      // repeated uint64 roles = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_roles(), ptr, ctx);
@@ -5167,7 +5633,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated uint64 roles = 1 [jstype = JS_STRING];
+  // repeated uint64 roles = 1;
   {
     int byte_size = _roles_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
@@ -5192,7 +5658,7 @@ size_t GetUserRolesResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated uint64 roles = 1 [jstype = JS_STRING];
+  // repeated uint64 roles = 1;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt64Size(this->roles_);
@@ -5280,6 +5746,12 @@ template<> PROTOBUF_NOINLINE ::protocol::chat::v1::QueryPermissionsRequest* Aren
 }
 template<> PROTOBUF_NOINLINE ::protocol::chat::v1::QueryPermissionsResponse* Arena::CreateMaybeMessage< ::protocol::chat::v1::QueryPermissionsResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::chat::v1::QueryPermissionsResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::protocol::chat::v1::BatchQueryPermissionsRequest* Arena::CreateMaybeMessage< ::protocol::chat::v1::BatchQueryPermissionsRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::chat::v1::BatchQueryPermissionsRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::protocol::chat::v1::BatchQueryPermissionsResponse* Arena::CreateMaybeMessage< ::protocol::chat::v1::BatchQueryPermissionsResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::protocol::chat::v1::BatchQueryPermissionsResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::protocol::chat::v1::Permission* Arena::CreateMaybeMessage< ::protocol::chat::v1::Permission >(Arena* arena) {
   return Arena::CreateMessageInternal< ::protocol::chat::v1::Permission >(arena);

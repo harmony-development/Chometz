@@ -35,6 +35,8 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "harmonytypes/v1/types.pb.h"
 #include <google/protobuf/timestamp.pb.h>
+#include "chat/v1/permissions.pb.h"
+#include "chat/v1/emotes.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_chat_2fv1_2fstreaming_2eproto
@@ -50,7 +52,7 @@ struct TableStruct_chat_2fv1_2fstreaming_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[21]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[32]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -75,6 +77,21 @@ extern Event_ChannelDeletedDefaultTypeInternal _Event_ChannelDeleted_default_ins
 class Event_ChannelUpdated;
 class Event_ChannelUpdatedDefaultTypeInternal;
 extern Event_ChannelUpdatedDefaultTypeInternal _Event_ChannelUpdated_default_instance_;
+class Event_ChannelsReordered;
+class Event_ChannelsReorderedDefaultTypeInternal;
+extern Event_ChannelsReorderedDefaultTypeInternal _Event_ChannelsReordered_default_instance_;
+class Event_EmotePackAdded;
+class Event_EmotePackAddedDefaultTypeInternal;
+extern Event_EmotePackAddedDefaultTypeInternal _Event_EmotePackAdded_default_instance_;
+class Event_EmotePackDeleted;
+class Event_EmotePackDeletedDefaultTypeInternal;
+extern Event_EmotePackDeletedDefaultTypeInternal _Event_EmotePackDeleted_default_instance_;
+class Event_EmotePackEmotesUpdated;
+class Event_EmotePackEmotesUpdatedDefaultTypeInternal;
+extern Event_EmotePackEmotesUpdatedDefaultTypeInternal _Event_EmotePackEmotesUpdated_default_instance_;
+class Event_EmotePackUpdated;
+class Event_EmotePackUpdatedDefaultTypeInternal;
+extern Event_EmotePackUpdatedDefaultTypeInternal _Event_EmotePackUpdated_default_instance_;
 class Event_GuildAddedToList;
 class Event_GuildAddedToListDefaultTypeInternal;
 extern Event_GuildAddedToListDefaultTypeInternal _Event_GuildAddedToList_default_instance_;
@@ -102,15 +119,33 @@ extern Event_MessageSentDefaultTypeInternal _Event_MessageSent_default_instance_
 class Event_MessageUpdated;
 class Event_MessageUpdatedDefaultTypeInternal;
 extern Event_MessageUpdatedDefaultTypeInternal _Event_MessageUpdated_default_instance_;
+class Event_PermissionUpdated;
+class Event_PermissionUpdatedDefaultTypeInternal;
+extern Event_PermissionUpdatedDefaultTypeInternal _Event_PermissionUpdated_default_instance_;
 class Event_ProfileUpdated;
 class Event_ProfileUpdatedDefaultTypeInternal;
 extern Event_ProfileUpdatedDefaultTypeInternal _Event_ProfileUpdated_default_instance_;
+class Event_RoleCreated;
+class Event_RoleCreatedDefaultTypeInternal;
+extern Event_RoleCreatedDefaultTypeInternal _Event_RoleCreated_default_instance_;
+class Event_RoleDeleted;
+class Event_RoleDeletedDefaultTypeInternal;
+extern Event_RoleDeletedDefaultTypeInternal _Event_RoleDeleted_default_instance_;
 class Event_RoleMoved;
 class Event_RoleMovedDefaultTypeInternal;
 extern Event_RoleMovedDefaultTypeInternal _Event_RoleMoved_default_instance_;
+class Event_RolePermissionsUpdated;
+class Event_RolePermissionsUpdatedDefaultTypeInternal;
+extern Event_RolePermissionsUpdatedDefaultTypeInternal _Event_RolePermissionsUpdated_default_instance_;
+class Event_RoleUpdated;
+class Event_RoleUpdatedDefaultTypeInternal;
+extern Event_RoleUpdatedDefaultTypeInternal _Event_RoleUpdated_default_instance_;
 class Event_Typing;
 class Event_TypingDefaultTypeInternal;
 extern Event_TypingDefaultTypeInternal _Event_Typing_default_instance_;
+class Event_UserRolesUpdated;
+class Event_UserRolesUpdatedDefaultTypeInternal;
+extern Event_UserRolesUpdatedDefaultTypeInternal _Event_UserRolesUpdated_default_instance_;
 class StreamEventsRequest;
 class StreamEventsRequestDefaultTypeInternal;
 extern StreamEventsRequestDefaultTypeInternal _StreamEventsRequest_default_instance_;
@@ -132,6 +167,11 @@ template<> ::protocol::chat::v1::Event_ActionPerformed* Arena::CreateMaybeMessag
 template<> ::protocol::chat::v1::Event_ChannelCreated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_ChannelCreated>(Arena*);
 template<> ::protocol::chat::v1::Event_ChannelDeleted* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_ChannelDeleted>(Arena*);
 template<> ::protocol::chat::v1::Event_ChannelUpdated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_ChannelUpdated>(Arena*);
+template<> ::protocol::chat::v1::Event_ChannelsReordered* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_ChannelsReordered>(Arena*);
+template<> ::protocol::chat::v1::Event_EmotePackAdded* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_EmotePackAdded>(Arena*);
+template<> ::protocol::chat::v1::Event_EmotePackDeleted* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_EmotePackDeleted>(Arena*);
+template<> ::protocol::chat::v1::Event_EmotePackEmotesUpdated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_EmotePackEmotesUpdated>(Arena*);
+template<> ::protocol::chat::v1::Event_EmotePackUpdated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_EmotePackUpdated>(Arena*);
 template<> ::protocol::chat::v1::Event_GuildAddedToList* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_GuildAddedToList>(Arena*);
 template<> ::protocol::chat::v1::Event_GuildDeleted* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_GuildDeleted>(Arena*);
 template<> ::protocol::chat::v1::Event_GuildRemovedFromList* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_GuildRemovedFromList>(Arena*);
@@ -141,9 +181,15 @@ template<> ::protocol::chat::v1::Event_MemberLeft* Arena::CreateMaybeMessage<::p
 template<> ::protocol::chat::v1::Event_MessageDeleted* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_MessageDeleted>(Arena*);
 template<> ::protocol::chat::v1::Event_MessageSent* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_MessageSent>(Arena*);
 template<> ::protocol::chat::v1::Event_MessageUpdated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_MessageUpdated>(Arena*);
+template<> ::protocol::chat::v1::Event_PermissionUpdated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_PermissionUpdated>(Arena*);
 template<> ::protocol::chat::v1::Event_ProfileUpdated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_ProfileUpdated>(Arena*);
+template<> ::protocol::chat::v1::Event_RoleCreated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_RoleCreated>(Arena*);
+template<> ::protocol::chat::v1::Event_RoleDeleted* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_RoleDeleted>(Arena*);
 template<> ::protocol::chat::v1::Event_RoleMoved* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_RoleMoved>(Arena*);
+template<> ::protocol::chat::v1::Event_RolePermissionsUpdated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_RolePermissionsUpdated>(Arena*);
+template<> ::protocol::chat::v1::Event_RoleUpdated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_RoleUpdated>(Arena*);
 template<> ::protocol::chat::v1::Event_Typing* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_Typing>(Arena*);
+template<> ::protocol::chat::v1::Event_UserRolesUpdated* Arena::CreateMaybeMessage<::protocol::chat::v1::Event_UserRolesUpdated>(Arena*);
 template<> ::protocol::chat::v1::StreamEventsRequest* Arena::CreateMaybeMessage<::protocol::chat::v1::StreamEventsRequest>(Arena*);
 template<> ::protocol::chat::v1::StreamEventsRequest_SubscribeToActions* Arena::CreateMaybeMessage<::protocol::chat::v1::StreamEventsRequest_SubscribeToActions>(Arena*);
 template<> ::protocol::chat::v1::StreamEventsRequest_SubscribeToGuild* Arena::CreateMaybeMessage<::protocol::chat::v1::StreamEventsRequest_SubscribeToGuild>(Arena*);
@@ -1776,6 +1822,168 @@ class Event_ChannelUpdated PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Event_ChannelsReordered PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.ChannelsReordered) */ {
+ public:
+  inline Event_ChannelsReordered() : Event_ChannelsReordered(nullptr) {};
+  virtual ~Event_ChannelsReordered();
+
+  Event_ChannelsReordered(const Event_ChannelsReordered& from);
+  Event_ChannelsReordered(Event_ChannelsReordered&& from) noexcept
+    : Event_ChannelsReordered() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_ChannelsReordered& operator=(const Event_ChannelsReordered& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_ChannelsReordered& operator=(Event_ChannelsReordered&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_ChannelsReordered& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_ChannelsReordered* internal_default_instance() {
+    return reinterpret_cast<const Event_ChannelsReordered*>(
+               &_Event_ChannelsReordered_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(Event_ChannelsReordered& a, Event_ChannelsReordered& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_ChannelsReordered* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_ChannelsReordered* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_ChannelsReordered* New() const final {
+    return CreateMaybeMessage<Event_ChannelsReordered>(nullptr);
+  }
+
+  Event_ChannelsReordered* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_ChannelsReordered>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_ChannelsReordered& from);
+  void MergeFrom(const Event_ChannelsReordered& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_ChannelsReordered* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.ChannelsReordered";
+  }
+  protected:
+  explicit Event_ChannelsReordered(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kChannelIdsFieldNumber = 1,
+    kGuildIdFieldNumber = 2,
+  };
+  // repeated uint64 channel_ids = 1;
+  int channel_ids_size() const;
+  private:
+  int _internal_channel_ids_size() const;
+  public:
+  void clear_channel_ids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_channel_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      _internal_channel_ids() const;
+  void _internal_add_channel_ids(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      _internal_mutable_channel_ids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint64 channel_ids(int index) const;
+  void set_channel_ids(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void add_channel_ids(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      channel_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      mutable_channel_ids();
+
+  // uint64 guild_id = 2;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.ChannelsReordered)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > channel_ids_;
+  mutable std::atomic<int> _channel_ids_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Event_ChannelDeleted PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.ChannelDeleted) */ {
  public:
@@ -1818,7 +2026,7 @@ class Event_ChannelDeleted PROTOBUF_FINAL :
                &_Event_ChannelDeleted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(Event_ChannelDeleted& a, Event_ChannelDeleted& b) {
     a.Swap(&b);
@@ -1966,7 +2174,7 @@ class Event_GuildUpdated PROTOBUF_FINAL :
                &_Event_GuildUpdated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(Event_GuildUpdated& a, Event_GuildUpdated& b) {
     a.Swap(&b);
@@ -2210,7 +2418,7 @@ class Event_GuildDeleted PROTOBUF_FINAL :
                &_Event_GuildDeleted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(Event_GuildDeleted& a, Event_GuildDeleted& b) {
     a.Swap(&b);
@@ -2347,7 +2555,7 @@ class Event_MemberJoined PROTOBUF_FINAL :
                &_Event_MemberJoined_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(Event_MemberJoined& a, Event_MemberJoined& b) {
     a.Swap(&b);
@@ -2495,7 +2703,7 @@ class Event_MemberLeft PROTOBUF_FINAL :
                &_Event_MemberLeft_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(Event_MemberLeft& a, Event_MemberLeft& b) {
     a.Swap(&b);
@@ -2654,7 +2862,7 @@ class Event_GuildAddedToList PROTOBUF_FINAL :
                &_Event_GuildAddedToList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(Event_GuildAddedToList& a, Event_GuildAddedToList& b) {
     a.Swap(&b);
@@ -2818,7 +3026,7 @@ class Event_GuildRemovedFromList PROTOBUF_FINAL :
                &_Event_GuildRemovedFromList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(Event_GuildRemovedFromList& a, Event_GuildRemovedFromList& b) {
     a.Swap(&b);
@@ -2982,7 +3190,7 @@ class Event_ActionPerformed PROTOBUF_FINAL :
                &_Event_ActionPerformed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(Event_ActionPerformed& a, Event_ActionPerformed& b) {
     a.Swap(&b);
@@ -3195,7 +3403,7 @@ class Event_RoleMoved PROTOBUF_FINAL :
                &_Event_RoleMoved_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(Event_RoleMoved& a, Event_RoleMoved& b) {
     a.Swap(&b);
@@ -3268,6 +3476,8 @@ class Event_RoleMoved PROTOBUF_FINAL :
   enum : int {
     kGuildIdFieldNumber = 1,
     kRoleIdFieldNumber = 2,
+    kPreviousIdFieldNumber = 3,
+    kNextIdFieldNumber = 4,
   };
   // uint64 guild_id = 1;
   void clear_guild_id();
@@ -3287,6 +3497,24 @@ class Event_RoleMoved PROTOBUF_FINAL :
   void _internal_set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // uint64 previous_id = 3;
+  void clear_previous_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 previous_id() const;
+  void set_previous_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_previous_id() const;
+  void _internal_set_previous_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 next_id = 4;
+  void clear_next_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 next_id() const;
+  void set_next_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_next_id() const;
+  void _internal_set_next_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.RoleMoved)
  private:
   class _Internal;
@@ -3296,6 +3524,844 @@ class Event_RoleMoved PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 role_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 previous_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 next_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event_RoleDeleted PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.RoleDeleted) */ {
+ public:
+  inline Event_RoleDeleted() : Event_RoleDeleted(nullptr) {};
+  virtual ~Event_RoleDeleted();
+
+  Event_RoleDeleted(const Event_RoleDeleted& from);
+  Event_RoleDeleted(Event_RoleDeleted&& from) noexcept
+    : Event_RoleDeleted() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_RoleDeleted& operator=(const Event_RoleDeleted& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_RoleDeleted& operator=(Event_RoleDeleted&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_RoleDeleted& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_RoleDeleted* internal_default_instance() {
+    return reinterpret_cast<const Event_RoleDeleted*>(
+               &_Event_RoleDeleted_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(Event_RoleDeleted& a, Event_RoleDeleted& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_RoleDeleted* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_RoleDeleted* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_RoleDeleted* New() const final {
+    return CreateMaybeMessage<Event_RoleDeleted>(nullptr);
+  }
+
+  Event_RoleDeleted* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_RoleDeleted>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_RoleDeleted& from);
+  void MergeFrom(const Event_RoleDeleted& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_RoleDeleted* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.RoleDeleted";
+  }
+  protected:
+  explicit Event_RoleDeleted(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGuildIdFieldNumber = 1,
+    kRoleIdFieldNumber = 2,
+  };
+  // uint64 guild_id = 1;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 role_id = 2;
+  void clear_role_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 role_id() const;
+  void set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_role_id() const;
+  void _internal_set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.RoleDeleted)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 role_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event_RoleCreated PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.RoleCreated) */ {
+ public:
+  inline Event_RoleCreated() : Event_RoleCreated(nullptr) {};
+  virtual ~Event_RoleCreated();
+
+  Event_RoleCreated(const Event_RoleCreated& from);
+  Event_RoleCreated(Event_RoleCreated&& from) noexcept
+    : Event_RoleCreated() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_RoleCreated& operator=(const Event_RoleCreated& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_RoleCreated& operator=(Event_RoleCreated&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_RoleCreated& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_RoleCreated* internal_default_instance() {
+    return reinterpret_cast<const Event_RoleCreated*>(
+               &_Event_RoleCreated_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(Event_RoleCreated& a, Event_RoleCreated& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_RoleCreated* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_RoleCreated* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_RoleCreated* New() const final {
+    return CreateMaybeMessage<Event_RoleCreated>(nullptr);
+  }
+
+  Event_RoleCreated* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_RoleCreated>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_RoleCreated& from);
+  void MergeFrom(const Event_RoleCreated& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_RoleCreated* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.RoleCreated";
+  }
+  protected:
+  explicit Event_RoleCreated(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRoleFieldNumber = 3,
+    kGuildIdFieldNumber = 1,
+    kRoleIdFieldNumber = 2,
+  };
+  // .protocol.chat.v1.Role role = 3;
+  bool has_role() const;
+  private:
+  bool _internal_has_role() const;
+  public:
+  void clear_role();
+  const ::protocol::chat::v1::Role& role() const;
+  ::protocol::chat::v1::Role* release_role();
+  ::protocol::chat::v1::Role* mutable_role();
+  void set_allocated_role(::protocol::chat::v1::Role* role);
+  private:
+  const ::protocol::chat::v1::Role& _internal_role() const;
+  ::protocol::chat::v1::Role* _internal_mutable_role();
+  public:
+  void unsafe_arena_set_allocated_role(
+      ::protocol::chat::v1::Role* role);
+  ::protocol::chat::v1::Role* unsafe_arena_release_role();
+
+  // uint64 guild_id = 1;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 role_id = 2;
+  void clear_role_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 role_id() const;
+  void set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_role_id() const;
+  void _internal_set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.RoleCreated)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::protocol::chat::v1::Role* role_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 role_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event_RoleUpdated PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.RoleUpdated) */ {
+ public:
+  inline Event_RoleUpdated() : Event_RoleUpdated(nullptr) {};
+  virtual ~Event_RoleUpdated();
+
+  Event_RoleUpdated(const Event_RoleUpdated& from);
+  Event_RoleUpdated(Event_RoleUpdated&& from) noexcept
+    : Event_RoleUpdated() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_RoleUpdated& operator=(const Event_RoleUpdated& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_RoleUpdated& operator=(Event_RoleUpdated&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_RoleUpdated& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_RoleUpdated* internal_default_instance() {
+    return reinterpret_cast<const Event_RoleUpdated*>(
+               &_Event_RoleUpdated_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(Event_RoleUpdated& a, Event_RoleUpdated& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_RoleUpdated* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_RoleUpdated* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_RoleUpdated* New() const final {
+    return CreateMaybeMessage<Event_RoleUpdated>(nullptr);
+  }
+
+  Event_RoleUpdated* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_RoleUpdated>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_RoleUpdated& from);
+  void MergeFrom(const Event_RoleUpdated& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_RoleUpdated* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.RoleUpdated";
+  }
+  protected:
+  explicit Event_RoleUpdated(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRoleFieldNumber = 4,
+    kGuildIdFieldNumber = 1,
+    kRoleIdFieldNumber = 3,
+  };
+  // .protocol.chat.v1.Role role = 4;
+  bool has_role() const;
+  private:
+  bool _internal_has_role() const;
+  public:
+  void clear_role();
+  const ::protocol::chat::v1::Role& role() const;
+  ::protocol::chat::v1::Role* release_role();
+  ::protocol::chat::v1::Role* mutable_role();
+  void set_allocated_role(::protocol::chat::v1::Role* role);
+  private:
+  const ::protocol::chat::v1::Role& _internal_role() const;
+  ::protocol::chat::v1::Role* _internal_mutable_role();
+  public:
+  void unsafe_arena_set_allocated_role(
+      ::protocol::chat::v1::Role* role);
+  ::protocol::chat::v1::Role* unsafe_arena_release_role();
+
+  // uint64 guild_id = 1;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 role_id = 3;
+  void clear_role_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 role_id() const;
+  void set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_role_id() const;
+  void _internal_set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.RoleUpdated)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::protocol::chat::v1::Role* role_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 role_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event_RolePermissionsUpdated PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.RolePermissionsUpdated) */ {
+ public:
+  inline Event_RolePermissionsUpdated() : Event_RolePermissionsUpdated(nullptr) {};
+  virtual ~Event_RolePermissionsUpdated();
+
+  Event_RolePermissionsUpdated(const Event_RolePermissionsUpdated& from);
+  Event_RolePermissionsUpdated(Event_RolePermissionsUpdated&& from) noexcept
+    : Event_RolePermissionsUpdated() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_RolePermissionsUpdated& operator=(const Event_RolePermissionsUpdated& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_RolePermissionsUpdated& operator=(Event_RolePermissionsUpdated&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_RolePermissionsUpdated& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_RolePermissionsUpdated* internal_default_instance() {
+    return reinterpret_cast<const Event_RolePermissionsUpdated*>(
+               &_Event_RolePermissionsUpdated_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  friend void swap(Event_RolePermissionsUpdated& a, Event_RolePermissionsUpdated& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_RolePermissionsUpdated* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_RolePermissionsUpdated* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_RolePermissionsUpdated* New() const final {
+    return CreateMaybeMessage<Event_RolePermissionsUpdated>(nullptr);
+  }
+
+  Event_RolePermissionsUpdated* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_RolePermissionsUpdated>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_RolePermissionsUpdated& from);
+  void MergeFrom(const Event_RolePermissionsUpdated& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_RolePermissionsUpdated* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.RolePermissionsUpdated";
+  }
+  protected:
+  explicit Event_RolePermissionsUpdated(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPermsFieldNumber = 4,
+    kGuildIdFieldNumber = 1,
+    kChannelIdFieldNumber = 2,
+    kRoleIdFieldNumber = 3,
+  };
+  // .protocol.chat.v1.PermissionList perms = 4;
+  bool has_perms() const;
+  private:
+  bool _internal_has_perms() const;
+  public:
+  void clear_perms();
+  const ::protocol::chat::v1::PermissionList& perms() const;
+  ::protocol::chat::v1::PermissionList* release_perms();
+  ::protocol::chat::v1::PermissionList* mutable_perms();
+  void set_allocated_perms(::protocol::chat::v1::PermissionList* perms);
+  private:
+  const ::protocol::chat::v1::PermissionList& _internal_perms() const;
+  ::protocol::chat::v1::PermissionList* _internal_mutable_perms();
+  public:
+  void unsafe_arena_set_allocated_perms(
+      ::protocol::chat::v1::PermissionList* perms);
+  ::protocol::chat::v1::PermissionList* unsafe_arena_release_perms();
+
+  // uint64 guild_id = 1;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 channel_id = 2;
+  void clear_channel_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 channel_id() const;
+  void set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_channel_id() const;
+  void _internal_set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 role_id = 3;
+  void clear_role_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 role_id() const;
+  void set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_role_id() const;
+  void _internal_set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.RolePermissionsUpdated)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::protocol::chat::v1::PermissionList* perms_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 channel_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 role_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event_UserRolesUpdated PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.UserRolesUpdated) */ {
+ public:
+  inline Event_UserRolesUpdated() : Event_UserRolesUpdated(nullptr) {};
+  virtual ~Event_UserRolesUpdated();
+
+  Event_UserRolesUpdated(const Event_UserRolesUpdated& from);
+  Event_UserRolesUpdated(Event_UserRolesUpdated&& from) noexcept
+    : Event_UserRolesUpdated() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_UserRolesUpdated& operator=(const Event_UserRolesUpdated& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_UserRolesUpdated& operator=(Event_UserRolesUpdated&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_UserRolesUpdated& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_UserRolesUpdated* internal_default_instance() {
+    return reinterpret_cast<const Event_UserRolesUpdated*>(
+               &_Event_UserRolesUpdated_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  friend void swap(Event_UserRolesUpdated& a, Event_UserRolesUpdated& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_UserRolesUpdated* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_UserRolesUpdated* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_UserRolesUpdated* New() const final {
+    return CreateMaybeMessage<Event_UserRolesUpdated>(nullptr);
+  }
+
+  Event_UserRolesUpdated* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_UserRolesUpdated>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_UserRolesUpdated& from);
+  void MergeFrom(const Event_UserRolesUpdated& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_UserRolesUpdated* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.UserRolesUpdated";
+  }
+  protected:
+  explicit Event_UserRolesUpdated(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRoleIdsFieldNumber = 3,
+    kGuildIdFieldNumber = 1,
+    kUserIdFieldNumber = 2,
+  };
+  // repeated uint64 role_ids = 3;
+  int role_ids_size() const;
+  private:
+  int _internal_role_ids_size() const;
+  public:
+  void clear_role_ids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_role_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      _internal_role_ids() const;
+  void _internal_add_role_ids(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      _internal_mutable_role_ids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint64 role_ids(int index) const;
+  void set_role_ids(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void add_role_ids(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      role_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      mutable_role_ids();
+
+  // uint64 guild_id = 1;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 user_id = 2;
+  void clear_user_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 user_id() const;
+  void set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_user_id() const;
+  void _internal_set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.UserRolesUpdated)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > role_ids_;
+  mutable std::atomic<int> _role_ids_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 user_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
 };
@@ -3343,7 +4409,7 @@ class Event_ProfileUpdated PROTOBUF_FINAL :
                &_Event_ProfileUpdated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    24;
 
   friend void swap(Event_ProfileUpdated& a, Event_ProfileUpdated& b) {
     a.Swap(&b);
@@ -3600,7 +4666,7 @@ class Event_Typing PROTOBUF_FINAL :
                &_Event_Typing_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    25;
 
   friend void swap(Event_Typing& a, Event_Typing& b) {
     a.Swap(&b);
@@ -3717,6 +4783,833 @@ class Event_Typing PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Event_PermissionUpdated PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.PermissionUpdated) */ {
+ public:
+  inline Event_PermissionUpdated() : Event_PermissionUpdated(nullptr) {};
+  virtual ~Event_PermissionUpdated();
+
+  Event_PermissionUpdated(const Event_PermissionUpdated& from);
+  Event_PermissionUpdated(Event_PermissionUpdated&& from) noexcept
+    : Event_PermissionUpdated() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_PermissionUpdated& operator=(const Event_PermissionUpdated& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_PermissionUpdated& operator=(Event_PermissionUpdated&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_PermissionUpdated& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_PermissionUpdated* internal_default_instance() {
+    return reinterpret_cast<const Event_PermissionUpdated*>(
+               &_Event_PermissionUpdated_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  friend void swap(Event_PermissionUpdated& a, Event_PermissionUpdated& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_PermissionUpdated* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_PermissionUpdated* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_PermissionUpdated* New() const final {
+    return CreateMaybeMessage<Event_PermissionUpdated>(nullptr);
+  }
+
+  Event_PermissionUpdated* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_PermissionUpdated>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_PermissionUpdated& from);
+  void MergeFrom(const Event_PermissionUpdated& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_PermissionUpdated* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.PermissionUpdated";
+  }
+  protected:
+  explicit Event_PermissionUpdated(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kQueryFieldNumber = 3,
+    kGuildIdFieldNumber = 1,
+    kChannelIdFieldNumber = 2,
+    kOkFieldNumber = 4,
+  };
+  // string query = 3;
+  void clear_query();
+  const std::string& query() const;
+  void set_query(const std::string& value);
+  void set_query(std::string&& value);
+  void set_query(const char* value);
+  void set_query(const char* value, size_t size);
+  std::string* mutable_query();
+  std::string* release_query();
+  void set_allocated_query(std::string* query);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_query();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_query(
+      std::string* query);
+  private:
+  const std::string& _internal_query() const;
+  void _internal_set_query(const std::string& value);
+  std::string* _internal_mutable_query();
+  public:
+
+  // uint64 guild_id = 1;
+  void clear_guild_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id() const;
+  void set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_guild_id() const;
+  void _internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 channel_id = 2;
+  void clear_channel_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 channel_id() const;
+  void set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_channel_id() const;
+  void _internal_set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // bool ok = 4;
+  void clear_ok();
+  bool ok() const;
+  void set_ok(bool value);
+  private:
+  bool _internal_ok() const;
+  void _internal_set_ok(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.PermissionUpdated)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 guild_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 channel_id_;
+  bool ok_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event_EmotePackUpdated PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.EmotePackUpdated) */ {
+ public:
+  inline Event_EmotePackUpdated() : Event_EmotePackUpdated(nullptr) {};
+  virtual ~Event_EmotePackUpdated();
+
+  Event_EmotePackUpdated(const Event_EmotePackUpdated& from);
+  Event_EmotePackUpdated(Event_EmotePackUpdated&& from) noexcept
+    : Event_EmotePackUpdated() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_EmotePackUpdated& operator=(const Event_EmotePackUpdated& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_EmotePackUpdated& operator=(Event_EmotePackUpdated&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_EmotePackUpdated& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_EmotePackUpdated* internal_default_instance() {
+    return reinterpret_cast<const Event_EmotePackUpdated*>(
+               &_Event_EmotePackUpdated_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    27;
+
+  friend void swap(Event_EmotePackUpdated& a, Event_EmotePackUpdated& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_EmotePackUpdated* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_EmotePackUpdated* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_EmotePackUpdated* New() const final {
+    return CreateMaybeMessage<Event_EmotePackUpdated>(nullptr);
+  }
+
+  Event_EmotePackUpdated* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_EmotePackUpdated>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_EmotePackUpdated& from);
+  void MergeFrom(const Event_EmotePackUpdated& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_EmotePackUpdated* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.EmotePackUpdated";
+  }
+  protected:
+  explicit Event_EmotePackUpdated(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPackNameFieldNumber = 2,
+    kPackIdFieldNumber = 1,
+    kUpdatePackNameFieldNumber = 3,
+  };
+  // string pack_name = 2;
+  void clear_pack_name();
+  const std::string& pack_name() const;
+  void set_pack_name(const std::string& value);
+  void set_pack_name(std::string&& value);
+  void set_pack_name(const char* value);
+  void set_pack_name(const char* value, size_t size);
+  std::string* mutable_pack_name();
+  std::string* release_pack_name();
+  void set_allocated_pack_name(std::string* pack_name);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_pack_name();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_pack_name(
+      std::string* pack_name);
+  private:
+  const std::string& _internal_pack_name() const;
+  void _internal_set_pack_name(const std::string& value);
+  std::string* _internal_mutable_pack_name();
+  public:
+
+  // uint64 pack_id = 1;
+  void clear_pack_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 pack_id() const;
+  void set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_pack_id() const;
+  void _internal_set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // bool update_pack_name = 3;
+  void clear_update_pack_name();
+  bool update_pack_name() const;
+  void set_update_pack_name(bool value);
+  private:
+  bool _internal_update_pack_name() const;
+  void _internal_set_update_pack_name(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.EmotePackUpdated)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pack_name_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 pack_id_;
+  bool update_pack_name_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event_EmotePackDeleted PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.EmotePackDeleted) */ {
+ public:
+  inline Event_EmotePackDeleted() : Event_EmotePackDeleted(nullptr) {};
+  virtual ~Event_EmotePackDeleted();
+
+  Event_EmotePackDeleted(const Event_EmotePackDeleted& from);
+  Event_EmotePackDeleted(Event_EmotePackDeleted&& from) noexcept
+    : Event_EmotePackDeleted() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_EmotePackDeleted& operator=(const Event_EmotePackDeleted& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_EmotePackDeleted& operator=(Event_EmotePackDeleted&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_EmotePackDeleted& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_EmotePackDeleted* internal_default_instance() {
+    return reinterpret_cast<const Event_EmotePackDeleted*>(
+               &_Event_EmotePackDeleted_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    28;
+
+  friend void swap(Event_EmotePackDeleted& a, Event_EmotePackDeleted& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_EmotePackDeleted* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_EmotePackDeleted* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_EmotePackDeleted* New() const final {
+    return CreateMaybeMessage<Event_EmotePackDeleted>(nullptr);
+  }
+
+  Event_EmotePackDeleted* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_EmotePackDeleted>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_EmotePackDeleted& from);
+  void MergeFrom(const Event_EmotePackDeleted& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_EmotePackDeleted* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.EmotePackDeleted";
+  }
+  protected:
+  explicit Event_EmotePackDeleted(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPackIdFieldNumber = 1,
+  };
+  // uint64 pack_id = 1;
+  void clear_pack_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 pack_id() const;
+  void set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_pack_id() const;
+  void _internal_set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.EmotePackDeleted)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 pack_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event_EmotePackAdded PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.EmotePackAdded) */ {
+ public:
+  inline Event_EmotePackAdded() : Event_EmotePackAdded(nullptr) {};
+  virtual ~Event_EmotePackAdded();
+
+  Event_EmotePackAdded(const Event_EmotePackAdded& from);
+  Event_EmotePackAdded(Event_EmotePackAdded&& from) noexcept
+    : Event_EmotePackAdded() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_EmotePackAdded& operator=(const Event_EmotePackAdded& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_EmotePackAdded& operator=(Event_EmotePackAdded&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_EmotePackAdded& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_EmotePackAdded* internal_default_instance() {
+    return reinterpret_cast<const Event_EmotePackAdded*>(
+               &_Event_EmotePackAdded_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    29;
+
+  friend void swap(Event_EmotePackAdded& a, Event_EmotePackAdded& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_EmotePackAdded* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_EmotePackAdded* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_EmotePackAdded* New() const final {
+    return CreateMaybeMessage<Event_EmotePackAdded>(nullptr);
+  }
+
+  Event_EmotePackAdded* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_EmotePackAdded>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_EmotePackAdded& from);
+  void MergeFrom(const Event_EmotePackAdded& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_EmotePackAdded* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.EmotePackAdded";
+  }
+  protected:
+  explicit Event_EmotePackAdded(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPackFieldNumber = 1,
+  };
+  // .protocol.chat.v1.EmotePack pack = 1;
+  bool has_pack() const;
+  private:
+  bool _internal_has_pack() const;
+  public:
+  void clear_pack();
+  const ::protocol::chat::v1::EmotePack& pack() const;
+  ::protocol::chat::v1::EmotePack* release_pack();
+  ::protocol::chat::v1::EmotePack* mutable_pack();
+  void set_allocated_pack(::protocol::chat::v1::EmotePack* pack);
+  private:
+  const ::protocol::chat::v1::EmotePack& _internal_pack() const;
+  ::protocol::chat::v1::EmotePack* _internal_mutable_pack();
+  public:
+  void unsafe_arena_set_allocated_pack(
+      ::protocol::chat::v1::EmotePack* pack);
+  ::protocol::chat::v1::EmotePack* unsafe_arena_release_pack();
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.EmotePackAdded)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::protocol::chat::v1::EmotePack* pack_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Event_EmotePackEmotesUpdated PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event.EmotePackEmotesUpdated) */ {
+ public:
+  inline Event_EmotePackEmotesUpdated() : Event_EmotePackEmotesUpdated(nullptr) {};
+  virtual ~Event_EmotePackEmotesUpdated();
+
+  Event_EmotePackEmotesUpdated(const Event_EmotePackEmotesUpdated& from);
+  Event_EmotePackEmotesUpdated(Event_EmotePackEmotesUpdated&& from) noexcept
+    : Event_EmotePackEmotesUpdated() {
+    *this = ::std::move(from);
+  }
+
+  inline Event_EmotePackEmotesUpdated& operator=(const Event_EmotePackEmotesUpdated& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Event_EmotePackEmotesUpdated& operator=(Event_EmotePackEmotesUpdated&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Event_EmotePackEmotesUpdated& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Event_EmotePackEmotesUpdated* internal_default_instance() {
+    return reinterpret_cast<const Event_EmotePackEmotesUpdated*>(
+               &_Event_EmotePackEmotesUpdated_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(Event_EmotePackEmotesUpdated& a, Event_EmotePackEmotesUpdated& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Event_EmotePackEmotesUpdated* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Event_EmotePackEmotesUpdated* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Event_EmotePackEmotesUpdated* New() const final {
+    return CreateMaybeMessage<Event_EmotePackEmotesUpdated>(nullptr);
+  }
+
+  Event_EmotePackEmotesUpdated* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Event_EmotePackEmotesUpdated>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Event_EmotePackEmotesUpdated& from);
+  void MergeFrom(const Event_EmotePackEmotesUpdated& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Event_EmotePackEmotesUpdated* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "protocol.chat.v1.Event.EmotePackEmotesUpdated";
+  }
+  protected:
+  explicit Event_EmotePackEmotesUpdated(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_chat_2fv1_2fstreaming_2eproto);
+    return ::descriptor_table_chat_2fv1_2fstreaming_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAddedEmotesFieldNumber = 2,
+    kDeletedEmotesFieldNumber = 3,
+    kPackIdFieldNumber = 1,
+  };
+  // repeated .protocol.chat.v1.Emote added_emotes = 2;
+  int added_emotes_size() const;
+  private:
+  int _internal_added_emotes_size() const;
+  public:
+  void clear_added_emotes();
+  ::protocol::chat::v1::Emote* mutable_added_emotes(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::chat::v1::Emote >*
+      mutable_added_emotes();
+  private:
+  const ::protocol::chat::v1::Emote& _internal_added_emotes(int index) const;
+  ::protocol::chat::v1::Emote* _internal_add_added_emotes();
+  public:
+  const ::protocol::chat::v1::Emote& added_emotes(int index) const;
+  ::protocol::chat::v1::Emote* add_added_emotes();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::chat::v1::Emote >&
+      added_emotes() const;
+
+  // repeated string deleted_emotes = 3;
+  int deleted_emotes_size() const;
+  private:
+  int _internal_deleted_emotes_size() const;
+  public:
+  void clear_deleted_emotes();
+  const std::string& deleted_emotes(int index) const;
+  std::string* mutable_deleted_emotes(int index);
+  void set_deleted_emotes(int index, const std::string& value);
+  void set_deleted_emotes(int index, std::string&& value);
+  void set_deleted_emotes(int index, const char* value);
+  void set_deleted_emotes(int index, const char* value, size_t size);
+  std::string* add_deleted_emotes();
+  void add_deleted_emotes(const std::string& value);
+  void add_deleted_emotes(std::string&& value);
+  void add_deleted_emotes(const char* value);
+  void add_deleted_emotes(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& deleted_emotes() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_deleted_emotes();
+  private:
+  const std::string& _internal_deleted_emotes(int index) const;
+  std::string* _internal_add_deleted_emotes();
+  public:
+
+  // uint64 pack_id = 1;
+  void clear_pack_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 pack_id() const;
+  void set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_pack_id() const;
+  void _internal_set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event.EmotePackEmotesUpdated)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::chat::v1::Emote > added_emotes_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> deleted_emotes_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 pack_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_chat_2fv1_2fstreaming_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Event PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protocol.chat.v1.Event) */ {
  public:
@@ -3763,13 +5656,24 @@ class Event PROTOBUF_FINAL :
     kCreatedChannel = 7,
     kEditedChannel = 8,
     kDeletedChannel = 9,
+    kChannelsReordered = 27,
     kEditedGuild = 10,
     kDeletedGuild = 11,
     kJoinedMember = 12,
     kLeftMember = 13,
-    kRoleMoved = 14,
-    kProfileUpdated = 15,
-    kTyping = 16,
+    kProfileUpdated = 14,
+    kTyping = 15,
+    kRoleCreated = 16,
+    kRoleDeleted = 17,
+    kRoleMoved = 18,
+    kRoleUpdated = 19,
+    kRolePermsUpdated = 20,
+    kUserRolesUpdated = 21,
+    kPermissionUpdated = 22,
+    kEmotePackAdded = 23,
+    kEmotePackUpdated = 24,
+    kEmotePackDeleted = 25,
+    kEmotePackEmotesUpdated = 26,
     EVENT_NOT_SET = 0,
   };
 
@@ -3779,7 +5683,7 @@ class Event PROTOBUF_FINAL :
                &_Event_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    31;
 
   friend void swap(Event& a, Event& b) {
     a.Swap(&b);
@@ -3852,6 +5756,7 @@ class Event PROTOBUF_FINAL :
   typedef Event_MessageDeleted MessageDeleted;
   typedef Event_ChannelCreated ChannelCreated;
   typedef Event_ChannelUpdated ChannelUpdated;
+  typedef Event_ChannelsReordered ChannelsReordered;
   typedef Event_ChannelDeleted ChannelDeleted;
   typedef Event_GuildUpdated GuildUpdated;
   typedef Event_GuildDeleted GuildDeleted;
@@ -3861,8 +5766,18 @@ class Event PROTOBUF_FINAL :
   typedef Event_GuildRemovedFromList GuildRemovedFromList;
   typedef Event_ActionPerformed ActionPerformed;
   typedef Event_RoleMoved RoleMoved;
+  typedef Event_RoleDeleted RoleDeleted;
+  typedef Event_RoleCreated RoleCreated;
+  typedef Event_RoleUpdated RoleUpdated;
+  typedef Event_RolePermissionsUpdated RolePermissionsUpdated;
+  typedef Event_UserRolesUpdated UserRolesUpdated;
   typedef Event_ProfileUpdated ProfileUpdated;
   typedef Event_Typing Typing;
+  typedef Event_PermissionUpdated PermissionUpdated;
+  typedef Event_EmotePackUpdated EmotePackUpdated;
+  typedef Event_EmotePackDeleted EmotePackDeleted;
+  typedef Event_EmotePackAdded EmotePackAdded;
+  typedef Event_EmotePackEmotesUpdated EmotePackEmotesUpdated;
 
   typedef Event_LeaveReason LeaveReason;
   static constexpr LeaveReason willingly =
@@ -3908,13 +5823,24 @@ class Event PROTOBUF_FINAL :
     kCreatedChannelFieldNumber = 7,
     kEditedChannelFieldNumber = 8,
     kDeletedChannelFieldNumber = 9,
+    kChannelsReorderedFieldNumber = 27,
     kEditedGuildFieldNumber = 10,
     kDeletedGuildFieldNumber = 11,
     kJoinedMemberFieldNumber = 12,
     kLeftMemberFieldNumber = 13,
-    kRoleMovedFieldNumber = 14,
-    kProfileUpdatedFieldNumber = 15,
-    kTypingFieldNumber = 16,
+    kProfileUpdatedFieldNumber = 14,
+    kTypingFieldNumber = 15,
+    kRoleCreatedFieldNumber = 16,
+    kRoleDeletedFieldNumber = 17,
+    kRoleMovedFieldNumber = 18,
+    kRoleUpdatedFieldNumber = 19,
+    kRolePermsUpdatedFieldNumber = 20,
+    kUserRolesUpdatedFieldNumber = 21,
+    kPermissionUpdatedFieldNumber = 22,
+    kEmotePackAddedFieldNumber = 23,
+    kEmotePackUpdatedFieldNumber = 24,
+    kEmotePackDeletedFieldNumber = 25,
+    kEmotePackEmotesUpdatedFieldNumber = 26,
   };
   // .protocol.chat.v1.Event.GuildAddedToList guild_added_to_list = 1;
   bool has_guild_added_to_list() const;
@@ -4078,6 +6004,24 @@ class Event PROTOBUF_FINAL :
       ::protocol::chat::v1::Event_ChannelDeleted* deleted_channel);
   ::protocol::chat::v1::Event_ChannelDeleted* unsafe_arena_release_deleted_channel();
 
+  // .protocol.chat.v1.Event.ChannelsReordered channels_reordered = 27;
+  bool has_channels_reordered() const;
+  private:
+  bool _internal_has_channels_reordered() const;
+  public:
+  void clear_channels_reordered();
+  const ::protocol::chat::v1::Event_ChannelsReordered& channels_reordered() const;
+  ::protocol::chat::v1::Event_ChannelsReordered* release_channels_reordered();
+  ::protocol::chat::v1::Event_ChannelsReordered* mutable_channels_reordered();
+  void set_allocated_channels_reordered(::protocol::chat::v1::Event_ChannelsReordered* channels_reordered);
+  private:
+  const ::protocol::chat::v1::Event_ChannelsReordered& _internal_channels_reordered() const;
+  ::protocol::chat::v1::Event_ChannelsReordered* _internal_mutable_channels_reordered();
+  public:
+  void unsafe_arena_set_allocated_channels_reordered(
+      ::protocol::chat::v1::Event_ChannelsReordered* channels_reordered);
+  ::protocol::chat::v1::Event_ChannelsReordered* unsafe_arena_release_channels_reordered();
+
   // .protocol.chat.v1.Event.GuildUpdated edited_guild = 10;
   bool has_edited_guild() const;
   private:
@@ -4150,25 +6094,7 @@ class Event PROTOBUF_FINAL :
       ::protocol::chat::v1::Event_MemberLeft* left_member);
   ::protocol::chat::v1::Event_MemberLeft* unsafe_arena_release_left_member();
 
-  // .protocol.chat.v1.Event.RoleMoved role_moved = 14;
-  bool has_role_moved() const;
-  private:
-  bool _internal_has_role_moved() const;
-  public:
-  void clear_role_moved();
-  const ::protocol::chat::v1::Event_RoleMoved& role_moved() const;
-  ::protocol::chat::v1::Event_RoleMoved* release_role_moved();
-  ::protocol::chat::v1::Event_RoleMoved* mutable_role_moved();
-  void set_allocated_role_moved(::protocol::chat::v1::Event_RoleMoved* role_moved);
-  private:
-  const ::protocol::chat::v1::Event_RoleMoved& _internal_role_moved() const;
-  ::protocol::chat::v1::Event_RoleMoved* _internal_mutable_role_moved();
-  public:
-  void unsafe_arena_set_allocated_role_moved(
-      ::protocol::chat::v1::Event_RoleMoved* role_moved);
-  ::protocol::chat::v1::Event_RoleMoved* unsafe_arena_release_role_moved();
-
-  // .protocol.chat.v1.Event.ProfileUpdated profile_updated = 15;
+  // .protocol.chat.v1.Event.ProfileUpdated profile_updated = 14;
   bool has_profile_updated() const;
   private:
   bool _internal_has_profile_updated() const;
@@ -4186,7 +6112,7 @@ class Event PROTOBUF_FINAL :
       ::protocol::chat::v1::Event_ProfileUpdated* profile_updated);
   ::protocol::chat::v1::Event_ProfileUpdated* unsafe_arena_release_profile_updated();
 
-  // .protocol.chat.v1.Event.Typing typing = 16;
+  // .protocol.chat.v1.Event.Typing typing = 15;
   bool has_typing() const;
   private:
   bool _internal_has_typing() const;
@@ -4204,6 +6130,204 @@ class Event PROTOBUF_FINAL :
       ::protocol::chat::v1::Event_Typing* typing);
   ::protocol::chat::v1::Event_Typing* unsafe_arena_release_typing();
 
+  // .protocol.chat.v1.Event.RoleCreated role_created = 16;
+  bool has_role_created() const;
+  private:
+  bool _internal_has_role_created() const;
+  public:
+  void clear_role_created();
+  const ::protocol::chat::v1::Event_RoleCreated& role_created() const;
+  ::protocol::chat::v1::Event_RoleCreated* release_role_created();
+  ::protocol::chat::v1::Event_RoleCreated* mutable_role_created();
+  void set_allocated_role_created(::protocol::chat::v1::Event_RoleCreated* role_created);
+  private:
+  const ::protocol::chat::v1::Event_RoleCreated& _internal_role_created() const;
+  ::protocol::chat::v1::Event_RoleCreated* _internal_mutable_role_created();
+  public:
+  void unsafe_arena_set_allocated_role_created(
+      ::protocol::chat::v1::Event_RoleCreated* role_created);
+  ::protocol::chat::v1::Event_RoleCreated* unsafe_arena_release_role_created();
+
+  // .protocol.chat.v1.Event.RoleDeleted role_deleted = 17;
+  bool has_role_deleted() const;
+  private:
+  bool _internal_has_role_deleted() const;
+  public:
+  void clear_role_deleted();
+  const ::protocol::chat::v1::Event_RoleDeleted& role_deleted() const;
+  ::protocol::chat::v1::Event_RoleDeleted* release_role_deleted();
+  ::protocol::chat::v1::Event_RoleDeleted* mutable_role_deleted();
+  void set_allocated_role_deleted(::protocol::chat::v1::Event_RoleDeleted* role_deleted);
+  private:
+  const ::protocol::chat::v1::Event_RoleDeleted& _internal_role_deleted() const;
+  ::protocol::chat::v1::Event_RoleDeleted* _internal_mutable_role_deleted();
+  public:
+  void unsafe_arena_set_allocated_role_deleted(
+      ::protocol::chat::v1::Event_RoleDeleted* role_deleted);
+  ::protocol::chat::v1::Event_RoleDeleted* unsafe_arena_release_role_deleted();
+
+  // .protocol.chat.v1.Event.RoleMoved role_moved = 18;
+  bool has_role_moved() const;
+  private:
+  bool _internal_has_role_moved() const;
+  public:
+  void clear_role_moved();
+  const ::protocol::chat::v1::Event_RoleMoved& role_moved() const;
+  ::protocol::chat::v1::Event_RoleMoved* release_role_moved();
+  ::protocol::chat::v1::Event_RoleMoved* mutable_role_moved();
+  void set_allocated_role_moved(::protocol::chat::v1::Event_RoleMoved* role_moved);
+  private:
+  const ::protocol::chat::v1::Event_RoleMoved& _internal_role_moved() const;
+  ::protocol::chat::v1::Event_RoleMoved* _internal_mutable_role_moved();
+  public:
+  void unsafe_arena_set_allocated_role_moved(
+      ::protocol::chat::v1::Event_RoleMoved* role_moved);
+  ::protocol::chat::v1::Event_RoleMoved* unsafe_arena_release_role_moved();
+
+  // .protocol.chat.v1.Event.RoleUpdated role_updated = 19;
+  bool has_role_updated() const;
+  private:
+  bool _internal_has_role_updated() const;
+  public:
+  void clear_role_updated();
+  const ::protocol::chat::v1::Event_RoleUpdated& role_updated() const;
+  ::protocol::chat::v1::Event_RoleUpdated* release_role_updated();
+  ::protocol::chat::v1::Event_RoleUpdated* mutable_role_updated();
+  void set_allocated_role_updated(::protocol::chat::v1::Event_RoleUpdated* role_updated);
+  private:
+  const ::protocol::chat::v1::Event_RoleUpdated& _internal_role_updated() const;
+  ::protocol::chat::v1::Event_RoleUpdated* _internal_mutable_role_updated();
+  public:
+  void unsafe_arena_set_allocated_role_updated(
+      ::protocol::chat::v1::Event_RoleUpdated* role_updated);
+  ::protocol::chat::v1::Event_RoleUpdated* unsafe_arena_release_role_updated();
+
+  // .protocol.chat.v1.Event.RolePermissionsUpdated role_perms_updated = 20;
+  bool has_role_perms_updated() const;
+  private:
+  bool _internal_has_role_perms_updated() const;
+  public:
+  void clear_role_perms_updated();
+  const ::protocol::chat::v1::Event_RolePermissionsUpdated& role_perms_updated() const;
+  ::protocol::chat::v1::Event_RolePermissionsUpdated* release_role_perms_updated();
+  ::protocol::chat::v1::Event_RolePermissionsUpdated* mutable_role_perms_updated();
+  void set_allocated_role_perms_updated(::protocol::chat::v1::Event_RolePermissionsUpdated* role_perms_updated);
+  private:
+  const ::protocol::chat::v1::Event_RolePermissionsUpdated& _internal_role_perms_updated() const;
+  ::protocol::chat::v1::Event_RolePermissionsUpdated* _internal_mutable_role_perms_updated();
+  public:
+  void unsafe_arena_set_allocated_role_perms_updated(
+      ::protocol::chat::v1::Event_RolePermissionsUpdated* role_perms_updated);
+  ::protocol::chat::v1::Event_RolePermissionsUpdated* unsafe_arena_release_role_perms_updated();
+
+  // .protocol.chat.v1.Event.UserRolesUpdated user_roles_updated = 21;
+  bool has_user_roles_updated() const;
+  private:
+  bool _internal_has_user_roles_updated() const;
+  public:
+  void clear_user_roles_updated();
+  const ::protocol::chat::v1::Event_UserRolesUpdated& user_roles_updated() const;
+  ::protocol::chat::v1::Event_UserRolesUpdated* release_user_roles_updated();
+  ::protocol::chat::v1::Event_UserRolesUpdated* mutable_user_roles_updated();
+  void set_allocated_user_roles_updated(::protocol::chat::v1::Event_UserRolesUpdated* user_roles_updated);
+  private:
+  const ::protocol::chat::v1::Event_UserRolesUpdated& _internal_user_roles_updated() const;
+  ::protocol::chat::v1::Event_UserRolesUpdated* _internal_mutable_user_roles_updated();
+  public:
+  void unsafe_arena_set_allocated_user_roles_updated(
+      ::protocol::chat::v1::Event_UserRolesUpdated* user_roles_updated);
+  ::protocol::chat::v1::Event_UserRolesUpdated* unsafe_arena_release_user_roles_updated();
+
+  // .protocol.chat.v1.Event.PermissionUpdated permission_updated = 22;
+  bool has_permission_updated() const;
+  private:
+  bool _internal_has_permission_updated() const;
+  public:
+  void clear_permission_updated();
+  const ::protocol::chat::v1::Event_PermissionUpdated& permission_updated() const;
+  ::protocol::chat::v1::Event_PermissionUpdated* release_permission_updated();
+  ::protocol::chat::v1::Event_PermissionUpdated* mutable_permission_updated();
+  void set_allocated_permission_updated(::protocol::chat::v1::Event_PermissionUpdated* permission_updated);
+  private:
+  const ::protocol::chat::v1::Event_PermissionUpdated& _internal_permission_updated() const;
+  ::protocol::chat::v1::Event_PermissionUpdated* _internal_mutable_permission_updated();
+  public:
+  void unsafe_arena_set_allocated_permission_updated(
+      ::protocol::chat::v1::Event_PermissionUpdated* permission_updated);
+  ::protocol::chat::v1::Event_PermissionUpdated* unsafe_arena_release_permission_updated();
+
+  // .protocol.chat.v1.Event.EmotePackAdded emote_pack_added = 23;
+  bool has_emote_pack_added() const;
+  private:
+  bool _internal_has_emote_pack_added() const;
+  public:
+  void clear_emote_pack_added();
+  const ::protocol::chat::v1::Event_EmotePackAdded& emote_pack_added() const;
+  ::protocol::chat::v1::Event_EmotePackAdded* release_emote_pack_added();
+  ::protocol::chat::v1::Event_EmotePackAdded* mutable_emote_pack_added();
+  void set_allocated_emote_pack_added(::protocol::chat::v1::Event_EmotePackAdded* emote_pack_added);
+  private:
+  const ::protocol::chat::v1::Event_EmotePackAdded& _internal_emote_pack_added() const;
+  ::protocol::chat::v1::Event_EmotePackAdded* _internal_mutable_emote_pack_added();
+  public:
+  void unsafe_arena_set_allocated_emote_pack_added(
+      ::protocol::chat::v1::Event_EmotePackAdded* emote_pack_added);
+  ::protocol::chat::v1::Event_EmotePackAdded* unsafe_arena_release_emote_pack_added();
+
+  // .protocol.chat.v1.Event.EmotePackUpdated emote_pack_updated = 24;
+  bool has_emote_pack_updated() const;
+  private:
+  bool _internal_has_emote_pack_updated() const;
+  public:
+  void clear_emote_pack_updated();
+  const ::protocol::chat::v1::Event_EmotePackUpdated& emote_pack_updated() const;
+  ::protocol::chat::v1::Event_EmotePackUpdated* release_emote_pack_updated();
+  ::protocol::chat::v1::Event_EmotePackUpdated* mutable_emote_pack_updated();
+  void set_allocated_emote_pack_updated(::protocol::chat::v1::Event_EmotePackUpdated* emote_pack_updated);
+  private:
+  const ::protocol::chat::v1::Event_EmotePackUpdated& _internal_emote_pack_updated() const;
+  ::protocol::chat::v1::Event_EmotePackUpdated* _internal_mutable_emote_pack_updated();
+  public:
+  void unsafe_arena_set_allocated_emote_pack_updated(
+      ::protocol::chat::v1::Event_EmotePackUpdated* emote_pack_updated);
+  ::protocol::chat::v1::Event_EmotePackUpdated* unsafe_arena_release_emote_pack_updated();
+
+  // .protocol.chat.v1.Event.EmotePackDeleted emote_pack_deleted = 25;
+  bool has_emote_pack_deleted() const;
+  private:
+  bool _internal_has_emote_pack_deleted() const;
+  public:
+  void clear_emote_pack_deleted();
+  const ::protocol::chat::v1::Event_EmotePackDeleted& emote_pack_deleted() const;
+  ::protocol::chat::v1::Event_EmotePackDeleted* release_emote_pack_deleted();
+  ::protocol::chat::v1::Event_EmotePackDeleted* mutable_emote_pack_deleted();
+  void set_allocated_emote_pack_deleted(::protocol::chat::v1::Event_EmotePackDeleted* emote_pack_deleted);
+  private:
+  const ::protocol::chat::v1::Event_EmotePackDeleted& _internal_emote_pack_deleted() const;
+  ::protocol::chat::v1::Event_EmotePackDeleted* _internal_mutable_emote_pack_deleted();
+  public:
+  void unsafe_arena_set_allocated_emote_pack_deleted(
+      ::protocol::chat::v1::Event_EmotePackDeleted* emote_pack_deleted);
+  ::protocol::chat::v1::Event_EmotePackDeleted* unsafe_arena_release_emote_pack_deleted();
+
+  // .protocol.chat.v1.Event.EmotePackEmotesUpdated emote_pack_emotes_updated = 26;
+  bool has_emote_pack_emotes_updated() const;
+  private:
+  bool _internal_has_emote_pack_emotes_updated() const;
+  public:
+  void clear_emote_pack_emotes_updated();
+  const ::protocol::chat::v1::Event_EmotePackEmotesUpdated& emote_pack_emotes_updated() const;
+  ::protocol::chat::v1::Event_EmotePackEmotesUpdated* release_emote_pack_emotes_updated();
+  ::protocol::chat::v1::Event_EmotePackEmotesUpdated* mutable_emote_pack_emotes_updated();
+  void set_allocated_emote_pack_emotes_updated(::protocol::chat::v1::Event_EmotePackEmotesUpdated* emote_pack_emotes_updated);
+  private:
+  const ::protocol::chat::v1::Event_EmotePackEmotesUpdated& _internal_emote_pack_emotes_updated() const;
+  ::protocol::chat::v1::Event_EmotePackEmotesUpdated* _internal_mutable_emote_pack_emotes_updated();
+  public:
+  void unsafe_arena_set_allocated_emote_pack_emotes_updated(
+      ::protocol::chat::v1::Event_EmotePackEmotesUpdated* emote_pack_emotes_updated);
+  ::protocol::chat::v1::Event_EmotePackEmotesUpdated* unsafe_arena_release_emote_pack_emotes_updated();
+
   void clear_event();
   EventCase event_case() const;
   // @@protoc_insertion_point(class_scope:protocol.chat.v1.Event)
@@ -4218,13 +6342,24 @@ class Event PROTOBUF_FINAL :
   void set_has_created_channel();
   void set_has_edited_channel();
   void set_has_deleted_channel();
+  void set_has_channels_reordered();
   void set_has_edited_guild();
   void set_has_deleted_guild();
   void set_has_joined_member();
   void set_has_left_member();
-  void set_has_role_moved();
   void set_has_profile_updated();
   void set_has_typing();
+  void set_has_role_created();
+  void set_has_role_deleted();
+  void set_has_role_moved();
+  void set_has_role_updated();
+  void set_has_role_perms_updated();
+  void set_has_user_roles_updated();
+  void set_has_permission_updated();
+  void set_has_emote_pack_added();
+  void set_has_emote_pack_updated();
+  void set_has_emote_pack_deleted();
+  void set_has_emote_pack_emotes_updated();
 
   inline bool has_event() const;
   inline void clear_has_event();
@@ -4243,13 +6378,24 @@ class Event PROTOBUF_FINAL :
     ::protocol::chat::v1::Event_ChannelCreated* created_channel_;
     ::protocol::chat::v1::Event_ChannelUpdated* edited_channel_;
     ::protocol::chat::v1::Event_ChannelDeleted* deleted_channel_;
+    ::protocol::chat::v1::Event_ChannelsReordered* channels_reordered_;
     ::protocol::chat::v1::Event_GuildUpdated* edited_guild_;
     ::protocol::chat::v1::Event_GuildDeleted* deleted_guild_;
     ::protocol::chat::v1::Event_MemberJoined* joined_member_;
     ::protocol::chat::v1::Event_MemberLeft* left_member_;
-    ::protocol::chat::v1::Event_RoleMoved* role_moved_;
     ::protocol::chat::v1::Event_ProfileUpdated* profile_updated_;
     ::protocol::chat::v1::Event_Typing* typing_;
+    ::protocol::chat::v1::Event_RoleCreated* role_created_;
+    ::protocol::chat::v1::Event_RoleDeleted* role_deleted_;
+    ::protocol::chat::v1::Event_RoleMoved* role_moved_;
+    ::protocol::chat::v1::Event_RoleUpdated* role_updated_;
+    ::protocol::chat::v1::Event_RolePermissionsUpdated* role_perms_updated_;
+    ::protocol::chat::v1::Event_UserRolesUpdated* user_roles_updated_;
+    ::protocol::chat::v1::Event_PermissionUpdated* permission_updated_;
+    ::protocol::chat::v1::Event_EmotePackAdded* emote_pack_added_;
+    ::protocol::chat::v1::Event_EmotePackUpdated* emote_pack_updated_;
+    ::protocol::chat::v1::Event_EmotePackDeleted* emote_pack_deleted_;
+    ::protocol::chat::v1::Event_EmotePackEmotesUpdated* emote_pack_emotes_updated_;
   } event_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -5472,6 +7618,77 @@ inline void Event_ChannelUpdated::set_update_metadata(bool value) {
 
 // -------------------------------------------------------------------
 
+// Event_ChannelsReordered
+
+// uint64 guild_id = 2;
+inline void Event_ChannelsReordered::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_ChannelsReordered::_internal_guild_id() const {
+  return guild_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_ChannelsReordered::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.ChannelsReordered.guild_id)
+  return _internal_guild_id();
+}
+inline void Event_ChannelsReordered::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  guild_id_ = value;
+}
+inline void Event_ChannelsReordered::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.ChannelsReordered.guild_id)
+}
+
+// repeated uint64 channel_ids = 1;
+inline int Event_ChannelsReordered::_internal_channel_ids_size() const {
+  return channel_ids_.size();
+}
+inline int Event_ChannelsReordered::channel_ids_size() const {
+  return _internal_channel_ids_size();
+}
+inline void Event_ChannelsReordered::clear_channel_ids() {
+  channel_ids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_ChannelsReordered::_internal_channel_ids(int index) const {
+  return channel_ids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_ChannelsReordered::channel_ids(int index) const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.ChannelsReordered.channel_ids)
+  return _internal_channel_ids(index);
+}
+inline void Event_ChannelsReordered::set_channel_ids(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  channel_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.ChannelsReordered.channel_ids)
+}
+inline void Event_ChannelsReordered::_internal_add_channel_ids(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  channel_ids_.Add(value);
+}
+inline void Event_ChannelsReordered::add_channel_ids(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_add_channel_ids(value);
+  // @@protoc_insertion_point(field_add:protocol.chat.v1.Event.ChannelsReordered.channel_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+Event_ChannelsReordered::_internal_channel_ids() const {
+  return channel_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+Event_ChannelsReordered::channel_ids() const {
+  // @@protoc_insertion_point(field_list:protocol.chat.v1.Event.ChannelsReordered.channel_ids)
+  return _internal_channel_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+Event_ChannelsReordered::_internal_mutable_channel_ids() {
+  return &channel_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+Event_ChannelsReordered::mutable_channel_ids() {
+  // @@protoc_insertion_point(field_mutable_list:protocol.chat.v1.Event.ChannelsReordered.channel_ids)
+  return _internal_mutable_channel_ids();
+}
+
+// -------------------------------------------------------------------
+
 // Event_ChannelDeleted
 
 // uint64 guild_id = 1;
@@ -6447,6 +8664,558 @@ inline void Event_RoleMoved::set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value) 
   // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RoleMoved.role_id)
 }
 
+// uint64 previous_id = 3;
+inline void Event_RoleMoved::clear_previous_id() {
+  previous_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleMoved::_internal_previous_id() const {
+  return previous_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleMoved::previous_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleMoved.previous_id)
+  return _internal_previous_id();
+}
+inline void Event_RoleMoved::_internal_set_previous_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  previous_id_ = value;
+}
+inline void Event_RoleMoved::set_previous_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_previous_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RoleMoved.previous_id)
+}
+
+// uint64 next_id = 4;
+inline void Event_RoleMoved::clear_next_id() {
+  next_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleMoved::_internal_next_id() const {
+  return next_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleMoved::next_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleMoved.next_id)
+  return _internal_next_id();
+}
+inline void Event_RoleMoved::_internal_set_next_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  next_id_ = value;
+}
+inline void Event_RoleMoved::set_next_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_next_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RoleMoved.next_id)
+}
+
+// -------------------------------------------------------------------
+
+// Event_RoleDeleted
+
+// uint64 guild_id = 1;
+inline void Event_RoleDeleted::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleDeleted::_internal_guild_id() const {
+  return guild_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleDeleted::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleDeleted.guild_id)
+  return _internal_guild_id();
+}
+inline void Event_RoleDeleted::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  guild_id_ = value;
+}
+inline void Event_RoleDeleted::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RoleDeleted.guild_id)
+}
+
+// uint64 role_id = 2;
+inline void Event_RoleDeleted::clear_role_id() {
+  role_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleDeleted::_internal_role_id() const {
+  return role_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleDeleted::role_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleDeleted.role_id)
+  return _internal_role_id();
+}
+inline void Event_RoleDeleted::_internal_set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  role_id_ = value;
+}
+inline void Event_RoleDeleted::set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_role_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RoleDeleted.role_id)
+}
+
+// -------------------------------------------------------------------
+
+// Event_RoleCreated
+
+// uint64 guild_id = 1;
+inline void Event_RoleCreated::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleCreated::_internal_guild_id() const {
+  return guild_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleCreated::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleCreated.guild_id)
+  return _internal_guild_id();
+}
+inline void Event_RoleCreated::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  guild_id_ = value;
+}
+inline void Event_RoleCreated::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RoleCreated.guild_id)
+}
+
+// uint64 role_id = 2;
+inline void Event_RoleCreated::clear_role_id() {
+  role_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleCreated::_internal_role_id() const {
+  return role_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleCreated::role_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleCreated.role_id)
+  return _internal_role_id();
+}
+inline void Event_RoleCreated::_internal_set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  role_id_ = value;
+}
+inline void Event_RoleCreated::set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_role_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RoleCreated.role_id)
+}
+
+// .protocol.chat.v1.Role role = 3;
+inline bool Event_RoleCreated::_internal_has_role() const {
+  return this != internal_default_instance() && role_ != nullptr;
+}
+inline bool Event_RoleCreated::has_role() const {
+  return _internal_has_role();
+}
+inline const ::protocol::chat::v1::Role& Event_RoleCreated::_internal_role() const {
+  const ::protocol::chat::v1::Role* p = role_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::chat::v1::Role*>(
+      &::protocol::chat::v1::_Role_default_instance_);
+}
+inline const ::protocol::chat::v1::Role& Event_RoleCreated::role() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleCreated.role)
+  return _internal_role();
+}
+inline void Event_RoleCreated::unsafe_arena_set_allocated_role(
+    ::protocol::chat::v1::Role* role) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(role_);
+  }
+  role_ = role;
+  if (role) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.RoleCreated.role)
+}
+inline ::protocol::chat::v1::Role* Event_RoleCreated::release_role() {
+  auto temp = unsafe_arena_release_role();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::protocol::chat::v1::Role* Event_RoleCreated::unsafe_arena_release_role() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.RoleCreated.role)
+  
+  ::protocol::chat::v1::Role* temp = role_;
+  role_ = nullptr;
+  return temp;
+}
+inline ::protocol::chat::v1::Role* Event_RoleCreated::_internal_mutable_role() {
+  
+  if (role_ == nullptr) {
+    auto* p = CreateMaybeMessage<::protocol::chat::v1::Role>(GetArena());
+    role_ = p;
+  }
+  return role_;
+}
+inline ::protocol::chat::v1::Role* Event_RoleCreated::mutable_role() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.RoleCreated.role)
+  return _internal_mutable_role();
+}
+inline void Event_RoleCreated::set_allocated_role(::protocol::chat::v1::Role* role) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(role_);
+  }
+  if (role) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(role)->GetArena();
+    if (message_arena != submessage_arena) {
+      role = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, role, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  role_ = role;
+  // @@protoc_insertion_point(field_set_allocated:protocol.chat.v1.Event.RoleCreated.role)
+}
+
+// -------------------------------------------------------------------
+
+// Event_RoleUpdated
+
+// uint64 guild_id = 1;
+inline void Event_RoleUpdated::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleUpdated::_internal_guild_id() const {
+  return guild_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleUpdated::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleUpdated.guild_id)
+  return _internal_guild_id();
+}
+inline void Event_RoleUpdated::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  guild_id_ = value;
+}
+inline void Event_RoleUpdated::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RoleUpdated.guild_id)
+}
+
+// uint64 role_id = 3;
+inline void Event_RoleUpdated::clear_role_id() {
+  role_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleUpdated::_internal_role_id() const {
+  return role_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RoleUpdated::role_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleUpdated.role_id)
+  return _internal_role_id();
+}
+inline void Event_RoleUpdated::_internal_set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  role_id_ = value;
+}
+inline void Event_RoleUpdated::set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_role_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RoleUpdated.role_id)
+}
+
+// .protocol.chat.v1.Role role = 4;
+inline bool Event_RoleUpdated::_internal_has_role() const {
+  return this != internal_default_instance() && role_ != nullptr;
+}
+inline bool Event_RoleUpdated::has_role() const {
+  return _internal_has_role();
+}
+inline const ::protocol::chat::v1::Role& Event_RoleUpdated::_internal_role() const {
+  const ::protocol::chat::v1::Role* p = role_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::chat::v1::Role*>(
+      &::protocol::chat::v1::_Role_default_instance_);
+}
+inline const ::protocol::chat::v1::Role& Event_RoleUpdated::role() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RoleUpdated.role)
+  return _internal_role();
+}
+inline void Event_RoleUpdated::unsafe_arena_set_allocated_role(
+    ::protocol::chat::v1::Role* role) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(role_);
+  }
+  role_ = role;
+  if (role) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.RoleUpdated.role)
+}
+inline ::protocol::chat::v1::Role* Event_RoleUpdated::release_role() {
+  auto temp = unsafe_arena_release_role();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::protocol::chat::v1::Role* Event_RoleUpdated::unsafe_arena_release_role() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.RoleUpdated.role)
+  
+  ::protocol::chat::v1::Role* temp = role_;
+  role_ = nullptr;
+  return temp;
+}
+inline ::protocol::chat::v1::Role* Event_RoleUpdated::_internal_mutable_role() {
+  
+  if (role_ == nullptr) {
+    auto* p = CreateMaybeMessage<::protocol::chat::v1::Role>(GetArena());
+    role_ = p;
+  }
+  return role_;
+}
+inline ::protocol::chat::v1::Role* Event_RoleUpdated::mutable_role() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.RoleUpdated.role)
+  return _internal_mutable_role();
+}
+inline void Event_RoleUpdated::set_allocated_role(::protocol::chat::v1::Role* role) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(role_);
+  }
+  if (role) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(role)->GetArena();
+    if (message_arena != submessage_arena) {
+      role = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, role, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  role_ = role;
+  // @@protoc_insertion_point(field_set_allocated:protocol.chat.v1.Event.RoleUpdated.role)
+}
+
+// -------------------------------------------------------------------
+
+// Event_RolePermissionsUpdated
+
+// uint64 guild_id = 1;
+inline void Event_RolePermissionsUpdated::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RolePermissionsUpdated::_internal_guild_id() const {
+  return guild_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RolePermissionsUpdated::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RolePermissionsUpdated.guild_id)
+  return _internal_guild_id();
+}
+inline void Event_RolePermissionsUpdated::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  guild_id_ = value;
+}
+inline void Event_RolePermissionsUpdated::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RolePermissionsUpdated.guild_id)
+}
+
+// uint64 channel_id = 2;
+inline void Event_RolePermissionsUpdated::clear_channel_id() {
+  channel_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RolePermissionsUpdated::_internal_channel_id() const {
+  return channel_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RolePermissionsUpdated::channel_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RolePermissionsUpdated.channel_id)
+  return _internal_channel_id();
+}
+inline void Event_RolePermissionsUpdated::_internal_set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  channel_id_ = value;
+}
+inline void Event_RolePermissionsUpdated::set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_channel_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RolePermissionsUpdated.channel_id)
+}
+
+// uint64 role_id = 3;
+inline void Event_RolePermissionsUpdated::clear_role_id() {
+  role_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RolePermissionsUpdated::_internal_role_id() const {
+  return role_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_RolePermissionsUpdated::role_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RolePermissionsUpdated.role_id)
+  return _internal_role_id();
+}
+inline void Event_RolePermissionsUpdated::_internal_set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  role_id_ = value;
+}
+inline void Event_RolePermissionsUpdated::set_role_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_role_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.RolePermissionsUpdated.role_id)
+}
+
+// .protocol.chat.v1.PermissionList perms = 4;
+inline bool Event_RolePermissionsUpdated::_internal_has_perms() const {
+  return this != internal_default_instance() && perms_ != nullptr;
+}
+inline bool Event_RolePermissionsUpdated::has_perms() const {
+  return _internal_has_perms();
+}
+inline const ::protocol::chat::v1::PermissionList& Event_RolePermissionsUpdated::_internal_perms() const {
+  const ::protocol::chat::v1::PermissionList* p = perms_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::chat::v1::PermissionList*>(
+      &::protocol::chat::v1::_PermissionList_default_instance_);
+}
+inline const ::protocol::chat::v1::PermissionList& Event_RolePermissionsUpdated::perms() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.RolePermissionsUpdated.perms)
+  return _internal_perms();
+}
+inline void Event_RolePermissionsUpdated::unsafe_arena_set_allocated_perms(
+    ::protocol::chat::v1::PermissionList* perms) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(perms_);
+  }
+  perms_ = perms;
+  if (perms) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.RolePermissionsUpdated.perms)
+}
+inline ::protocol::chat::v1::PermissionList* Event_RolePermissionsUpdated::release_perms() {
+  auto temp = unsafe_arena_release_perms();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::protocol::chat::v1::PermissionList* Event_RolePermissionsUpdated::unsafe_arena_release_perms() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.RolePermissionsUpdated.perms)
+  
+  ::protocol::chat::v1::PermissionList* temp = perms_;
+  perms_ = nullptr;
+  return temp;
+}
+inline ::protocol::chat::v1::PermissionList* Event_RolePermissionsUpdated::_internal_mutable_perms() {
+  
+  if (perms_ == nullptr) {
+    auto* p = CreateMaybeMessage<::protocol::chat::v1::PermissionList>(GetArena());
+    perms_ = p;
+  }
+  return perms_;
+}
+inline ::protocol::chat::v1::PermissionList* Event_RolePermissionsUpdated::mutable_perms() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.RolePermissionsUpdated.perms)
+  return _internal_mutable_perms();
+}
+inline void Event_RolePermissionsUpdated::set_allocated_perms(::protocol::chat::v1::PermissionList* perms) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(perms_);
+  }
+  if (perms) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(perms)->GetArena();
+    if (message_arena != submessage_arena) {
+      perms = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, perms, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  perms_ = perms;
+  // @@protoc_insertion_point(field_set_allocated:protocol.chat.v1.Event.RolePermissionsUpdated.perms)
+}
+
+// -------------------------------------------------------------------
+
+// Event_UserRolesUpdated
+
+// uint64 guild_id = 1;
+inline void Event_UserRolesUpdated::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRolesUpdated::_internal_guild_id() const {
+  return guild_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRolesUpdated::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.UserRolesUpdated.guild_id)
+  return _internal_guild_id();
+}
+inline void Event_UserRolesUpdated::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  guild_id_ = value;
+}
+inline void Event_UserRolesUpdated::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.UserRolesUpdated.guild_id)
+}
+
+// uint64 user_id = 2;
+inline void Event_UserRolesUpdated::clear_user_id() {
+  user_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRolesUpdated::_internal_user_id() const {
+  return user_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRolesUpdated::user_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.UserRolesUpdated.user_id)
+  return _internal_user_id();
+}
+inline void Event_UserRolesUpdated::_internal_set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  user_id_ = value;
+}
+inline void Event_UserRolesUpdated::set_user_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_user_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.UserRolesUpdated.user_id)
+}
+
+// repeated uint64 role_ids = 3;
+inline int Event_UserRolesUpdated::_internal_role_ids_size() const {
+  return role_ids_.size();
+}
+inline int Event_UserRolesUpdated::role_ids_size() const {
+  return _internal_role_ids_size();
+}
+inline void Event_UserRolesUpdated::clear_role_ids() {
+  role_ids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRolesUpdated::_internal_role_ids(int index) const {
+  return role_ids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_UserRolesUpdated::role_ids(int index) const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.UserRolesUpdated.role_ids)
+  return _internal_role_ids(index);
+}
+inline void Event_UserRolesUpdated::set_role_ids(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  role_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.UserRolesUpdated.role_ids)
+}
+inline void Event_UserRolesUpdated::_internal_add_role_ids(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  role_ids_.Add(value);
+}
+inline void Event_UserRolesUpdated::add_role_ids(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_add_role_ids(value);
+  // @@protoc_insertion_point(field_add:protocol.chat.v1.Event.UserRolesUpdated.role_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+Event_UserRolesUpdated::_internal_role_ids() const {
+  return role_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+Event_UserRolesUpdated::role_ids() const {
+  // @@protoc_insertion_point(field_list:protocol.chat.v1.Event.UserRolesUpdated.role_ids)
+  return _internal_role_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+Event_UserRolesUpdated::_internal_mutable_role_ids() {
+  return &role_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+Event_UserRolesUpdated::mutable_role_ids() {
+  // @@protoc_insertion_point(field_mutable_list:protocol.chat.v1.Event.UserRolesUpdated.role_ids)
+  return _internal_mutable_role_ids();
+}
+
 // -------------------------------------------------------------------
 
 // Event_ProfileUpdated
@@ -6815,6 +9584,513 @@ inline void Event_Typing::_internal_set_channel_id(::PROTOBUF_NAMESPACE_ID::uint
 inline void Event_Typing::set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_channel_id(value);
   // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.Typing.channel_id)
+}
+
+// -------------------------------------------------------------------
+
+// Event_PermissionUpdated
+
+// uint64 guild_id = 1;
+inline void Event_PermissionUpdated::clear_guild_id() {
+  guild_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_PermissionUpdated::_internal_guild_id() const {
+  return guild_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_PermissionUpdated::guild_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.PermissionUpdated.guild_id)
+  return _internal_guild_id();
+}
+inline void Event_PermissionUpdated::_internal_set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  guild_id_ = value;
+}
+inline void Event_PermissionUpdated::set_guild_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.PermissionUpdated.guild_id)
+}
+
+// uint64 channel_id = 2;
+inline void Event_PermissionUpdated::clear_channel_id() {
+  channel_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_PermissionUpdated::_internal_channel_id() const {
+  return channel_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_PermissionUpdated::channel_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.PermissionUpdated.channel_id)
+  return _internal_channel_id();
+}
+inline void Event_PermissionUpdated::_internal_set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  channel_id_ = value;
+}
+inline void Event_PermissionUpdated::set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_channel_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.PermissionUpdated.channel_id)
+}
+
+// string query = 3;
+inline void Event_PermissionUpdated::clear_query() {
+  query_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Event_PermissionUpdated::query() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.PermissionUpdated.query)
+  return _internal_query();
+}
+inline void Event_PermissionUpdated::set_query(const std::string& value) {
+  _internal_set_query(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.PermissionUpdated.query)
+}
+inline std::string* Event_PermissionUpdated::mutable_query() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.PermissionUpdated.query)
+  return _internal_mutable_query();
+}
+inline const std::string& Event_PermissionUpdated::_internal_query() const {
+  return query_.Get();
+}
+inline void Event_PermissionUpdated::_internal_set_query(const std::string& value) {
+  
+  query_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Event_PermissionUpdated::set_query(std::string&& value) {
+  
+  query_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.chat.v1.Event.PermissionUpdated.query)
+}
+inline void Event_PermissionUpdated::set_query(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  query_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.chat.v1.Event.PermissionUpdated.query)
+}
+inline void Event_PermissionUpdated::set_query(const char* value,
+    size_t size) {
+  
+  query_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.chat.v1.Event.PermissionUpdated.query)
+}
+inline std::string* Event_PermissionUpdated::_internal_mutable_query() {
+  
+  return query_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Event_PermissionUpdated::release_query() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.PermissionUpdated.query)
+  return query_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Event_PermissionUpdated::set_allocated_query(std::string* query) {
+  if (query != nullptr) {
+    
+  } else {
+    
+  }
+  query_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), query,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.chat.v1.Event.PermissionUpdated.query)
+}
+inline std::string* Event_PermissionUpdated::unsafe_arena_release_query() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.PermissionUpdated.query)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return query_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Event_PermissionUpdated::unsafe_arena_set_allocated_query(
+    std::string* query) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (query != nullptr) {
+    
+  } else {
+    
+  }
+  query_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      query, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.PermissionUpdated.query)
+}
+
+// bool ok = 4;
+inline void Event_PermissionUpdated::clear_ok() {
+  ok_ = false;
+}
+inline bool Event_PermissionUpdated::_internal_ok() const {
+  return ok_;
+}
+inline bool Event_PermissionUpdated::ok() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.PermissionUpdated.ok)
+  return _internal_ok();
+}
+inline void Event_PermissionUpdated::_internal_set_ok(bool value) {
+  
+  ok_ = value;
+}
+inline void Event_PermissionUpdated::set_ok(bool value) {
+  _internal_set_ok(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.PermissionUpdated.ok)
+}
+
+// -------------------------------------------------------------------
+
+// Event_EmotePackUpdated
+
+// uint64 pack_id = 1;
+inline void Event_EmotePackUpdated::clear_pack_id() {
+  pack_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_EmotePackUpdated::_internal_pack_id() const {
+  return pack_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_EmotePackUpdated::pack_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.EmotePackUpdated.pack_id)
+  return _internal_pack_id();
+}
+inline void Event_EmotePackUpdated::_internal_set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  pack_id_ = value;
+}
+inline void Event_EmotePackUpdated::set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_pack_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.EmotePackUpdated.pack_id)
+}
+
+// string pack_name = 2;
+inline void Event_EmotePackUpdated::clear_pack_name() {
+  pack_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Event_EmotePackUpdated::pack_name() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+  return _internal_pack_name();
+}
+inline void Event_EmotePackUpdated::set_pack_name(const std::string& value) {
+  _internal_set_pack_name(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+}
+inline std::string* Event_EmotePackUpdated::mutable_pack_name() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+  return _internal_mutable_pack_name();
+}
+inline const std::string& Event_EmotePackUpdated::_internal_pack_name() const {
+  return pack_name_.Get();
+}
+inline void Event_EmotePackUpdated::_internal_set_pack_name(const std::string& value) {
+  
+  pack_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Event_EmotePackUpdated::set_pack_name(std::string&& value) {
+  
+  pack_name_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+}
+inline void Event_EmotePackUpdated::set_pack_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  pack_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+}
+inline void Event_EmotePackUpdated::set_pack_name(const char* value,
+    size_t size) {
+  
+  pack_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+}
+inline std::string* Event_EmotePackUpdated::_internal_mutable_pack_name() {
+  
+  return pack_name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Event_EmotePackUpdated::release_pack_name() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+  return pack_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Event_EmotePackUpdated::set_allocated_pack_name(std::string* pack_name) {
+  if (pack_name != nullptr) {
+    
+  } else {
+    
+  }
+  pack_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), pack_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+}
+inline std::string* Event_EmotePackUpdated::unsafe_arena_release_pack_name() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return pack_name_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Event_EmotePackUpdated::unsafe_arena_set_allocated_pack_name(
+    std::string* pack_name) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (pack_name != nullptr) {
+    
+  } else {
+    
+  }
+  pack_name_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      pack_name, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.EmotePackUpdated.pack_name)
+}
+
+// bool update_pack_name = 3;
+inline void Event_EmotePackUpdated::clear_update_pack_name() {
+  update_pack_name_ = false;
+}
+inline bool Event_EmotePackUpdated::_internal_update_pack_name() const {
+  return update_pack_name_;
+}
+inline bool Event_EmotePackUpdated::update_pack_name() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.EmotePackUpdated.update_pack_name)
+  return _internal_update_pack_name();
+}
+inline void Event_EmotePackUpdated::_internal_set_update_pack_name(bool value) {
+  
+  update_pack_name_ = value;
+}
+inline void Event_EmotePackUpdated::set_update_pack_name(bool value) {
+  _internal_set_update_pack_name(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.EmotePackUpdated.update_pack_name)
+}
+
+// -------------------------------------------------------------------
+
+// Event_EmotePackDeleted
+
+// uint64 pack_id = 1;
+inline void Event_EmotePackDeleted::clear_pack_id() {
+  pack_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_EmotePackDeleted::_internal_pack_id() const {
+  return pack_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_EmotePackDeleted::pack_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.EmotePackDeleted.pack_id)
+  return _internal_pack_id();
+}
+inline void Event_EmotePackDeleted::_internal_set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  pack_id_ = value;
+}
+inline void Event_EmotePackDeleted::set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_pack_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.EmotePackDeleted.pack_id)
+}
+
+// -------------------------------------------------------------------
+
+// Event_EmotePackAdded
+
+// .protocol.chat.v1.EmotePack pack = 1;
+inline bool Event_EmotePackAdded::_internal_has_pack() const {
+  return this != internal_default_instance() && pack_ != nullptr;
+}
+inline bool Event_EmotePackAdded::has_pack() const {
+  return _internal_has_pack();
+}
+inline const ::protocol::chat::v1::EmotePack& Event_EmotePackAdded::_internal_pack() const {
+  const ::protocol::chat::v1::EmotePack* p = pack_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::protocol::chat::v1::EmotePack*>(
+      &::protocol::chat::v1::_EmotePack_default_instance_);
+}
+inline const ::protocol::chat::v1::EmotePack& Event_EmotePackAdded::pack() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.EmotePackAdded.pack)
+  return _internal_pack();
+}
+inline void Event_EmotePackAdded::unsafe_arena_set_allocated_pack(
+    ::protocol::chat::v1::EmotePack* pack) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pack_);
+  }
+  pack_ = pack;
+  if (pack) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.EmotePackAdded.pack)
+}
+inline ::protocol::chat::v1::EmotePack* Event_EmotePackAdded::release_pack() {
+  auto temp = unsafe_arena_release_pack();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::protocol::chat::v1::EmotePack* Event_EmotePackAdded::unsafe_arena_release_pack() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.EmotePackAdded.pack)
+  
+  ::protocol::chat::v1::EmotePack* temp = pack_;
+  pack_ = nullptr;
+  return temp;
+}
+inline ::protocol::chat::v1::EmotePack* Event_EmotePackAdded::_internal_mutable_pack() {
+  
+  if (pack_ == nullptr) {
+    auto* p = CreateMaybeMessage<::protocol::chat::v1::EmotePack>(GetArena());
+    pack_ = p;
+  }
+  return pack_;
+}
+inline ::protocol::chat::v1::EmotePack* Event_EmotePackAdded::mutable_pack() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.EmotePackAdded.pack)
+  return _internal_mutable_pack();
+}
+inline void Event_EmotePackAdded::set_allocated_pack(::protocol::chat::v1::EmotePack* pack) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(pack_);
+  }
+  if (pack) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pack)->GetArena();
+    if (message_arena != submessage_arena) {
+      pack = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, pack, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  pack_ = pack;
+  // @@protoc_insertion_point(field_set_allocated:protocol.chat.v1.Event.EmotePackAdded.pack)
+}
+
+// -------------------------------------------------------------------
+
+// Event_EmotePackEmotesUpdated
+
+// uint64 pack_id = 1;
+inline void Event_EmotePackEmotesUpdated::clear_pack_id() {
+  pack_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_EmotePackEmotesUpdated::_internal_pack_id() const {
+  return pack_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Event_EmotePackEmotesUpdated::pack_id() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.EmotePackEmotesUpdated.pack_id)
+  return _internal_pack_id();
+}
+inline void Event_EmotePackEmotesUpdated::_internal_set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  pack_id_ = value;
+}
+inline void Event_EmotePackEmotesUpdated::set_pack_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_pack_id(value);
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.EmotePackEmotesUpdated.pack_id)
+}
+
+// repeated .protocol.chat.v1.Emote added_emotes = 2;
+inline int Event_EmotePackEmotesUpdated::_internal_added_emotes_size() const {
+  return added_emotes_.size();
+}
+inline int Event_EmotePackEmotesUpdated::added_emotes_size() const {
+  return _internal_added_emotes_size();
+}
+inline ::protocol::chat::v1::Emote* Event_EmotePackEmotesUpdated::mutable_added_emotes(int index) {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.EmotePackEmotesUpdated.added_emotes)
+  return added_emotes_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::chat::v1::Emote >*
+Event_EmotePackEmotesUpdated::mutable_added_emotes() {
+  // @@protoc_insertion_point(field_mutable_list:protocol.chat.v1.Event.EmotePackEmotesUpdated.added_emotes)
+  return &added_emotes_;
+}
+inline const ::protocol::chat::v1::Emote& Event_EmotePackEmotesUpdated::_internal_added_emotes(int index) const {
+  return added_emotes_.Get(index);
+}
+inline const ::protocol::chat::v1::Emote& Event_EmotePackEmotesUpdated::added_emotes(int index) const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.EmotePackEmotesUpdated.added_emotes)
+  return _internal_added_emotes(index);
+}
+inline ::protocol::chat::v1::Emote* Event_EmotePackEmotesUpdated::_internal_add_added_emotes() {
+  return added_emotes_.Add();
+}
+inline ::protocol::chat::v1::Emote* Event_EmotePackEmotesUpdated::add_added_emotes() {
+  // @@protoc_insertion_point(field_add:protocol.chat.v1.Event.EmotePackEmotesUpdated.added_emotes)
+  return _internal_add_added_emotes();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protocol::chat::v1::Emote >&
+Event_EmotePackEmotesUpdated::added_emotes() const {
+  // @@protoc_insertion_point(field_list:protocol.chat.v1.Event.EmotePackEmotesUpdated.added_emotes)
+  return added_emotes_;
+}
+
+// repeated string deleted_emotes = 3;
+inline int Event_EmotePackEmotesUpdated::_internal_deleted_emotes_size() const {
+  return deleted_emotes_.size();
+}
+inline int Event_EmotePackEmotesUpdated::deleted_emotes_size() const {
+  return _internal_deleted_emotes_size();
+}
+inline void Event_EmotePackEmotesUpdated::clear_deleted_emotes() {
+  deleted_emotes_.Clear();
+}
+inline std::string* Event_EmotePackEmotesUpdated::add_deleted_emotes() {
+  // @@protoc_insertion_point(field_add_mutable:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+  return _internal_add_deleted_emotes();
+}
+inline const std::string& Event_EmotePackEmotesUpdated::_internal_deleted_emotes(int index) const {
+  return deleted_emotes_.Get(index);
+}
+inline const std::string& Event_EmotePackEmotesUpdated::deleted_emotes(int index) const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+  return _internal_deleted_emotes(index);
+}
+inline std::string* Event_EmotePackEmotesUpdated::mutable_deleted_emotes(int index) {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+  return deleted_emotes_.Mutable(index);
+}
+inline void Event_EmotePackEmotesUpdated::set_deleted_emotes(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+  deleted_emotes_.Mutable(index)->assign(value);
+}
+inline void Event_EmotePackEmotesUpdated::set_deleted_emotes(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+  deleted_emotes_.Mutable(index)->assign(std::move(value));
+}
+inline void Event_EmotePackEmotesUpdated::set_deleted_emotes(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  deleted_emotes_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+}
+inline void Event_EmotePackEmotesUpdated::set_deleted_emotes(int index, const char* value, size_t size) {
+  deleted_emotes_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+}
+inline std::string* Event_EmotePackEmotesUpdated::_internal_add_deleted_emotes() {
+  return deleted_emotes_.Add();
+}
+inline void Event_EmotePackEmotesUpdated::add_deleted_emotes(const std::string& value) {
+  deleted_emotes_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+}
+inline void Event_EmotePackEmotesUpdated::add_deleted_emotes(std::string&& value) {
+  deleted_emotes_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+}
+inline void Event_EmotePackEmotesUpdated::add_deleted_emotes(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  deleted_emotes_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+}
+inline void Event_EmotePackEmotesUpdated::add_deleted_emotes(const char* value, size_t size) {
+  deleted_emotes_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Event_EmotePackEmotesUpdated::deleted_emotes() const {
+  // @@protoc_insertion_point(field_list:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+  return deleted_emotes_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Event_EmotePackEmotesUpdated::mutable_deleted_emotes() {
+  // @@protoc_insertion_point(field_mutable_list:protocol.chat.v1.Event.EmotePackEmotesUpdated.deleted_emotes)
+  return &deleted_emotes_;
 }
 
 // -------------------------------------------------------------------
@@ -7478,6 +10754,79 @@ inline ::protocol::chat::v1::Event_ChannelDeleted* Event::mutable_deleted_channe
   return _internal_mutable_deleted_channel();
 }
 
+// .protocol.chat.v1.Event.ChannelsReordered channels_reordered = 27;
+inline bool Event::_internal_has_channels_reordered() const {
+  return event_case() == kChannelsReordered;
+}
+inline bool Event::has_channels_reordered() const {
+  return _internal_has_channels_reordered();
+}
+inline void Event::set_has_channels_reordered() {
+  _oneof_case_[0] = kChannelsReordered;
+}
+inline void Event::clear_channels_reordered() {
+  if (_internal_has_channels_reordered()) {
+    if (GetArena() == nullptr) {
+      delete event_.channels_reordered_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_ChannelsReordered* Event::release_channels_reordered() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.channels_reordered)
+  if (_internal_has_channels_reordered()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_ChannelsReordered* temp = event_.channels_reordered_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.channels_reordered_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_ChannelsReordered& Event::_internal_channels_reordered() const {
+  return _internal_has_channels_reordered()
+      ? *event_.channels_reordered_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_ChannelsReordered*>(&::protocol::chat::v1::_Event_ChannelsReordered_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_ChannelsReordered& Event::channels_reordered() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.channels_reordered)
+  return _internal_channels_reordered();
+}
+inline ::protocol::chat::v1::Event_ChannelsReordered* Event::unsafe_arena_release_channels_reordered() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.channels_reordered)
+  if (_internal_has_channels_reordered()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_ChannelsReordered* temp = event_.channels_reordered_;
+    event_.channels_reordered_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_channels_reordered(::protocol::chat::v1::Event_ChannelsReordered* channels_reordered) {
+  clear_event();
+  if (channels_reordered) {
+    set_has_channels_reordered();
+    event_.channels_reordered_ = channels_reordered;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.channels_reordered)
+}
+inline ::protocol::chat::v1::Event_ChannelsReordered* Event::_internal_mutable_channels_reordered() {
+  if (!_internal_has_channels_reordered()) {
+    clear_event();
+    set_has_channels_reordered();
+    event_.channels_reordered_ = CreateMaybeMessage< ::protocol::chat::v1::Event_ChannelsReordered >(GetArena());
+  }
+  return event_.channels_reordered_;
+}
+inline ::protocol::chat::v1::Event_ChannelsReordered* Event::mutable_channels_reordered() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.channels_reordered)
+  return _internal_mutable_channels_reordered();
+}
+
 // .protocol.chat.v1.Event.GuildUpdated edited_guild = 10;
 inline bool Event::_internal_has_edited_guild() const {
   return event_case() == kEditedGuild;
@@ -7770,80 +11119,7 @@ inline ::protocol::chat::v1::Event_MemberLeft* Event::mutable_left_member() {
   return _internal_mutable_left_member();
 }
 
-// .protocol.chat.v1.Event.RoleMoved role_moved = 14;
-inline bool Event::_internal_has_role_moved() const {
-  return event_case() == kRoleMoved;
-}
-inline bool Event::has_role_moved() const {
-  return _internal_has_role_moved();
-}
-inline void Event::set_has_role_moved() {
-  _oneof_case_[0] = kRoleMoved;
-}
-inline void Event::clear_role_moved() {
-  if (_internal_has_role_moved()) {
-    if (GetArena() == nullptr) {
-      delete event_.role_moved_;
-    }
-    clear_has_event();
-  }
-}
-inline ::protocol::chat::v1::Event_RoleMoved* Event::release_role_moved() {
-  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.role_moved)
-  if (_internal_has_role_moved()) {
-    clear_has_event();
-      ::protocol::chat::v1::Event_RoleMoved* temp = event_.role_moved_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    event_.role_moved_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::protocol::chat::v1::Event_RoleMoved& Event::_internal_role_moved() const {
-  return _internal_has_role_moved()
-      ? *event_.role_moved_
-      : *reinterpret_cast< ::protocol::chat::v1::Event_RoleMoved*>(&::protocol::chat::v1::_Event_RoleMoved_default_instance_);
-}
-inline const ::protocol::chat::v1::Event_RoleMoved& Event::role_moved() const {
-  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.role_moved)
-  return _internal_role_moved();
-}
-inline ::protocol::chat::v1::Event_RoleMoved* Event::unsafe_arena_release_role_moved() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.role_moved)
-  if (_internal_has_role_moved()) {
-    clear_has_event();
-    ::protocol::chat::v1::Event_RoleMoved* temp = event_.role_moved_;
-    event_.role_moved_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Event::unsafe_arena_set_allocated_role_moved(::protocol::chat::v1::Event_RoleMoved* role_moved) {
-  clear_event();
-  if (role_moved) {
-    set_has_role_moved();
-    event_.role_moved_ = role_moved;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.role_moved)
-}
-inline ::protocol::chat::v1::Event_RoleMoved* Event::_internal_mutable_role_moved() {
-  if (!_internal_has_role_moved()) {
-    clear_event();
-    set_has_role_moved();
-    event_.role_moved_ = CreateMaybeMessage< ::protocol::chat::v1::Event_RoleMoved >(GetArena());
-  }
-  return event_.role_moved_;
-}
-inline ::protocol::chat::v1::Event_RoleMoved* Event::mutable_role_moved() {
-  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.role_moved)
-  return _internal_mutable_role_moved();
-}
-
-// .protocol.chat.v1.Event.ProfileUpdated profile_updated = 15;
+// .protocol.chat.v1.Event.ProfileUpdated profile_updated = 14;
 inline bool Event::_internal_has_profile_updated() const {
   return event_case() == kProfileUpdated;
 }
@@ -7916,7 +11192,7 @@ inline ::protocol::chat::v1::Event_ProfileUpdated* Event::mutable_profile_update
   return _internal_mutable_profile_updated();
 }
 
-// .protocol.chat.v1.Event.Typing typing = 16;
+// .protocol.chat.v1.Event.Typing typing = 15;
 inline bool Event::_internal_has_typing() const {
   return event_case() == kTyping;
 }
@@ -7989,6 +11265,809 @@ inline ::protocol::chat::v1::Event_Typing* Event::mutable_typing() {
   return _internal_mutable_typing();
 }
 
+// .protocol.chat.v1.Event.RoleCreated role_created = 16;
+inline bool Event::_internal_has_role_created() const {
+  return event_case() == kRoleCreated;
+}
+inline bool Event::has_role_created() const {
+  return _internal_has_role_created();
+}
+inline void Event::set_has_role_created() {
+  _oneof_case_[0] = kRoleCreated;
+}
+inline void Event::clear_role_created() {
+  if (_internal_has_role_created()) {
+    if (GetArena() == nullptr) {
+      delete event_.role_created_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_RoleCreated* Event::release_role_created() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.role_created)
+  if (_internal_has_role_created()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_RoleCreated* temp = event_.role_created_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.role_created_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_RoleCreated& Event::_internal_role_created() const {
+  return _internal_has_role_created()
+      ? *event_.role_created_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_RoleCreated*>(&::protocol::chat::v1::_Event_RoleCreated_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_RoleCreated& Event::role_created() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.role_created)
+  return _internal_role_created();
+}
+inline ::protocol::chat::v1::Event_RoleCreated* Event::unsafe_arena_release_role_created() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.role_created)
+  if (_internal_has_role_created()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_RoleCreated* temp = event_.role_created_;
+    event_.role_created_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_role_created(::protocol::chat::v1::Event_RoleCreated* role_created) {
+  clear_event();
+  if (role_created) {
+    set_has_role_created();
+    event_.role_created_ = role_created;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.role_created)
+}
+inline ::protocol::chat::v1::Event_RoleCreated* Event::_internal_mutable_role_created() {
+  if (!_internal_has_role_created()) {
+    clear_event();
+    set_has_role_created();
+    event_.role_created_ = CreateMaybeMessage< ::protocol::chat::v1::Event_RoleCreated >(GetArena());
+  }
+  return event_.role_created_;
+}
+inline ::protocol::chat::v1::Event_RoleCreated* Event::mutable_role_created() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.role_created)
+  return _internal_mutable_role_created();
+}
+
+// .protocol.chat.v1.Event.RoleDeleted role_deleted = 17;
+inline bool Event::_internal_has_role_deleted() const {
+  return event_case() == kRoleDeleted;
+}
+inline bool Event::has_role_deleted() const {
+  return _internal_has_role_deleted();
+}
+inline void Event::set_has_role_deleted() {
+  _oneof_case_[0] = kRoleDeleted;
+}
+inline void Event::clear_role_deleted() {
+  if (_internal_has_role_deleted()) {
+    if (GetArena() == nullptr) {
+      delete event_.role_deleted_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_RoleDeleted* Event::release_role_deleted() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.role_deleted)
+  if (_internal_has_role_deleted()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_RoleDeleted* temp = event_.role_deleted_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.role_deleted_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_RoleDeleted& Event::_internal_role_deleted() const {
+  return _internal_has_role_deleted()
+      ? *event_.role_deleted_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_RoleDeleted*>(&::protocol::chat::v1::_Event_RoleDeleted_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_RoleDeleted& Event::role_deleted() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.role_deleted)
+  return _internal_role_deleted();
+}
+inline ::protocol::chat::v1::Event_RoleDeleted* Event::unsafe_arena_release_role_deleted() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.role_deleted)
+  if (_internal_has_role_deleted()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_RoleDeleted* temp = event_.role_deleted_;
+    event_.role_deleted_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_role_deleted(::protocol::chat::v1::Event_RoleDeleted* role_deleted) {
+  clear_event();
+  if (role_deleted) {
+    set_has_role_deleted();
+    event_.role_deleted_ = role_deleted;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.role_deleted)
+}
+inline ::protocol::chat::v1::Event_RoleDeleted* Event::_internal_mutable_role_deleted() {
+  if (!_internal_has_role_deleted()) {
+    clear_event();
+    set_has_role_deleted();
+    event_.role_deleted_ = CreateMaybeMessage< ::protocol::chat::v1::Event_RoleDeleted >(GetArena());
+  }
+  return event_.role_deleted_;
+}
+inline ::protocol::chat::v1::Event_RoleDeleted* Event::mutable_role_deleted() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.role_deleted)
+  return _internal_mutable_role_deleted();
+}
+
+// .protocol.chat.v1.Event.RoleMoved role_moved = 18;
+inline bool Event::_internal_has_role_moved() const {
+  return event_case() == kRoleMoved;
+}
+inline bool Event::has_role_moved() const {
+  return _internal_has_role_moved();
+}
+inline void Event::set_has_role_moved() {
+  _oneof_case_[0] = kRoleMoved;
+}
+inline void Event::clear_role_moved() {
+  if (_internal_has_role_moved()) {
+    if (GetArena() == nullptr) {
+      delete event_.role_moved_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_RoleMoved* Event::release_role_moved() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.role_moved)
+  if (_internal_has_role_moved()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_RoleMoved* temp = event_.role_moved_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.role_moved_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_RoleMoved& Event::_internal_role_moved() const {
+  return _internal_has_role_moved()
+      ? *event_.role_moved_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_RoleMoved*>(&::protocol::chat::v1::_Event_RoleMoved_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_RoleMoved& Event::role_moved() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.role_moved)
+  return _internal_role_moved();
+}
+inline ::protocol::chat::v1::Event_RoleMoved* Event::unsafe_arena_release_role_moved() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.role_moved)
+  if (_internal_has_role_moved()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_RoleMoved* temp = event_.role_moved_;
+    event_.role_moved_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_role_moved(::protocol::chat::v1::Event_RoleMoved* role_moved) {
+  clear_event();
+  if (role_moved) {
+    set_has_role_moved();
+    event_.role_moved_ = role_moved;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.role_moved)
+}
+inline ::protocol::chat::v1::Event_RoleMoved* Event::_internal_mutable_role_moved() {
+  if (!_internal_has_role_moved()) {
+    clear_event();
+    set_has_role_moved();
+    event_.role_moved_ = CreateMaybeMessage< ::protocol::chat::v1::Event_RoleMoved >(GetArena());
+  }
+  return event_.role_moved_;
+}
+inline ::protocol::chat::v1::Event_RoleMoved* Event::mutable_role_moved() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.role_moved)
+  return _internal_mutable_role_moved();
+}
+
+// .protocol.chat.v1.Event.RoleUpdated role_updated = 19;
+inline bool Event::_internal_has_role_updated() const {
+  return event_case() == kRoleUpdated;
+}
+inline bool Event::has_role_updated() const {
+  return _internal_has_role_updated();
+}
+inline void Event::set_has_role_updated() {
+  _oneof_case_[0] = kRoleUpdated;
+}
+inline void Event::clear_role_updated() {
+  if (_internal_has_role_updated()) {
+    if (GetArena() == nullptr) {
+      delete event_.role_updated_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_RoleUpdated* Event::release_role_updated() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.role_updated)
+  if (_internal_has_role_updated()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_RoleUpdated* temp = event_.role_updated_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.role_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_RoleUpdated& Event::_internal_role_updated() const {
+  return _internal_has_role_updated()
+      ? *event_.role_updated_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_RoleUpdated*>(&::protocol::chat::v1::_Event_RoleUpdated_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_RoleUpdated& Event::role_updated() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.role_updated)
+  return _internal_role_updated();
+}
+inline ::protocol::chat::v1::Event_RoleUpdated* Event::unsafe_arena_release_role_updated() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.role_updated)
+  if (_internal_has_role_updated()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_RoleUpdated* temp = event_.role_updated_;
+    event_.role_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_role_updated(::protocol::chat::v1::Event_RoleUpdated* role_updated) {
+  clear_event();
+  if (role_updated) {
+    set_has_role_updated();
+    event_.role_updated_ = role_updated;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.role_updated)
+}
+inline ::protocol::chat::v1::Event_RoleUpdated* Event::_internal_mutable_role_updated() {
+  if (!_internal_has_role_updated()) {
+    clear_event();
+    set_has_role_updated();
+    event_.role_updated_ = CreateMaybeMessage< ::protocol::chat::v1::Event_RoleUpdated >(GetArena());
+  }
+  return event_.role_updated_;
+}
+inline ::protocol::chat::v1::Event_RoleUpdated* Event::mutable_role_updated() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.role_updated)
+  return _internal_mutable_role_updated();
+}
+
+// .protocol.chat.v1.Event.RolePermissionsUpdated role_perms_updated = 20;
+inline bool Event::_internal_has_role_perms_updated() const {
+  return event_case() == kRolePermsUpdated;
+}
+inline bool Event::has_role_perms_updated() const {
+  return _internal_has_role_perms_updated();
+}
+inline void Event::set_has_role_perms_updated() {
+  _oneof_case_[0] = kRolePermsUpdated;
+}
+inline void Event::clear_role_perms_updated() {
+  if (_internal_has_role_perms_updated()) {
+    if (GetArena() == nullptr) {
+      delete event_.role_perms_updated_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_RolePermissionsUpdated* Event::release_role_perms_updated() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.role_perms_updated)
+  if (_internal_has_role_perms_updated()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_RolePermissionsUpdated* temp = event_.role_perms_updated_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.role_perms_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_RolePermissionsUpdated& Event::_internal_role_perms_updated() const {
+  return _internal_has_role_perms_updated()
+      ? *event_.role_perms_updated_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_RolePermissionsUpdated*>(&::protocol::chat::v1::_Event_RolePermissionsUpdated_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_RolePermissionsUpdated& Event::role_perms_updated() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.role_perms_updated)
+  return _internal_role_perms_updated();
+}
+inline ::protocol::chat::v1::Event_RolePermissionsUpdated* Event::unsafe_arena_release_role_perms_updated() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.role_perms_updated)
+  if (_internal_has_role_perms_updated()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_RolePermissionsUpdated* temp = event_.role_perms_updated_;
+    event_.role_perms_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_role_perms_updated(::protocol::chat::v1::Event_RolePermissionsUpdated* role_perms_updated) {
+  clear_event();
+  if (role_perms_updated) {
+    set_has_role_perms_updated();
+    event_.role_perms_updated_ = role_perms_updated;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.role_perms_updated)
+}
+inline ::protocol::chat::v1::Event_RolePermissionsUpdated* Event::_internal_mutable_role_perms_updated() {
+  if (!_internal_has_role_perms_updated()) {
+    clear_event();
+    set_has_role_perms_updated();
+    event_.role_perms_updated_ = CreateMaybeMessage< ::protocol::chat::v1::Event_RolePermissionsUpdated >(GetArena());
+  }
+  return event_.role_perms_updated_;
+}
+inline ::protocol::chat::v1::Event_RolePermissionsUpdated* Event::mutable_role_perms_updated() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.role_perms_updated)
+  return _internal_mutable_role_perms_updated();
+}
+
+// .protocol.chat.v1.Event.UserRolesUpdated user_roles_updated = 21;
+inline bool Event::_internal_has_user_roles_updated() const {
+  return event_case() == kUserRolesUpdated;
+}
+inline bool Event::has_user_roles_updated() const {
+  return _internal_has_user_roles_updated();
+}
+inline void Event::set_has_user_roles_updated() {
+  _oneof_case_[0] = kUserRolesUpdated;
+}
+inline void Event::clear_user_roles_updated() {
+  if (_internal_has_user_roles_updated()) {
+    if (GetArena() == nullptr) {
+      delete event_.user_roles_updated_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_UserRolesUpdated* Event::release_user_roles_updated() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.user_roles_updated)
+  if (_internal_has_user_roles_updated()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_UserRolesUpdated* temp = event_.user_roles_updated_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.user_roles_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_UserRolesUpdated& Event::_internal_user_roles_updated() const {
+  return _internal_has_user_roles_updated()
+      ? *event_.user_roles_updated_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_UserRolesUpdated*>(&::protocol::chat::v1::_Event_UserRolesUpdated_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_UserRolesUpdated& Event::user_roles_updated() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.user_roles_updated)
+  return _internal_user_roles_updated();
+}
+inline ::protocol::chat::v1::Event_UserRolesUpdated* Event::unsafe_arena_release_user_roles_updated() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.user_roles_updated)
+  if (_internal_has_user_roles_updated()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_UserRolesUpdated* temp = event_.user_roles_updated_;
+    event_.user_roles_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_user_roles_updated(::protocol::chat::v1::Event_UserRolesUpdated* user_roles_updated) {
+  clear_event();
+  if (user_roles_updated) {
+    set_has_user_roles_updated();
+    event_.user_roles_updated_ = user_roles_updated;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.user_roles_updated)
+}
+inline ::protocol::chat::v1::Event_UserRolesUpdated* Event::_internal_mutable_user_roles_updated() {
+  if (!_internal_has_user_roles_updated()) {
+    clear_event();
+    set_has_user_roles_updated();
+    event_.user_roles_updated_ = CreateMaybeMessage< ::protocol::chat::v1::Event_UserRolesUpdated >(GetArena());
+  }
+  return event_.user_roles_updated_;
+}
+inline ::protocol::chat::v1::Event_UserRolesUpdated* Event::mutable_user_roles_updated() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.user_roles_updated)
+  return _internal_mutable_user_roles_updated();
+}
+
+// .protocol.chat.v1.Event.PermissionUpdated permission_updated = 22;
+inline bool Event::_internal_has_permission_updated() const {
+  return event_case() == kPermissionUpdated;
+}
+inline bool Event::has_permission_updated() const {
+  return _internal_has_permission_updated();
+}
+inline void Event::set_has_permission_updated() {
+  _oneof_case_[0] = kPermissionUpdated;
+}
+inline void Event::clear_permission_updated() {
+  if (_internal_has_permission_updated()) {
+    if (GetArena() == nullptr) {
+      delete event_.permission_updated_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_PermissionUpdated* Event::release_permission_updated() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.permission_updated)
+  if (_internal_has_permission_updated()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_PermissionUpdated* temp = event_.permission_updated_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.permission_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_PermissionUpdated& Event::_internal_permission_updated() const {
+  return _internal_has_permission_updated()
+      ? *event_.permission_updated_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_PermissionUpdated*>(&::protocol::chat::v1::_Event_PermissionUpdated_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_PermissionUpdated& Event::permission_updated() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.permission_updated)
+  return _internal_permission_updated();
+}
+inline ::protocol::chat::v1::Event_PermissionUpdated* Event::unsafe_arena_release_permission_updated() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.permission_updated)
+  if (_internal_has_permission_updated()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_PermissionUpdated* temp = event_.permission_updated_;
+    event_.permission_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_permission_updated(::protocol::chat::v1::Event_PermissionUpdated* permission_updated) {
+  clear_event();
+  if (permission_updated) {
+    set_has_permission_updated();
+    event_.permission_updated_ = permission_updated;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.permission_updated)
+}
+inline ::protocol::chat::v1::Event_PermissionUpdated* Event::_internal_mutable_permission_updated() {
+  if (!_internal_has_permission_updated()) {
+    clear_event();
+    set_has_permission_updated();
+    event_.permission_updated_ = CreateMaybeMessage< ::protocol::chat::v1::Event_PermissionUpdated >(GetArena());
+  }
+  return event_.permission_updated_;
+}
+inline ::protocol::chat::v1::Event_PermissionUpdated* Event::mutable_permission_updated() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.permission_updated)
+  return _internal_mutable_permission_updated();
+}
+
+// .protocol.chat.v1.Event.EmotePackAdded emote_pack_added = 23;
+inline bool Event::_internal_has_emote_pack_added() const {
+  return event_case() == kEmotePackAdded;
+}
+inline bool Event::has_emote_pack_added() const {
+  return _internal_has_emote_pack_added();
+}
+inline void Event::set_has_emote_pack_added() {
+  _oneof_case_[0] = kEmotePackAdded;
+}
+inline void Event::clear_emote_pack_added() {
+  if (_internal_has_emote_pack_added()) {
+    if (GetArena() == nullptr) {
+      delete event_.emote_pack_added_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_EmotePackAdded* Event::release_emote_pack_added() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.emote_pack_added)
+  if (_internal_has_emote_pack_added()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_EmotePackAdded* temp = event_.emote_pack_added_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.emote_pack_added_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_EmotePackAdded& Event::_internal_emote_pack_added() const {
+  return _internal_has_emote_pack_added()
+      ? *event_.emote_pack_added_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_EmotePackAdded*>(&::protocol::chat::v1::_Event_EmotePackAdded_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_EmotePackAdded& Event::emote_pack_added() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.emote_pack_added)
+  return _internal_emote_pack_added();
+}
+inline ::protocol::chat::v1::Event_EmotePackAdded* Event::unsafe_arena_release_emote_pack_added() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.emote_pack_added)
+  if (_internal_has_emote_pack_added()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_EmotePackAdded* temp = event_.emote_pack_added_;
+    event_.emote_pack_added_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_emote_pack_added(::protocol::chat::v1::Event_EmotePackAdded* emote_pack_added) {
+  clear_event();
+  if (emote_pack_added) {
+    set_has_emote_pack_added();
+    event_.emote_pack_added_ = emote_pack_added;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.emote_pack_added)
+}
+inline ::protocol::chat::v1::Event_EmotePackAdded* Event::_internal_mutable_emote_pack_added() {
+  if (!_internal_has_emote_pack_added()) {
+    clear_event();
+    set_has_emote_pack_added();
+    event_.emote_pack_added_ = CreateMaybeMessage< ::protocol::chat::v1::Event_EmotePackAdded >(GetArena());
+  }
+  return event_.emote_pack_added_;
+}
+inline ::protocol::chat::v1::Event_EmotePackAdded* Event::mutable_emote_pack_added() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.emote_pack_added)
+  return _internal_mutable_emote_pack_added();
+}
+
+// .protocol.chat.v1.Event.EmotePackUpdated emote_pack_updated = 24;
+inline bool Event::_internal_has_emote_pack_updated() const {
+  return event_case() == kEmotePackUpdated;
+}
+inline bool Event::has_emote_pack_updated() const {
+  return _internal_has_emote_pack_updated();
+}
+inline void Event::set_has_emote_pack_updated() {
+  _oneof_case_[0] = kEmotePackUpdated;
+}
+inline void Event::clear_emote_pack_updated() {
+  if (_internal_has_emote_pack_updated()) {
+    if (GetArena() == nullptr) {
+      delete event_.emote_pack_updated_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_EmotePackUpdated* Event::release_emote_pack_updated() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.emote_pack_updated)
+  if (_internal_has_emote_pack_updated()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_EmotePackUpdated* temp = event_.emote_pack_updated_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.emote_pack_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_EmotePackUpdated& Event::_internal_emote_pack_updated() const {
+  return _internal_has_emote_pack_updated()
+      ? *event_.emote_pack_updated_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_EmotePackUpdated*>(&::protocol::chat::v1::_Event_EmotePackUpdated_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_EmotePackUpdated& Event::emote_pack_updated() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.emote_pack_updated)
+  return _internal_emote_pack_updated();
+}
+inline ::protocol::chat::v1::Event_EmotePackUpdated* Event::unsafe_arena_release_emote_pack_updated() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.emote_pack_updated)
+  if (_internal_has_emote_pack_updated()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_EmotePackUpdated* temp = event_.emote_pack_updated_;
+    event_.emote_pack_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_emote_pack_updated(::protocol::chat::v1::Event_EmotePackUpdated* emote_pack_updated) {
+  clear_event();
+  if (emote_pack_updated) {
+    set_has_emote_pack_updated();
+    event_.emote_pack_updated_ = emote_pack_updated;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.emote_pack_updated)
+}
+inline ::protocol::chat::v1::Event_EmotePackUpdated* Event::_internal_mutable_emote_pack_updated() {
+  if (!_internal_has_emote_pack_updated()) {
+    clear_event();
+    set_has_emote_pack_updated();
+    event_.emote_pack_updated_ = CreateMaybeMessage< ::protocol::chat::v1::Event_EmotePackUpdated >(GetArena());
+  }
+  return event_.emote_pack_updated_;
+}
+inline ::protocol::chat::v1::Event_EmotePackUpdated* Event::mutable_emote_pack_updated() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.emote_pack_updated)
+  return _internal_mutable_emote_pack_updated();
+}
+
+// .protocol.chat.v1.Event.EmotePackDeleted emote_pack_deleted = 25;
+inline bool Event::_internal_has_emote_pack_deleted() const {
+  return event_case() == kEmotePackDeleted;
+}
+inline bool Event::has_emote_pack_deleted() const {
+  return _internal_has_emote_pack_deleted();
+}
+inline void Event::set_has_emote_pack_deleted() {
+  _oneof_case_[0] = kEmotePackDeleted;
+}
+inline void Event::clear_emote_pack_deleted() {
+  if (_internal_has_emote_pack_deleted()) {
+    if (GetArena() == nullptr) {
+      delete event_.emote_pack_deleted_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_EmotePackDeleted* Event::release_emote_pack_deleted() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.emote_pack_deleted)
+  if (_internal_has_emote_pack_deleted()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_EmotePackDeleted* temp = event_.emote_pack_deleted_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.emote_pack_deleted_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_EmotePackDeleted& Event::_internal_emote_pack_deleted() const {
+  return _internal_has_emote_pack_deleted()
+      ? *event_.emote_pack_deleted_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_EmotePackDeleted*>(&::protocol::chat::v1::_Event_EmotePackDeleted_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_EmotePackDeleted& Event::emote_pack_deleted() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.emote_pack_deleted)
+  return _internal_emote_pack_deleted();
+}
+inline ::protocol::chat::v1::Event_EmotePackDeleted* Event::unsafe_arena_release_emote_pack_deleted() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.emote_pack_deleted)
+  if (_internal_has_emote_pack_deleted()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_EmotePackDeleted* temp = event_.emote_pack_deleted_;
+    event_.emote_pack_deleted_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_emote_pack_deleted(::protocol::chat::v1::Event_EmotePackDeleted* emote_pack_deleted) {
+  clear_event();
+  if (emote_pack_deleted) {
+    set_has_emote_pack_deleted();
+    event_.emote_pack_deleted_ = emote_pack_deleted;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.emote_pack_deleted)
+}
+inline ::protocol::chat::v1::Event_EmotePackDeleted* Event::_internal_mutable_emote_pack_deleted() {
+  if (!_internal_has_emote_pack_deleted()) {
+    clear_event();
+    set_has_emote_pack_deleted();
+    event_.emote_pack_deleted_ = CreateMaybeMessage< ::protocol::chat::v1::Event_EmotePackDeleted >(GetArena());
+  }
+  return event_.emote_pack_deleted_;
+}
+inline ::protocol::chat::v1::Event_EmotePackDeleted* Event::mutable_emote_pack_deleted() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.emote_pack_deleted)
+  return _internal_mutable_emote_pack_deleted();
+}
+
+// .protocol.chat.v1.Event.EmotePackEmotesUpdated emote_pack_emotes_updated = 26;
+inline bool Event::_internal_has_emote_pack_emotes_updated() const {
+  return event_case() == kEmotePackEmotesUpdated;
+}
+inline bool Event::has_emote_pack_emotes_updated() const {
+  return _internal_has_emote_pack_emotes_updated();
+}
+inline void Event::set_has_emote_pack_emotes_updated() {
+  _oneof_case_[0] = kEmotePackEmotesUpdated;
+}
+inline void Event::clear_emote_pack_emotes_updated() {
+  if (_internal_has_emote_pack_emotes_updated()) {
+    if (GetArena() == nullptr) {
+      delete event_.emote_pack_emotes_updated_;
+    }
+    clear_has_event();
+  }
+}
+inline ::protocol::chat::v1::Event_EmotePackEmotesUpdated* Event::release_emote_pack_emotes_updated() {
+  // @@protoc_insertion_point(field_release:protocol.chat.v1.Event.emote_pack_emotes_updated)
+  if (_internal_has_emote_pack_emotes_updated()) {
+    clear_has_event();
+      ::protocol::chat::v1::Event_EmotePackEmotesUpdated* temp = event_.emote_pack_emotes_updated_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    event_.emote_pack_emotes_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::protocol::chat::v1::Event_EmotePackEmotesUpdated& Event::_internal_emote_pack_emotes_updated() const {
+  return _internal_has_emote_pack_emotes_updated()
+      ? *event_.emote_pack_emotes_updated_
+      : *reinterpret_cast< ::protocol::chat::v1::Event_EmotePackEmotesUpdated*>(&::protocol::chat::v1::_Event_EmotePackEmotesUpdated_default_instance_);
+}
+inline const ::protocol::chat::v1::Event_EmotePackEmotesUpdated& Event::emote_pack_emotes_updated() const {
+  // @@protoc_insertion_point(field_get:protocol.chat.v1.Event.emote_pack_emotes_updated)
+  return _internal_emote_pack_emotes_updated();
+}
+inline ::protocol::chat::v1::Event_EmotePackEmotesUpdated* Event::unsafe_arena_release_emote_pack_emotes_updated() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:protocol.chat.v1.Event.emote_pack_emotes_updated)
+  if (_internal_has_emote_pack_emotes_updated()) {
+    clear_has_event();
+    ::protocol::chat::v1::Event_EmotePackEmotesUpdated* temp = event_.emote_pack_emotes_updated_;
+    event_.emote_pack_emotes_updated_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Event::unsafe_arena_set_allocated_emote_pack_emotes_updated(::protocol::chat::v1::Event_EmotePackEmotesUpdated* emote_pack_emotes_updated) {
+  clear_event();
+  if (emote_pack_emotes_updated) {
+    set_has_emote_pack_emotes_updated();
+    event_.emote_pack_emotes_updated_ = emote_pack_emotes_updated;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protocol.chat.v1.Event.emote_pack_emotes_updated)
+}
+inline ::protocol::chat::v1::Event_EmotePackEmotesUpdated* Event::_internal_mutable_emote_pack_emotes_updated() {
+  if (!_internal_has_emote_pack_emotes_updated()) {
+    clear_event();
+    set_has_emote_pack_emotes_updated();
+    event_.emote_pack_emotes_updated_ = CreateMaybeMessage< ::protocol::chat::v1::Event_EmotePackEmotesUpdated >(GetArena());
+  }
+  return event_.emote_pack_emotes_updated_;
+}
+inline ::protocol::chat::v1::Event_EmotePackEmotesUpdated* Event::mutable_emote_pack_emotes_updated() {
+  // @@protoc_insertion_point(field_mutable:protocol.chat.v1.Event.emote_pack_emotes_updated)
+  return _internal_mutable_emote_pack_emotes_updated();
+}
+
 inline bool Event::has_event() const {
   return event_case() != EVENT_NOT_SET;
 }
@@ -8001,6 +12080,28 @@ inline Event::EventCase Event::event_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

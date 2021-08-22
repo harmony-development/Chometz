@@ -21,6 +21,10 @@
 #include "google/protobuf/descriptor.hrpc.types.h"
 #include "harmonytypes/v1/types.pb.h"
 #include "harmonytypes/v1/types.hrpc.types.h"
+#include "chat/v1/permissions.pb.h"
+#include "chat/v1/permissions.hrpc.types.h"
+#include "chat/v1/emotes.pb.h"
+#include "chat/v1/emotes.hrpc.types.h"
 #include "chat/v1/profile.pb.h"
 #include "chat/v1/profile.hrpc.types.h"
 #include "chat/v1/guilds.pb.h"
@@ -29,10 +33,6 @@
 #include "chat/v1/channels.hrpc.types.h"
 #include "chat/v1/messages.pb.h"
 #include "chat/v1/messages.hrpc.types.h"
-#include "chat/v1/emotes.pb.h"
-#include "chat/v1/emotes.hrpc.types.h"
-#include "chat/v1/permissions.pb.h"
-#include "chat/v1/permissions.hrpc.types.h"
 #include "chat/v1/streaming.pb.h"
 #include "chat/v1/streaming.hrpc.types.h"
 
@@ -109,6 +109,8 @@ public:
 	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> UpdateChannelInformation(const protocol::chat::v1::UpdateChannelInformationRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<google::protobuf::Empty> UpdateChannelOrderSync(const protocol::chat::v1::UpdateChannelOrderRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> UpdateChannelOrder(const protocol::chat::v1::UpdateChannelOrderRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] Result<google::protobuf::Empty> UpdateAllChannelOrderSync(const protocol::chat::v1::UpdateAllChannelOrderRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> UpdateAllChannelOrder(const protocol::chat::v1::UpdateAllChannelOrderRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<google::protobuf::Empty> UpdateMessageTextSync(const protocol::chat::v1::UpdateMessageTextRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> UpdateMessageText(const protocol::chat::v1::UpdateMessageTextRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<google::protobuf::Empty> AddEmoteToPackSync(const protocol::chat::v1::AddEmoteToPackRequest& in, QMap<QByteArray,QString> headers = {});
@@ -127,6 +129,8 @@ public:
 	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> DeleteEmotePack(const protocol::chat::v1::DeleteEmotePackRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<google::protobuf::Empty> DequipEmotePackSync(const protocol::chat::v1::DequipEmotePackRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> DequipEmotePack(const protocol::chat::v1::DequipEmotePackRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] Result<google::protobuf::Empty> EquipEmotePackSync(const protocol::chat::v1::EquipEmotePackRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> EquipEmotePack(const protocol::chat::v1::EquipEmotePackRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::chat::v1::JoinGuildResponse> JoinGuildSync(const protocol::chat::v1::JoinGuildRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] FutureResult<protocol::chat::v1::JoinGuildResponse, QString> JoinGuild(const protocol::chat::v1::JoinGuildRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<google::protobuf::Empty> LeaveGuildSync(const protocol::chat::v1::LeaveGuildRequest& in, QMap<QByteArray,QString> headers = {});
@@ -137,6 +141,8 @@ public:
 	[[ nodiscard ]] FutureResult<protocol::chat::v1::SendMessageResponse, QString> SendMessage(const protocol::chat::v1::SendMessageRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::chat::v1::QueryPermissionsResponse> QueryHasPermissionSync(const protocol::chat::v1::QueryPermissionsRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] FutureResult<protocol::chat::v1::QueryPermissionsResponse, QString> QueryHasPermission(const protocol::chat::v1::QueryPermissionsRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] Result<protocol::chat::v1::BatchQueryPermissionsResponse> BatchQueryHasPermissionSync(const protocol::chat::v1::BatchQueryPermissionsRequest& in, QMap<QByteArray,QString> headers = {});
+	[[ nodiscard ]] FutureResult<protocol::chat::v1::BatchQueryPermissionsResponse, QString> BatchQueryHasPermission(const protocol::chat::v1::BatchQueryPermissionsRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<google::protobuf::Empty> SetPermissionsSync(const protocol::chat::v1::SetPermissionsRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] FutureResult<google::protobuf::Empty, QString> SetPermissions(const protocol::chat::v1::SetPermissionsRequest& in, QMap<QByteArray,QString> headers = {});
 	[[ nodiscard ]] Result<protocol::chat::v1::GetPermissionsResponse> GetPermissionsSync(const protocol::chat::v1::GetPermissionsRequest& in, QMap<QByteArray,QString> headers = {});
