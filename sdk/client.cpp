@@ -219,7 +219,7 @@ FutureResult<Client*> Client::federateOtherClient(Client* client, QString target
 	}
 
 	auto req2 = protocol::auth::v1::LoginFederatedRequest {};
-	req2.set_auth_token(result.value().token());
+	req2.set_allocated_auth_token(result.value().release_token());
 	req2.set_domain(d->homeserver.toStdString());
 
 	auto result2 = co_await client->d->authKit->LoginFederated(req2);
