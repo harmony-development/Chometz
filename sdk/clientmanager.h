@@ -2,16 +2,11 @@
 
 #include <QObject>
 
+#include "client.h"
 #include "protos.h"
-
-class ChatServiceServiceClient;
-class AuthServiceServiceClient;
-class MediaProxyServiceServiceClient;
 
 namespace SDK
 {
-
-class Client;
 
 class ClientManager : public QObject
 {
@@ -34,17 +29,17 @@ public:
 	void subscribeToActions();
 	void subscribeToHomeserver();
 
-	FutureResult<Client*> clientForHomeserver(QString homeserver);
+	Future<Client*> clientForHomeserver(QString homeserver);
 
 	Future<bool> checkLogin(QString token, QString hs, quint64 userID);
 
 	Q_SIGNAL void ready(const QString& hs, quint64 userID, const QString& token);
 
 	Q_SIGNAL void authEvent(protocol::auth::v1::AuthStep step);
-	Q_SIGNAL void hsEvent(protocol::chat::v1::Event ev);
+	Q_SIGNAL void hsEvent(protocol::chat::v1::StreamEvent ev);
 
-	Q_SIGNAL void chatEvent(QString homeserver, protocol::chat::v1::Event ev);
-	Q_SIGNAL void actionTriggered(QString homeserver, protocol::chat::v1::Event::ActionPerformed action);
+	Q_SIGNAL void chatEvent(QString homeserver, protocol::chat::v1::StreamEvent ev);
+	Q_SIGNAL void actionTriggered(QString homeserver, protocol::chat::v1::StreamEvent::ActionPerformed action);
 
 	ChatServiceServiceClient* chatKit();
 	AuthServiceServiceClient* authKit();

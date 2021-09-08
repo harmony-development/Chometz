@@ -8,6 +8,7 @@
 #include "clientmanager.h"
 #include "client.h"
 #include "protos.h"
+#include "coroutine_integration.h"
 
 class Test : public QObject
 {
@@ -84,26 +85,26 @@ private Q_SLOTS:
 	Future<> testGuildCreate()
 	{
 		auto req = protocol::chat::v1::CreateGuildRequest{};
-		req.set_guild_name("hello");
+		req.set_name("hello");
 
 		auto resp = co_await client->chatKit()->CreateGuild(req);
 		Q_ASSERT(resp.ok());
 
-		co_return {};
+		co_return;
 	}
 
 	Future<> testHostEquivalence()
 	{
-		auto c1 = (co_await client->clientForHomeserver("local")).value();
-		auto c2 = (co_await client->clientForHomeserver("localhost")).value();
-		auto c3 = (co_await client->clientForHomeserver("https://localhost")).value();
-		auto c4 = (co_await client->clientForHomeserver("https://localhost:12345")).value();
+		auto c1 = (co_await client->clientForHomeserver("local"));
+		auto c2 = (co_await client->clientForHomeserver("localhost"));
+		auto c3 = (co_await client->clientForHomeserver("https://localhost"));
+		auto c4 = (co_await client->clientForHomeserver("https://localhost:12345"));
 
 		Q_ASSERT(c1 == c2);
 		Q_ASSERT(c1 == c3);
 		Q_ASSERT(c1 == c4);
-
-		co_return {};
+ 
+		co_return;
 	}
 
 	void cleanupTestCase()

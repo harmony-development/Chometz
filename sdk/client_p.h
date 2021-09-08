@@ -14,7 +14,7 @@ struct Client::Private
 	std::unique_ptr<AuthServiceServiceClient> authKit;
 	std::unique_ptr<MediaProxyServiceServiceClient> mediaProxyKit;
 
-	QSharedPointer<Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream> eventStream;
+	QSharedPointer<Receive__protocol_chat_v1_StreamEventsResponse__Send__protocol_chat_v1_StreamEventsRequest__Stream> eventStream;
 
 	std::string authID;
 

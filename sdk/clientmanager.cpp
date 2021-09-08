@@ -36,10 +36,8 @@ void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
 
 	d->subs.guilds[host(homeserver)].append(guildID);
 
-	d->clients[host(homeserver)].then([=](Result<Client*, Error> c) {
-		if (c.ok()) {
-			c.value()->subscribeToGuild(guildID);
-		}
+	d->clients[host(homeserver)].then([=](Client* c) {
+		c->subscribeToGuild(guildID);
 	});
 }
 
@@ -48,10 +46,8 @@ void ClientManager::subscribeToActions()
 	d->subs.actions = true;
 
 	for (auto& client : d->clients) {
-		client.then([=](Result<Client*, Error> c) {
-			if (c.ok()) {
-				c.value()->subscribeToActions();
-			}
+		client.then([=](Client* c) {
+			c->subscribeToActions();
 		});
 	}
 }
@@ -67,18 +63,18 @@ void ClientManager::connectClient(Client* client, const QString& homeserver)
 {
 	using namespace protocol::chat::v1;
 
-	connect(client, &Client::actionTriggered, this, [this, hs = homeserver](Event::ActionPerformed ev) {
+	connect(client, &Client::actionTriggered, this, [this, hs = homeserver](StreamEvent::ActionPerformed ev) {
 		Q_EMIT actionTriggered(hs, ev);
 	});
-	connect(client, &Client::chatEvent, this, [this, hs = homeserver](Event ev) {
+	connect(client, &Client::chatEvent, this, [this, hs = homeserver](StreamEvent ev) {
 		Q_EMIT chatEvent(hs, ev);
 	});
 }
 
-FutureResult<Client*> ClientManager::clientForHomeserver(QString homeserver)
+Future<Client*> ClientManager::clientForHomeserver(QString homeserver)
 {
 	if (homeserver == "local" || homeserver.isEmpty()) {
-		FutureResult<Client*> it;
+		Future<Client*> it;
 		it.succeed(d->mainClient);
 		return it;
 	}
@@ -99,7 +95,7 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	d->clients.clear();
 
 	d->mainClient = new Client(this, homeserver);
-	FutureResult<Client*> it;
+	Future<Client*> it;
 	it.succeed(d->mainClient);
 	d->clients[host(homeserver)] = it;
 
@@ -133,7 +129,7 @@ Future<bool> ClientManager::checkLogin(QString token, QString homeserver, quint6
 
 	d->mainClient = new Client(this, homeserver);
 	d->mainClient->setSession(token.toStdString(), userID);
-	FutureResult<Client*> it;
+	Future<Client*> it;
 	it.succeed(d->mainClient);
 	d->clients[host(homeserver)] = it;
 
@@ -141,13 +137,15 @@ Future<bool> ClientManager::checkLogin(QString token, QString homeserver, quint6
 	connect(d->mainClient, &Client::hsEvent, this, &ClientManager::hsEvent);
 	connectClient(d->mainClient, homeserver);
 
-	auto result = co_await d->mainClient->authKit()->CheckLoggedIn(google::protobuf::Empty {});
+	return d->mainClient->authKit()->CheckLoggedIn(protocol::auth::v1::CheckLoggedInRequest{})
+	.toFutureResultT()
+	.map([homeserver, userID, token, this](auto r) {
+		if (r.ok()) {
+			Q_EMIT ready(homeserver, userID, token);
+		}
 
-	if (result.ok()) {
-		Q_EMIT ready(homeserver, userID, token);
-	}
-
-	co_return result.ok();
+		return r.ok();
+	});
 }
 
 };

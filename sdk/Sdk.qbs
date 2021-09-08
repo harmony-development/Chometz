@@ -5,25 +5,22 @@ StaticLibrary {
 
 	files: [
 		"*.cpp",
-		// "*.h",
-		"gen/*/*/*.cpp",
-		"gen/*/*/*.cc",
-		// "gen/*/*/*.h",
 	]
 
-	cpp.includePaths: ["gen"]
 	cpp.cppFlags: ['-Werror=return-type']
 	cpp.cxxLanguageVersion: "c++20"
 
 	Depends { name: "cpp" }
 	Depends { name: "vendored_protobuf" }
 	Depends { name: "croutons" }
+	Depends { name: "HarmonyProtocol" }
 	Depends { name: "Qt"; submodules: ["network", "concurrent", "websockets"] }
 
 	Export {
 		Depends { name: "cpp" }
 		Depends { name: "vendored_protobuf" }
 		Depends { name: "croutons" }
+		Depends { name: "HarmonyProtocol" }
 		Depends { name: "Qt"; submodules: ["network", "concurrent", "websockets"] }
 
 		cpp.cxxLanguageVersion: "c++20"
@@ -45,9 +42,4 @@ StaticLibrary {
 		qbs.install: true
 		qbs.installDir: "include/chometz"
 	}
-	Group { name: "Generated API Headers"; files: ["gen/auth/v1/*.h"]; qbs.install: true; qbs.installDir: "include/chometz/auth/v1" }
-	Group { name: "Generated API Headers"; files: ["gen/chat/v1/*.h"]; qbs.install: true; qbs.installDir: "include/chometz/chat/v1" }
-	Group { name: "Generated API Headers"; files: ["gen/harmonytypes/v1/*.h"]; qbs.install: true; qbs.installDir: "include/chometz/harmonytypes/v1" }
-	Group { name: "Generated API Headers"; files: ["gen/mediaproxy/v1/*.h"]; qbs.install: true; qbs.installDir: "include/chometz/mediaproxy/v1" }
-	Group { name: "Generated API Headers"; files: ["gen/voice/v1/*.h"]; qbs.install: true; qbs.installDir: "include/chometz/voice/v1" }
 }

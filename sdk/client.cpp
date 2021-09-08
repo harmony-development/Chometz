@@ -1,3 +1,5 @@
+#include "auth/v1/auth.pb.h"
+#include "chat/v1/chat.hrpc.client.h"
 #include "clientmanager.h"
 #include "client_p.h"
 #include "util.h"
@@ -53,46 +55,42 @@ quint64 Client::userID() const
 	return d->userID;
 }
 
-Future<> Client::nextStep(protocol::auth::v1::NextStepRequest nstep)
+Future<Unit> Client::nextStep(protocol::auth::v1::NextStepRequest nstep)
 {
 	auto it = nstep;
 	it.set_auth_id(d->authID);
 
-	co_await d->authKit->NextStep(it);
-
-	co_return {};
+	return d->authKit->NextStep(it).toFutureT().map([](auto) { return Unit{}; });
 }
 
-Future<> Client::startAuth()
+Future<Unit> Client::startAuth()
 {
-	auto resp = co_await d->authKit->BeginAuth(google::protobuf::Empty{});
+	return d->authKit->BeginAuth(protocol::auth::v1::BeginAuthRequest{})
+	.toFutureT()
+	.flatMap([this](auto value) {
+		protocol::auth::v1::StreamStepsRequest streamReq;
+		streamReq.set_auth_id(value.auth_id());
 
-	if (!resultOk(resp)) {
-		co_return {};
-	}
-	auto value = unwrap(resp);
+		auto stepStream = d->authKit->StreamSteps(streamReq);
+		connect(stepStream, &Receive__protocol_auth_v1_StreamStepsResponse__Stream::receivedMessage, this, [this](protocol::auth::v1::StreamStepsResponse r) {
+			Q_EMIT authEvent(r.step());
+		});
+		connect(stepStream, &QWebSocket::disconnected, [=] {
+			stepStream->deleteLater();
+		});
 
-	protocol::auth::v1::StreamStepsRequest streamReq;
-	streamReq.set_auth_id(value.auth_id());
+		d->authID = value.auth_id();
 
-	auto stepStream = d->authKit->StreamSteps(streamReq);
-	connect(stepStream, &Receive__protocol_auth_v1_AuthStep__Stream::receivedMessage, this, &Client::authEvent);
-	connect(stepStream, &QWebSocket::disconnected, [=] {
-		stepStream->deleteLater();
+		protocol::auth::v1::NextStepRequest req2;
+		req2.set_auth_id(value.auth_id());
+
+		return d->authKit->NextStep(req2).toFutureT();
+	})
+	.map([this](protocol::auth::v1::NextStepResponse value) {
+		Q_EMIT authEvent(value.step());
+
+		return Unit{};
 	});
-
-	protocol::auth::v1::NextStepRequest req2;
-	req2.set_auth_id(value.auth_id());
-
-	d->authID = value.auth_id();
-	auto resp2 = co_await d->authKit->NextStep(req2);
-	if (!resultOk(resp2)) {
-		co_return {};
-	}
-	auto value2 = unwrap(resp2);
-
-	Q_EMIT authEvent(value2);
-	co_return {};
 }
 
 QString Client::homeserver() const
@@ -102,7 +100,7 @@ QString Client::homeserver() const
 
 void Client::startEvents()
 {
-	d->eventStream = QSharedPointer<Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream>(d->chatKit->StreamEvents(), &QObject::deleteLater);
+	d->eventStream = QSharedPointer<Receive__protocol_chat_v1_StreamEventsResponse__Send__protocol_chat_v1_StreamEventsRequest__Stream>(d->chatKit->StreamEvents(), &QObject::deleteLater);
 
 	connect(
 		d->eventStream.get(),
@@ -122,17 +120,20 @@ void Client::startEvents()
 	);
 	connect(
 		d->eventStream.get(),
-		&Receive__protocol_chat_v1_Event__Send__protocol_chat_v1_StreamEventsRequest__Stream::receivedMessage,
+		&Receive__protocol_chat_v1_StreamEventsResponse__Send__protocol_chat_v1_StreamEventsRequest__Stream::receivedMessage,
 		this,
-		[=](const protocol::chat::v1::Event& msg) {
+		[=](const protocol::chat::v1::StreamEventsResponse& r) {
 			using namespace protocol::chat::v1;
 
-			if (msg.has_action_performed()) {
-				Q_EMIT actionTriggered(msg.action_performed());
-			} else if (msg.has_guild_added_to_list() || msg.has_guild_removed_from_list()) {
-				Q_EMIT hsEvent(msg);
-			} else {
-				Q_EMIT chatEvent(msg);
+			if (r.has_chat()) {
+				auto msg = r.chat();
+				if (msg.has_action_performed()) {
+					Q_EMIT actionTriggered(msg.action_performed());
+				} else if (msg.has_guild_added_to_list() || msg.has_guild_removed_from_list()) {
+					Q_EMIT hsEvent(msg);
+				} else {
+					Q_EMIT chatEvent(msg);
+				}
 			}
 		}
 	);
@@ -208,30 +209,25 @@ ChatServiceServiceClient* Client::chatKit()
 	return d->chatKit.get();
 }
 
-FutureResult<Client*> Client::federateOtherClient(Client* client, QString target)
+Future<Client*> Client::federateOtherClient(Client* client, QString target)
 {
 	auto req = protocol::auth::v1::FederateRequest{};
 	req.set_target(target.toStdString());
 
-	auto result = co_await d->authKit->Federate(req);
-	if (!result.ok()) {
-		co_return Error { result.error() };
-	}
+	return d->authKit->Federate(req).toFutureT()
+	.flatMap([this, client](auto result) {
+		auto req = protocol::auth::v1::LoginFederatedRequest {};
+		req.set_allocated_auth_token(result.release_token());
+		req.set_domain(d->homeserver.toStdString());
 
-	auto req2 = protocol::auth::v1::LoginFederatedRequest {};
-	req2.set_allocated_auth_token(result.value().release_token());
-	req2.set_domain(d->homeserver.toStdString());
+		return client->d->authKit->LoginFederated(req).toFutureT();
+	})
+	.map([client](protocol::auth::v1::LoginFederatedResponse result) {
+		client->d->session = result.session().session_token();
+		client->d->userID = result.session().user_id();
 
-	auto result2 = co_await client->d->authKit->LoginFederated(req2);
-	if (!result2.ok()) {
-		co_return Error { result.error() };
-	}
-	auto resp = result2.value();
-
-	client->d->session = resp.session_token();
-	client->d->userID = resp.user_id();
-
-	co_return client;
+		return client;
+	});
 }
 
 AuthServiceServiceClient* Client::authKit()
