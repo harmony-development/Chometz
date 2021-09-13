@@ -209,24 +209,42 @@ ChatServiceServiceClient* Client::chatKit()
 	return d->chatKit.get();
 }
 
-Future<Client*> Client::federateOtherClient(Client* client, QString target)
+Future<Result<Client*, Error>> Client::federateOtherClient(Client* client, QString target)
 {
 	auto req = protocol::auth::v1::FederateRequest{};
 	req.set_target(target.toStdString());
 
-	return d->authKit->Federate(req).toFutureT()
-	.flatMap([this, client](auto result) {
+	return d->authKit->Federate(req).toFutureResultT()
+	.flatMap([this, client](auto r) {
+		if (!r.ok()) {
+			Future<Result<Client*, Error>> ret;
+			ret.succeed(Result<Client*, Error>(Croutons::Error{r.error()}));
+			return ret;
+		}
+
+		auto result = r.value();
+
 		auto req = protocol::auth::v1::LoginFederatedRequest {};
 		req.set_allocated_auth_token(result.release_token());
 		req.set_domain(d->homeserver.toStdString());
 
-		return client->d->authKit->LoginFederated(req).toFutureT();
-	})
-	.map([client](protocol::auth::v1::LoginFederatedResponse result) {
-		client->d->session = result.session().session_token();
-		client->d->userID = result.session().user_id();
+		return client->d->authKit->LoginFederated(req).toFutureResultT()
+		.flatMap([this, client](auto r) {
+			if (!r.ok()) {
+				Future<Result<Client*, Error>> ret;
+				ret.succeed(Result<Client*, Error>(Croutons::Error{r.error()}));
+				return ret;
+			}
 
-		return client;
+			auto result = r.value();
+
+			client->d->session = result.session().session_token();
+			client->d->userID = result.session().user_id();
+
+			Future<Result<Client*, Error>> ret;
+			ret.succeed(Result<Client*, Error>(client));
+			return ret;
+		});
 	});
 }
 

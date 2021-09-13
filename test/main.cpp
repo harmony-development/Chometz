@@ -34,7 +34,7 @@ private Q_SLOTS:
 		QSignalSpy spy(client, &SDK::ClientManager::authEvent);
 
 		{
-			client->beginAuthentication("http://localhost:2289");
+			client->beginAuthentication("https://chat.harmonyapp.io:2289");
 
 			QVERIFY(spy.wait());
 			QCOMPARE(spy.count(), 1);
@@ -82,7 +82,7 @@ private Q_SLOTS:
 		}
 	}
 
-	Future<> testGuildCreate()
+	Future<> _testGuildCreate()
 	{
 		auto req = protocol::chat::v1::CreateGuildRequest{};
 		req.set_name("hello");
@@ -93,18 +93,34 @@ private Q_SLOTS:
 		co_return;
 	}
 
-	Future<> testHostEquivalence()
+	void testGuildCreate()
+	{
+		Future<> it = _testGuildCreate();
+		while (!it.settled()) {
+			QCoreApplication::processEvents();
+		}
+	}
+
+	Future<> _testHostEquivalence()
 	{
 		auto c1 = (co_await client->clientForHomeserver("local"));
 		auto c2 = (co_await client->clientForHomeserver("localhost"));
-		auto c3 = (co_await client->clientForHomeserver("https://localhost"));
-		auto c4 = (co_await client->clientForHomeserver("https://localhost:12345"));
+		auto c3 = (co_await client->clientForHomeserver("https://chat.harmonyapp.io"));
+		auto c4 = (co_await client->clientForHomeserver("https://chat.harmonyapp.io:2289"));
 
-		Q_ASSERT(c1 == c2);
-		Q_ASSERT(c1 == c3);
-		Q_ASSERT(c1 == c4);
+		Q_ASSERT(c1.value() == c2.value());
+		Q_ASSERT(c1.value() == c3.value());
+		Q_ASSERT(c1.value() == c4.value());
  
 		co_return;
+	}
+
+	void testHostEquivalence()
+	{
+		Future<> it = _testHostEquivalence();
+		while (!it.settled()) {
+			QCoreApplication::processEvents();
+		}
 	}
 
 	void cleanupTestCase()

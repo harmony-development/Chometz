@@ -29,7 +29,7 @@ public:
 	void subscribeToActions();
 	void subscribeToHomeserver();
 
-	Future<Client*> clientForHomeserver(QString homeserver);
+	Future<Result<Client*, Error>> clientForHomeserver(QString homeserver);
 
 	Future<bool> checkLogin(QString token, QString hs, quint64 userID);
 

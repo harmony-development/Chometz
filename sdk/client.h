@@ -23,7 +23,7 @@ class Client : public QObject
 	Future<Unit> startAuth();
 	Q_SIGNAL void authEvent(protocol::auth::v1::AuthStep step);
 
-	Future<Client*> federateOtherClient(Client* client, QString target);
+	Future<Result<Client*, Error>> federateOtherClient(Client* client, QString target);
 
 	void setSession(const std::string& session, quint64 userID);
 

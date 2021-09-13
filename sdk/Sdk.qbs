@@ -7,6 +7,9 @@ StaticLibrary {
 		"*.cpp",
 	]
 
+	install: true
+	installDir: "lib64"
+
 	cpp.cppFlags: ['-Werror=return-type']
 	cpp.cxxLanguageVersion: "c++20"
 

@@ -36,8 +36,11 @@ void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
 
 	d->subs.guilds[host(homeserver)].append(guildID);
 
-	d->clients[host(homeserver)].then([=](Client* c) {
-		c->subscribeToGuild(guildID);
+	d->clients[host(homeserver)].then([=](Result<Client*, Error> c) {
+		if (!c.ok()) {
+			return;
+		}
+		c.value()->subscribeToGuild(guildID);
 	});
 }
 
@@ -46,8 +49,11 @@ void ClientManager::subscribeToActions()
 	d->subs.actions = true;
 
 	for (auto& client : d->clients) {
-		client.then([=](Client* c) {
-			c->subscribeToActions();
+		client.then([=](Result<Client*, Error> c) {
+			if (!c.ok()) {
+				return;
+			}
+			c.value()->subscribeToActions();
 		});
 	}
 }
@@ -71,11 +77,11 @@ void ClientManager::connectClient(Client* client, const QString& homeserver)
 	});
 }
 
-Future<Client*> ClientManager::clientForHomeserver(QString homeserver)
+Future<Result<Client*, Error>> ClientManager::clientForHomeserver(QString homeserver)
 {
 	if (homeserver == "local" || homeserver.isEmpty()) {
-		Future<Client*> it;
-		it.succeed(d->mainClient);
+		Future<Result<Client*, Error>> it;
+		it.succeed(Result<Client*, Error>(d->mainClient));
 		return it;
 	}
 
@@ -95,8 +101,8 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	d->clients.clear();
 
 	d->mainClient = new Client(this, homeserver);
-	Future<Client*> it;
-	it.succeed(d->mainClient);
+	Future<Result<Client*, Error>> it;
+	it.succeed(Result<Client*, Error>(d->mainClient));
 	d->clients[host(homeserver)] = it;
 
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);
@@ -129,8 +135,8 @@ Future<bool> ClientManager::checkLogin(QString token, QString homeserver, quint6
 
 	d->mainClient = new Client(this, homeserver);
 	d->mainClient->setSession(token.toStdString(), userID);
-	Future<Client*> it;
-	it.succeed(d->mainClient);
+	Future<Result<Client*, Error>> it;
+	it.succeed(Result<Client*, Error>(d->mainClient));
 	d->clients[host(homeserver)] = it;
 
 	connect(d->mainClient, &Client::authEvent, this, &ClientManager::authEvent);

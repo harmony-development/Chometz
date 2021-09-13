@@ -5,6 +5,9 @@ import "Protocol.js" as ProtocolHelpers
 Library {
     name: "HarmonyProtocol"
 
+    install: true
+    installDir: "lib64"
+
     cpp.includePaths: product.buildDirectory
     property string protocolPath: "/usr/include/harmony-protocols"
 
