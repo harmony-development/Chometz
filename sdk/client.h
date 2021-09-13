@@ -46,6 +46,8 @@ public:
 	ChatServiceServiceClient* chatKit();
 	AuthServiceServiceClient* authKit();
 	MediaProxyServiceServiceClient* mediaProxyKit();
+	EmoteServiceServiceClient* emoteKit();
+	ProfileServiceServiceClient* profileKit();
 
 	Q_SIGNAL void chatEvent(protocol::chat::v1::StreamEvent ev);
 	Q_SIGNAL void hsEvent(protocol::chat::v1::StreamEvent ev);

@@ -25,6 +25,8 @@ Client::Client(ClientManager* cm, const QString& homeserver) : QObject(cm), cm(c
 	d->chatKit = std::unique_ptr<ChatServiceServiceClient>(new ChatServiceServiceClient(host+":"+port, scheme == "https"));
 	d->authKit = std::unique_ptr<AuthServiceServiceClient>(new AuthServiceServiceClient(host+":"+port, scheme == "https"));
 	d->mediaProxyKit = std::unique_ptr<MediaProxyServiceServiceClient>(new MediaProxyServiceServiceClient(host+":"+port, scheme == "https"));
+	d->emoteKit = std::unique_ptr<EmoteServiceServiceClient>(new EmoteServiceServiceClient(host+":"+port, scheme == "https"));
+	d->profileKit = std::unique_ptr<ProfileServiceServiceClient>(new ProfileServiceServiceClient(host+":"+port, scheme == "https"));
 }
 
 Client::~Client()
@@ -40,9 +42,10 @@ void Client::setSession(const std::string& session, quint64 userID)
 	auto tok = QString::fromStdString(session);
 
 	d->chatKit->universalHeaders = {{"Authorization", tok}};
-
 	d->authKit->universalHeaders = {{"Authorization", tok}};
 	d->mediaProxyKit->universalHeaders = {{"Authorization", tok}};
+	d->emoteKit->universalHeaders = {{"Authorization", tok}};
+	d->profileKit->universalHeaders = {{"Authorization", tok}};
 }
 
 std::string Client::session() const
@@ -238,8 +241,7 @@ Future<Result<Client*, Error>> Client::federateOtherClient(Client* client, QStri
 
 			auto result = r.value();
 
-			client->d->session = result.session().session_token();
-			client->d->userID = result.session().user_id();
+			client->setSession(result.session().session_token(), result.session().user_id());
 
 			Future<Result<Client*, Error>> ret;
 			ret.succeed(Result<Client*, Error>(client));
@@ -256,6 +258,16 @@ AuthServiceServiceClient* Client::authKit()
 MediaProxyServiceServiceClient* Client::mediaProxyKit()
 {
 	return d->mediaProxyKit.get();
+}
+
+EmoteServiceServiceClient* Client::emoteKit()
+{
+	return d->emoteKit.get();
+}
+
+ProfileServiceServiceClient* Client::profileKit()
+{
+	return d->profileKit.get();
 }
 
 

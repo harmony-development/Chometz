@@ -3,6 +3,8 @@
 #include <chat/v1/chat.hrpc.client.h>
 #include <auth/v1/auth.hrpc.client.h>
 #include <mediaproxy/v1/mediaproxy.hrpc.client.h>
+#include <emote/v1/emote.hrpc.client.h>
+#include <profile/v1/profile.hrpc.client.h>
 
 #include <chat/v1/chat.pb.h>
 #include <auth/v1/auth.pb.h>
