@@ -42,6 +42,7 @@ void Client::setSession(const std::string& session, quint64 userID)
 	auto tok = QString::fromStdString(session);
 
 	d->chatKit->universalHeaders = {{"Authorization", tok}};
+
 	d->authKit->universalHeaders = {{"Authorization", tok}};
 	d->mediaProxyKit->universalHeaders = {{"Authorization", tok}};
 	d->emoteKit->universalHeaders = {{"Authorization", tok}};
@@ -212,41 +213,23 @@ ChatServiceServiceClient* Client::chatKit()
 	return d->chatKit.get();
 }
 
-Future<Result<Client*, Error>> Client::federateOtherClient(Client* client, QString target)
+Future<Client*> Client::federateOtherClient(Client* client, QString target)
 {
 	auto req = protocol::auth::v1::FederateRequest{};
 	req.set_target(target.toStdString());
 
-	return d->authKit->Federate(req).toFutureResultT()
-	.flatMap([this, client](auto r) {
-		if (!r.ok()) {
-			Future<Result<Client*, Error>> ret;
-			ret.succeed(Result<Client*, Error>(Croutons::Error{r.error()}));
-			return ret;
-		}
-
-		auto result = r.value();
-
+	return d->authKit->Federate(req).toFutureT()
+	.flatMap([this, client](auto result) {
 		auto req = protocol::auth::v1::LoginFederatedRequest {};
 		req.set_allocated_auth_token(result.release_token());
 		req.set_domain(d->homeserver.toStdString());
 
-		return client->d->authKit->LoginFederated(req).toFutureResultT()
-		.flatMap([this, client](auto r) {
-			if (!r.ok()) {
-				Future<Result<Client*, Error>> ret;
-				ret.succeed(Result<Client*, Error>(Croutons::Error{r.error()}));
-				return ret;
-			}
+		return client->d->authKit->LoginFederated(req).toFutureT();
+	})
+	.map([client](protocol::auth::v1::LoginFederatedResponse result) {
+		client->setSession(result.session().session_token(), result.session().user_id());
 
-			auto result = r.value();
-
-			client->setSession(result.session().session_token(), result.session().user_id());
-
-			Future<Result<Client*, Error>> ret;
-			ret.succeed(Result<Client*, Error>(client));
-			return ret;
-		});
+		return client;
 	});
 }
 

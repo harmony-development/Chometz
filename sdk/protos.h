@@ -9,8 +9,11 @@
 #include <chat/v1/chat.pb.h>
 #include <auth/v1/auth.pb.h>
 #include <mediaproxy/v1/mediaproxy.pb.h>
+#include <emote/v1/emote.pb.h>
+#include <profile/v1/profile.pb.h>
 
 #include "util.h"
+#include "coroutine_integration.h"
 
 #include <google/protobuf/util/json_util.h>
 

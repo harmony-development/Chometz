@@ -108,9 +108,9 @@ private Q_SLOTS:
 		auto c3 = (co_await client->clientForHomeserver("https://chat.harmonyapp.io"));
 		auto c4 = (co_await client->clientForHomeserver("https://chat.harmonyapp.io:2289"));
 
-		Q_ASSERT(c1.value() == c2.value());
-		Q_ASSERT(c1.value() == c3.value());
-		Q_ASSERT(c1.value() == c4.value());
+		Q_ASSERT(c1 == c2);
+		Q_ASSERT(c1 == c3);
+		Q_ASSERT(c1 == c4);
  
 		co_return;
 	}
