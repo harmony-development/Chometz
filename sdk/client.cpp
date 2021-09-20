@@ -173,7 +173,7 @@ void Client::subscribeToHomeserver()
 
 	auto make = [this]() {
 		auto req = protocol::chat::v1::StreamEventsRequest {};
-		req.set_allocated_subscribe_to_actions(new protocol::chat::v1::StreamEventsRequest::SubscribeToActions);
+		req.set_allocated_subscribe_to_homeserver_events(new protocol::chat::v1::StreamEventsRequest::SubscribeToHomeserverEvents);
 
 		auto ok = d->eventStream->send(req);
 		Q_UNUSED(ok);
