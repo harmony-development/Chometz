@@ -183,6 +183,8 @@ void Client::subscribeToHomeserver()
 		connect(d->eventStream.get(), &QWebSocket::connected, this, make);
 		return;
 	}
+
+	make();
 }
 
 void Client::subscribeToGuild(quint64 guildID)
