@@ -218,13 +218,13 @@ ChatServiceServiceClient* Client::chatKit()
 Future<Client*> Client::federateOtherClient(Client* client, QString target)
 {
 	auto req = protocol::auth::v1::FederateRequest{};
-	req.set_target(target.toStdString());
+	req.set_server_id(target.toStdString());
 
 	return d->authKit->Federate(req).toFutureT()
 	.flatMap([this, client](auto result) {
 		auto req = protocol::auth::v1::LoginFederatedRequest {};
 		req.set_allocated_auth_token(result.release_token());
-		req.set_domain(d->homeserver.toStdString());
+		req.set_server_id(d->homeserver.toStdString());
 
 		return client->d->authKit->LoginFederated(req).toFutureT();
 	})
