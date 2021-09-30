@@ -15,6 +15,7 @@ StaticLibrary {
 		"protobuf/src/google/protobuf/stubs/*test.cc",
 		"protobuf/src/google/protobuf/*_unittest.cc",
 		"protobuf/src/google/protobuf/*_test.cc",
+		"protobuf/src/google/protobuf/*tester.cc",
 		"protobuf/src/google/protobuf/*_test_util.cc",
 		"protobuf/src/google/protobuf/test_util.cc",
 		"protobuf/src/google/protobuf/test_util_lite.cc",
