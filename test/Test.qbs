@@ -7,6 +7,6 @@ QtApplication {
 	]
 
 	Depends { name: "Qt"; submodules: ["testlib"] }
-	Depends { name: "protobuf" }
+	Depends { name: "vendored_protobuf" }
 	Depends { name: "harmony-qt-sdk" }
 }

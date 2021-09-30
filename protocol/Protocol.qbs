@@ -2,7 +2,7 @@ import qbs.Probes
 import qbs.FileInfo
 import "Protocol.js" as ProtocolHelpers
 
-Library {
+StaticLibrary {
     name: "HarmonyProtocol"
 
     install: true
