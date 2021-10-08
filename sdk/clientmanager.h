@@ -45,6 +45,27 @@ public:
 	AuthServiceServiceClient* authKit();
 	MediaProxyServiceServiceClient* mediaProxyKit();
 
+	template<typename Request, typename SubClient, typename Method>
+	std::result_of_t<Method(std::result_of_t<SubClient(Client*)>, Request, QMap<QByteArray, QString>)>
+	dispatch(QString homeserver, Request req, SubClient subclient, Method method)
+	{
+		using ClientReturn = std::result_of_t<decltype(subclient)(Client*)>;
+		using MethodReturn = std::result_of_t<decltype(method)(ClientReturn, Request, QMap<QByteArray, QString>)>;
+
+		MethodReturn ret;
+
+		Client* client_ = co_await clientForHomeserver(homeserver);
+		ClientReturn subclient_ = ((client_->*subclient)());
+
+		auto response = co_await ((subclient_->*method)(req, {}));
+
+		if (response.ok()) {
+			co_return response.value();
+		} else {
+			co_return response.error();
+		}
+	}
+
 };
 
 };
