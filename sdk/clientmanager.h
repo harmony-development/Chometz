@@ -41,23 +41,14 @@ public:
 	Q_SIGNAL void chatEvent(QString homeserver, protocol::chat::v1::StreamEvent ev);
 	Q_SIGNAL void actionTriggered(QString homeserver, protocol::chat::v1::StreamEvent::ActionPerformed action);
 
-	ChatServiceServiceClient* chatKit();
-	AuthServiceServiceClient* authKit();
-	MediaProxyServiceServiceClient* mediaProxyKit();
+	Client* mainClient() const;
 
-	template<typename Request, typename SubClient, typename Method>
-	std::result_of_t<Method(std::result_of_t<SubClient(Client*)>, Request, QMap<QByteArray, QString>)>
-	dispatch(QString homeserver, Request req, SubClient subclient, Method method)
+	template<typename Request, typename Method>
+	std::result_of_t<Method(RequestClient*, Request, QMap<QByteArray, QString>)>
+	dispatch(QString homeserver, Method method, Request req)
 	{
-		using ClientReturn = std::result_of_t<decltype(subclient)(Client*)>;
-		using MethodReturn = std::result_of_t<decltype(method)(ClientReturn, Request, QMap<QByteArray, QString>)>;
-
-		MethodReturn ret;
-
 		Client* client_ = co_await clientForHomeserver(homeserver);
-		ClientReturn subclient_ = ((client_->*subclient)());
-
-		auto response = co_await ((subclient_->*method)(req, {}));
+		auto response = co_await (client_->*method)(req, {});
 
 		if (response.ok()) {
 			co_return response.value();

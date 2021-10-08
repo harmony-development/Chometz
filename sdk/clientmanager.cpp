@@ -20,9 +20,7 @@ ClientManager::~ClientManager()
 
 }
 
-ChatServiceServiceClient* ClientManager::chatKit() { return d->mainClient->chatKit(); }
-AuthServiceServiceClient* ClientManager::authKit() { return d->mainClient->authKit(); }
-MediaProxyServiceServiceClient* ClientManager::mediaProxyKit() { return d->mainClient->mediaProxyKit(); }
+Client* ClientManager::mainClient() const { return d->mainClient; }
 
 void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
 {
@@ -137,7 +135,7 @@ Future<bool> ClientManager::checkLogin(QString token, QString homeserver, quint6
 	connect(d->mainClient, &Client::hsEvent, this, &ClientManager::hsEvent);
 	connectClient(d->mainClient, homeserver);
 
-	auto ret = co_await d->mainClient->authKit()->CheckLoggedIn(protocol::auth::v1::CheckLoggedInRequest{});
+	auto ret = co_await d->mainClient->CheckLoggedIn(protocol::auth::v1::CheckLoggedInRequest{});
 	if (ret.ok()) {
 		Q_EMIT ready(homeserver, userID, token);
 	}

@@ -87,7 +87,7 @@ private Q_SLOTS:
 		auto req = protocol::chat::v1::CreateGuildRequest{};
 		req.set_name("hello");
 
-		auto resp = co_await client->chatKit()->CreateGuild(req);
+		auto resp = co_await client->mainClient()->CreateGuild(req);
 		Q_ASSERT(resp.ok());
 
 		co_return;
@@ -121,6 +121,12 @@ private Q_SLOTS:
 		while (!it.settled()) {
 			QCoreApplication::processEvents();
 		}
+	}
+
+	void compiles()
+	{
+		protocol::chat::v1::GetGuildRequest req;
+		client->dispatch("", &SDK::R::GetGuild, req);
 	}
 
 	void cleanupTestCase()

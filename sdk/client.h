@@ -2,13 +2,14 @@
 
 #include <QObject>
 #include "protos.h"
+#include "req.h"
 
 namespace SDK
 {
 
 class ClientManager;
 
-class Client : public QObject
+class Client : public QObject, public RequestClient
 {
 
 	Q_OBJECT
@@ -42,12 +43,6 @@ public:
 	std::string session() const;
 	quint64 userID() const;
 	QString homeserver() const;
-
-	ChatServiceServiceClient* chatKit();
-	AuthServiceServiceClient* authKit();
-	MediaProxyServiceServiceClient* mediaProxyKit();
-	EmoteServiceServiceClient* emoteKit();
-	ProfileServiceServiceClient* profileKit();
 
 	Q_SIGNAL void chatEvent(protocol::chat::v1::StreamEvent ev);
 	Q_SIGNAL void hsEvent(protocol::chat::v1::StreamEvent ev);
