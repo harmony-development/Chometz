@@ -24,17 +24,9 @@ Client* ClientManager::mainClient() const { return d->mainClient; }
 
 void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
 {
-	if (!d->clients.contains(host(homeserver))) {
-		// TODO: federate automagically
-		return;
-	}
-	if (!d->subs.guilds.contains(host(homeserver))) {
-		d->subs.guilds[host(homeserver)] = {};
-	}
-
-	d->subs.guilds[host(homeserver)].append(guildID);
-
-	d->clients[host(homeserver)].then([=](Client* c) {
+	qWarning() << "subscribing to" << homeserver << guildID;
+	clientForHomeserver(homeserver).then([guildID](Client* c) {
+		qWarning() << "== subscribing to" << guildID;
 		c->subscribeToGuild(guildID);
 	});
 }
