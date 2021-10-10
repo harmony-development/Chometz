@@ -24,9 +24,7 @@ Client* ClientManager::mainClient() const { return d->mainClient; }
 
 void ClientManager::subscribeToGuild(const QString& homeserver, quint64 guildID)
 {
-	qWarning() << "subscribing to" << homeserver << guildID;
 	clientForHomeserver(homeserver).then([guildID](Client* c) {
-		qWarning() << "== subscribing to" << guildID;
 		c->subscribeToGuild(guildID);
 	});
 }
@@ -93,7 +91,6 @@ void ClientManager::beginAuthentication(const QString& homeserver)
 	connect(d->mainClient, &Client::authEvent, this, [this, hs = homeserver](protocol::auth::v1::AuthStep step) {
 		if (step.step_case() == protocol::auth::v1::AuthStep::kSession) {
 			d->mainClient->setSession(step.session().session_token(), step.session().user_id());
-			qWarning() << "emitting ready";
 			Q_EMIT ready(hs, step.session().user_id(), QString::fromStdString(step.session().session_token()));
 		}
 	});
