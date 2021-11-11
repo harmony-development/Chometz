@@ -5,12 +5,14 @@
 #include <mediaproxy/v1/mediaproxy.hrpc.client.h>
 #include <emote/v1/emote.hrpc.client.h>
 #include <profile/v1/profile.hrpc.client.h>
+#include <voice/v1/voice.hrpc.client.h>
 
 #include <chat/v1/chat.pb.h>
 #include <auth/v1/auth.pb.h>
 #include <mediaproxy/v1/mediaproxy.pb.h>
 #include <emote/v1/emote.pb.h>
 #include <profile/v1/profile.pb.h>
+#include <voice/v1/voice.pb.h>
 
 #include "util.h"
 #include "coroutine_integration.h"

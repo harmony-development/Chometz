@@ -11,6 +11,7 @@ class RequestClient
 	, public MediaProxyServiceServiceClient
 	, public EmoteServiceServiceClient
 	, public ProfileServiceServiceClient
+	, public VoiceServiceServiceClient
 {
 public:
 	explicit RequestClient(const QString& host, bool secure)
@@ -19,6 +20,7 @@ public:
 		, MediaProxyServiceServiceClient(host, secure)
 		, EmoteServiceServiceClient(host, secure)
 		, ProfileServiceServiceClient(host, secure)
+		, VoiceServiceServiceClient(host, secure)
 	{
 	}
 };
