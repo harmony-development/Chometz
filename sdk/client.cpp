@@ -62,6 +62,7 @@ void Client::setSession(const std::string& session, quint64 userID)
 	MediaProxyServiceServiceClient::universalHeaders = {{"Authorization", tok}};
 	EmoteServiceServiceClient::universalHeaders = {{"Authorization", tok}};
 	ProfileServiceServiceClient::universalHeaders = {{"Authorization", tok}};
+	VoiceServiceServiceClient::universalHeaders = {{"Authorization", tok}};
 }
 
 std::string Client::session() const
