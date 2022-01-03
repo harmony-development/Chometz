@@ -8,6 +8,23 @@
 namespace SDK
 {
 
+struct ClientConnectionState
+{
+
+	Q_GADGET
+
+	Q_PROPERTY(QString host MEMBER host)
+	Q_PROPERTY(Client::ConnectionState state MEMBER state)
+	Q_PROPERTY(QDateTime when MEMBER when)
+
+public:
+
+	QString host;
+	Client::ConnectionState state;
+	QDateTime when;
+
+};
+
 class ClientManager : public QObject
 {
 
@@ -19,6 +36,15 @@ class ClientManager : public QObject
 	void connectClient(Client* client, const QString& homeserver);
 
 public:
+
+	enum TotalState {
+		Offline,
+		PartialOutage,
+		Connecting,
+		Connected,
+	};
+	Q_ENUM(TotalState)
+
 	ClientManager(QObject* object = nullptr);
 	~ClientManager();
 
@@ -31,7 +57,11 @@ public:
 
 	Future<Client*> clientForHomeserver(QString homeserver);
 
+	QList<ClientConnectionState> connectionStates() const;
+	TotalState totalState() const;
 	Future<bool> checkLogin(QString token, QString hs, quint64 userID);
+
+	Q_SIGNAL void connectionStateChanged();
 
 	Q_SIGNAL void ready(const QString& hs, quint64 userID, const QString& token);
 

@@ -32,10 +32,19 @@ class Client : public QObject, public RequestClient
 
 	void startEvents();
 
-	Q_SIGNAL void eventLoopStarted();
-	Q_SIGNAL void eventLoopEnded();
-
 public:
+
+	enum ConnectionState
+	{
+		NotApplicable,
+		Offline,
+		ResolvingHost,
+		Connecting,
+		Connected,
+		Disconnecting,
+		WaitingToReconnect,
+	};
+	Q_ENUM(ConnectionState)
 
 	Client(ClientManager* cm, const QString& homeserver);
 	~Client();
@@ -47,6 +56,10 @@ public:
 	Q_SIGNAL void chatEvent(protocol::chat::v1::StreamEvent ev);
 	Q_SIGNAL void hsEvent(protocol::chat::v1::StreamEvent ev);
 	Q_SIGNAL void actionTriggered(protocol::chat::v1::StreamEvent::ActionPerformed action);
+
+	ConnectionState connectionState() const;
+	QDateTime reconnectingIn() const;
+	Q_SIGNAL void connectionStateChanged(ConnectionState);
 
 	void subscribeToGuild(quint64 guildID);
 	void subscribeToActions();

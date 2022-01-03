@@ -6,6 +6,12 @@
 namespace SDK
 {
 
+// retry in 0.5 seconds
+const int initialDelay = 500;
+
+// don't wait more than 20 seconds to retry
+const int maximumDelay = 20000;
+
 struct Client::Private
 {
 	QString homeserver;
@@ -15,6 +21,15 @@ struct Client::Private
 
 	quint64 userID;
 	std::string session;
+
+	ConnectionState state = ConnectionState::NotApplicable;
+	QDateTime when;
+
+	int wsDelay = initialDelay;
+	void increaseDelay() {
+		wsDelay *= 2;
+		wsDelay = qMin(wsDelay, maximumDelay);
+	}
 };
 
 };

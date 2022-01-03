@@ -1,5 +1,9 @@
+#include <QTimer>
+#include <QRandomGenerator>
+
 #include "auth/v1/auth.pb.h"
 #include "chat/v1/chat.hrpc.client.h"
+#include "client.h"
 #include "clientmanager.h"
 #include "client_p.h"
 #include "util.h"
@@ -124,18 +128,46 @@ void Client::startEvents()
 
 	connect(
 		d->eventStream.get(),
-		&QWebSocket::connected,
+		&QWebSocket::stateChanged,
 		this,
-		[=] {
-			Q_EMIT eventLoopStarted();
+		[=](QAbstractSocket::SocketState socketState) {
+			ConnectionState state;
+			switch (socketState) {
+			case QAbstractSocket::UnconnectedState:
+				state = ConnectionState::Offline;
+				break;
+			case QAbstractSocket::HostLookupState:
+				state = ConnectionState::ResolvingHost;
+				break;
+			case QAbstractSocket::ConnectingState:
+				state = ConnectionState::Connecting;
+				break;
+			case QAbstractSocket::ConnectedState:
+				state = ConnectionState::Connected;
+				break;
+			case QAbstractSocket::ClosingState:
+				state = ConnectionState::Disconnecting;
+				break;
+			default:
+				return;
+			}
+			d->state = state;
+			Q_EMIT connectionStateChanged(state);
 		}
 	);
 	connect(
 		d->eventStream.get(),
 		&QWebSocket::disconnected,
 		this,
-		[=] {
-			Q_EMIT eventLoopEnded();
+		[=]() {
+			const auto duration = d->wsDelay + QRandomGenerator::system()->bounded(0, 300);
+			auto when = QDateTime::currentDateTime().addMSecs(duration);
+			QTimer::singleShot(duration, [=] {
+				d->eventStream->open(d->eventStream->request());
+			});
+			d->state = ConnectionState::WaitingToReconnect;
+			d->when = when;
+			Q_EMIT connectionStateChanged(d->state);
 		}
 	);
 	connect(
@@ -157,6 +189,16 @@ void Client::startEvents()
 			}
 		}
 	);
+}
+
+Client::ConnectionState Client::connectionState() const
+{
+	return d->state;
+}
+
+QDateTime Client::reconnectingIn() const
+{
+	return d->when;
 }
 
 void Client::subscribeToActions()

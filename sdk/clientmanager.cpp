@@ -40,6 +40,74 @@ void ClientManager::subscribeToActions()
 	}
 }
 
+QList<ClientConnectionState> ClientManager::connectionStates() const
+{
+	QList<ClientConnectionState> list;
+	for (auto& client : d->clients) {
+		if (!client.success()) {
+			continue;
+		}
+		auto* c = client.result();
+		list << ClientConnectionState {
+			.host = c->homeserver(),
+			.state = c->connectionState(),
+			.when = c->reconnectingIn()
+		};
+	}
+	return list;
+}
+
+ClientManager::TotalState ClientManager::totalState() const
+{
+	auto total = ClientManager::Offline;
+	auto set = [&total](ClientManager::TotalState state) {
+		if (total == ClientManager::Connecting) {
+			return;
+		}
+
+		switch (state) {
+		case ClientManager::Offline:
+			total = total == ClientManager::Offline ?
+				ClientManager::Offline :
+				ClientManager::PartialOutage;
+
+			break;
+		case ClientManager::PartialOutage:
+			total = ClientManager::PartialOutage;
+			break;
+		case ClientManager::Connecting:
+			total = ClientManager::Connecting;
+			break;
+		case ClientManager::Connected:
+			total = ClientManager::Connected;
+			break;
+		}
+	};
+	for (auto& client : d->clients) {
+		if (!client.success()) {
+			continue;
+		}
+		auto* c = client.result();
+		switch (c->connectionState()) {
+		case Client::NotApplicable:
+			continue;
+		case Client::Offline:
+		case Client::Disconnecting:
+			set(ClientManager::Offline);
+			break;
+		case Client::WaitingToReconnect:
+		case Client::ResolvingHost:
+		case Client::Connecting:
+			set(ClientManager::Connecting);
+			break;
+		case Client::Connected:
+			set(ClientManager::Connected);
+			break;
+		}
+	}
+	return total;
+}
+
 void ClientManager::subscribeToHomeserver()
 {
 	d->subs.homeserver = true;
@@ -51,6 +119,9 @@ void ClientManager::connectClient(Client* client, const QString& homeserver)
 {
 	using namespace protocol::chat::v1;
 
+	connect(client, &Client::connectionStateChanged, this, [this] {
+		Q_EMIT connectionStateChanged();
+	});
 	connect(client, &Client::actionTriggered, this, [this, hs = homeserver](StreamEvent::ActionPerformed ev) {
 		Q_EMIT actionTriggered(hs, ev);
 	});
@@ -69,6 +140,7 @@ Future<Client*> ClientManager::clientForHomeserver(QString homeserver)
 
 	if (!d->clients.contains(host(homeserver))) {
 		auto client = new Client(this, homeserver);
+		connectClient(client, homeserver);
 		d->clients[host(homeserver)] = d->mainClient->federateOtherClient(client, homeserver);
 	}
 
