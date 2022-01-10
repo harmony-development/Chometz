@@ -32,7 +32,7 @@ StaticLibrary {
     }
     Group {
         fileTagsFilter: ["hpp", "pb-h", "hrpc-types", "hrpc-client-h"]
-        qbs.install: true
+        qbs.install: product.install
         qbs.installDir: "include/chometz"
         qbs.installSourceBase: product.buildDirectory
     }

@@ -42,7 +42,7 @@ StaticLibrary {
 		name: "API Headers"
 		files: ["*.h"]
 		excludeFiles: ["*_p.h"]
-		qbs.install: true
+		qbs.install: product.install
 		qbs.installDir: "include/chometz"
 	}
 }
