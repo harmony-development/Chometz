@@ -27,9 +27,9 @@ StaticLibrary {
 		Depends { name: "Qt"; submodules: ["network", "concurrent", "websockets"] }
 
 		cpp.cxxLanguageVersion: "c++20"
-		cpp.includePaths: [product.sourceDirectory, product.sourceDirectory + "/gen"]
+		cpp.includePaths: [exportingProduct.sourceDirectory, exportingProduct.sourceDirectory + "/gen"]
 		prefixMapping: [{
-			prefix: product.sourceDirectory,
+			prefix: exportingProduct.sourceDirectory,
 			replacement: FileInfo.joinPaths(qbs.installPrefix, "include")
 		}]
 	}

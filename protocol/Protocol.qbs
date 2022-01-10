@@ -37,9 +37,9 @@ StaticLibrary {
         qbs.installSourceBase: product.buildDirectory
     }
     Export {
-        cpp.includePaths: product.buildDirectory
+        cpp.includePaths: exportingProduct.buildDirectory
         prefixMapping: [{
-            prefix: product.buildDirectory,
+            prefix: exportingProduct.buildDirectory,
             replaement: FileInfo.joinPaths(qbs.installPrefix, "include/chometz")
         }]
         Depends { name: "cpp" }
